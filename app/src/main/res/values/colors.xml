@@ -10,4 +10,5 @@
     <color name="colorPrimary">#FFFDFA</color>
     <color name="colorPrimaryDark">#1C1C1C</color>
     <color name="colorSecondary">#0EA5E9</color>
+    <color name="purple">#8252ff</color>
 </resources>
