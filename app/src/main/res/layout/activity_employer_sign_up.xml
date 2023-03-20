@@ -18,57 +18,154 @@
         app:srcCompat="@drawable/app_logo" />
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="473dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        tools:layout_editor_absoluteX="1dp">
+        android:layout_width="404dp"
+        android:layout_height="533dp"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="Company Name" />
 
             <EditText
                 android:id="@+id/companyName"
+                style="@style/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                style="@style/input"
                 android:background="@drawable/input_layout"
-                android:inputType="textPersonName"
-                android:hint="Enter Company Name"/>
+                android:ems="10"
+                android:hint="Enter Company Name"
+                android:inputType="textPersonName" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                style="@style/input"
+            <TextView
+                style="@style/heading2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:paddingLeft="40sp"
+                android:text="Company Email" />
 
             <EditText
                 android:id="@+id/companyEmail"
+                style="@style/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                style="@style/input"
                 android:background="@drawable/input_layout"
-                android:inputType="textEmailAddress"
-                android:hint="Enter Company Email"/>
+                android:ems="10"
+                android:hint="Enter Company Email"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="Contact Number" />
 
             <EditText
                 android:id="@+id/companyContactNo"
+                style="@style/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                style="@style/input"
                 android:background="@drawable/input_layout"
-                android:inputType="phone"
-                android:hint="Enter Company Contact Number"/>
+                android:ems="10"
+                android:hint="Enter Company Contact Number"
+                android:inputType="phone" />
+
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="Country" />
+
+            <EditText
+                android:id="@+id/companyCountry"
+                style="@style/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_layout"
+                android:ems="10"
+                android:hint="Enter Country"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="State" />
+
+            <EditText
+                android:id="@+id/companyState"
+                style="@style/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_layout"
+                android:ems="10"
+                android:hint="Enter State"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="Address" />
+
+            <EditText
+                android:id="@+id/companyAddress"
+                style="@style/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_layout"
+                android:ems="10"
+                android:lines="3"
+                android:hint="Enter Address"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="Description" />
+
+            <EditText
+                android:id="@+id/companyDesc"
+                style="@style/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="3"
+                android:background="@drawable/input_layout"
+                android:ems="10"
+                android:hint="About Your Company..."
+                android:inputType="textMultiLine" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/sign_up_btn"
+        style="@style/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,18 +68,12 @@
 
     <Button
         android:id="@+id/employer_login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button"
-        android:paddingLeft="50sp"
-        android:paddingRight="50sp"
         android:text="Log In"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/loginEmail"
+        style="@style/submit_button" />
 
     <TextView
         android:id="@+id/sign_up"
@@ -102,10 +96,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="28dp"
-        android:fontFamily="@font/teko_bold"
         android:text="Don't have an account?"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/heading2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
