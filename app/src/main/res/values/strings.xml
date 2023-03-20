@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">APPNAME</string>
+    <string name="search">Job title, keywords, or company</string>
 </resources>

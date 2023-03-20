@@ -11,4 +11,8 @@
     <color name="colorPrimaryDark">#1C1C1C</color>
     <color name="colorSecondary">#0EA5E9</color>
     <color name="purple">#8252ff</color>
+    <color name="dark_green">#19551B</color>
+    <color name="search_view_border_color">#CCCCCC</color>
+    <color name="search_view_shadow_color">#888888</color>
+    <color name="salary_view_color">#C0F8C8</color>
 </resources>
