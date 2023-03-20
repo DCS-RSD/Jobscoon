@@ -4,54 +4,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    >
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="295dp"
-        android:layout_height="124dp"
-        app:srcCompat="@drawable/app_title"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="40dp"
-        android:layout_height="43dp"
-        app:srcCompat="@drawable/jobscoon"
-        tools:layout_editor_absoluteX="185dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/backgroundS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        style="@style/input"
-        android:background="@drawable/rounded_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background"
+        android:scaleX="-1" />
+
+    <ImageView
+        android:id="@+id/logoS"
+        android:layout_width="40dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jobscoon" />
+
+    <ImageView
+        android:id="@+id/appTitleS"
+        android:layout_width="123dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/logoS"
+        app:srcCompat="@drawable/app_title2" />
 
-    <!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/textInputLayout"-->
-<!--        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginTop="148dp"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        android:hint="Username"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
+    <!--Input Username in Employee register page-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textUsernameS"
+        style="@style/FilledTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Username"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitleS"
+        >
 
-<!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:id="@+id/textYeeUsername"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextUsernameS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="10"
+            android:textSize="15sp"
+            tools:ignore="DuplicateClickableBoundsCheck"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Input Email in Employee register page-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textEmailS"
+        style="@style/FilledTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Email Address"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUsernameS">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextEmailS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Input Phone in Employee register page-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textPhoneS"
+        style="@style/FilledTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Phone Number"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:prefixText="+60"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailS">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPhoneS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPhonetic"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Input Location in Employee register page-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textLocationS"
+        style="@style/FilledTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Location"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPhoneS">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLocationS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

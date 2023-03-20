@@ -11,4 +11,10 @@
         <item name="android:padding">20sp</item>
         <item name="android:background">@drawable/input_layout</item>
     </style>
+
+    <style name="FilledTextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">#FFF</item>
+        <item name="boxStrokeColor">#9F6FFD</item>
+        <item name="hintTextColor">#9F6FFD</item>
+    </style>
 </resources>

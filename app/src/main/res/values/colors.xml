@@ -10,5 +10,6 @@
     <color name="white">#FFFDFA</color>
     <color name="colorPrimary">#72cbff</color>
     <color name="colorSecondary">#9f6ffd</color>
+    <color name="red">#E74C3C</color>
 
 </resources>
