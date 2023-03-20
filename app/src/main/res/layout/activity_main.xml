@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="218dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/monoton"
+        android:fontFamily="@font/teko_bold"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="@dimen/title"
@@ -41,6 +48,15 @@
         android:paddingLeft="50sp"
         android:paddingRight="50sp"
         android:text="Log In"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:fontFamily="@font/teko_bold"
+        android:text="Don't have an account? Sign up"
+        android:textSize="24sp" />
 </LinearLayout>
