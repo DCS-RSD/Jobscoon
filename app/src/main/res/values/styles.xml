@@ -24,7 +24,18 @@
     </style>
 
     <style name="heading2">
-        <item name="android:fontFamily">@font/teko_bold</item>
+        <item name="android:fontFamily">@font/teko_regular</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="badge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_border</item>
+        <item name="android:paddingStart">10sp</item>
+        <item name="android:paddingTop">5sp</item>
+        <item name="android:paddingEnd">10sp</item>
+        <item name="android:paddingBottom">5sp</item>
     </style>
 </resources>
