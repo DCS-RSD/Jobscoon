@@ -131,7 +131,7 @@
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <Button
-                        android:id="@+id/viewApplicant"
+                        android:id="@+id/accept"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -141,13 +141,13 @@
                         app:backgroundTint="@color/colorTrue"
                         app:icon="@drawable/icon_yes"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/editJobPost"
+                        app:layout_constraintEnd_toStartOf="@+id/reject"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                     <Button
-                        android:id="@+id/editJobPost"
+                        android:id="@+id/reject"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -159,7 +159,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/viewApplicant"
+                        app:layout_constraintStart_toEndOf="@+id/accept"
                         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
