@@ -40,14 +40,16 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="50dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/apply_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_nav"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@id/top_nav">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView4"
@@ -57,7 +59,7 @@
                 android:fontFamily="@font/hind_siliguri_bold"
                 android:text="Client Service Manager"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +89,7 @@
                 android:fontFamily="@font/hind_siliguri_bold"
                 android:text="Job Details"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -205,6 +207,7 @@
                 android:fontFamily="@font/hind_siliguri"
                 android:text="@string/job_desc"
                 android:textColor="@color/black"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -214,32 +217,21 @@
 
     </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <Button
         android:id="@+id/apply_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#3045B8"
+        android:fontFamily="@font/hind_siliguri_bold"
+        android:text="Apply Now"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/white">
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="4dp"
-            android:backgroundTint="#3045B8"
-            android:text="Apply Now"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
