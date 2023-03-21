@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".EmployerHomeActivity">
+    tools:context=".ApplicantListActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -23,17 +23,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Job Posted"
+        android:text="Idol Producer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <ScrollView
-        android:id="@+id/jobList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="409dp"
+        android:layout_height="591dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +47,7 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/jobCard"
+                android:id="@+id/applicantCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16sp"
@@ -67,118 +68,101 @@
 
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/applicantName"
                         style="@style/heading2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:text="Idol Producer"
+                        android:text="Chai Xu Kun"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="2-3k/mth"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Full-Time"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView11"
-                        style="@style/badge"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Sing"
-                        app:layout_constraintEnd_toStartOf="@+id/textView12"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintHorizontal_chainStyle="spread"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        style="@style/badge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="Basketball"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView12"
-                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-                    <TextView
-                        android:id="@+id/textView12"
-                        style="@style/badge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Dance"
-                        app:layout_constraintEnd_toStartOf="@+id/textView13"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
-                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-                    <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/applicantEmail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="We are looking for an idol producer who can produce an idol able to sing, dance, rap and pro in basketball. Experienced about 2.5 years is preferable..."
-                        android:textAlignment="center"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginTop="8dp"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:drawablePadding="10sp"
+                        android:text="chaixk@trainee.ikun.com"
+                        app:layout_constraintBottom_toTopOf="@+id/applicantContactNo"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView12"
-                        app:layout_constraintVertical_bias="0.166" />
+                        app:layout_constraintTop_toBottomOf="@+id/applicantName" />
+
+                    <TextView
+                        android:id="@+id/applicantContactNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:drawableLeft="@drawable/icon_phone"
+                        android:drawablePadding="10sp"
+                        android:text="+601108020802"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/applicantEmail" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        style="@style/heading2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Resume"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/applicantContactNo" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16"
+                        tools:srcCompat="@tools:sample/avatars" />
 
                     <Button
                         android:id="@+id/viewApplicant"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
-                        android:background="@drawable/rounded_button"
-                        android:text="Applicants"
+                        android:background="@drawable/rounded_border"
+                        android:text="Accept"
+                        app:backgroundTint="@color/colorTrue"
+                        app:icon="@drawable/icon_yes"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/editJobPost"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                     <Button
                         android:id="@+id/editJobPost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
-                        android:background="@drawable/rounded_button"
-                        android:text="Edit"
+                        android:background="@drawable/rounded_border"
+                        android:text="Reject"
+                        app:backgroundTint="@color/colorFalse"
+                        app:icon="@drawable/icon_no"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/viewApplicant"
-                        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -186,16 +170,7 @@
 
 
         </LinearLayout>
-    </ScrollView>
 
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:id="@+id/bottomActionBar"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:background="@color/black"-->
-    <!--        android:visibility="invisible"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

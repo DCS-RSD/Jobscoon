@@ -12,7 +12,10 @@
         android:theme="@style/Theme.Assignment"
         tools:targetApi="31">
         <activity
-            android:name=".EmployerHome"
+            android:name=".ApplicantListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerHomeActivity"
             android:exported="false" />
         <activity
             android:name=".EmployerSignUpActivity"
