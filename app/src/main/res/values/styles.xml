@@ -25,10 +25,36 @@
         <item name="cardUseCompatPadding">false</item>
     </style>
 
-    <style name="jobs_icons">
-
+    <style name="company_and_location_name_text">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 
+
+    <style name="jobs_name_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="jobs_detail_name_text">
+        <item name="fontFamily">@font/hind_siliguri_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="jobs_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <style name="job_desc">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 
 </resources>
