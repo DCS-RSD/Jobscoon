@@ -12,10 +12,11 @@
         android:theme="@style/Theme.Assignment"
         tools:targetApi="31">
         <activity
+            android:name=".UpcomingInterviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".InterviewFormLayout"
-            android:exported="false"
-            android:label="@string/title_activity_interview_form_layout"
-            android:theme="@style/Theme.Assignment.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".InterviewFormActivity"
             android:exported="false" />
