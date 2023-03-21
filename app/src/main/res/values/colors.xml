@@ -20,4 +20,5 @@
     <color name="jobsType_text_color">#34007E</color>
     <color name="jobsShift_layout_color">#CEF0FF</color>
     <color name="jobsShift_text_color">#003967</color>
+    <color name="transparent">#ffffff</color>
 </resources>
