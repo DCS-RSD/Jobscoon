@@ -17,4 +17,9 @@
         <item name="boxStrokeColor">#9F6FFD</item>
         <item name="hintTextColor">#9F6FFD</item>
     </style>
+
+    <style name="FilledTextInputLayout1" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">#FFF</item>
+        <item name="boxStrokeColor">#9F6FFD</item>
+    </style>
 </resources>

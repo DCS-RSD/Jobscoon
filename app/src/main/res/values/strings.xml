@@ -1,5 +1,23 @@
 <resources>
     <string name="app_name">Jobscoon</string>
     <string name="textUsername" />
+    <string name="background">Company Background</string>
+
+    <string-array name="location">
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Kuala Lumpur</item>
+        <item>Melaka</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Tereengganu</item>
+    </string-array>
 
 </resources>
