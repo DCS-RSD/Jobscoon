@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class EmployerSignUpActivity : AppCompatActivity() {
+class ApplicantListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_employer_sign_up)
+        setContentView(R.layout.activity_applicant_list)
 
-        val btn = findViewById<Button>(R.id.sign_up_btn)
-        btn.setOnClickListener{
-            startActivity(Intent(this,EmployerHomeActivity::class.java))
+        val acceptBtn = findViewById<Button>(R.id.accept)
+        acceptBtn.setOnClickListener {
+            startActivity(Intent(this,InterviewFormLayout::class.java))
         }
-
     }
 }

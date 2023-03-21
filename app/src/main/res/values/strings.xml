@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Jobscoon</string>
-    <string-array name="business_type">
-        <item>Education</item>
-        <item>Information Technology</item>
-        <item>Entertainment</item>
+    <string-array name="interview_type">
+        <item>Physical</item>
+        <item>Virtual</item>
     </string-array>
 </resources>
