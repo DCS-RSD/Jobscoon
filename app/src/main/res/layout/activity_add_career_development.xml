@@ -56,6 +56,12 @@
                 android:paddingLeft="40sp"
                 android:text="Date" />
 
+            <Button
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:text="Pick your date" />
+
         </LinearLayout>
     </ScrollView>
 
