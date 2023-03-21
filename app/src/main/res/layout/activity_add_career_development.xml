@@ -38,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="40sp"
+                android:inputType="text"
                 android:text="Title" />
 
             <EditText
@@ -139,7 +140,27 @@
                 android:hint="Enter Contact Number"
                 android:inputType="phone" />
 
-            
+            <TextView
+                style="@style/heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40sp"
+                android:text="Type" />
+
+
+            <Spinner
+                android:id="@+id/type_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="10sp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/colorPrimary"
+                android:padding="20sp" />
+
+
 
         </LinearLayout>
     </ScrollView>
