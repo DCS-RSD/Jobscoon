@@ -139,4 +139,11 @@
         <item name="android:layout_marginStart">8dp</item>
     </style>
 
+    <style name="interview_button">
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+    </style>
+
 </resources>

@@ -82,6 +82,7 @@
                         style="@style/day"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="22"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -119,12 +120,14 @@
                     <TextView
                         android:id="@+id/job_name"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_job"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_job"
-                        app:layout_constraintStart_toEndOf="@id/icon_job"
-                        android:text="Sales Manager"/>
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Sales Manager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_job" />
 
                     <ImageView
                         android:id="@+id/icon_time"
@@ -132,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         app:layout_constraintStart_toStartOf="@id/icon_job"
-                        app:layout_constraintTop_toBottomOf="@id/icon_job"
+                        app:layout_constraintTop_toBottomOf="@id/job_name"
                         app:srcCompat="@drawable/icon_time" />
 
                     <TextView
@@ -201,10 +204,54 @@
                         android:layout_marginEnd="8dp"
                         android:text="Lv 39, Vertical Business Tower, Jalan Ampang, 53300, Kuala Lumpur"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintEnd_toOf="@+id/icon_location"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/icon_location" />
 
+
+                    <ImageView
+                        android:id="@+id/icon_remarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@id/icon_location"
+                        app:layout_constraintTop_toBottomOf="@id/location"
+                        app:srcCompat="@drawable/icon_remarks" />
+
+                    <TextView
+                        android:id="@+id/remarks"
+                        style="@style/interview_detail_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Please provide IC at the ground floor reception to gain access to Lv 39"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_remarks" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/remarks"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ACCEPT"
+                            android:backgroundTint="@color/salary_text_color"
+                            style="@style/interview_button"/>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="DECLINE"
+                            android:backgroundTint="@color/rejected_text_color"
+                            style="@style/interview_button"/>
+
+                    </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
