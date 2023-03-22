@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="input">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -91,4 +90,14 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="FilledTextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">#FFF</item>
+        <item name="boxStrokeColor">#9F6FFD</item>
+        <item name="hintTextColor">#9F6FFD</item>
+    </style>
+
+    <style name="FilledTextInputLayout1" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">#FFF</item>
+        <item name="boxStrokeColor">#9F6FFD</item>
+    </style>
 </resources>
