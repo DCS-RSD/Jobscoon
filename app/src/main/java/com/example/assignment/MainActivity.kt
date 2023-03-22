@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         supportActionBar?.hide()
-        setContentView(R.layout.register_employee)
+        setContentView(R.layout.profile_employee)
 
     }
 }
