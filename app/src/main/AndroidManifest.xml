@@ -33,8 +33,13 @@
             android:name=".EmployerSignUpActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".JobDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -45,6 +50,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
