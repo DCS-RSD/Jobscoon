@@ -66,7 +66,8 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/jobCard"
+        android:id="@+id/programmeCard"
+        android:id="@+id/programmeCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -83,7 +84,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="194dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/programmeType"
@@ -97,7 +98,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <TextView
                 android:id="@+id/programmeLocation"
@@ -132,6 +134,79 @@
                 app:layout_constraintTop_toBottomOf="@+id/programmeLocation"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <TextView
+                android:id="@+id/time"
+                style="@style/interviewer_detail_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/icon_time"
+                android:text="8:00a.m.-10:00a.m."
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/programmeType"
+                app:layout_constraintTop_toBottomOf="@+id/programmeDate"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/email"
+                style="@style/interviewer_detail_layout"
+                layout:height="wrap_content"
+                layout:layout_width="wrap_content"
+                android:layout_marginStart="4dp"
+                android:drawableLeft="@drawable/icon_email"
+                android:text="idolproducer@gmail.com"
+
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/programmeType"
+                app:layout_constraintTop_toBottomOf="@+id/time"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/contactNo"
+                style="@style/interviewer_detail_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:drawableLeft="@drawable/icon_phone"
+                android:text="0102540803"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/programmeType"
+                app:layout_constraintTop_toBottomOf="@+id/email"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/website"
+                style="@style/interviewer_detail_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:drawableLeft="@drawable/ic_website"
+                android:text="https://www.idolproducer.com"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/programmeType"
+                app:layout_constraintTop_toBottomOf="@+id/contactNo"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/description"
+                style="@style/interviewer_detail_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/ic_description"
+                android:text="The purpose of the programme is to train more idol who know how to sing,dance,rap and basketball"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/programmeType"
+                app:layout_constraintTop_toBottomOf="@+id/website"
+                app:layout_constraintVertical_bias="0.0" />
 
             <!--            <TextView-->
             <!--                android:id="@+id/interviewrName"-->
@@ -145,6 +220,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/join_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join"
+        style="@style/submit_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/programmeCard" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

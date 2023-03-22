@@ -239,7 +239,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_layout"
                 android:ems="10"
-                android:hint="This purpose of the programme is to train more idol who know how to sing,dance,rap and basketball"
+                android:hint="The purpose of the programme is to train more idol who know how to sing,dance,rap and basketball"
                 android:inputType="textMultiLine"
                 android:lines="3" />
             <Button
