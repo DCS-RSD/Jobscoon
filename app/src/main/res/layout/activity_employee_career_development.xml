@@ -66,7 +66,9 @@
         app:iconifiedByDefault="false"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="89dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="@id/careerDevelopment"
+        app:layout_constraintTop_toTopOf="@id/careerDevelopment"/>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/jobs1"
@@ -76,5 +78,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp">
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
