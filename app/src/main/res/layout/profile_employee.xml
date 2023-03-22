@@ -182,7 +182,6 @@ I am excited about the opportunity to bring my unique experiences and skills to 
 
     </androidx.cardview.widget.CardView>
 
-
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
