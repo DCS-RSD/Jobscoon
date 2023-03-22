@@ -6,6 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+    <Button
+        android:id="@+id/add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Button"
+        tools:layout_editor_absoluteX="411dp"
+        tools:layout_editor_absoluteY="98dp" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_nav"
         android:layout_width="match_parent"
@@ -70,7 +79,9 @@
         app:layout_constraintEnd_toEndOf="@+id/careerDevelopment"
         app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="@+id/careerDevelopment"
-        app:layout_constraintTop_toBottomOf="@+id/careerDevelopment" />
+        app:layout_constraintTop_toBottomOf="@+id/careerDevelopment" >
+
+    </SearchView>
 
     <LinearLayout
         android:layout_width="match_parent"
