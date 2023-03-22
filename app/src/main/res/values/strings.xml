@@ -17,4 +17,24 @@
     - Proficiency in Microsoft Office Suite\n    - Strong customer service skills\n    - Hands-on experience with office equipment\n    - Professional attitude and appearance\n    - Solid written and communication skills\n    - Ability to be resourceful and proactive when issues arise\n    - Multitasking and time-management skills\n\nAbout You\nYou will be a reliable, bubbly, enthusiastic and mature individual with a passion for real estate. You are energetic and self-motivated, always looking to work efficiently and effectively. You enjoy working in a team and leading by example, working together to ensure that everyone is succeeding in their roles.\n\n
 Benefits\n
     - Professional development\n    - Work from home\n</string>
+    <string name="textUsername" />
+    <string name="background">Company Background</string>
+
+    <string-array name="location">
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Kuala Lumpur</item>
+        <item>Melaka</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Tereengganu</item>
+    </string-array>
+
 </resources>

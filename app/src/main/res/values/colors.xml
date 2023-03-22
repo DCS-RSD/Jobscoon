@@ -12,6 +12,11 @@
     <color name="colorSecondary">#9f6ffd</color>
     <color name="colorFalse">#ff0000</color>
     <color name="colorTrue">#81B622</color>
+    <color name="red">#E74C3C</color>
+    <color name="lightgray">#939393</color>
+    <color name="gray">#666666</color>
+    <color name="green">#32AE53</color>
+
 
     <color name="colorPrimaryDark">#1C1C1C</color>
     <color name="purple">#8252ff</color>
