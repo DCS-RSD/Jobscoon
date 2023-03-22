@@ -134,16 +134,35 @@
 
     <style name="interview_detail_text">
         <item name="fontFamily">@font/hind_siliguri</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginStart">8dp</item>
     </style>
 
-    <style name="interview_button">
-        <item name="android:layout_margin">12dp</item>
+    <style name="interview_accept_button">
+        <item name="android:layout_marginStart">14dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:layout_marginEnd">7dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">15sp</item>
         <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="backgroundTint">@color/salary_text_color</item>
+        <item name="android:drawableLeft">@drawable/icon_done</item>
+        <item name="android:text">ACCEPT</item>
+    </style>
+
+    <style name="interview_declined_button">
+        <item name="android:layout_marginStart">7dp</item>
+        <item name="android:layout_marginEnd">14dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="backgroundTint">@color/rejected_text_color</item>
+        <item name="android:drawableLeft">@drawable/icon_cancel</item>
+        <item name="android:text">DECLINED</item>
     </style>
 
 </resources>

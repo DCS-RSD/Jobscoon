@@ -141,12 +141,14 @@
                     <TextView
                         android:id="@+id/time"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_time"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_time"
-                        app:layout_constraintStart_toEndOf="@id/icon_time"
-                        android:text="10.00am - 11.00am"/>
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="10.00am - 11.00am"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_time" />
 
                     <ImageView
                         android:id="@+id/icon_week"
@@ -160,12 +162,14 @@
                     <TextView
                         android:id="@+id/week"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_week"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_week"
-                        app:layout_constraintStart_toEndOf="@id/icon_week"
-                        android:text="Wednesday"/>
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Wednesday"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_week" />
 
                     <ImageView
                         android:id="@+id/icon_interview_type"
@@ -179,12 +183,14 @@
                     <TextView
                         android:id="@+id/interview_type"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_interview_type"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_interview_type"
-                        app:layout_constraintStart_toEndOf="@id/icon_interview_type"
-                        android:text="Physical"/>
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Physical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_interview_type" />
 
                     <ImageView
                         android:id="@+id/icon_location"
@@ -242,7 +248,7 @@
                             android:layout_height="wrap_content"
                             android:text="ACCEPT"
                             android:backgroundTint="@color/salary_text_color"
-                            style="@style/interview_button"
+                            style="@style/interview_accept_button"
                             android:drawableLeft="@drawable/icon_done"
                             />
 
@@ -251,7 +257,7 @@
                             android:layout_height="wrap_content"
                             android:text="DECLINE"
                             android:backgroundTint="@color/rejected_text_color"
-                            style="@style/interview_button"
+                            style="@style/interview_declined_button"
                             android:drawableLeft="@drawable/icon_cancel"/>
 
                     </LinearLayout>
@@ -339,12 +345,15 @@
                     <TextView
                         android:id="@+id/time2"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_time2"
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="10.00am - 11.00am"
                         app:layout_constraintBottom_toBottomOf="@id/icon_time2"
-                        app:layout_constraintStart_toEndOf="@id/icon_time2"
-                        android:text="10.00am - 11.00am"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_time2" />
 
                     <ImageView
                         android:id="@+id/icon_week2"
@@ -358,12 +367,15 @@
                     <TextView
                         android:id="@+id/week2"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_week2"
+                        android:layout_marginStart="136dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Wednesday"
                         app:layout_constraintBottom_toBottomOf="@id/icon_week2"
-                        app:layout_constraintStart_toEndOf="@id/icon_week2"
-                        android:text="Wednesday"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_week2" />
 
                     <ImageView
                         android:id="@+id/icon_interview_type2"
@@ -377,12 +389,14 @@
                     <TextView
                         android:id="@+id/interview_type2"
                         style="@style/interview_detail_text"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/icon_interview_type2"
+                        android:layout_marginStart="136dp"
+                        android:text="Virtual"
                         app:layout_constraintBottom_toBottomOf="@id/icon_interview_type2"
-                        app:layout_constraintStart_toEndOf="@id/icon_interview_type2"
-                        android:text="Virtual"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icon_interview_type2" />
 
                     <ImageView
                         android:id="@+id/icon_location2"
@@ -440,14 +454,14 @@
                             android:layout_height="wrap_content"
                             android:text="ACCEPT"
                             android:backgroundTint="@color/salary_text_color"
-                            style="@style/interview_button"/>
+                            style="@style/interview_accept_button"/>
 
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="DECLINE"
                             android:backgroundTint="@color/rejected_text_color"
-                            style="@style/interview_button"/>
+                            style="@style/interview_declined_button"/>
 
                     </LinearLayout>
 
