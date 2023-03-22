@@ -23,6 +23,7 @@
     <color name="jobsShift_layout_color">#CEF0FF</color>
     <color name="jobsShift_text_color">#003967</color>
     <color name="transparent">#ffffff</color>
+        <color name="purple">#8252ff</color>
 </resources>
 
     <!--    <color name="black">#FF000000</color>-->

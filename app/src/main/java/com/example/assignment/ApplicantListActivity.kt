@@ -10,7 +10,7 @@ class ApplicantListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_applicant_list)
 
-        val acceptBtn = findViewById<Button>(R.id.accept)
+        val acceptBtn = findViewById<Button>(R.id.accept_button)
         acceptBtn.setOnClickListener {
             startActivity(Intent(this,InterviewFormLayout::class.java))
         }

@@ -17,7 +17,7 @@ class EmployerHomeActivity : AppCompatActivity() {
 //            bottomNav.setVisibility(View.VISIBLE)
 //        }
 
-        val viewApplicant = findViewById<Button>(R.id.viewApplicant)
+        val viewApplicant = findViewById<Button>(R.id.view_button)
         viewApplicant.setOnClickListener {
             startActivity(Intent(this,ApplicantListActivity::class.java))
         }
