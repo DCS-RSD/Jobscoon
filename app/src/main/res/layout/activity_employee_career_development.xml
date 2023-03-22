@@ -62,10 +62,11 @@
         android:iconifiedByDefault="false"
         android:inputType="text"
         android:queryBackground="@color/transparent"
-        android:queryHint="@string/search"
+        android:queryHint="Search Programme"
         app:iconifiedByDefault="false"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="89dp" />
+        tools:layout_editor_absoluteY="89dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
