@@ -13,6 +13,13 @@
         <item name="android:background">@drawable/input_layout</item>
     </style>
 
+    <style name="history_date">
+        <item name="fontFamily">@font/archivo_narrow_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
     <style name="jobs_card_view">
         <item name="cardCornerRadius">10dp</item>
         <item name="cardElevation">5dp</item>
@@ -29,7 +36,6 @@
         <item name="fontFamily">@font/hind_siliguri</item>
         <item name="android:textSize">16sp</item>
     </style>
-
 
 
     <style name="jobs_name_text">
@@ -50,6 +56,42 @@
         <item name="android:paddingBottom">2dp</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <style name="salary_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/salary_layout_color</item>
+        <item name="android:textColor">@color/salary_text_color</item>
+    </style>
+
+    <style name="jobsType_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/jobsType_layout_color</item>
+        <item name="android:textColor">@color/jobsType_text_color</item>
+    </style>
+
+    <style name="jobsShift_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/jobsShift_layout_color</item>
+        <item name="android:textColor">@color/jobsShift_text_color</item>
     </style>
 
     <style name="job_desc">
