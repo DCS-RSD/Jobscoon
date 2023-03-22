@@ -25,7 +25,7 @@
             app:srcCompat="@drawable/icon_arrowback" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/icon_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -39,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/hind_siliguri_bold"
             android:text="My Jobs"
             android:textColor="@color/black"
@@ -52,7 +53,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="85dp"
         android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_nav">
@@ -90,7 +91,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/status1"
                         style="@style/jobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -99,79 +100,80 @@
                         android:backgroundTint="@color/pending_layout_color"
                         android:text="Pending"
                         android:textColor="@color/pending_text_color"
-                        app:layout_constraintBottom_toBottomOf="@id/job_name1"
+                        app:layout_constraintBottom_toBottomOf="@+id/job_name1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/job_name1" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/company1"
                         style="@style/company_and_location_name_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Brand C Real Estate"
                         app:layout_constraintStart_toStartOf="@+id/job_name1"
-                        app:layout_constraintTop_toBottomOf="@id/job_name1"/>
+                        app:layout_constraintTop_toBottomOf="@id/job_name1" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/location1"
                         style="@style/company_and_location_name_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/kuala_lumpur"
-                        app:layout_constraintStart_toStartOf="@+id/textView5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                        app:layout_constraintStart_toStartOf="@+id/company1"
+                        app:layout_constraintTop_toBottomOf="@+id/company1" />
 
                     <TextView
-                        android:id="@+id/textView23"
-                        style="@style/salary_detail_text"
+                        android:id="@+id/salary1"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:backgroundTint="#F0F0EE"
                         android:text="@string/rm_3000_rm_8000_a_month"
-                        app:layout_constraintStart_toStartOf="@+id/textView6"
-                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                        android:textColor="#555452"
+                        app:layout_constraintStart_toStartOf="@+id/location1"
+                        app:layout_constraintTop_toBottomOf="@+id/location1" />
 
                     <TextView
-                        android:id="@+id/textView13"
-                        style="@style/jobsType_detail_text"
+                        android:id="@+id/jobType1"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/jobsType_layout_color"
                         android:text="@string/full_time"
-                        app:layout_constraintStart_toStartOf="@+id/textView23"
-                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                        app:layout_constraintStart_toStartOf="@+id/salary1"
+                        app:layout_constraintTop_toBottomOf="@+id/salary1" />
 
                     <TextView
-                        android:id="@+id/textView15"
-                        style="@style/jobsShift_detail_text"
+                        android:id="@+id/jobShift1"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/monday_to_friday"
-                        app:layout_constraintStart_toStartOf="@+id/textView13"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
+                        app:layout_constraintStart_toStartOf="@+id/jobType1"
+                        app:layout_constraintTop_toBottomOf="@+id/jobType1" />
 
 
                     <TextView
                         android:id="@+id/apply_date"
+                        style="@style/history_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Applied on 22-3-2023"
-                        style="@style/history_date"
-                        app:layout_constraintStart_toStartOf="@id/textView15"
-                        app:layout_constraintTop_toBottomOf="@id/textView15"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/jobShift1"
+                        app:layout_constraintTop_toBottomOf="@id/jobShift1" />
 
                     <ImageView
                         android:id="@+id/imageView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="@id/apply_date"
-                        app:layout_constraintEnd_toEndOf="@+id/textView9"
-                        app:layout_constraintTop_toTopOf="@id/apply_date"
-                        app:srcCompat="@drawable/icon_close" />
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/apply_date"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/apply_date"
+                        app:srcCompat="@drawable/icon_delete3" />
 
                     <ImageView
                         android:id="@+id/imageView9"
@@ -180,7 +182,7 @@
                         android:layout_marginEnd="8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
                         app:layout_constraintEnd_toStartOf="@+id/imageView8"
-                        app:srcCompat="@drawable/icon_group" />
+                        app:srcCompat="@drawable/icon_calendar_edit" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -236,7 +238,7 @@
                         android:layout_height="wrap_content"
                         android:text="Brand C Real Estate"
                         app:layout_constraintStart_toStartOf="@+id/job_name2"
-                        app:layout_constraintTop_toBottomOf="@id/job_name2"/>
+                        app:layout_constraintTop_toBottomOf="@id/job_name2" />
 
                     <TextView
                         android:id="@+id/location2"
@@ -249,7 +251,7 @@
 
                     <TextView
                         android:id="@+id/salary2"
-                        style="@style/salary_detail_text"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -259,18 +261,17 @@
 
                     <TextView
                         android:id="@+id/jobType2"
-                        style="@style/jobsType_detail_text"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/jobsType_layout_color"
                         android:text="@string/full_time"
                         app:layout_constraintStart_toStartOf="@+id/salary2"
                         app:layout_constraintTop_toBottomOf="@+id/salary2" />
 
                     <TextView
                         android:id="@+id/jobShift2"
-                        style="@style/jobsShift_detail_text"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -279,16 +280,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/jobType2" />
 
 
-
                     <TextView
                         android:id="@+id/apply_date2"
+                        style="@style/history_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Applied on 22-3-2023"
-                        style="@style/history_date"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@id/jobShift2"
-                        app:layout_constraintTop_toBottomOf="@id/jobShift2"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/jobShift2" />
 
                     <ImageView
                         android:id="@+id/cancel2"
@@ -297,7 +297,7 @@
                         app:layout_constraintBottom_toBottomOf="@id/apply_date2"
                         app:layout_constraintEnd_toEndOf="@+id/status2"
                         app:layout_constraintTop_toTopOf="@id/apply_date2"
-                        app:srcCompat="@drawable/icon_close" />
+                        app:srcCompat="@drawable/icon_delete3" />
 
                     <ImageView
                         android:id="@+id/interview2"
@@ -306,7 +306,7 @@
                         android:layout_marginEnd="8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/cancel2"
                         app:layout_constraintEnd_toStartOf="@+id/cancel2"
-                        app:srcCompat="@drawable/icon_group" />
+                        app:srcCompat="@drawable/icon_calendar_edit" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -362,7 +362,7 @@
                         android:layout_height="wrap_content"
                         android:text="Brand C Real Estate"
                         app:layout_constraintStart_toStartOf="@+id/job_name3"
-                        app:layout_constraintTop_toBottomOf="@id/job_name3"/>
+                        app:layout_constraintTop_toBottomOf="@id/job_name3" />
 
                     <TextView
                         android:id="@+id/location3"
@@ -375,7 +375,7 @@
 
                     <TextView
                         android:id="@+id/salary3"
-                        style="@style/salary_detail_text"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -385,18 +385,17 @@
 
                     <TextView
                         android:id="@+id/jobType3"
-                        style="@style/jobsType_detail_text"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/jobsType_layout_color"
                         android:text="@string/full_time"
                         app:layout_constraintStart_toStartOf="@+id/salary3"
                         app:layout_constraintTop_toBottomOf="@+id/salary3" />
 
                     <TextView
                         android:id="@+id/jobShift3"
-                        style="@style/jobsShift_detail_text"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -405,16 +404,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/jobType3" />
 
 
-
                     <TextView
                         android:id="@+id/apply_date3"
+                        style="@style/history_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Applied on 22-3-2023"
-                        style="@style/history_date"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@id/jobShift3"
-                        app:layout_constraintTop_toBottomOf="@id/jobShift3"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toBottomOf="@id/jobShift3" />
 
                     <ImageView
                         android:id="@+id/cancel3"
@@ -423,7 +421,7 @@
                         app:layout_constraintBottom_toBottomOf="@id/apply_date3"
                         app:layout_constraintEnd_toEndOf="@+id/status3"
                         app:layout_constraintTop_toTopOf="@id/apply_date3"
-                        app:srcCompat="@drawable/icon_close" />
+                        app:srcCompat="@drawable/icon_delete3" />
 
                     <ImageView
                         android:id="@+id/interview3"
@@ -432,7 +430,7 @@
                         android:layout_marginEnd="8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/cancel3"
                         app:layout_constraintEnd_toStartOf="@+id/cancel3"
-                        app:srcCompat="@drawable/icon_group" />
+                        app:srcCompat="@drawable/icon_calendar_edit" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,11 +22,14 @@
     <color name="jobsShift_text_color">#003967</color>
     <color name="transparent">#ffffff</color>
 
-    <color name="pending_layout_color">#FFF8B8</color>
-    <color name="pending_text_color">#685F00</color>
-    <color name="rejected_layout_color">#FFC0BC</color>
-    <color name="rejected_text_color">#9F0000</color>
-    <color name="accepted_layout_color">#B7F8B9</color>
-    <color name="accepted_text_color">#006304</color>
+    <color name="pending_layout_color">#FFF9BF</color>
+    <color name="pending_text_color">#9E8F00</color>
+    <color name="rejected_layout_color">#FDC1BD</color>
+    <color name="rejected_text_color">#B30101</color>
+    <color name="accepted_layout_color">#C7FFC9</color>
+    <color name="accepted_text_color">#008105</color>
+
+    <color name="myJobs_details_layout_color">#F0F0EE</color>
+    <color name="myJobs_details_text_color">#555452</color>
     <color name="red">#F44336</color>
 </resources>
