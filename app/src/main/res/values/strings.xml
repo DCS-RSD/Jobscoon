@@ -19,6 +19,10 @@ Benefits\n
     - Professional development\n    - Work from home\n</string>
     <string name="textUsername" />
     <string name="background">Company Background</string>
+    <string name="random_icon" />
+    <string name="usernameS"></string>
+    <string name="emailS"></string>
+    <string name="phoneS"></string>
 
     <string-array name="location">
         <item>Johor</item>
