@@ -69,7 +69,13 @@
         app:layout_constraintStart_toStartOf="@id/careerDevelopment"
         app:layout_constraintTop_toTopOf="@id/careerDevelopment"/>
 
-
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="404dp"
+        android:layout_height="533dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleProgramme">
     <androidx.cardview.widget.CardView
         android:id="@+id/jobs1"
         style="@style/jobs_card_view"
