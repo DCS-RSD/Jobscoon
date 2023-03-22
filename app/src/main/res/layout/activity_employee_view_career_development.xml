@@ -67,7 +67,6 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/programmeCard"
-        android:id="@+id/programmeCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -199,6 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:drawableLeft="@drawable/ic_description"
                 android:text="The purpose of the programme is to train more idol who know how to sing,dance,rap and basketball"
@@ -206,7 +206,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/programmeType"
                 app:layout_constraintTop_toBottomOf="@+id/website"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.01999998" />
 
             <!--            <TextView-->
             <!--                android:id="@+id/interviewrName"-->
