@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+
     >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/white">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
@@ -42,20 +44,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40sp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/teko_bold"
         android:text="Career Development"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/top_nav" />
 
     <SearchView
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:background="@drawable/search_view_border"
         android:contextClickable="false"
         android:elevation="10dp"
@@ -64,27 +67,40 @@
         android:queryBackground="@color/transparent"
         android:queryHint="Search Programme"
         app:iconifiedByDefault="false"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="89dp"
-        app:layout_constraintStart_toStartOf="@id/careerDevelopment"
-        app:layout_constraintTop_toTopOf="@id/careerDevelopment"/>
+        app:layout_constraintEnd_toEndOf="@+id/careerDevelopment"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="@+id/careerDevelopment"
+        app:layout_constraintTop_toBottomOf="@+id/careerDevelopment" />
 
     <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="404dp"
-        android:layout_height="533dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scheduleProgramme">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/jobs1"
-        style="@style/jobs_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp">
+        android:layout_width="409dp"
+        android:layout_height="583dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="@+id/searchBar"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar">
 
-    </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/programme1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/jobs_card_view"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp" >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="wrap_content"
+                android:layout_height="78dp"
+                app:srcCompat="@drawable/idol_producer" />
+        </androidx.cardview.widget.CardView>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
