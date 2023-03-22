@@ -22,6 +22,11 @@ class EmployerHomeActivity : AppCompatActivity() {
             startActivity(Intent(this,ApplicantListActivity::class.java))
         }
 
+        val editPostButton = findViewById<Button>(R.id.edit_button)
+        editPostButton.setOnClickListener {
+            startActivity(Intent(this,JobPostFormActivity::class.java))
+        }
+
 
     }
 }

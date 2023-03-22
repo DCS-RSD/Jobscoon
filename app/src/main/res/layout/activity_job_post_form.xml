@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".InterviewFormActivity">
+    tools:context=".JobPostFormActivity">
 
     <ImageView
         android:id="@+id/logoS"
@@ -28,6 +28,22 @@
         app:layout_constraintTop_toBottomOf="@+id/logoS"
         app:srcCompat="@drawable/app_title2" />
 
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+
+        android:fontFamily="@font/hind_siliguri_bold"
+        android:text="Post a Job"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitleS" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="409dp"
@@ -46,72 +62,20 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/date"
+                android:id="@+id/title"
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Date (DD/MM/YYYY)"
+                android:hint="Job Title"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/icon_calendar">
+                app:startIconDrawable="@drawable/icon_title">
 
                 <AutoCompleteTextView
                     android:id="@+id/editDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    tools:ignore="DuplicateClickableBoundsCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/startTime"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Start Time"
-                app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appTitleS"
-                app:startIconDrawable="@drawable/icon_clock">
-
-                <AutoCompleteTextView
-                    android:id="@+id/editClock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    tools:ignore="DuplicateClickableBoundsCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/endTime"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="32dp"
-                android:hint="End Time"
-                app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appTitleS"
-                app:startIconDrawable="@drawable/icon_clock">
-
-                <AutoCompleteTextView
-                    android:id="@+id/editEndTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -127,33 +91,89 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="32dp"
-                app:startIconDrawable="@drawable/icon_interview_type">
+                app:startIconDrawable="@drawable/icon_employee">
 
                 <AutoCompleteTextView
                     android:id="@+id/editTextLocationS"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Virtual"
+                    android:text="Full-time"
                     android:textColor="@color/gray"
                     android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/contractLength"
+                    style="@style/FilledTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="Contract Length"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
+                    app:startIconDrawable="@drawable/icon_clock">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/editContractLength"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        tools:ignore="DuplicateClickableBoundsCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/contractPeriod"
+                    style="@style/FilledTextInputLayout1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="Period">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/editClock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        tools:ignore="DuplicateClickableBoundsCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/link"
+                android:id="@+id/date"
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Link"
+                android:hint="Start Date"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/icon_link">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appTitleS"
+                app:startIconDrawable="@drawable/icon_calendar">
 
                 <AutoCompleteTextView
-                    android:id="@+id/editLink"
+                    android:id="@+id/editEndTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -161,20 +181,95 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/salaryStart"
+                    style="@style/FilledTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="Salary From"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
+                    app:startIconDrawable="@drawable/icon_salary">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/editSalaryStart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        tools:ignore="DuplicateClickableBoundsCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/salaryEnd"
+                    style="@style/FilledTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="To"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
+                    app:startIconDrawable="@drawable/icon_salary">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/editSalaryEnd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        tools:ignore="DuplicateClickableBoundsCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/remark"
+                android:id="@+id/salaryPeriod"
+                style="@style/FilledTextInputLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Per day">
+
+                <AutoCompleteTextView
+                    android:id="@+id/editSalaryPeriod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description"
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="32dp"
-                android:hint="Remark"
+                android:hint="Job Description"
                 android:nestedScrollingEnabled="true"
                 app:startIconDrawable="@drawable/icon_note">
 
                 <AutoCompleteTextView
-                    android:id="@+id/editRemark"
+                    android:id="@+id/editJobDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
@@ -184,22 +279,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="209dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-
-        android:fontFamily="@font/hind_siliguri_bold"
-        android:text="Interview Schedule"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitleS" />
 
     <Button
         android:id="@+id/confirm_interview_btn"
