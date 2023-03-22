@@ -85,5 +85,6 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp">
 
-
+    </androidx.cardview.widget.CardView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
