@@ -115,7 +115,6 @@
         <item name="fontFamily">@font/hind_siliguri_bold</item>
         <item name="android:textSize">40sp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginStart">32dp</item>
     </style>
 
     <style name="month">
