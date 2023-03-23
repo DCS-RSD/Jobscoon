@@ -75,171 +75,252 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/day"
-                        style="@style/day"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="22"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/month"
-                        style="@style/month"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="September"
-                        app:layout_constraintEnd_toEndOf="@+id/day"
-                        app:layout_constraintStart_toStartOf="@+id/day"
-                        app:layout_constraintTop_toTopOf="@+id/day" />
-
-                    <TextView
-                        android:id="@+id/year"
-                        style="@style/year"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2023"
-                        app:layout_constraintStart_toStartOf="@id/month"
-                        app:layout_constraintEnd_toEndOf="@id/month"
-                        app:layout_constraintTop_toTopOf="@id/month" />
-
-                    <ImageView
-                        android:id="@+id/icon_job"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        app:layout_constraintBottom_toTopOf="@+id/month"
-                        app:layout_constraintStart_toEndOf="@+id/day"
-                        app:layout_constraintTop_toTopOf="@+id/day"
-                        app:srcCompat="@drawable/icon_employee" />
-
-                    <TextView
-                        android:id="@+id/job_name"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Sales Manager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_job" />
-
-                    <ImageView
-                        android:id="@+id/icon_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_job"
-                        app:layout_constraintTop_toBottomOf="@id/job_name"
-                        app:srcCompat="@drawable/icon_time" />
-
-                    <TextView
-                        android:id="@+id/time"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="10.00am - 11.00am"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_time" />
-
-                    <ImageView
-                        android:id="@+id/icon_week"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_time"
-                        app:layout_constraintTop_toBottomOf="@id/icon_time"
-                        app:srcCompat="@drawable/icon_week" />
-
-                    <TextView
-                        android:id="@+id/week"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Wednesday"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_week" />
-
-                    <ImageView
-                        android:id="@+id/icon_interview_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_week"
-                        app:layout_constraintTop_toBottomOf="@id/icon_week"
-                        app:srcCompat="@drawable/icon_interview_type" />
-
-                    <TextView
-                        android:id="@+id/interview_type"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Physical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_interview_type" />
-
-                    <ImageView
-                        android:id="@+id/icon_location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_interview_type"
-                        app:layout_constraintTop_toBottomOf="@id/icon_interview_type"
-                        app:srcCompat="@drawable/icon_location" />
-
-                    <TextView
-                        android:id="@+id/location"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Lv 39, Vertical Business Tower, Jalan Ampang, 53300, Kuala Lumpur"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_location" />
-
-
-                    <ImageView
-                        android:id="@+id/icon_remarks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_location"
-                        app:layout_constraintTop_toBottomOf="@id/location"
-                        app:srcCompat="@drawable/icon_remarks" />
-
-                    <TextView
-                        android:id="@+id/remarks"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Please provide IC at the ground floor reception to gain access to Lv 39"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_remarks" />
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:id="@+id/interview_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/remarks"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.4">
+
+                            <TextView
+                                android:id="@+id/day"
+                                style="@style/day"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="22"
+                                android:textAlignment="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/month"
+                                style="@style/month"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="September"
+                                android:textAlignment="center"
+                                app:layout_constraintEnd_toEndOf="@+id/day"
+                                app:layout_constraintStart_toStartOf="@+id/day"
+                                app:layout_constraintTop_toTopOf="@+id/day" />
+
+                            <TextView
+                                android:id="@+id/year"
+                                style="@style/year"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2023"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@id/month"
+                                app:layout_constraintEnd_toEndOf="@id/month"
+                                app:layout_constraintTop_toTopOf="@id/month" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="0.6"
+                            >
+
+                            <LinearLayout
+                                android:id="@id/jobsName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_job"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    app:srcCompat="@drawable/icon_employee"
+                                    android:layout_weight="1.8"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Sales Manager"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/time1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/jobsName1"
+                                app:layout_constraintTop_toBottomOf="@id/jobsName1"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/jobsName1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_time"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="10.00am - 11.00am"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/week"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/time1"
+                                app:layout_constraintTop_toBottomOf="@id/time1"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_week"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_week"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Wednesday"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/interview_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/week"
+                                app:layout_constraintTop_toBottomOf="@id/week"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_interview_type"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_interview_type"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Physical"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/interview_type"
+                                app:layout_constraintTop_toBottomOf="@id/interview_type"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_location"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_location"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Lv 39, Vertical Business Tower, Jalan Ampang, 53000, Kuala Lumpur"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/remarks"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/location"
+                                app:layout_constraintTop_toBottomOf="@id/location"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_remarks"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_remarks"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Please provide IC at the ground floor reception to gain access to Lv 39"/>
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/button_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/interview_layout"
+                        app:layout_constraintStart_toStartOf="parent"
                         android:orientation="horizontal"
                         android:weightSum="2">
 
@@ -264,6 +345,10 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -279,173 +364,252 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/day2"
-                        style="@style/day"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="22"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/month2"
-                        style="@style/month"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="September"
-                        app:layout_constraintEnd_toEndOf="@+id/day2"
-                        app:layout_constraintStart_toStartOf="@+id/day2"
-                        app:layout_constraintTop_toTopOf="@+id/day2" />
-
-                    <TextView
-                        android:id="@+id/year2"
-                        style="@style/year"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2023"
-                        app:layout_constraintStart_toStartOf="@id/month2"
-                        app:layout_constraintEnd_toEndOf="@id/month2"
-                        app:layout_constraintTop_toTopOf="@id/month2" />
-
-                    <ImageView
-                        android:id="@+id/icon_job2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        app:layout_constraintBottom_toTopOf="@+id/month2"
-                        app:layout_constraintStart_toEndOf="@+id/day2"
-                        app:layout_constraintTop_toTopOf="@+id/day2"
-                        app:srcCompat="@drawable/icon_employee" />
-
-                    <TextView
-                        android:id="@+id/job_name2"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Sales Manager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_job2" />
-
-                    <ImageView
-                        android:id="@+id/icon_time2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_job2"
-                        app:layout_constraintTop_toBottomOf="@id/job_name2"
-                        app:srcCompat="@drawable/icon_time" />
-
-                    <TextView
-                        android:id="@+id/time2"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="10.00am - 11.00am"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_time2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_time2" />
-
-                    <ImageView
-                        android:id="@+id/icon_week2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_time2"
-                        app:layout_constraintTop_toBottomOf="@id/icon_time2"
-                        app:srcCompat="@drawable/icon_week" />
-
-                    <TextView
-                        android:id="@+id/week2"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Wednesday"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_week2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_week2" />
-
-                    <ImageView
-                        android:id="@+id/icon_interview_type2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_week2"
-                        app:layout_constraintTop_toBottomOf="@id/icon_week2"
-                        app:srcCompat="@drawable/icon_interview_type" />
-
-                    <TextView
-                        android:id="@+id/interview_type2"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:text="Virtual"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_interview_type2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_interview_type2" />
-
-                    <ImageView
-                        android:id="@+id/icon_location2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_interview_type2"
-                        app:layout_constraintTop_toBottomOf="@id/icon_interview_type2"
-                        app:srcCompat="@drawable/icon_link" />
-
-                    <TextView
-                        android:id="@+id/location2"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="https://meet.google.com/ipv-icwk-kuv"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_location2" />
-
-
-                    <ImageView
-                        android:id="@+id/icon_remarks2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        app:layout_constraintStart_toStartOf="@id/icon_location2"
-                        app:layout_constraintTop_toBottomOf="@id/location2"
-                        app:srcCompat="@drawable/icon_remarks" />
-
-                    <TextView
-                        android:id="@+id/remarks2"
-                        style="@style/interview_detail_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="136dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="We will use google meet for the interview, please come on time"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/icon_remarks2" />
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:id="@+id/interview_layout2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/remarks2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.4">
+
+                            <TextView
+                                android:id="@+id/day2"
+                                style="@style/day"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="22"
+                                android:textAlignment="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/month2"
+                                style="@style/month"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="September"
+                                android:textAlignment="center"
+                                app:layout_constraintEnd_toEndOf="@+id/day2"
+                                app:layout_constraintStart_toStartOf="@+id/day2"
+                                app:layout_constraintTop_toTopOf="@+id/day2" />
+
+                            <TextView
+                                android:id="@+id/year2"
+                                style="@style/year"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2023"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@id/month2"
+                                app:layout_constraintEnd_toEndOf="@id/month2"
+                                app:layout_constraintTop_toTopOf="@id/month2" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="0.6"
+                            >
+
+                            <LinearLayout
+                                android:id="@id/jobsName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_job2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    app:srcCompat="@drawable/icon_employee"
+                                    android:layout_weight="1.8"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Sales Manager"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/time2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/jobsName1"
+                                app:layout_constraintTop_toBottomOf="@id/jobsName1"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/jobsName2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_time"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="10.00am - 11.00am"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/week2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/time2"
+                                app:layout_constraintTop_toBottomOf="@id/time2"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_week2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_week"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Wednesday"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/interview_type2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/week2"
+                                app:layout_constraintTop_toBottomOf="@id/week2"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_interview_type2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_interview_type"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="Virtual"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/location2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/interview_type2"
+                                app:layout_constraintTop_toBottomOf="@id/interview_type2"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_location2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_link"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="https://meet.google.com/ipv-icwk-kuv"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/remarks2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="@id/location2"
+                                app:layout_constraintTop_toBottomOf="@id/location2"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/icon_remarks2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/icon_remarks"
+                                    android:layout_weight="1.8"
+                                    android:layout_marginTop="6dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.2"
+                                    android:layout_marginTop="6dp"
+                                    style="@style/interview_detail_text"
+                                    android:text="We will use google meet for the interview, please come on time"/>
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/button_layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/interview_layout2"
+                        app:layout_constraintStart_toStartOf="parent"
                         android:orientation="horizontal"
                         android:weightSum="2">
 
@@ -454,20 +618,28 @@
                             android:layout_height="wrap_content"
                             android:text="ACCEPT"
                             android:backgroundTint="@color/salary_text_color"
-                            style="@style/interview_accept_button"/>
+                            style="@style/interview_accept_button"
+                            android:drawableLeft="@drawable/icon_done"
+                            />
 
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="DECLINE"
                             android:backgroundTint="@color/rejected_text_color"
-                            style="@style/interview_declined_button"/>
+                            style="@style/interview_declined_button"
+                            android:drawableLeft="@drawable/icon_cancel"/>
 
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+
+
             </androidx.cardview.widget.CardView>
+
 
 
 
