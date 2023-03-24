@@ -75,16 +75,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="110dp">
+                android:layout_height="150dp">
 
                 <TextView
                     android:id="@+id/usernameS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="Yuna Kim"
+                    android:text="Hanami Sdn. Bhd."
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -96,13 +96,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="0dp"
                     android:drawableStart="@drawable/baseline_email_24"
                     android:fontFamily="@font/hind_siliguri"
-                    android:text=" ynk@gmail.com"
+                    android:text=" hanami@gmail.com"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
-                    app:layout_constraintBottom_toTopOf="@+id/phS"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/usernameS" />
 
@@ -111,16 +110,42 @@
                     android:layout_width="114dp"
                     android:layout_height="21dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="4dp"
                     android:drawableStart="@drawable/baseline_phone_24"
                     android:fontFamily="@font/hind_siliguri"
-                    android:text=" 012 3456 789"
+                    android:text=" 03 - 1234 5678"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/emailS" />
+
+                <TextView
+                    android:id="@+id/ssmS"
+                    android:layout_width="114dp"
+                    android:layout_height="21dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/baseline_insert_drive_file_24"
+                    android:fontFamily="@font/hind_siliguri"
+                    android:text=" 202012345678"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phS" />
+
+                <TextView
+                    android:id="@+id/locationS"
+                    android:layout_width="114dp"
+                    android:layout_height="21dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/baseline_location_on_24"
+                    android:fontFamily="@font/hind_siliguri"
+                    android:text=" Setapak"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ssmS" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,7 +158,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/hind_siliguri"
-        android:text="About"
+        android:text="Background"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,7 +183,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="270dp">
+            android:layout_height="200dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textVPwdS"
@@ -167,8 +192,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:text="Hello and welcome! My name is Yuna Kim  In terms of my experience, I have 3 years of experience in Software Engineering, where I have developed a strong set of skills in coding. And I am always eager to learn and grow in my professional and personal life.
-I am excited about the opportunity to bring my unique experiences and skills to your team and contribute to the success of your organization. Thank you for considering my application."
+                android:text="We are a leading company in Software with a focus on innovation, quality, and customer satisfaction. Our team of experienced professionals is committed to delivering top-quality products and services to our clients. We are passionate about what we do, and we are dedicated to excellence in everything we do."
                 android:textColor="@color/black"
                 app:boxBackgroundColor="@color/white"
                 app:fontFamily="@font/hind_siliguri"
@@ -182,22 +206,6 @@ I am excited about the opportunity to bring my unique experiences and skills to 
 
     </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="25dp"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/hind_siliguri_bold"
-            android:text="Resume"
-            android:textColor="@color/black"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/editS"
-            app:layout_constraintEnd_toEndOf="16dp"
-            app:layout_constraintStart_toEndOf="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/profile1S" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/editS"
@@ -209,8 +217,9 @@ I am excited about the opportunity to bring my unique experiences and skills to 
             android:backgroundTint="@color/green"
             android:text="Edit"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/profile1S" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,8 +55,6 @@
         android:hint="Username"
         app:counterEnabled="true"
         app:counterMaxLength="10"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,8 +81,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:hint="Email Address"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red"
         app:startIconDrawable="@drawable/email_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,8 +104,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:hint="Phone Number"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red"
         app:startIconDrawable="@drawable/phone_gray1"
         app:prefixText="+60"
         app:prefixTextColor="#9F6FFD"
@@ -154,34 +148,48 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <!--Input Password in Employee register page-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textVPwdS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:text="Reset Password"
+            android:textColor="@color/black"
+            app:boxBackgroundColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+
+        </com.google.android.material.textview.MaterialTextView>
+
+        <!--Input reset Password in Employee register page-->
 
         <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textPwdS"
-        style="@style/FilledTextInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Password"
-        app:helperText="Required*"
-        app:counterMaxLength="20"
-        app:endIconMode="password_toggle"
-        app:helperTextTextColor="@color/red"
-        app:startIconDrawable="@drawable/lock_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+            android:id="@+id/textPwdS"
+            style="@style/FilledTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Enter New Password"
+            app:counterMaxLength="20"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textVPwdS"
+            app:startIconDrawable="@drawable/lock_gray">
 
             <AutoCompleteTextView
-            android:id="@+id/editTextPwdS"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textPassword"
-            android:textSize="15sp"
-            android:maxLength="21"/>
-    </com.google.android.material.textfield.TextInputLayout>
+                android:id="@+id/editTextPwdS"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:maxLength="21"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!--Paragraph in Employer register page-->
         <com.google.android.material.textfield.TextInputLayout
@@ -254,33 +262,47 @@
 
         </LinearLayout>
 
-        <!--Sign up button in Employee register page-->
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/signUpS"
+            android:id="@+id/saveS2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/green"
-            android:text="Sign Up"
+            android:text="Save"
             app:layout_constraintEnd_toStartOf="@+id/attachfile"
-            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/attachfile" />
+            app:layout_constraintTop_toBottomOf="@id/attachfile" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteS2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/red"
+            android:text="Delete"
+            app:layout_constraintEnd_toStartOf="@+id/saveS2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveS2"  />
 
         <ImageView
             android:id="@+id/whitebottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/deleteS2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signUpS"
+            app:layout_constraintTop_toBottomOf="@+id/deleteS2"
             app:srcCompat="@drawable/screenshot_2023_03_21_180600" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+</ScrollView>

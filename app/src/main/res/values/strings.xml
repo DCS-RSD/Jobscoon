@@ -21,9 +21,9 @@ Benefits\n
     <string name="textUsername" />
     <string name="background">Company Background</string>
     <string name="random_icon" />
-    <string name="usernameS">Yuna Kim</string>
-    <string name="emailS">ynl@gmail.com</string>
-    <string name="phoneS">012 3456 78</string>
+    <string name="usernameS"></string>
+    <string name="emailS"></string>
+    <string name="phoneS"></string>
 
     <string-array name="location">
         <item>Johor</item>
