@@ -45,6 +45,7 @@
         <item name="android:layout_marginStart">24dp</item>
         <item name="android:layout_marginEnd">24dp</item>
         <item name="android:drawablePadding">10sp</item>
+    </style>
     <style name="history_date">
         <item name="fontFamily">@font/archivo_narrow_bold</item>
         <item name="android:textSize">12sp</item>
