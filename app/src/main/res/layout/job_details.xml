@@ -40,7 +40,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/apply_button"
@@ -134,14 +134,11 @@
 
             <TextView
                 android:id="@+id/textView9"
-                style="@style/jobs_detail_text"
+                style="@style/salary_detail_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/job_detail_text_background"
-                android:backgroundTint="@color/salary_layout_color"
                 android:text="@string/rm_3000_rm_8000_a_month"
-                android:textColor="@color/salary_text_color"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -159,19 +156,16 @@
 
             <TextView
                 android:id="@+id/textView13"
-                style="@style/jobs_detail_text"
+                style="@style/jobsType_detail_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/job_detail_text_background"
-                android:backgroundTint="@color/jobsType_layout_color"
                 android:text="@string/full_time"
-                android:textColor="@color/jobsType_text_color"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/jobType2"
                 style="@style/jobs_detail_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -184,19 +178,16 @@
 
             <TextView
                 android:id="@+id/textView15"
-                style="@style/jobs_detail_text"
+                style="@style/jobsShift_detail_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/job_detail_text_background"
-                android:backgroundTint="@color/jobsShift_layout_color"
                 android:text="@string/monday_to_friday"
-                android:textColor="@color/jobsShift_text_color"
-                app:layout_constraintStart_toStartOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintStart_toStartOf="@+id/jobType2"
+                app:layout_constraintTop_toBottomOf="@+id/jobType2" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/jobShift2"
                 style="@style/job_desc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

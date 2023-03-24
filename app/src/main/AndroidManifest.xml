@@ -43,6 +43,12 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".EmployeeInterviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyJobsActivity"
+            android:exported="false" />
+        <activity
             android:name=".JobDetailsActivity"
             android:exported="false" />
         <activity
