@@ -24,9 +24,10 @@
     </style>
 
     <style name="heading2">
-        <item name="android:fontFamily">@font/teko_regular</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:paddingLeft">32sp</item>
     </style>
 
     <style name="badge">
