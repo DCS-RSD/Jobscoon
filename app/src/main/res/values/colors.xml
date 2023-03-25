@@ -55,4 +55,6 @@
     <color name="myJobs_details_layout_color">#F0F0EE</color>
     <color name="myJobs_details_text_color">#555452</color>
     <color name="red">#F44336</color>
+
+    <color name="text_input_border_color">#9F6FFD</color>
 </resources>
