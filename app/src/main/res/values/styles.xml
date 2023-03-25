@@ -145,14 +145,25 @@
     </style>
 
     <style name="FilledTextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxBackgroundColor">#FFF</item>
-        <item name="boxStrokeColor">#9F6FFD</item>
-        <item name="hintTextColor">#9F6FFD</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/text_input_border_color</item>
+        <item name="hintTextColor">@color/text_input_border_color</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="fontFamily">@font/hind_siliguri_light</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_input_style">
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="FilledTextInputLayout1" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-        <item name="boxBackgroundColor">#FFF</item>
-        <item name="boxStrokeColor">#9F6FFD</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/text_input_border_color</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
     </style>
     <style name="day">
         <item name="fontFamily">@font/hind_siliguri_bold</item>
@@ -205,6 +216,13 @@
         <item name="backgroundTint">@color/rejected_text_color</item>
         <item name="android:drawableLeft">@drawable/icon_cancel</item>
         <item name="android:text">DECLINED</item>
+    </style>
+
+    <style name="edit_profile_button">
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
     </style>
 
 </resources>
