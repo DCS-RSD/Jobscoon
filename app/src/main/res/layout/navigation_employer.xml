@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,7 +19,7 @@
         app:srcCompat="@drawable/baseline_arrow_back_24" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -28,32 +29,31 @@
         app:srcCompat="@drawable/baseline_clear_24" />
 
     <TextView
-        android:id="@+id/textView11"
-        style="@style/Widget.Material3.NavigationView"
+        android:id="@+id/textView5"
+        style="@style/navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="34dp"
         android:text="Profile"
-        android:textSize="17sp"
         app:endIconDrawable="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:ignore="MissingConstraints" />
 
-
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
     <View
-        android:id="@+id/divider4"
+        android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
@@ -65,31 +65,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView12"
-        style="@style/Widget.Material3.NavigationView"
+        android:id="@+id/textView6"
+        style="@style/navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="13dp"
         android:text="Post Jobs"
-        android:textSize="17sp"
         app:endIconDrawable="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
     <View
-        android:id="@+id/divider7"
+        android:id="@+id/divider2"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/divider8"
+        android:id="@+id/divider3"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
@@ -113,65 +113,65 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="138dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
     <TextView
-        android:id="@+id/textView13"
-        style="@style/Widget.Material3.NavigationView"
+        android:id="@+id/textView7"
+        style="@style/navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="178dp"
+        android:layout_marginTop="13dp"
         android:text="Jobs Application"
-        android:textSize="17sp"
         app:endIconDrawable="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView14"
-        style="@style/Widget.Material3.NavigationView"
+        android:id="@+id/textView8"
+        style="@style/navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="13dp"
         android:text="Interviews"
-        android:textSize="17sp"
         app:endIconDrawable="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="190dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="245dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
     <View
-        android:id="@+id/divider9"
+        android:id="@+id/divider5"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
@@ -183,21 +183,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView15"
-        style="@style/Widget.Material3.NavigationView"
+        android:id="@+id/textView9"
+        style="@style/navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="285dp"
+        android:layout_marginTop="13dp"
         android:text="Career Development"
-        android:textSize="17sp"
         app:endIconDrawable="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider5"
         tools:ignore="MissingConstraints" />
 
     <View
-        android:id="@+id/divider10"
+        android:id="@+id/divider6"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
@@ -209,26 +209,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView16"
-        style="@style/Widget.Material3.NavigationView"
+        android:id="@+id/textView10"
+        style="@style/navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="343dp"
+        android:layout_marginTop="13dp"
         android:text="Sign Out"
-        android:textSize="17sp"
         app:endIconDrawable="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider6"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView19"
+        android:id="@+id/imageView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="303dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

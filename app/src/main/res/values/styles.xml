@@ -226,4 +226,12 @@
         <item name="fontFamily">@font/hind_siliguri_bold</item>
     </style>
 
+    <style name="navigation" parent="@style/Widget.Material3.NavigationView">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">21dp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
 </resources>
