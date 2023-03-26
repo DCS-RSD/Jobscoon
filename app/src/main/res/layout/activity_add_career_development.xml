@@ -369,21 +369,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/attachfile" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/deleteS2"
-                style="@style/edit_profile_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-
-                android:backgroundTint="@color/rejected_text_color"
-                android:text="Delete"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/saveS2"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/saveS2" />
+            
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
