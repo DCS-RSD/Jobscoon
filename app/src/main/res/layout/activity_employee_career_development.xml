@@ -83,17 +83,6 @@
             android:queryHint="@string/search"
             app:iconifiedByDefault="false" />
 
-        <Button
-            android:id="@+id/add_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add New Programme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchBar" />
-
-
         <ScrollView
             android:id="@+id/scrollView4"
             android:layout_width="match_parent"
