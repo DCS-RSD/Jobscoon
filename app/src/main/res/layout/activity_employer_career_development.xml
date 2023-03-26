@@ -148,7 +148,7 @@
                         android:layout_height="wrap_content"
                         android:text="Online"
                         android:textColor="#555452"
-
+                        android:drawableLeft="@drawable/ic_type"
                         app:layout_constraintStart_toStartOf="@+id/programme_title1"
                         app:layout_constraintTop_toBottomOf="@+id/programme_title1" />
 
@@ -158,6 +158,7 @@
                         android:textColor="#555452"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/icon_location"
                         android:text="No location"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programmeType"
@@ -165,38 +166,39 @@
 
                     <TextView
                         android:id="@+id/programmeDate"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="03/08/2019"
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
+                        android:textColor="#555452"
+                        android:drawableLeft="@drawable/icon_calendar"
                         app:layout_constraintStart_toStartOf="@+id/programmeLocation"
                         app:layout_constraintTop_toBottomOf="@+id/programmeLocation" />
 
                     <TextView
                         android:id="@+id/time"
+                        style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="8:00a.m."
-                        android:textColor="@color/black"
-                        android:textSize="25sp"
+                        android:textColor="#555452"
+                        android:drawableLeft="@drawable/icon_time"
                         app:layout_constraintStart_toStartOf="@+id/programmeDate"
                         app:layout_constraintTop_toBottomOf="@+id/programmeDate" />
 
                     <Button
-                        android:id="@+id/viewProgramme"
-                        android:layout_width="0dp"
+                        android:id="@+id/edit_button"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:text="Edit"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/programme_title1"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        android:textColor="@android:color/white"
+                        app:icon="@drawable/icon_edit"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_button"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/time"
-                        app:layout_constraintTop_toBottomOf="@+id/time"
-                        app:layout_constraintVertical_bias="1.0" />
+                        app:layout_constraintTop_toBottomOf="@+id/time" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
