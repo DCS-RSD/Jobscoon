@@ -206,7 +206,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/programmeType"
                 style="@style/FilledTextInputLayout1"
@@ -231,7 +231,6 @@
                     android:textColor="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Paragraph in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textLocationS"
                 android:layout_width="match_parent"
@@ -261,7 +260,60 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Upload file in Employee register page-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textWebsiteS"
+                style="@style/FilledTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Website"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
+                app:startIconDrawable="@drawable/ic_website"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+
+                <AutoCompleteTextView
+                    android:id="@+id/editTextWebsite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="15sp"
+                    android:textColor="@color/gray"
+                    android:inputType="textWebEditText"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textDescriptionS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
+                android:layout_marginTop="15dp"
+                style="@style/FilledTextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:counterEnabled="true"
+                app:layout_constraintTop_toBottomOf="@+id/textWebsiteS">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editLocation"
+                    style="@style/text_input_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textMultiLine"
+                    android:lines="6"
+                    android:gravity="top"
+                    android:overScrollMode="always"
+                    android:scrollbars="vertical"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollHorizontally="false"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <LinearLayout
                 android:id="@+id/attachfile"
                 android:layout_width="match_parent"
@@ -279,7 +331,9 @@
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+                app:layout_constraintTop_toBottomOf="@+id/textDescriptionS">
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -297,7 +351,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="Upload Resume"
+                        android:text="Upload Image"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
