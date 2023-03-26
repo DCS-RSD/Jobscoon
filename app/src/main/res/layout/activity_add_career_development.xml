@@ -231,32 +231,6 @@
                     android:textColor="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textPwdS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="Enter New Password"
-                app:counterMaxLength="20"
-                app:endIconMode="password_toggle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/programmeType"
-                app:startIconDrawable="@drawable/lock_gray">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    android:inputType="textPassword"
-                    android:maxLength="20"/>
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
             <!--Paragraph in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textAMS"
