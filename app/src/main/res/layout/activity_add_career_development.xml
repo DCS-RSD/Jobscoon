@@ -52,8 +52,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_nav">
 
@@ -98,17 +100,17 @@
                 android:hint="Date (DD/MM/YYYY)"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/icon_calendar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/programmeTitle">
+                app:layout_constraintTop_toBottomOf="@+id/programmeTitle"
+                app:startIconDrawable="@drawable/icon_calendar">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editDate"
-                style="@style/text_input_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="DuplicateClickableBoundsCheck" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDate"
+                    style="@style/text_input_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,16 +123,16 @@
                 android:hint="Start Time"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/icon_clock"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date">
+                app:layout_constraintTop_toBottomOf="@+id/date"
+                app:startIconDrawable="@drawable/icon_clock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editClock"
+                    style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/text_input_style"
                     tools:ignore="DuplicateClickableBoundsCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -144,18 +146,17 @@
                 android:hint="End Time"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/icon_clock"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/startTime">
+                app:layout_constraintTop_toBottomOf="@+id/startTime"
+                app:startIconDrawable="@drawable/icon_clock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editEndTime"
+                    style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    tools:ignore="DuplicateClickableBoundsCheck"
-                    />
+                    tools:ignore="DuplicateClickableBoundsCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,16 +169,16 @@
                 android:hint="Email Address"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/email_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/endTime">
+                app:layout_constraintTop_toBottomOf="@+id/endTime"
+                app:startIconDrawable="@drawable/email_gray">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -188,21 +189,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:hint="Company Contact Number"
-                app:prefixText="+60"
-                app:prefixTextColor="#9F6FFD"
-                app:startIconDrawable="@drawable/ringph_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEmailS">
+                app:layout_constraintTop_toBottomOf="@+id/textEmailS"
+                app:prefixText="+60"
+                app:prefixTextColor="#9F6FFD"
+                app:startIconDrawable="@drawable/ringph_gray">
 
                 <AutoCompleteTextView
                     android:id="@+id/editTextPhoneS"
+                    style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPhonetic"
                     android:maxLength="10"
-                    android:textSize="15sp"
-                    style="@style/text_input_style"
-                    android:inputType="textPhonetic"/>
+                    android:textSize="15sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -215,10 +216,10 @@
                 android:layout_marginTop="15dp"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/loaction_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textPhoneS">
+                app:layout_constraintTop_toBottomOf="@+id/textPhoneS"
+                app:startIconDrawable="@drawable/loaction_gray">
 
                 <AutoCompleteTextView
                     android:id="@+id/editProgrammeTypeS"
@@ -226,23 +227,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Type"
                     android:inputType="none"
+                    android:text="Type"
                     android:textColor="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textLocationS"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:hint="Location"
+                app:counterEnabled="true"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                android:layout_marginTop="15dp"
-                style="@style/FilledTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:counterEnabled="true"
                 app:layout_constraintTop_toBottomOf="@+id/programmeType">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -250,14 +251,13 @@
                     style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="top"
                     android:inputType="textMultiLine"
                     android:lines="6"
-                    android:gravity="top"
                     android:overScrollMode="always"
-                    android:scrollbars="vertical"
                     android:scrollbarStyle="insideInset"
-                    android:scrollHorizontally="false"
-                    />
+                    android:scrollbars="vertical"
+                    android:scrollHorizontally="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -270,33 +270,33 @@
                 android:hint="Website"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/ic_website"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+                app:layout_constraintTop_toBottomOf="@+id/textLocationS"
+                app:startIconDrawable="@drawable/ic_website">
 
                 <AutoCompleteTextView
                     android:id="@+id/editTextWebsite"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="15sp"
+                    android:inputType="textWebEditText"
                     android:textColor="@color/gray"
-                    android:inputType="textWebEditText"/>
+                    android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textDescriptionS"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:hint="Description"
+                app:counterEnabled="true"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                android:layout_marginTop="15dp"
-                style="@style/FilledTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:counterEnabled="true"
                 app:layout_constraintTop_toBottomOf="@+id/textWebsiteS">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -304,14 +304,13 @@
                     style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="top"
                     android:inputType="textMultiLine"
                     android:lines="6"
-                    android:gravity="top"
                     android:overScrollMode="always"
-                    android:scrollbars="vertical"
                     android:scrollbarStyle="insideInset"
-                    android:scrollHorizontally="false"
-                    />
+                    android:scrollbars="vertical"
+                    android:scrollHorizontally="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -332,7 +331,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDescriptionS">
-
 
 
                 <LinearLayout
@@ -357,24 +355,22 @@
 
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/saveS2"
-                style="@style/edit_profile_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="@color/salary_text_color"
-                android:text="Save"
-                app:layout_constraintEnd_toStartOf="@+id/attachfile"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/attachfile" />
-            
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--Input Username in Employee register page-->
-
     </ScrollView>
+    <Button
+        android:id="@+id/confirm_programme_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/salary_text_color"
+        android:fontFamily="@font/hind_siliguri_bold"
+        android:text="Post Programme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
