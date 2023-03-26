@@ -12,7 +12,7 @@ class ApplicantListActivity : AppCompatActivity() {
 
         val acceptBtn = findViewById<Button>(R.id.accept_button)
         acceptBtn.setOnClickListener {
-            startActivity(Intent(this,InterviewFormLayout::class.java))
+            startActivity(Intent(this,InterviewFormActivity::class.java))
         }
     }
 }
