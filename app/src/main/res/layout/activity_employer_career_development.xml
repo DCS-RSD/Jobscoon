@@ -41,18 +41,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
         android:elevation="0dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/top_nav">
 
         <TextView
             android:id="@+id/careerDevelopment"
@@ -119,7 +117,7 @@
                     <ImageView
                         android:id="@+id/careerUpdateImage"
                         android:layout_width="match_parent"
-                        android:layout_height="135dp"
+                        android:layout_height="200dp"
                         android:layout_marginTop="4dp"
                         android:contentDescription="updateImage1"
                         app:layout_constraintBottom_toBottomOf="parent"
