@@ -191,32 +191,9 @@
                 android:hint="Company Contact Number"
                 app:helperText="Required*"
                 app:helperTextTextColor="@color/red"
-                app:startIconDrawable="@drawable/ringph_gray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEmailS">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextPhoneS"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    android:inputType="textPhonetic"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textPhoneS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Company Phone Number"
-                android:layout_marginTop="15dp"
-                app:startIconDrawable="@drawable/ringph_gray"
-                app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
                 app:prefixText="+60"
                 app:prefixTextColor="#9F6FFD"
+                app:startIconDrawable="@drawable/ringph_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textEmailS">
@@ -224,11 +201,15 @@
                 <AutoCompleteTextView
                     android:id="@+id/editTextPhoneS"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:maxLength="10"
-                    android:inputType="textPhonetic"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    style="@style/text_input_style"
+                    android:inputType="textPhonetic"/>
+
             </com.google.android.material.textfield.TextInputLayout>
+
+            
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/programmeType"
                 style="@style/FilledTextInputLayout1"
