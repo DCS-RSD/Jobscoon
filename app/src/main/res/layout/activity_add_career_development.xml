@@ -221,7 +221,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textPhoneS">
 
                 <AutoCompleteTextView
-                    android:id="@+id/editTextLocationS"
+                    android:id="@+id/editProgrammeTypeS"
                     style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -233,19 +233,21 @@
 
             <!--Paragraph in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textAMS"
+                android:id="@+id/textLocationS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="About Me"
+                android:hint="Location"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
                 android:layout_marginTop="15dp"
                 style="@style/FilledTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:counterEnabled="true"
-                app:layout_constraintTop_toBottomOf="@+id/textPwdS">
+                app:layout_constraintTop_toBottomOf="@+id/programmeType">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextAMS"
+                    android:id="@+id/editLocation"
                     style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -277,7 +279,7 @@
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAMS">
+                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
 
                 <LinearLayout
                     android:layout_width="match_parent"
