@@ -4,221 +4,211 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".InterviewFormActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="60dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/icon_arrowback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/app_logo" />
+        app:srcCompat="@drawable/icon_arrowback" />
 
-    <TextView
-        android:id="@+id/textView6"
-        style="@style/heading2"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Interview With Chai Xu Kun"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_home" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/hind_siliguri_bold"
+        android:text="Interview Schedule"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
 
     <ScrollView
-        android:layout_width="404dp"
-        android:layout_height="533dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_btn"
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirm_interview_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/title">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <TextView
-                style="@style/heading2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Date" />
-            <Button
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/date"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="20sp"
-                android:layout_marginBottom="10sp"
-                android:background="@drawable/rounded_button"
-                android:text="Select A Date" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Date (DD/MM/YYYY)"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
+                app:startIconDrawable="@drawable/icon_calendar">
 
-            <TextView
-                style="@style/heading2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Time" />
+                <AutoCompleteTextView
+                    android:id="@+id/editDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
 
-            <Button
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/startTime"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="20sp"
-                android:layout_marginBottom="10sp"
-                android:background="@drawable/rounded_button"
-                android:text="Start Time" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Start Time"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appTitleS"
+                app:startIconDrawable="@drawable/icon_clock">
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/teko_regular"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:text="to" />
+                <AutoCompleteTextView
+                    android:id="@+id/editClock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
 
-            <Button
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/endTime"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="20sp"
-                android:layout_marginBottom="10sp"
-                android:background="@drawable/rounded_button"
-                android:text="End Time" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                android:hint="End Time"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appTitleS"
+                app:startIconDrawable="@drawable/icon_clock">
 
-            <TextView
-                style="@style/heading2"
+                <AutoCompleteTextView
+                    android:id="@+id/editEndTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/type"
+                style="@style/FilledTextInputLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Type" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                app:startIconDrawable="@drawable/icon_interview_type">
 
+                <AutoCompleteTextView
+                    android:id="@+id/editTextLocationS"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Virtual"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/type_spinner"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/link"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginEnd="20sp"
-                android:layout_marginBottom="10sp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/colorPrimary"
-                android:padding="20sp" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Link"
+                app:helperText="Required*"
+                app:helperTextTextColor="@color/red"
+                app:startIconDrawable="@drawable/icon_link">
 
-            <TextView
-                style="@style/heading2"
+                <AutoCompleteTextView
+                    android:id="@+id/editLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/remark"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Registration Number" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Remark"
+                android:nestedScrollingEnabled="true"
+                app:startIconDrawable="@drawable/icon_note">
 
-            <EditText
-                android:id="@+id/companyRegNo"
-                style="@style/input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_layout"
-                android:ems="10"
-                android:hint="Enter Registration Number"
-                android:inputType="text" />
+                <AutoCompleteTextView
+                    android:id="@+id/editRemark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
 
-            <TextView
-                style="@style/heading2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Country" />
-
-            <EditText
-                android:id="@+id/companyCountry"
-                style="@style/input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_layout"
-                android:ems="10"
-                android:hint="Enter Country"
-                android:inputType="text" />
-
-            <TextView
-                style="@style/heading2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="State" />
-
-            <EditText
-                android:id="@+id/companyState"
-                style="@style/input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_layout"
-                android:ems="10"
-                android:hint="Enter State"
-                android:inputType="text" />
-
-            <TextView
-                style="@style/heading2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Address" />
-
-            <EditText
-                android:id="@+id/companyAddress"
-                style="@style/input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_layout"
-                android:ems="10"
-                android:hint="Enter Address"
-                android:inputType="textMultiLine"
-                android:lines="3" />
-
-            <TextView
-                style="@style/heading2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40sp"
-                android:text="Description" />
-
-            <EditText
-                android:id="@+id/companyDesc"
-                style="@style/input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_layout"
-                android:ems="10"
-                android:hint="About Your Company..."
-                android:inputType="textMultiLine"
-                android:lines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
-
     </ScrollView>
 
+
     <Button
-        android:id="@+id/sign_up_btn"
-        style="@style/submit_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/confirm_interview_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Sign Up"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/green"
+        android:text="Confirm Schedule"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
