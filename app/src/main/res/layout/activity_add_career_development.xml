@@ -57,7 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_nav">
+        app:layout_constraintTop_toBottomOf="@id/top_nav"
+        app:layout_constraintBottom_toTopOf="@id/confirm_programme_btn">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -372,5 +373,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
