@@ -220,7 +220,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPhoneS"
-                app:startIconDrawable="@drawable/loaction_gray">
+                app:startIconDrawable="@drawable/ic_type">
 
                 <AutoCompleteTextView
                     android:id="@+id/editProgrammeTypeS"
