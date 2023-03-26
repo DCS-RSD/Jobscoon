@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_job_post_form)
+        setContentView(R.layout.activity_employee_career_development)
 
         /*
         val btn = findViewById<Button>(R.id.employer_login_btn)
