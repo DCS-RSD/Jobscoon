@@ -10,5 +10,6 @@ data class JobPostItem(
     val shift: String,
     val title: String,
     val type: String,
-    val updated_at: String
+    val updated_at: String,
+    val post_at: String,
 )

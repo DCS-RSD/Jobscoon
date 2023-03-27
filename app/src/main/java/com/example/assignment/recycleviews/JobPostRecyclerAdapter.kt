@@ -42,14 +42,14 @@ class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPo
         val jobSalary = itemView.findViewById<TextView>(R.id.salary)
         val jobType = itemView.findViewById<TextView>(R.id.type)
         val jobShift = itemView.findViewById<TextView>(R.id.shift)
-//        val jobPostedTime = itemView.findViewById<TextView>(R.id.posted_time)
+        val jobPostedTime = itemView.findViewById<TextView>(R.id.posted_time)
 
         fun bind(jobPost: JobPostItem) {
             jobTitle.text = jobPost.title
             jobSalary.text = jobPost.salary_lower.toString() + "-" + jobPost.salary_upper.toString()
             jobType.text = jobPost.type
             jobShift.text = jobPost.shift
-
+            jobPostedTime.text = jobPost.post_at
         }
     }
 }
