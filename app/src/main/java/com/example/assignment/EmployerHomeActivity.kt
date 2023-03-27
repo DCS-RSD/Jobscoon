@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Log.d
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,13 +24,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 class EmployerHomeActivity : AppCompatActivity() {
 
     lateinit var jobAdapter: JobPostRecyclerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycle_view)
 
-
+        val recycleView = findViewById<RecyclerView>(R.id.recycleView)
+        recycleView.setHasFixedSize(true)
+        recycleView.layoutManager = LinearLayoutManager(this)
         fetchData()
-//        val viewApplicant = findViewById<Button>(R.id.view_button)
+
+
+    //        val viewApplicant = findViewById<Button>(R.id.view_button)
 //        viewApplicant.setOnClickListener {
 //            startActivity(Intent(this, ApplicantListActivity::class.java))
 //        }
@@ -53,26 +60,24 @@ class EmployerHomeActivity : AppCompatActivity() {
                 call: Call<List<JobPostItem>?>,
                 response: Response<List<JobPostItem>?>
             ) {
-                initRecyclerView()
+
                 val responseBody = response.body()!!
 
-                jobAdapter.submitList(responseBody)
+                jobAdapter = JobPostRecyclerAdapter(baseContext,responseBody)
+                jobAdapter.notifyDataSetChanged()
+                findViewById<RecyclerView>(R.id.recycleView).adapter = jobAdapter
 
             }
 
             override fun onFailure(call: Call<List<JobPostItem>?>, t: Throwable) {
-                Log.d("E", "onFailure: " + t.message)
+                d("E", "onFailure: " + t.message)
             }
         })
     }
 
-    private fun initRecyclerView() {
-
-        findViewById<RecyclerView>(R.id.recycleView).apply {
-            layoutManager = LinearLayoutManager(this@EmployerHomeActivity)
-            jobAdapter = JobPostRecyclerAdapter()
-            adapter = jobAdapter
-        }
-    }
+//    private fun initRecyclerView() {
+//
+//
+//    }
 
 }

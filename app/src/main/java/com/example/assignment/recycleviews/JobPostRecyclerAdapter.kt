@@ -1,5 +1,6 @@
 package com.example.assignment.recycleviews
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.api.JobPostItem
 
-class JobPostRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPostItem>)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var jobPostList: List<JobPostItem> = ArrayList()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return JobPostViewHolder(
@@ -30,10 +32,6 @@ class JobPostRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return jobPostList.size
-    }
-
-    fun submitList(apiJobPostList: List<JobPostItem>){
-        jobPostList = apiJobPostList
     }
 
 
