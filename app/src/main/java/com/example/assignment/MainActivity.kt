@@ -9,15 +9,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_employee_career_development)
+        setContentView(R.layout.activity_main)
 
-        /*
-        val btn = findViewById<Button>(R.id.employer_login_btn)
+
+        val btn = findViewById<Button>(R.id.button2)
         btn.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        */
+
 
     }
 }
