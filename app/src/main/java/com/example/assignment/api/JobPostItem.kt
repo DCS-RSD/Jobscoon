@@ -4,7 +4,7 @@ data class JobPostItem(
     val company_id: Int,
     val created_at: String,
     val description: String,
-    val id: Int,
+    val id: Int?,
     val salary_lower: Int,
     val salary_upper: Int,
     val shift: String,

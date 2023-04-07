@@ -10,12 +10,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-
+        val intent = Intent(this, JobPostFormActivity::class.java)
+        startActivity(intent)
 
         val btn = findViewById<Button>(R.id.button2)
         btn.setOnClickListener{
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+
         }
 
 
