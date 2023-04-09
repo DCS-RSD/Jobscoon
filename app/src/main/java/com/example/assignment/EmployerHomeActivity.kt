@@ -1,20 +1,13 @@
 package com.example.assignment
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Log.d
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assignment.api.ApiInterface
-import com.example.assignment.api.JobPost
+import com.example.assignment.api.Route
 import com.example.assignment.api.JobPostItem
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
-import kotlinx.coroutines.Job
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -52,7 +45,7 @@ class EmployerHomeActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(getString(R.string.api_link))
             .build()
-            .create(ApiInterface::class.java)
+            .create(Route::class.java)
             .getJobPost()
 
         build.enqueue(object : Callback<List<JobPostItem>?> {
