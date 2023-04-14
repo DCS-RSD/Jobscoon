@@ -37,15 +37,7 @@
             android:contentDescription="home"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/join_btn"
-        app:layout_constraintTop_toBottomOf="@id/top_nav"
-        >
+
     <TextView
         android:id="@+id/programme_title1"
         android:layout_width="wrap_content"
@@ -57,7 +49,7 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/top_nav" />
 
     <ImageView
         android:id="@+id/careerUpdateImage"
@@ -112,7 +104,7 @@
                 style="@style/interviewer_detail_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="10dp"
                 android:drawableLeft="@drawable/icon_location"
                 android:text="No location"
@@ -129,7 +121,7 @@
                 style="@style/interviewer_detail_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:drawableLeft="@drawable/ic_calendar"
                 android:text="03/08/2019"
                 android:textSize="20dp"
@@ -146,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="10dp"
                 android:drawableLeft="@drawable/icon_time"
                 android:text="8:00a.m.-10:00a.m."
@@ -159,13 +151,12 @@
             <TextView
                 android:id="@+id/email"
                 style="@style/interviewer_detail_layout"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/icon_email"
-
                 android:text="idolproducer@gmail.com"
+
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/programmeType"
@@ -175,10 +166,9 @@
             <TextView
                 android:id="@+id/contactNo"
                 style="@style/interviewer_detail_layout"
-                android:layout_width="145dp"
-                android:layout_height="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/icon_phone"
                 android:text="0102540803"
                 android:textSize="20dp"
@@ -193,7 +183,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
                 android:drawableLeft="@drawable/ic_website"
                 android:text="https://www.idolproducer.com"
                 android:textSize="20dp"
@@ -230,7 +219,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</ScrollView>
+
     <Button
         android:id="@+id/join_btn"
         android:layout_width="wrap_content"
@@ -240,7 +229,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+        app:layout_constraintTop_toBottomOf="@+id/programmeCard" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
