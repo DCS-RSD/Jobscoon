@@ -8,7 +8,9 @@ import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.example.assignment.api.LoginErrorResponse
 import com.example.assignment.api.LoginResponse
+import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.api.Route
 import com.example.assignment.databinding.ActivityLoginBinding
 import retrofit2.Call
@@ -33,34 +35,31 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun login() {
+    private fun login() {
 
-
-        val build = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(getString(R.string.api_link))
-            .build()
-            .create(Route::class.java)
+        val build = RetrofitBuild.build()
             .login(
                 binding.loginEmail.text.toString(),
                 binding.loginPassword.text.toString(),
             )
-
 
         build.enqueue(object : Callback<LoginResponse?> {
             override fun onResponse(
                 call: Call<LoginResponse?>,
                 response: Response<LoginResponse?>
             ) {
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     Toast.makeText(applicationContext, "login success", Toast.LENGTH_SHORT).show()
-                }else {
+                } else {
                     Toast.makeText(applicationContext, "login fail", Toast.LENGTH_SHORT).show()
+                    Log.d("login", "onResponse: " + response.errorBody()!!.string())
+
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse?>, t: Throwable) {
-                Log.d("error", "onFailure: " + t.toString())
+                Log.d("fail", "onFailure: "+t.message)
+
             }
         })
     }
