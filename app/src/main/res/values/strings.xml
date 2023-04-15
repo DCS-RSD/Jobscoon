@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">Jobscoon</string>
+    <string name="api_link">http://10.0.2.2:8000/api/</string>
+    <string-array name="interview_type">
+        <item>Physical</item>
+        <item>Virtual</item>
+    </string-array>
+    <string name="search">Job title, keywords, or company</string>
+    <string name="searchApplicant">Name, keywords, or email</string>
+    <string name="kuala_lumpur">Kuala Lumpur</string>
+    <string name="rm_3000_a_month">RM 3000 a month</string>
+    <string name="monday_to_friday">Monday to Friday</string>
+    <string name="_1_day_ago">1 day ago</string>
+    <string name="rm_3000_rm_8000_a_month">RM 3000 - RM 8000 a month</string>
+    <string name="full_time">Full-Time</string>
+    <string name="flexible_hours">Flexible Hours</string>
+    <string name="job_desc">We are Melbourne based boutique Real Estate Agency and we are currently seeking for a client service manager to join our team.\n\nAs part of a fast growing pace the successful candidate must have a can-do attitude supporting our dynamic team.\n\nKey Attributes to the Successful Candidate\n
+    - Proficiency in Microsoft Office Suite\n    - Strong customer service skills\n    - Hands-on experience with office equipment\n    - Professional attitude and appearance\n    - Solid written and communication skills\n    - Ability to be resourceful and proactive when issues arise\n    - Multitasking and time-management skills\n\nAbout You\nYou will be a reliable, bubbly, enthusiastic and mature individual with a passion for real estate. You are energetic and self-motivated, always looking to work efficiently and effectively. You enjoy working in a team and leading by example, working together to ensure that everyone is succeeding in their roles.\n\n
+Benefits\n
+    - Professional development\n    - Work from home\n</string>
+    <string name="applicant_email">chaixk@kun.com</string>
+    <string name="textUsername" />
+    <string name="background">Company Background</string>
+    <string name="random_icon" />
+    <string name="usernameS"></string>
+    <string name="emailS"></string>
+    <string name="phoneS"></string>
+
+    <string-array name="location">
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Kuala Lumpur</item>
+        <item>Melaka</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Tereengganu</item>
+    </string-array>
+
 </resources>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">30sp</item>
+        <item name="android:layout_marginTop">15sp</item>
+        <item name="android:layout_marginEnd">30sp</item>
+        <item name="android:layout_marginBottom">10sp</item>
+        <item name="android:ems">10</item>
+        <item name="android:padding">10sp</item>
+        <item name="android:background">@color/white</item>
+
+    </style>
+
+    <style name="submit_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:paddingLeft">50sp</item>
+        <item name="android:paddingRight">50sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="heading2">
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:paddingLeft">32sp</item>
+    </style>
+
+    <style name="badge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_border</item>
+        <item name="android:paddingStart">10sp</item>
+        <item name="android:paddingTop">5sp</item>
+        <item name="android:paddingEnd">10sp</item>
+        <item name="android:paddingBottom">5sp</item>
+    </style>
+
+    <style name="interviewer_detail_layout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:drawablePadding">10sp</item>
+    </style>
+    <style name="history_date">
+        <item name="fontFamily">@font/archivo_narrow_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="jobs_card_view">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="jobs_detail_card_view">
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <style name="company_and_location_name_text">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+    <style name="jobs_name_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="jobs_detail_name_text">
+        <item name="fontFamily">@font/hind_siliguri_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="jobs_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <style name="salary_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/salary_layout_color</item>
+        <item name="android:textColor">@color/salary_text_color</item>
+    </style>
+
+    <style name="jobsType_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/jobsType_layout_color</item>
+        <item name="android:textColor">@color/jobsType_text_color</item>
+    </style>
+
+    <style name="jobsShift_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/jobsShift_layout_color</item>
+        <item name="android:textColor">@color/jobsShift_text_color</item>
+    </style>
+
+    <style name="myJobs_detail_text">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/job_detail_text_background</item>
+        <item name="android:backgroundTint">@color/myJobs_details_layout_color</item>
+        <item name="android:textColor">@color/myJobs_details_text_color</item>
+    </style>
+
+    <style name="job_desc">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="FilledTextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/text_input_border_color</item>
+        <item name="hintTextColor">@color/text_input_border_color</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="text_input_style">
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="FilledTextInputLayout1" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/text_input_border_color</item>
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+    </style>
+    <style name="day">
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="month">
+        <item name="fontFamily">@font/hind_siliguri_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">48dp</item>
+    </style>
+
+    <style name="year">
+        <item name="fontFamily">@font/hind_siliguri_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+    <style name="interview_detail_text">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="interview_accept_button">
+        <item name="android:layout_marginStart">14dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:layout_marginEnd">7dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="backgroundTint">@color/salary_text_color</item>
+        <item name="android:drawableLeft">@drawable/icon_done</item>
+        <item name="android:text">ACCEPT</item>
+    </style>
+
+    <style name="interview_declined_button">
+        <item name="android:layout_marginStart">7dp</item>
+        <item name="android:layout_marginEnd">14dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+        <item name="backgroundTint">@color/rejected_text_color</item>
+        <item name="android:drawableLeft">@drawable/icon_cancel</item>
+        <item name="android:text">DECLINED</item>
+    </style>
+
+    <style name="edit_profile_button">
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/hind_siliguri_bold</item>
+    </style>
+
+    <style name="navigation" parent="@style/Widget.Material3.NavigationView">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">21dp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+</resources>
