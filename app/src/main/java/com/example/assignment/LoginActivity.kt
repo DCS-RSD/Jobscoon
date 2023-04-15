@@ -13,6 +13,7 @@ import com.example.assignment.api.LoginResponse
 import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.api.Route
 import com.example.assignment.databinding.ActivityLoginBinding
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         binding.loginBtn.setOnClickListener {
-            login()
+            submitLogin()
         }
 
         binding.signUpBtn.setOnClickListener {
@@ -35,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login() {
+    private fun submitLogin() {
 
         val build = RetrofitBuild.build()
             .login(
@@ -50,16 +51,43 @@ class LoginActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     Toast.makeText(applicationContext, "login success", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(applicationContext, "login fail", Toast.LENGTH_SHORT).show()
-                    Log.d("login", "onResponse: " + response.errorBody()!!.string())
+                } else if (response.code() == 422) { //validation fails
+                    val error = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        LoginErrorResponse::class.java
+                    )
 
+                    Toast.makeText(
+                        applicationContext,
+                        "Login Fail : " + error.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    Log.d("login", "onResponse: " + error.errors)
+                } else if (response.code() == 401) { //wrong email or password
+                    val error : String
+                    Toast.makeText(
+                        applicationContext,
+                        "Invalid Email or Password",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else { //unknown error
+                    Toast.makeText(
+                        applicationContext,
+                        "Something went wrong",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse?>, t: Throwable) {
-                Log.d("fail", "onFailure: "+t.message)
+                Log.d("fail", "onFailure: " + t.message)
 
+                Toast.makeText( //no connection
+                    applicationContext,
+                    "Something went wrong. Kindly check your connection",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         })
     }
