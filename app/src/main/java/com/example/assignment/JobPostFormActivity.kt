@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.assignment.api.Route
-import com.example.assignment.api.JobPostItem
+import com.example.assignment.dataclass.JobPostItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

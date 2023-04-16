@@ -5,26 +5,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.assignment.api.LoginErrorResponse
-import com.example.assignment.api.LoginResponse
+import com.example.assignment.auth.LoginErrorResponse
+import com.example.assignment.auth.LoginResponse
 import com.example.assignment.api.RetrofitBuild
-import com.example.assignment.api.Route
 import com.example.assignment.databinding.ActivityLoginBinding
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+
+
 
         binding.loginBtn.setOnClickListener {
             submitLogin()
@@ -51,6 +49,14 @@ class LoginActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     Toast.makeText(applicationContext, "login success", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@LoginActivity, EmployerHomeActivity::class.java))
+
+                    val sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("Token","Bearer " + response.body()!!.token)
+                    editor.apply()
+                    finish()
+
                 } else if (response.code() == 422) { //validation fails
                     val error = Gson().fromJson(
                         response.errorBody()!!.string(),
@@ -65,7 +71,6 @@ class LoginActivity : AppCompatActivity() {
 
                     Log.d("login", "onResponse: " + error.errors)
                 } else if (response.code() == 401) { //wrong email or password
-                    val error : String
                     Toast.makeText(
                         applicationContext,
                         "Invalid Email or Password",

@@ -1,4 +1,4 @@
-package com.example.assignment.api
+package com.example.assignment.auth
 
 data class Errors(
     val email: List<String>,

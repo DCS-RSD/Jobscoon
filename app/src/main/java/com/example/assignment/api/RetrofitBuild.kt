@@ -5,12 +5,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitBuild {
+
     companion object
     {
-       fun build(): Route{
+        private const val BASE_URL : String= "http://10.0.2.2:8000/api/"
+        fun build(): Route{
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-            .baseUrl("http://10.0.2.2:8000/api/")
+            .baseUrl(BASE_URL)
             .build()
             .create(Route::class.java)
            }

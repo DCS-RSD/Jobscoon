@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
-import com.example.assignment.api.JobPostItem
+import com.example.assignment.dataclass.JobPostItem
 
 class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPostItem>)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

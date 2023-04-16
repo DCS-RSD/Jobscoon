@@ -1,4 +1,4 @@
-package com.example.assignment.api
+package com.example.assignment.dataclass
 
 class JobPost : ArrayList<JobPostItem>() {
 

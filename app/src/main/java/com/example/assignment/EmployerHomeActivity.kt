@@ -1,18 +1,18 @@
 package com.example.assignment
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assignment.api.Route
-import com.example.assignment.api.JobPostItem
+import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class EmployerHomeActivity : AppCompatActivity() {
 
@@ -41,12 +41,12 @@ class EmployerHomeActivity : AppCompatActivity() {
     }
 
     private fun fetchData() {
-        val build = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(getString(R.string.api_link))
-            .build()
-            .create(Route::class.java)
-            .getJobPost()
+
+
+        val sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE)
+
+        val build = RetrofitBuild.build()
+            .getJobPost(sharedPreferences.getString("Token","")!!)
 
         build.enqueue(object : Callback<List<JobPostItem>?> {
             override fun onResponse(
@@ -54,11 +54,15 @@ class EmployerHomeActivity : AppCompatActivity() {
                 response: Response<List<JobPostItem>?>
             ) {
 
-                val responseBody = response.body()!!
+                if (response.isSuccessful) {
+                    val responseBody = response.body()!!
 
-                jobAdapter = JobPostRecyclerAdapter(baseContext,responseBody)
-                jobAdapter.notifyDataSetChanged()
-                findViewById<RecyclerView>(R.id.recycleView).adapter = jobAdapter
+                    jobAdapter = JobPostRecyclerAdapter(baseContext, responseBody)
+                    jobAdapter.notifyDataSetChanged()
+                    findViewById<RecyclerView>(R.id.recycleView).adapter = jobAdapter
+                }else{
+                    Toast.makeText(applicationContext,"Error",Toast.LENGTH_LONG).show()
+                }
 
             }
 
