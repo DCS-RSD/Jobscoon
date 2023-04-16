@@ -4,4 +4,5 @@
     <dimen name="card_corner_radius" />
     <dimen name="card_elevation" />
     <dimen name="text_padding" />
+    <dimen name="large_margin">48dp</dimen>
 </resources>
