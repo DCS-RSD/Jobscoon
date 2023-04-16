@@ -64,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.352"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon_arrowback"
+            app:layout_constraintTop_toBottomOf="@id/icon_arrowback"/>
 
         <SearchView
             android:id="@+id/searchBar"
@@ -136,9 +136,8 @@
                         style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/ic_type"
-                        android:margin_top="2dp"
                         android:text="Online"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programme_title1"
@@ -151,10 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:drawableLeft="@drawable/icon_location"
-
-                        android:margin_top="2dp"
                         android:text="No location"
-                        android:textColor="#555452"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programmeType"
                         app:layout_constraintTop_toBottomOf="@+id/programmeType" />
@@ -165,9 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-
                         android:drawableLeft="@drawable/icon_calendar"
-                        android:margin_top="2dp"
                         android:text="03/08/2019"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programmeLocation"
