@@ -1,4 +1,4 @@
-package com.example.assignment.api
+package com.example.assignment.dataclass
 
 data class User(
     val created_at: String,

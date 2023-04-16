@@ -1,4 +1,4 @@
-package com.example.assignment.api
+package com.example.assignment.dataclass
 
 data class JobPostItem(
     val company_id: Int,

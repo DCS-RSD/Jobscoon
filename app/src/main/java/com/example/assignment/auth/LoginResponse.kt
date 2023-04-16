@@ -1,4 +1,6 @@
-package com.example.assignment.api
+package com.example.assignment.auth
+
+import com.example.assignment.dataclass.User
 
 data class LoginResponse(
     val message : String,
