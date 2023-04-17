@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import com.example.assignment.auth.LoginErrorResponse
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.api.RetrofitBuild
@@ -33,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
 
     private fun submitLogin() {
 

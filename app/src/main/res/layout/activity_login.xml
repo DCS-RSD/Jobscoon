@@ -3,10 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity" >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginActivity">
+        >
 
         <ImageView
             android:id="@+id/logo"
@@ -119,7 +124,8 @@
                 android:text="Sign Up"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
 
@@ -127,4 +133,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 </layout>

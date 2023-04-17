@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class JobPostFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_job_post_form)
+        setContentView(R.layout.activity_post_job_employer)
 
         val build = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())

@@ -8,7 +8,7 @@ import android.widget.Button
 class ApplicantListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_applicant_list)
+        setContentView(R.layout.activity_applicant_list_employer)
 
         val acceptBtn = findViewById<Button>(R.id.accept_button)
         acceptBtn.setOnClickListener {

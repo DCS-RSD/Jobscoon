@@ -6,6 +6,6 @@ import android.os.Bundle
 class InterviewFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_interview_form)
+        setContentView(R.layout.activity_schedule_interview_employer)
     }
 }

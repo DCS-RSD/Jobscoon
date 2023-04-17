@@ -6,6 +6,6 @@ import android.os.Bundle
 class MyJobsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.my_jobs)
+        setContentView(R.layout.activity_jobs_applied_employee)
     }
 }

@@ -16,7 +16,7 @@ class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return JobPostViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_employer_home, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.activity_jobs_posted_employer, parent, false)
         )
     }
 
