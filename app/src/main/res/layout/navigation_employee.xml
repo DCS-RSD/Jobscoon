@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
-        app:headerLayout="@layout/header_yee"
+        app:headerLayout="@layout/header"
         app:menu="@menu/main_menu_yee"
         android:layout_gravity="start"/>
 
