@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-
+//getSharedPreferences("User",Context.MODE_PRIVATE).edit().clear().apply()
         Handler().postDelayed({
             if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
                 startActivity(Intent(this, EmployerHomeActivity::class.java))
