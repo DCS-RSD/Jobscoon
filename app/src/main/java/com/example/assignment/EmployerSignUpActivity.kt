@@ -8,9 +8,9 @@ import android.widget.Button
 class EmployerSignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_employer_sign_up)
+        setContentView(R.layout.activity_register_employer)
 
-        val btn = findViewById<Button>(R.id.sign_up_btn)
+        val btn = findViewById<Button>(R.id.signUpS)
         btn.setOnClickListener{
             startActivity(Intent(this,EmployerHomeActivity::class.java))
         }
