@@ -212,47 +212,7 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Upload file in Employee register page-->
-        <LinearLayout
-            android:id="@+id/attachfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/dashed_frame"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="vertical"
-            android:outlineProvider="background"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textAMS">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <ImageView
-                    android:id="@+id/uploadIcon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/upload_gray" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Upload Resume"
-                    android:textColor="#000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-        </LinearLayout>
 
         <!--Sign up button in Employee register page-->
 
