@@ -7,6 +7,7 @@
     tools:context=".FindJobsEmployeeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/find_jobs_employee_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

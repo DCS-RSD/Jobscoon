@@ -8,6 +8,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import com.example.assignment.auth.LoginErrorResponse
 import com.example.assignment.auth.LoginResponse
@@ -24,11 +26,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-
-
         binding.loginBtn.setOnClickListener {
             submitLogin()
-
         }
 
         binding.signUpBtn.setOnClickListener {
