@@ -12,16 +12,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.nav)
 
-        Handler().postDelayed({
+        /*Handler().postDelayed({
             if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
                 startActivity(Intent(this, EmployerHomeActivity::class.java))
             } else {
                 startActivity(Intent(this, LoginActivity::class.java))
             }
             finish()
-        },2000)
+        },2000)*/
 
 
 
