@@ -28,11 +28,15 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         binding.loginBtn.setOnClickListener {
-            binding.loginContainer.visibility = View.GONE
+            val intent = Intent(this, NavigationHost::class.java)
+            startActivity(intent)
+            /*binding.loginContainer.visibility = View.GONE
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_login, FindJobsEmployeeFragment())
                 .addToBackStack(null)
                 .commit()
+
+             */
             //submitLogin()
         }
 

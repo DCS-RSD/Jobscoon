@@ -3,18 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/jobsDetailsEmployeeFragment">
+    app:startDestination="@id/findJobsEmployeeFragment">
 
 
     <fragment
         android:id="@+id/findJobsEmployeeFragment"
         android:name="com.example.assignment.FindJobsEmployeeFragment"
         android:label="fragment_find_jobs_employee"
-        tools:layout="@layout/fragment_find_jobs_employee" />
+        tools:layout="@layout/fragment_find_jobs_employee" >
+        <action
+            android:id="@+id/action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment"
+            app:destination="@id/jobDetailsEmployeeFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/jobsDetailsEmployeeFragment"
-        android:name="com.example.assignment.JobsDetailsEmployeeFragment"
-        android:label="JobsDetailsEmployeeFragment"
-        tools:layout="@layout/fragment_jobs_details_employee"/>
+        android:id="@+id/jobDetailsEmployeeFragment"
+        android:name="com.example.assignment.JobDetailsEmployeeFragment"
+        android:label="fragment_job_details_employee"
+        tools:layout="@layout/fragment_job_details_employee" />
 
 </navigation>
