@@ -11,7 +11,7 @@ import androidx.core.os.HandlerCompat.postDelayed
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_start_up)
 
     }
 }

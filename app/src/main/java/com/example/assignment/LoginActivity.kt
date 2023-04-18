@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.assignment.auth.LoginErrorResponse
 import com.example.assignment.auth.LoginResponse
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginBtn.setOnClickListener {
             submitLogin()
+
         }
 
         binding.signUpBtn.setOnClickListener {
@@ -99,5 +101,6 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
 
 }
