@@ -3,22 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/jobsDetailsEmployeeFragment">
 
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.assignment.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_findJobsEmployeeFragment"
-            app:destination="@id/findJobsEmployeeFragment" />
-    </fragment>
     <fragment
         android:id="@+id/findJobsEmployeeFragment"
         android:name="com.example.assignment.FindJobsEmployeeFragment"
         android:label="fragment_find_jobs_employee"
         tools:layout="@layout/fragment_find_jobs_employee" />
+    <fragment
+        android:id="@+id/jobsDetailsEmployeeFragment"
+        android:name="com.example.assignment.JobsDetailsEmployeeFragment"
+        android:label="JobsDetailsEmployeeFragment"
+        tools:layout="@layout/fragment_jobs_details_employee"/>
 
 </navigation>

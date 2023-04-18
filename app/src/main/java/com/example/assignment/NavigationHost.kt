@@ -1,11 +1,15 @@
 package com.example.assignment
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 
-class JobDetailsActivity : AppCompatActivity() {
+class NavigationHost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_job_details_employee)
+        setContentView(R.layout.navigation_host)
+
     }
 }

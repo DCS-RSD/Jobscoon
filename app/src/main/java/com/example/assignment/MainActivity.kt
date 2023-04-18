@@ -11,8 +11,16 @@ import androidx.core.os.HandlerCompat.postDelayed
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
 
+        Handler().postDelayed({
+            if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
+                startActivity(Intent(this, EmployerHomeActivity::class.java))
+            } else {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+            finish()
+        },2000)
     }
 }
 
