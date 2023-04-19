@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment"
             app:destination="@id/findJobsEmployeeFragment" />
+        <action
+            android:id="@+id/action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment2"
+            app:destination="@id/findJobsEmployeeFragment" />
     </fragment>
     <fragment
         android:id="@+id/jobsAppliedEmployeeFragment"
@@ -35,6 +38,24 @@
         <action
             android:id="@+id/action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment"
             app:destination="@id/jobDetailsEmployeeFragment" />
+        <action
+            android:id="@+id/action_jobsAppliedEmployeeFragment_to_interviewEmployeeFragment"
+            app:destination="@id/interviewEmployeeFragment" />
+        <action
+            android:id="@+id/action_jobsAppliedEmployeeFragment_to_findJobsEmployeeFragment"
+            app:destination="@id/findJobsEmployeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/interviewEmployeeFragment"
+        android:name="com.example.assignment.InterviewEmployeeFragment"
+        android:label="fragment_interview_employee"
+        tools:layout="@layout/fragment_interview_employee" >
+        <action
+            android:id="@+id/action_interviewEmployeeFragment_to_jobsAppliedEmployeeFragment"
+            app:destination="@id/jobsAppliedEmployeeFragment" />
+        <action
+            android:id="@+id/action_interviewEmployeeFragment_to_findJobsEmployeeFragment"
+            app:destination="@id/findJobsEmployeeFragment" />
     </fragment>
 
 </navigation>

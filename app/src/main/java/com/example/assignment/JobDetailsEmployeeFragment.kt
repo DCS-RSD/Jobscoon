@@ -31,6 +31,9 @@ class JobDetailsEmployeeFragment : Fragment() {
         binding.imageView.setOnClickListener{
                 view : View -> view.findNavController().navigate(R.id.action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment)
         }
+        binding.imageView2.setOnClickListener {
+                view : View -> view.findNavController().navigate(R.id.action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment)
+        }
         return binding.root
     }
 

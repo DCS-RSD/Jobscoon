@@ -28,6 +28,12 @@ class JobsAppliedEmployeeFragment : Fragment() {
         binding.iconArrowback.setOnClickListener{
                 view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
         }
+        binding.imageView9.setOnClickListener {
+                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_interviewEmployeeFragment)
+        }
+        binding.iconHome.setOnClickListener {
+                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_findJobsEmployeeFragment)
+        }
         return binding.root
     }
 
