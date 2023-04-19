@@ -44,15 +44,12 @@ class LoginFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-
         binding.loginBtn.setOnClickListener {
             viewModel.submitLogin(
                 binding.loginEmail.text.toString(),
                 binding.loginPassword.text.toString()
             )
         }
-
-
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             if (it.success) {
