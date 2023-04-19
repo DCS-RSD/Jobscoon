@@ -5,29 +5,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".NavSample"
-    android:id="@+id/drawer_layout"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:id="@+id/drawerLayout"
+    tools:context=".NavYee">
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@id/nav_view"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu_yee"
-        android:layout_gravity="start" />
-
-    <ScrollView
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/barYee"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#00FFFDFA"
@@ -38,16 +27,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/icon_menu" />
 
-
         <ImageView
             android:id="@+id/app_name"
-            android:layout_width="162dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="18dp"
+            android:layout_width="156dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="17dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/app_title2" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -684,4 +673,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navView"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu_yee"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>
