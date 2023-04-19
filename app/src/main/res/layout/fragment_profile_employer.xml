@@ -1,79 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_nav"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/imageView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_arrow_back_24" />
-
-        <ImageView
-            android:id="@+id/imageView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_home_24" />
-
-        <TextView
-            android:id="@+id/titleS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:fontFamily="@font/hind_siliguri_bold"
-            android:text="Profile"
-            android:textColor="@color/black"
-            android:textSize="21sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView21"
-            app:layout_constraintStart_toEndOf="@+id/imageView20"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ProfileEmployerFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_nav">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_home_24" />
+
+            <TextView
+                android:id="@+id/titleS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/hind_siliguri_bold"
+                android:text="Profile"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView21"
+                app:layout_constraintStart_toEndOf="@+id/imageView20"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/hind_siliguri"
                 android:text="User"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/titleS" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/profileS"
@@ -93,16 +77,16 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="150dp">
 
                     <TextView
                         android:id="@+id/usernameS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/hind_siliguri_bold"
-                        android:text="Yuna Kim"
+                        android:text="Hanami Sdn. Bhd."
                         android:textColor="@color/black"
                         android:textSize="17sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -114,13 +98,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:drawableStart="@drawable/baseline_email_24"
                         android:fontFamily="@font/hind_siliguri"
-                        android:text=" ynk@gmail.com"
+                        android:text=" hanami@gmail.com"
                         android:textColor="@color/gray"
                         android:textSize="15sp"
-                        app:layout_constraintBottom_toTopOf="@+id/phS"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/usernameS" />
 
@@ -129,16 +112,42 @@
                         android:layout_width="114dp"
                         android:layout_height="21dp"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="4dp"
                         android:drawableStart="@drawable/baseline_phone_24"
                         android:fontFamily="@font/hind_siliguri"
-                        android:text=" 012 3456 789"
+                        android:text=" 03 - 1234 5678"
                         android:textColor="@color/gray"
                         android:textSize="15sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/emailS" />
+
+                    <TextView
+                        android:id="@+id/ssmS"
+                        android:layout_width="114dp"
+                        android:layout_height="21dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:drawableStart="@drawable/baseline_insert_drive_file_24"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text=" 202012345678"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/phS" />
+
+                    <TextView
+                        android:id="@+id/locationS"
+                        android:layout_width="114dp"
+                        android:layout_height="21dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:drawableStart="@drawable/baseline_location_on_24"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text=" Setapak"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ssmS" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -151,7 +160,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/hind_siliguri"
-                android:text="About"
+                android:text="Background"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +185,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="200dp">
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textVPwdS"
@@ -185,13 +194,10 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="Hello and welcome! My name is Yuna Kim  In terms of my experience, I have 3 years of experience in Software Engineering, where I have developed a strong set of skills in coding. And I am always eager to learn and grow in my professional and personal life.
-I am excited about the opportunity to bring my unique experiences and skills to your team and contribute to the success of your organization. Thank you for considering my application."
+                        android:text="We are a leading company in Software with a focus on innovation, quality, and customer satisfaction. Our team of experienced professionals is committed to delivering top-quality products and services to our clients. We are passionate about what we do, and we are dedicated to excellence in everything we do."
                         android:textColor="@color/black"
                         app:boxBackgroundColor="@color/white"
                         app:fontFamily="@font/hind_siliguri"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -202,26 +208,10 @@ I am excited about the opportunity to bring my unique experiences and skills to 
 
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/hind_siliguri_bold"
-                android:text="Resume"
-                android:textColor="@color/black"
-                app:cornerRadius="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/editS"
-                app:layout_constraintEnd_toEndOf="@+id/profile1S"
-                app:layout_constraintStart_toStartOf="@+id/profile1S"
-                app:layout_constraintTop_toBottomOf="@+id/profile1S" />
 
             <com.google.android.material.button.MaterialButton
+                android:fontFamily="@font/hind_siliguri_bold"
                 android:id="@+id/editS"
-                style="@style/edit_profile_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -229,14 +219,12 @@ I am excited about the opportunity to bring my unique experiences and skills to 
                 android:layout_marginEnd="24dp"
                 android:backgroundTint="@color/salary_text_color"
                 android:text="Edit"
-                app:layout_constraintEnd_toEndOf="@+id/button2"
-                app:layout_constraintStart_toStartOf="@+id/button2"
-                app:layout_constraintTop_toBottomOf="@id/button2" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile1S" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
+</layout>

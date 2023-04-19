@@ -82,5 +82,25 @@
         android:name="com.example.assignment.PostJobEmployerFragment"
         android:label="fragment_post_job_employer"
         tools:layout="@layout/fragment_post_job_employer" />
+    <fragment
+        android:id="@+id/profileEmployerFragment"
+        android:name="com.example.assignment.ProfileEmployerFragment"
+        android:label="fragment_profile_employer"
+        tools:layout="@layout/fragment_profile_employer" />
+    <fragment
+        android:id="@+id/profileEmployeeFragment"
+        android:name="com.example.assignment.ProfileEmployeeFragment"
+        android:label="fragment_profile_employee"
+        tools:layout="@layout/fragment_profile_employee" />
+    <fragment
+        android:id="@+id/editProfileEmployeeFragment"
+        android:name="com.example.assignment.EditProfileEmployeeFragment"
+        android:label="fragment_edit_profile_employee"
+        tools:layout="@layout/fragment_edit_profile_employee" />
+    <fragment
+        android:id="@+id/editProfileEmployerFragment"
+        android:name="com.example.assignment.EditProfileEmployerFragment"
+        android:label="fragment_edit_profile_employer"
+        tools:layout="@layout/fragment_edit_profile_employer" />
 
 </navigation>
