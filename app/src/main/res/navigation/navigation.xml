@@ -57,5 +57,20 @@
             android:id="@+id/action_interviewEmployeeFragment_to_findJobsEmployeeFragment"
             app:destination="@id/findJobsEmployeeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/jobsPostedEmployerFragment"
+        android:name="com.example.assignment.JobsPostedEmployerFragment"
+        android:label="fragment_jobs_posted_employer"
+        tools:layout="@layout/fragment_jobs_posted_employer" />
+    <fragment
+        android:id="@+id/applicantListEmployerFragment"
+        android:name="com.example.assignment.ApplicantListEmployerFragment"
+        android:label="fragment_applicant_list_employer"
+        tools:layout="@layout/fragment_applicant_list_employer" />
+    <fragment
+        android:id="@+id/scheduleInterviewEmployerFragment"
+        android:name="com.example.assignment.ScheduleInterviewEmployerFragment"
+        android:label="fragment_schedule_interview_employer"
+        tools:layout="@layout/fragment_schedule_interview_employer" />
 
 </navigation>
