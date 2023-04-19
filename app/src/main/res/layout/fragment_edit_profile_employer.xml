@@ -1,132 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/top_nav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/white"
-            >
-
-            <ImageView
-                android:id="@+id/icon_arrowback"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_arrowback" />
-
-            <ImageView
-                android:id="@+id/icon_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_home" />
-
-            <TextView
-                android:id="@+id/my_jobs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/hind_siliguri_bold"
-                android:text="Edit Profile"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EditProfileEmployerFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_nav">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/top_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/icon_arrowback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/icon_arrowback" />
+
+                <ImageView
+                    android:id="@+id/icon_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/icon_home" />
+
+                <TextView
+                    android:id="@+id/my_jobs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/hind_siliguri_bold"
+                    android:text="Edit Profile"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Input Company Name in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textUsernameS"
+                android:id="@+id/textComNameS"
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Username"
-                app:counterEnabled="true"
-                app:counterMaxLength="10"
-                app:endIconMode="clear_text"
+                android:layout_marginEnd="32dp"
+                android:hint="Company Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:startIconDrawable="@drawable/user_gray">
-
+                app:layout_constraintTop_toBottomOf="@+id/top_nav"
+                app:startIconDrawable="@drawable/com_gray">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    style="@style/text_input_style"
+                    android:id="@+id/editTextComNameS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="10"
+                    style="@style/text_input_style"
                     tools:ignore="DuplicateClickableBoundsCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Input Email in Employee register page-->
+            <!--Input Email in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textEmailS"
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="15dp"
-                app:endIconMode="clear_text"
-                android:hint="Email Address"
+                android:layout_marginEnd="32dp"
+                android:hint="Company Email Address"
                 app:startIconDrawable="@drawable/email_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textUsernameS">
+                app:layout_constraintTop_toBottomOf="@+id/textComNameS">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEmailS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    android:inputType="textEmailAddress"/>
-
+                    android:inputType="textEmailAddress"
+                    style="@style/text_input_style"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Input Phone in Employee register page-->
+            <!--Input Company Phone in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textPhoneS"
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:hint="Phone Number"
-                app:startIconDrawable="@drawable/icon_call"
+                android:hint="Company Phone Number"
+                app:startIconDrawable="@drawable/ringph_gray"
                 app:prefixText="+60"
                 app:endIconMode="clear_text"
                 app:prefixTextColor="@color/text_input_border_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textEmailS">
-
-
-                <!--        <com.google.android.material.textfield.TextInputEditText -->
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -137,26 +128,57 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Input Location in Employee register page-->
+
+            <!--Input SSM in Employer register page-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textSSM"
+                style="@style/FilledTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="32dp"
+                android:hint="SSM Reg No"
+                app:startIconDrawable="@drawable/ssm_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPhoneS">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextSSM"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:maxLength="12"
+                    style="@style/text_input_style"
+                    android:textColor="@color/gray"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!--Input Location in Employer register page-->
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textLocationS"
                 style="@style/FilledTextInputLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="15dp"
-                app:startIconDrawable="@drawable/loaction_gray"
+                android:layout_marginEnd="32dp"
+                android:layout_weight="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textPhoneS">
+                app:layout_constraintTop_toBottomOf="@+id/textSSM"
+                app:startIconDrawable="@drawable/loaction_gray">
 
                 <AutoCompleteTextView
                     android:id="@+id/editTextLocationS"
-                    style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Location"
-                    android:inputType="none"
+                    style="@style/text_input_style"
                     android:textColor="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,7 +191,6 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="32dp"
                 android:text="Reset Password"
-                android:fontFamily="@font/hind_siliguri"
                 android:textColor="@color/black"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +206,9 @@
                 style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="32dp"
                 android:hint="Enter New Password"
                 app:counterMaxLength="20"
                 app:endIconMode="password_toggle"
@@ -195,33 +218,33 @@
                 app:startIconDrawable="@drawable/lock_gray">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPwdS"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/text_input_style"
+                    android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:maxLength="20"/>
-
-
+                    android:maxLength="21"
+                    style="@style/text_input_style"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--Paragraph in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textAMS"
+                android:id="@+id/comBackgroundS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="About Me"
+                android:hint="@string/background"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="32dp"
                 style="@style/FilledTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:counterEnabled="true"
                 app:layout_constraintTop_toBottomOf="@+id/textPwdS">
-
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextAMS"
-                    style="@style/text_input_style"
+                    android:id="@+id/editTextIntroS"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    style="@style/text_input_style"
                     android:inputType="textMultiLine"
                     android:lines="6"
                     android:gravity="top"
@@ -232,60 +255,17 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Upload file in Employee register page-->
-            <LinearLayout
-                android:id="@+id/attachfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/dashed_frame"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:gravity="center_horizontal|center_vertical"
-                android:orientation="vertical"
-                android:outlineProvider="background"
-                android:padding="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAMS">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:id="@+id/uploadIcon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/upload_gray" />
-
-                    <TextView
-                        style="@style/text_input_style"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Upload Resume"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-
-            </LinearLayout>
-
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/saveS2"
                 style="@style/edit_profile_button"
+                android:id="@+id/saveS2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:backgroundTint="@color/salary_text_color"
                 android:text="Save"
-                app:layout_constraintEnd_toStartOf="@+id/attachfile"
+                app:layout_constraintEnd_toStartOf="@+id/comBackgroundS"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/attachfile" />
+                app:layout_constraintTop_toBottomOf="@id/comBackgroundS" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/deleteS2"
@@ -293,7 +273,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-
+                android:layout_marginTop="0dp"
                 android:backgroundTint="@color/rejected_text_color"
                 android:text="Delete"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -302,10 +282,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/saveS2" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--Input Username in Employee register page-->
-
     </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
