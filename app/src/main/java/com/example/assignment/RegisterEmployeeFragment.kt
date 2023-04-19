@@ -6,30 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 
-class JobsPostedEmployerFragment : Fragment() {
-
-    lateinit var jobAdapter: JobPostRecyclerAdapter
+class RegisterEmployeeFragment : Fragment() {
 
     companion object {
-        fun newInstance() = JobsPostedEmployerFragment()
+        fun newInstance() = RegisterEmployeeFragment()
     }
 
-    private lateinit var viewModel: JobsPostedEmployerViewModel
+    private lateinit var viewModel: RegisterEmployeeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-        return inflater.inflate(R.layout.fragment_jobs_posted_employer, container, false)
+        return inflater.inflate(R.layout.fragment_register_employee, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(JobsPostedEmployerViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(RegisterEmployeeViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

@@ -72,5 +72,15 @@
         android:name="com.example.assignment.ScheduleInterviewEmployerFragment"
         android:label="fragment_schedule_interview_employer"
         tools:layout="@layout/fragment_schedule_interview_employer" />
+    <fragment
+        android:id="@+id/interviewEmployerFragment"
+        android:name="com.example.assignment.InterviewEmployerFragment"
+        android:label="fragment_interview_employer"
+        tools:layout="@layout/fragment_interview_employer" />
+    <fragment
+        android:id="@+id/postJobEmployerFragment"
+        android:name="com.example.assignment.PostJobEmployerFragment"
+        android:label="fragment_post_job_employer"
+        tools:layout="@layout/fragment_post_job_employer" />
 
 </navigation>
