@@ -33,5 +33,26 @@
         <action
             android:id="@+id/action_signUpChooser_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signUpChooser_to_signUpCompanyFragment"
+            app:destination="@id/signUpCompanyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpCompanyFragment"
+        android:name="com.example.assignment.auth.SignUpCompanyFragment"
+        android:label="fragment_sign_up_company"
+        tools:layout="@layout/fragment_sign_up_company" >
+        <action
+            android:id="@+id/action_signUpCompanyFragment_to_signUpEmployerFragment2"
+            app:destination="@id/signUpEmployerFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpEmployerFragment2"
+        android:name="com.example.assignment.auth.SignUpEmployerFragment"
+        android:label="fragment_sign_up_employer"
+        tools:layout="@layout/fragment_sign_up_employer" >
+        <action
+            android:id="@+id/action_signUpEmployerFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

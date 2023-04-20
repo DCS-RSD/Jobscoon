@@ -14,7 +14,7 @@ interface Route {
     fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    ) : Call<LoginResponse>
+    ): Call<LoginResponse>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
@@ -27,13 +27,17 @@ interface Route {
         @Field("address") address: String,
         @Field("description") about: String,
         @Field("name") name: String,
-    ):Call<SignUpItem>
+
+        @Field("is_employer") isEmployer: Boolean? = null,
+        @Field("company_id") companyId: Integer? = null,
+    ): Call<SignUpItem>
 
 
     @GET("jobpost")
     fun getJobPost(
-        @Header("Authorization") token : String,
-    ) : Call<List<JobPostItem>>
+        @Header("Authorization") token: String,
+    ): Call<List<JobPostItem>>
+
     @POST("jobpost")
-    fun createJobPost(@Body jobPostItem: JobPostItem) : Call<JobPostItem>
+    fun createJobPost(@Body jobPostItem: JobPostItem): Call<JobPostItem>
 }
