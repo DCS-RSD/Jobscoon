@@ -12,8 +12,8 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+            android:id="@+id/action_loginFragment_to_signUpChooser"
+            app:destination="@id/signUpChooser" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -24,5 +24,14 @@
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpChooser"
+        android:name="com.example.assignment.auth.SignUpChooser"
+        android:label="fragment_sign_up_chooser"
+        tools:layout="@layout/fragment_sign_up_chooser" >
+        <action
+            android:id="@+id/action_signUpChooser_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
 </navigation>

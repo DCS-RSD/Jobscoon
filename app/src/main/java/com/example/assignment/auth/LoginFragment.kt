@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
             false
         )
         binding.signUpBtn.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            view.findNavController().navigate(R.id.action_loginFragment_to_signUpChooser)
         }
 
         return binding.root

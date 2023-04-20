@@ -1,11 +1,19 @@
 package com.example.assignment.auth
 
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.SubscriptSpan
+import android.text.style.SuperscriptSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.assignment.R
+import com.example.assignment.databinding.FragmentSignUpChooserBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +30,8 @@ class SignUpChooser : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var binding: FragmentSignUpChooserBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,7 +45,15 @@ class SignUpChooser : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up_chooser, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_sign_up_chooser, container, false
+        )
+
+        binding.employeeCard.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_signUpChooser_to_signUpFragment)
+        }
+
+        return binding.root
     }
 
     companion object {
