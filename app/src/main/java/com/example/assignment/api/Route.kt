@@ -2,6 +2,7 @@ package com.example.assignment.api
 
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.auth.SignUpItem
+import com.example.assignment.dataclass.Company
 import com.example.assignment.dataclass.JobPostItem
 import retrofit2.Call
 import retrofit2.http.*
@@ -28,9 +29,25 @@ interface Route {
         @Field("description") about: String,
         @Field("name") name: String,
 
+        //for employer
         @Field("is_employer") isEmployer: Boolean? = null,
-        @Field("company_id") companyId: Integer? = null,
+        @Field("company_name") companyName: String? = null,
+        @Field("contact_number") contactNumber: String? = null,
+        @Field("reg_no") regNo: String? = null,
+        @Field("company_location") location: String? = null,
+        @Field("company_description") companyAbout: String? = null,
     ): Call<SignUpItem>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("validatecompany")
+    fun validateCompany(
+        @Field("company_name") name: String,
+        @Field("contact_number") phone: String,
+        @Field("reg_no") regNo: String,
+        @Field("company_location") location: String,
+        @Field("company_description") about: String,
+    ): Call<Company>
 
 
     @GET("jobpost")
