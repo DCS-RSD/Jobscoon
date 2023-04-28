@@ -1,7 +1,9 @@
 package com.example.assignment.auth
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -53,7 +55,7 @@ class LoginFragment : Fragment() {
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             if (it.success) {
-                Toast.makeText(requireContext(), "Login", Toast.LENGTH_LONG).show()
+
             } else {
                 Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
 
