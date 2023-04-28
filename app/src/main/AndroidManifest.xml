@@ -18,6 +18,13 @@
             android:name=".auth.AuthActivity"
             android:exported="false" />
         <activity
+            android:name=".NavigationHost"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerSignUpActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".InterviewFormActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
@@ -37,10 +44,6 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".EmployerHomeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".EmployerSignUpActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity

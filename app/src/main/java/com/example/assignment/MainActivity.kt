@@ -12,7 +12,6 @@ import com.example.assignment.auth.AuthActivity
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
         startActivity(Intent(this, AuthActivity::class.java))
 //getSharedPreferences("User",Context.MODE_PRIVATE).edit().clear().apply()

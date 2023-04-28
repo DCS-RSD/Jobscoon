@@ -16,7 +16,7 @@ class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return JobPostViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_employer_home, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.fragment_jobs_posted_employer, parent, false)
         )
     }
 
@@ -24,7 +24,7 @@ class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPo
         when(holder) {
 
             is JobPostViewHolder -> {
-                holder.bind(jobPostList[position])
+                //holder.bind(jobPostList[position])
             }
 
         }
@@ -38,6 +38,7 @@ class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPo
     class JobPostViewHolder constructor(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
+        /*
         val jobTitle = itemView.findViewById<TextView>(R.id.job_name)
         val jobSalary = itemView.findViewById<TextView>(R.id.salary)
         val jobType = itemView.findViewById<TextView>(R.id.type)
@@ -50,6 +51,7 @@ class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPo
             jobType.text = jobPost.type
             jobShift.text = jobPost.shift
             jobPostedTime.text = jobPost.post_at
+
+         */
         }
     }
-}
