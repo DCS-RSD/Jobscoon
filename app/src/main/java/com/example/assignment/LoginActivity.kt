@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.assignment.auth.LoginErrorResponse
+import com.example.assignment.dataclass.ValidationErrorResponse
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.databinding.ActivityLoginBinding
@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                 } else if (response.code() == 422) { //validation fails
                     val error = Gson().fromJson(
                         response.errorBody()!!.string(),
-                        LoginErrorResponse::class.java
+                        ValidationErrorResponse::class.java
                     )
 
                     Toast.makeText(

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".auth.SignUpFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/submitSignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--Input Username in Employee register page-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textUsernameS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Name"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="10"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:startIconDrawable="@drawable/user_gray">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/editUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="10"
+                            android:textSize="15sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Input Email in Employee register page-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textEmailS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Email Address"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:startIconDrawable="@drawable/email_gray">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/editEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Input Phone in Employee register page-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textPhoneS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Phone Number"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:prefixText="+60"
+                        app:prefixTextColor="#9F6FFD"
+                        app:startIconDrawable="@drawable/phone_gray1">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/editPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPhonetic"
+                            android:maxLength="10"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Input Password in Employee register page-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textPwdS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Password"
+                        app:counterMaxLength="20"
+                        app:endIconMode="password_toggle"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:startIconDrawable="@drawable/lock_gray">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/editPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textPassword"
+                            android:maxLength="21"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textPwdConfirmation"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Password Confirmation"
+                        app:counterMaxLength="20"
+                        app:endIconMode="password_toggle"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:startIconDrawable="@drawable/lock_gray">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/editPasswordConfirmation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textPassword"
+                            android:maxLength="21"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Input Location in Employee register page-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textLocationS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        app:startIconDrawable="@drawable/icon_home">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Address"
+                            android:inputType="textMultiLine"
+                            android:lines="6"
+                            android:overScrollMode="always"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical"
+                            android:scrollHorizontally="false"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Paragraph in Employer register page-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textAMS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="About Me"
+                        app:counterEnabled="true"
+                        app:startIconDrawable="@drawable/icon_note">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editAbout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textMultiLine"
+                            android:lines="6"
+                            android:overScrollMode="always"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical"
+                            android:scrollHorizontally="false"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+
+            <Button
+                android:id="@+id/submitSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/hind_siliguri_bold"
+                android:text="Sign Up"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

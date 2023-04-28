@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav"
+    app:startDestination="@id/loginFragment">
+
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.assignment.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpChooser"
+            app:destination="@id/signUpChooser" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.assignment.auth.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpChooser"
+        android:name="com.example.assignment.auth.SignUpChooser"
+        android:label="fragment_sign_up_chooser"
+        tools:layout="@layout/fragment_sign_up_chooser" >
+        <action
+            android:id="@+id/action_signUpChooser_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signUpChooser_to_signUpCompanyFragment"
+            app:destination="@id/signUpCompanyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpCompanyFragment"
+        android:name="com.example.assignment.auth.SignUpCompanyFragment"
+        android:label="fragment_sign_up_company"
+        tools:layout="@layout/fragment_sign_up_company" >
+        <action
+            android:id="@+id/action_signUpCompanyFragment_to_signUpEmployerFragment2"
+            app:destination="@id/signUpEmployerFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpEmployerFragment2"
+        android:name="com.example.assignment.auth.SignUpEmployerFragment"
+        android:label="fragment_sign_up_employer"
+        tools:layout="@layout/fragment_sign_up_employer" >
+        <action
+            android:id="@+id/action_signUpEmployerFragment2_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+</navigation>
