@@ -3,7 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FindJobsEmployeeFragment"
+    tools:context=".employee.FindJobsEmployeeFragment"
     android:id="@+id/find_jobs_employee_fragment"
     >
 
@@ -12,688 +12,627 @@
     android:layout_height="match_parent">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/top_nav"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="29dp"
-                android:layout_height="30dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/jobs1"
+                style="@style/jobs_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/app_logo2" />
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp">
 
-            <ImageView
-                android:id="@+id/app_name"
-                android:layout_width="156dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/app_title2" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_menu" />
+                    <TextView
+                        android:id="@+id/job_name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/hind_siliguri_bold"
+                        android:text="Customer Service Associate"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <SearchView
-                android:id="@+id/searchBar"
+                    <TextView
+                        android:id="@+id/job_company1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="Miqos Sdn. Bhd."
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_name1" />
+
+                    <TextView
+                        android:id="@+id/job_location1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="@string/kuala_lumpur"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_company1" />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/salary_view1"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/job_location1">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/salary_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_salary1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_salary" />
+
+                            <TextView
+                                android:id="@+id/salary_detail1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="@string/rm_3000_a_month"
+                                android:textColor="@color/salary_text_color"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_salary1"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/jobsType_view1"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@id/salary_view1"
+                        app:layout_constraintTop_toBottomOf="@id/salary_view1">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/jobsType_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_jobType1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_work" />
+
+                            <TextView
+                                android:id="@+id/jobType_detail1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="Full-Time"
+                                android:textColor="@color/jobsType_text_color"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_jobType1"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/jobsShift_view1"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@id/jobsType_view1"
+                        app:layout_constraintTop_toBottomOf="@id/jobsType_view1">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/jobsShift_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_jobShift1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_time" />
+
+                            <TextView
+                                android:id="@+id/jobShift_detail1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="@string/monday_to_friday"
+                                android:textColor="@color/jobsShift_text_color"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_jobShift1"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:id="@+id/posted_time1"
+                        style="@style/history_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_1_day_ago"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/jobsShift_view1"
+                        app:layout_constraintTop_toBottomOf="@+id/jobsShift_view1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/jobs2"
+                style="@style/jobs_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/search_view_border"
-                android:contextClickable="false"
-                android:elevation="10dp"
-                android:iconifiedByDefault="false"
-                android:inputType="text"
-                android:queryBackground="@color/transparent"
-                android:queryHint="@string/search"
-                app:iconifiedByDefault="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/app_name" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="135dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_nav">
+                    <TextView
+                        android:id="@+id/job_name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/hind_siliguri_bold"
+                        android:text="Front End Developer"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
+                    <TextView
+                        android:id="@+id/job_company2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="IPSB Technology"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_name2" />
+
+                    <TextView
+                        android:id="@+id/job_location2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="Selangor"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_company2" />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/salary_view2"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="20dp"
+
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/job_location2">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/salary_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_salary2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_salary" />
+
+                            <TextView
+                                android:id="@+id/salary_detail2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="RM 5000 a month"
+                                android:textColor="@color/salary_text_color"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_salary2"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/jobsType_view2"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@id/salary_view2"
+                        app:layout_constraintTop_toBottomOf="@id/salary_view2">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/jobsType_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_jobType2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_work" />
+
+                            <TextView
+                                android:id="@+id/jobType_detail2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="Full-Time"
+                                android:textColor="@color/jobsType_text_color"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_jobType2"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/jobsShift_view2"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@id/jobsType_view2"
+                        app:layout_constraintTop_toBottomOf="@id/jobsType_view2">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/jobsShift_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_jobShift2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_time" />
+
+                            <TextView
+                                android:id="@+id/jobShift_detail2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="Monday to Friday"
+                                android:textColor="@color/jobsShift_text_color"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_jobShift2"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:id="@+id/posted_time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/archivo_narrow_bold"
+                        android:text="1 day ago"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/jobsShift_view2"
+                        app:layout_constraintTop_toBottomOf="@+id/jobsShift_view2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/jobs3"
+                style="@style/jobs_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="0dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/jobs1"
-                    style="@style/jobs_card_view"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="16dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/job_name1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/hind_siliguri_bold"
-                            android:text="Customer Service Associate"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/job_company1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:fontFamily="@font/hind_siliguri"
-                            android:text="Miqos Sdn. Bhd."
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/job_name1" />
-
-                        <TextView
-                            android:id="@+id/job_location1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:fontFamily="@font/hind_siliguri"
-                            android:text="@string/kuala_lumpur"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/job_company1" />
-
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/salary_view1"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/job_location1">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/salary_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_salary1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_salary" />
-
-                                <TextView
-                                    android:id="@+id/salary_detail1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="@string/rm_3000_a_month"
-                                    android:textColor="@color/salary_text_color"
-                                    android:textSize="14sp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_salary1"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/jobsType_view1"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="@id/salary_view1"
-                            app:layout_constraintTop_toBottomOf="@id/salary_view1">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/jobsType_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_jobType1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_work" />
-
-                                <TextView
-                                    android:id="@+id/jobType_detail1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="Full-Time"
-                                    android:textColor="@color/jobsType_text_color"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_jobType1"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/jobsShift_view1"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="@id/jobsType_view1"
-                            app:layout_constraintTop_toBottomOf="@id/jobsType_view1">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/jobsShift_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_jobShift1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="0dp"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_time" />
-
-                                <TextView
-                                    android:id="@+id/jobShift_detail1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="@string/monday_to_friday"
-                                    android:textColor="@color/jobsShift_text_color"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_jobShift1"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-
-                        <TextView
-                            android:id="@+id/posted_time1"
-                            style="@style/history_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_1_day_ago"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/jobsShift_view1"
-                            app:layout_constraintTop_toBottomOf="@+id/jobsShift_view1" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/jobs2"
-                    style="@style/jobs_card_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="16dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/job_name2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/hind_siliguri_bold"
-                            android:text="Front End Developer"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/job_company2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:fontFamily="@font/hind_siliguri"
-                            android:text="IPSB Technology"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/job_name2" />
-
-                        <TextView
-                            android:id="@+id/job_location2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:fontFamily="@font/hind_siliguri"
-                            android:text="Selangor"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/job_company2" />
-
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/salary_view2"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginStart="20dp"
-
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/job_location2">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/salary_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_salary2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_salary" />
-
-                                <TextView
-                                    android:id="@+id/salary_detail2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="RM 5000 a month"
-                                    android:textColor="@color/salary_text_color"
-                                    android:textSize="14sp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_salary2"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/jobsType_view2"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="@id/salary_view2"
-                            app:layout_constraintTop_toBottomOf="@id/salary_view2">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/jobsType_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_jobType2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_work" />
-
-                                <TextView
-                                    android:id="@+id/jobType_detail2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="Full-Time"
-                                    android:textColor="@color/jobsType_text_color"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_jobType2"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/jobsShift_view2"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="@id/jobsType_view2"
-                            app:layout_constraintTop_toBottomOf="@id/jobsType_view2">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/jobsShift_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_jobShift2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="0dp"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_time" />
-
-                                <TextView
-                                    android:id="@+id/jobShift_detail2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="Monday to Friday"
-                                    android:textColor="@color/jobsShift_text_color"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_jobShift2"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-
-                        <TextView
-                            android:id="@+id/posted_time2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/archivo_narrow_bold"
-                            android:text="1 day ago"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/jobsShift_view2"
-                            app:layout_constraintTop_toBottomOf="@+id/jobsShift_view2" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/jobs3"
-                    style="@style/jobs_card_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="16dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/job_name3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/hind_siliguri_bold"
-                            android:text="Senior Sales Executive"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/job_company3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:fontFamily="@font/hind_siliguri"
-                            android:text="MINDe Group"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/job_name3" />
-
-                        <TextView
-                            android:id="@+id/job_location3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:fontFamily="@font/hind_siliguri"
-                            android:text="@string/kuala_lumpur"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/job_company3" />
-
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/salary_view3"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginStart="20dp"
-
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/job_location3">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/salary_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_salary3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_salary" />
-
-                                <TextView
-                                    android:id="@+id/salary_detail3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="@string/rm_3000_rm_8000_a_month"
-                                    android:textColor="@color/salary_text_color"
-                                    android:textSize="14sp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_salary3"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/jobsType_view3"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="@id/salary_view3"
-                            app:layout_constraintTop_toBottomOf="@id/salary_view3">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/jobsType_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_jobType3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_work" />
-
-                                <TextView
-                                    android:id="@+id/jobType_detail3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="@string/full_time"
-                                    android:textColor="@color/jobsType_text_color"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_jobType3"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/jobsShift_view3"
-                            style="@style/jobs_detail_card_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintStart_toStartOf="@id/jobsType_view3"
-                            app:layout_constraintTop_toBottomOf="@id/jobsType_view3">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/jobsShift_layout_color">
-
-                                <ImageView
-                                    android:id="@+id/icon_jobShift3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="0dp"
-                                    android:padding="7px"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/icon_time" />
-
-                                <TextView
-                                    android:id="@+id/jobShift_detail3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="1dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="1dp"
-                                    android:fontFamily="@font/hind_siliguri_bold"
-                                    android:text="@string/flexible_hours"
-                                    android:textColor="@color/jobsShift_text_color"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/icon_jobShift3"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-
-                        <TextView
-                            android:id="@+id/posted_time3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/archivo_narrow_bold"
-                            android:text="1 day ago"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/jobsShift_view3"
-                            app:layout_constraintTop_toBottomOf="@+id/jobsShift_view3" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-        </ScrollView>
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/job_name3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/hind_siliguri_bold"
+                        android:text="Senior Sales Executive"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/job_company3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="MINDe Group"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_name3" />
+
+                    <TextView
+                        android:id="@+id/job_location3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="@string/kuala_lumpur"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_company3" />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/salary_view3"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="20dp"
+
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/job_location3">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/salary_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_salary3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_salary" />
+
+                            <TextView
+                                android:id="@+id/salary_detail3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="@string/rm_3000_rm_8000_a_month"
+                                android:textColor="@color/salary_text_color"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_salary3"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/jobsType_view3"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@id/salary_view3"
+                        app:layout_constraintTop_toBottomOf="@id/salary_view3">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/jobsType_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_jobType3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_work" />
+
+                            <TextView
+                                android:id="@+id/jobType_detail3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="@string/full_time"
+                                android:textColor="@color/jobsType_text_color"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_jobType3"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/jobsShift_view3"
+                        style="@style/jobs_detail_card_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@id/jobsType_view3"
+                        app:layout_constraintTop_toBottomOf="@id/jobsType_view3">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/jobsShift_layout_color">
+
+                            <ImageView
+                                android:id="@+id/icon_jobShift3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:padding="7px"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_time" />
+
+                            <TextView
+                                android:id="@+id/jobShift_detail3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="1dp"
+                                android:fontFamily="@font/hind_siliguri_bold"
+                                android:text="@string/flexible_hours"
+                                android:textColor="@color/jobsShift_text_color"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/icon_jobShift3"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:id="@+id/posted_time3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/archivo_narrow_bold"
+                        android:text="1 day ago"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/jobsShift_view3"
+                        app:layout_constraintTop_toBottomOf="@+id/jobsShift_view3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

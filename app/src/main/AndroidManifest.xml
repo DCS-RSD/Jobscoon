@@ -18,7 +18,7 @@
             android:name=".auth.AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".NavigationHost"
+            android:name=".employee.EmployeeNavHost"
             android:exported="false" />
         <activity
             android:name=".EmployerSignUpActivity"

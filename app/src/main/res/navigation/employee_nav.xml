@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/findJobsEmployeeFragment"
-        android:name="com.example.assignment.FindJobsEmployeeFragment"
+        android:name="com.example.assignment.employee.FindJobsEmployeeFragment"
         android:label="fragment_find_jobs_employee"
         tools:layout="@layout/fragment_find_jobs_employee" >
         <action
