@@ -2,17 +2,15 @@ package com.example.assignment.employee
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import com.example.assignment.R
-import com.example.assignment.databinding.NavigationHostBinding
+import com.example.assignment.databinding.NavigationEmployeeBinding
 
 class EmployeeNavHost : AppCompatActivity() {
-    lateinit var binding: NavigationHostBinding
+    lateinit var binding: NavigationEmployeeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.navigation_host)
+        binding = DataBindingUtil.setContentView(this, R.layout.navigation_employee)
 
         setBar()
 
