@@ -26,12 +26,12 @@ class InterviewEmployeeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate<FragmentInterviewEmployeeBinding>(inflater, R.layout.fragment_interview_employee, container, false)
-        binding.iconArrowback.setOnClickListener {
-            view : View -> view.findNavController().navigate(R.id.action_interviewEmployeeFragment_to_jobsAppliedEmployeeFragment)
-        }
-        binding.iconHome.setOnClickListener {
-                view : View -> view.findNavController().navigate(R.id.action_interviewEmployeeFragment_to_findJobsEmployeeFragment)
-        }
+//        binding.iconArrowback.setOnClickListener {
+//            view : View -> view.findNavController().navigate(R.id.action_interviewEmployeeFragment_to_jobsAppliedEmployeeFragment)
+//        }
+//        binding.iconHome.setOnClickListener {
+//                view : View -> view.findNavController().navigate(R.id.action_interviewEmployeeFragment_to_findJobsEmployeeFragment)
+//        }
         return binding.root
     }
 
