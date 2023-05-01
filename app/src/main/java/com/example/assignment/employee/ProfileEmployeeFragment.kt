@@ -8,36 +8,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
+import com.example.assignment.ProfileEmployeeViewModel
 import com.example.assignment.R
-import com.example.assignment.auth.SignUpEmployerViewModel
-import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
+import com.example.assignment.databinding.FragmentProfileEmployeeBinding
 
-
-class FindJobsEmployeeFragment : Fragment() {
-
+class ProfileEmployeeFragment : Fragment() {
 
     companion object {
-        fun newInstance() = FindJobsEmployeeFragment()
+        fun newInstance() = ProfileEmployeeFragment()
     }
 
-    private lateinit var binding: FragmentFindJobsEmployeeBinding
     val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
+    lateinit var binding: FragmentProfileEmployeeBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_find_jobs_employee, container, false
-        )
-        binding.jobs1.setOnClickListener { view: View
-            ->
-            view.findNavController()
-                .navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
-        }
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_profile_employee, container, false)
 
         return binding.root
     }
@@ -45,7 +35,8 @@ class FindJobsEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.autoLogin() //check token
+        val user = sharedViewModel.currentUser
+        binding.user = user
     }
 
 }

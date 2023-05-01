@@ -4,6 +4,7 @@ import com.example.assignment.auth.LoginResponse
 import com.example.assignment.auth.SignUpItem
 import com.example.assignment.dataclass.Company
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.dataclass.User
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -37,6 +38,14 @@ interface Route {
         @Field("company_location") location: String? = null,
         @Field("company_description") companyAbout: String? = null,
     ): Call<SignUpItem>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("autologin")
+    fun autoLogin(
+        @Header("Authorization") token: String,
+        @Field("id") id : String,
+    ): Call<User>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded

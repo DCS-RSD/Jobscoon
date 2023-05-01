@@ -89,7 +89,7 @@
         tools:layout="@layout/fragment_profile_employer" />
     <fragment
         android:id="@+id/profileEmployeeFragment"
-        android:name="com.example.assignment.ProfileEmployeeFragment"
+        android:name="com.example.assignment.employee.ProfileEmployeeFragment"
         android:label="fragment_profile_employee"
         tools:layout="@layout/fragment_profile_employee" />
     <fragment
