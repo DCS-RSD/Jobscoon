@@ -61,35 +61,20 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/hind_siliguri_bold"
             android:text="Career Development"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.352"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon_arrowback"/>
+            app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
 
-        <SearchView
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/search_view_border"
-            android:contextClickable="false"
-            android:elevation="10dp"
-            android:iconifiedByDefault="false"
-            android:inputType="text"
-            android:queryBackground="@color/transparent"
-            android:queryHint="@string/search"
-            app:iconifiedByDefault="false" />
 
         <ScrollView
             android:id="@+id/scrollView4"
             android:layout_width="match_parent"
             android:layout_height="583dp"
             android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/searchBar">
+            app:layout_constraintTop_toBottomOf="@+id/careerDevelopment">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/programme1"
@@ -139,7 +124,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:drawableLeft="@drawable/ic_type"
-                        android:margin_top="2dp"
                         android:text="Online"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programme_title1"
@@ -152,8 +136,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:drawableLeft="@drawable/icon_location"
-
-                        android:margin_top="2dp"
                         android:text="No location"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programmeType"
@@ -165,9 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-
                         android:drawableLeft="@drawable/icon_calendar"
-                        android:margin_top="2dp"
                         android:text="03/08/2019"
                         android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programmeLocation"
