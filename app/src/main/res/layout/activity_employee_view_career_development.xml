@@ -98,6 +98,7 @@
                     <TextView
                         android:id="@+id/programmeType"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -112,6 +113,7 @@
                     <TextView
                         android:id="@+id/programmeLocation"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -129,6 +131,7 @@
                     <TextView
                         android:id="@+id/programmeDate"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -145,6 +148,7 @@
                     <TextView
                         android:id="@+id/time"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -160,6 +164,7 @@
                     <TextView
                         android:id="@+id/email"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -176,6 +181,7 @@
                     <TextView
                         android:id="@+id/contactNo"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -193,6 +199,7 @@
                         style="@style/interviewer_detail_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/ic_website"
@@ -207,6 +214,7 @@
                         android:id="@+id/description"
                         style="@style/interviewer_detail_layout"
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/hind_siliguri_bold"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="15dp"
