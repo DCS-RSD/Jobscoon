@@ -300,7 +300,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textWebsiteS">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editLocation"
+                    android:id="@+id/editDescription"
                     style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -375,15 +375,15 @@
                 style="@style/edit_profile_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-
+                android:layout_marginBottom="100dp"
                 android:backgroundTint="@color/rejected_text_color"
                 android:text="Delete"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/saveS2"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/saveS2" />
+                app:layout_constraintTop_toBottomOf="@+id/saveS2"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
