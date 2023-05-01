@@ -19,8 +19,6 @@ import retrofit2.Response
 
 class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(application) {
 
-    lateinit var currentUser: User
-
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
     val loginResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
@@ -28,6 +26,9 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
 
     val jobPostList: MutableLiveData<List<JobPostItem>> by lazy {
         MutableLiveData<List<JobPostItem>>()
+    }
+    val currentUser: MutableLiveData<User> by lazy{
+        MutableLiveData<User>()
     }
 
     fun autoLogin() {
@@ -41,7 +42,7 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
         build.enqueue(object : Callback<User?> {
             override fun onResponse(call: Call<User?>, response: Response<User?>) {
                 if (response.isSuccessful) {
-                    currentUser = response.body()!!
+                    currentUser.value = response.body()!!
                 } else {
                     //
                 }
