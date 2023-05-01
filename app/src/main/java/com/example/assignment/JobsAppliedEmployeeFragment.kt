@@ -25,15 +25,15 @@ class JobsAppliedEmployeeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate<FragmentJobsAppliedEmployeeBinding>(inflater, R.layout.fragment_jobs_applied_employee, container, false)
-        binding.iconArrowback.setOnClickListener{
-                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
-        }
-        binding.imageView9.setOnClickListener {
-                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_interviewEmployeeFragment)
-        }
-        binding.iconHome.setOnClickListener {
-                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_findJobsEmployeeFragment)
-        }
+//        binding.iconArrowback.setOnClickListener{
+//                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
+//        }
+//        binding.imageView9.setOnClickListener {
+//                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_interviewEmployeeFragment)
+//        }
+//        binding.iconHome.setOnClickListener {
+//                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_findJobsEmployeeFragment)
+//        }
         return binding.root
     }
 

@@ -21,8 +21,6 @@ class EmployeeNavHost : AppCompatActivity() {
 
     private fun setBar() {
 
-        val homeFragment = FindJobsEmployeeFragment()
-        val profileFragment = ProfileEmployeeFragment()
 
         binding.bottomNavBar.setOnItemSelectedListener {
             when (it) {

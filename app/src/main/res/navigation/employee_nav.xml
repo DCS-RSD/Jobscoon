@@ -19,44 +19,17 @@
         android:id="@+id/jobDetailsEmployeeFragment"
         android:name="com.example.assignment.JobDetailsEmployeeFragment"
         android:label="fragment_job_details_employee"
-        tools:layout="@layout/fragment_job_details_employee" >
-        <action
-            android:id="@+id/action_jobDetailsEmployeeFragment_to_jobsAppliedEmployeeFragment"
-            app:destination="@id/jobsAppliedEmployeeFragment" />
-        <action
-            android:id="@+id/action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment"
-            app:destination="@id/findJobsEmployeeFragment" />
-        <action
-            android:id="@+id/action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment2"
-            app:destination="@id/findJobsEmployeeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_job_details_employee" />
     <fragment
         android:id="@+id/jobsAppliedEmployeeFragment"
         android:name="com.example.assignment.JobsAppliedEmployeeFragment"
         android:label="fragment_jobs_applied_employee"
-        tools:layout="@layout/fragment_jobs_applied_employee" >
-        <action
-            android:id="@+id/action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment"
-            app:destination="@id/jobDetailsEmployeeFragment" />
-        <action
-            android:id="@+id/action_jobsAppliedEmployeeFragment_to_interviewEmployeeFragment"
-            app:destination="@id/interviewEmployeeFragment" />
-        <action
-            android:id="@+id/action_jobsAppliedEmployeeFragment_to_findJobsEmployeeFragment"
-            app:destination="@id/findJobsEmployeeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_jobs_applied_employee" />
     <fragment
         android:id="@+id/interviewEmployeeFragment"
         android:name="com.example.assignment.InterviewEmployeeFragment"
         android:label="fragment_interview_employee"
-        tools:layout="@layout/fragment_interview_employee" >
-        <action
-            android:id="@+id/action_interviewEmployeeFragment_to_jobsAppliedEmployeeFragment"
-            app:destination="@id/jobsAppliedEmployeeFragment" />
-        <action
-            android:id="@+id/action_interviewEmployeeFragment_to_findJobsEmployeeFragment"
-            app:destination="@id/findJobsEmployeeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_interview_employee" />
     <fragment
         android:id="@+id/jobsPostedEmployerFragment"
         android:name="com.example.assignment.JobsPostedEmployerFragment"

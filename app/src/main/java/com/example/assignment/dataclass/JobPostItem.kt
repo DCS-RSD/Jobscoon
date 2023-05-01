@@ -12,4 +12,5 @@ data class JobPostItem(
     val type: String,
     val updated_at: String,
     val post_at: String,
+    val salary: String,
 )

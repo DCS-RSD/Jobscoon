@@ -46,6 +46,7 @@ class PostJobEmployerFragment : Fragment() {
             "Part-Time",
             "",
             "",
+            "",
         )
 
         build.createJobPost(testData).enqueue(object : Callback<JobPostItem?> {
