@@ -63,6 +63,11 @@ class FindJobsEmployeeFragment : Fragment() {
             Log.d("acticity", "onActivityCreated: "+it)
         })
 
+        binding.jobPostRefresh.setOnRefreshListener {
+            sharedViewModel.getData()
+            binding.jobPostRefresh.isRefreshing = false
+        }
+
 
     }
 
