@@ -64,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.352"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon_arrowback"
+            app:layout_constraintTop_toBottomOf="@id/icon_arrowback"/>
 
         <SearchView
             android:id="@+id/searchBar"
@@ -127,7 +127,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.204"
+                        app:layout_constraintHorizontal_bias="0.1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/careerUpdateImage" />
 
@@ -136,7 +136,7 @@
                         style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:drawableLeft="@drawable/ic_type"
                         android:margin_top="2dp"
                         android:text="Online"
@@ -149,7 +149,7 @@
                         style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:drawableLeft="@drawable/icon_location"
 
                         android:margin_top="2dp"
@@ -163,7 +163,7 @@
                         style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
 
                         android:drawableLeft="@drawable/icon_calendar"
                         android:margin_top="2dp"
@@ -177,8 +177,8 @@
                         style="@style/myJobs_detail_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
                         android:drawableLeft="@drawable/icon_time"
                         android:text="8:00a.m."
                         android:textColor="#555452"
