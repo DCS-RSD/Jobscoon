@@ -152,7 +152,6 @@
                         android:drawableLeft="@drawable/icon_location"
                         android:text="No location"
                         android:textColor="#555452"
-                        android:textColor="#555452"
                         app:layout_constraintStart_toStartOf="@+id/programmeType"
                         app:layout_constraintTop_toBottomOf="@+id/programmeType" />
 
