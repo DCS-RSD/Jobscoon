@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CareerDevelopmentDetailsFragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JobDetailsActivity">
+   >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_nav"
@@ -98,6 +101,7 @@
                     <TextView
                         android:id="@+id/programmeType"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -112,6 +116,7 @@
                     <TextView
                         android:id="@+id/programmeLocation"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -129,6 +134,7 @@
                     <TextView
                         android:id="@+id/programmeDate"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -145,6 +151,7 @@
                     <TextView
                         android:id="@+id/time"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -160,6 +167,7 @@
                     <TextView
                         android:id="@+id/email"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -176,6 +184,7 @@
                     <TextView
                         android:id="@+id/contactNo"
                         style="@style/interviewer_detail_layout"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -193,6 +202,7 @@
                         style="@style/interviewer_detail_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/ic_website"
@@ -207,6 +217,7 @@
                         android:id="@+id/description"
                         style="@style/interviewer_detail_layout"
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/hind_siliguri"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="15dp"
@@ -249,3 +260,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
