@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/findJobsEmployeeFragment">
+
+
+    <fragment
+        android:id="@+id/findJobsEmployeeFragment"
+        android:name="com.example.assignment.employee.FindJobsEmployeeFragment"
+        android:label="fragment_find_jobs_employee"
+        tools:layout="@layout/fragment_find_jobs_employee" >
+        <action
+            android:id="@+id/action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment"
+            app:destination="@id/jobDetailsEmployeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobDetailsEmployeeFragment"
+        android:name="com.example.assignment.JobDetailsEmployeeFragment"
+        android:label="fragment_job_details_employee"
+        tools:layout="@layout/fragment_job_details_employee" />
+    <fragment
+        android:id="@+id/jobsAppliedEmployeeFragment"
+        android:name="com.example.assignment.JobsAppliedEmployeeFragment"
+        android:label="fragment_jobs_applied_employee"
+        tools:layout="@layout/fragment_jobs_applied_employee" />
+    <fragment
+        android:id="@+id/interviewEmployeeFragment"
+        android:name="com.example.assignment.InterviewEmployeeFragment"
+        android:label="fragment_interview_employee"
+        tools:layout="@layout/fragment_interview_employee" />
+    <fragment
+        android:id="@+id/jobsPostedEmployerFragment"
+        android:name="com.example.assignment.JobsPostedEmployerFragment"
+        android:label="fragment_jobs_posted_employer"
+        tools:layout="@layout/fragment_jobs_posted_employer" />
+    <fragment
+        android:id="@+id/applicantListEmployerFragment"
+        android:name="com.example.assignment.ApplicantListEmployerFragment"
+        android:label="fragment_applicant_list_employer"
+        tools:layout="@layout/fragment_applicant_list_employer" />
+    <fragment
+        android:id="@+id/scheduleInterviewEmployerFragment"
+        android:name="com.example.assignment.ScheduleInterviewEmployerFragment"
+        android:label="fragment_schedule_interview_employer"
+        tools:layout="@layout/fragment_schedule_interview_employer" />
+    <fragment
+        android:id="@+id/interviewEmployerFragment"
+        android:name="com.example.assignment.InterviewEmployerFragment"
+        android:label="fragment_interview_employer"
+        tools:layout="@layout/fragment_interview_employer" />
+    <fragment
+        android:id="@+id/postJobEmployerFragment"
+        android:name="com.example.assignment.PostJobEmployerFragment"
+        android:label="fragment_post_job_employer"
+        tools:layout="@layout/fragment_post_job_employer" />
+    <fragment
+        android:id="@+id/profileEmployerFragment"
+        android:name="com.example.assignment.ProfileEmployerFragment"
+        android:label="fragment_profile_employer"
+        tools:layout="@layout/fragment_profile_employer" />
+    <fragment
+        android:id="@+id/profileEmployeeFragment"
+        android:name="com.example.assignment.employee.ProfileEmployeeFragment"
+        android:label="fragment_profile_employee"
+        tools:layout="@layout/fragment_profile_employee" />
+    <fragment
+        android:id="@+id/editProfileEmployeeFragment"
+        android:name="com.example.assignment.EditProfileEmployeeFragment"
+        android:label="fragment_edit_profile_employee"
+        tools:layout="@layout/fragment_edit_profile_employee" />
+    <fragment
+        android:id="@+id/editProfileEmployerFragment"
+        android:name="com.example.assignment.EditProfileEmployerFragment"
+        android:label="fragment_edit_profile_employer"
+        tools:layout="@layout/fragment_edit_profile_employer" />
+
+</navigation>

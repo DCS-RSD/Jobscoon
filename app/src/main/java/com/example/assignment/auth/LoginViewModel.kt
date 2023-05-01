@@ -1,6 +1,10 @@
 package com.example.assignment.auth
 
+import android.app.Application
+import android.content.Context
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
@@ -11,13 +15,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel() : ViewModel() {
+class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
+    val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
 
     val loginResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
-
 
     fun submitLogin(email: String, password: String) {
 
@@ -30,7 +34,13 @@ class LoginViewModel() : ViewModel() {
                 response: Response<LoginResponse?>
             ) {
                 if (response.isSuccessful) {
-                    loginResponse.value = ResponseForUI(true,"")
+
+                    loginResponse.value = ResponseForUI(true, "")
+
+                    val editor = sharedPreferences.edit()
+                    editor.putString("Token", "Bearer " + response.body()!!.token)
+                    editor.putString("Id", response.body()!!.user.id.toString())
+                    editor.apply()
 
                 } else if (response.code() == 422) { //validation fails
                     val error = Gson().fromJson(
@@ -38,18 +48,18 @@ class LoginViewModel() : ViewModel() {
                         ValidationErrorResponse::class.java
                     )
 
-                    loginResponse.value = ResponseForUI(false,error.message)
+                    loginResponse.value = ResponseForUI(false, error.message)
 
 
                     Log.d("login", "onResponse: $error")
 
                 } else if (response.code() == 401) { //wrong email or password
 
-                    loginResponse.value = ResponseForUI(false,"Invalid Email or Password")
+                    loginResponse.value = ResponseForUI(false, "Invalid Email or Password")
 
                 } else { //unknown error
 
-                    loginResponse.value = ResponseForUI(false,"Something Went Wrong")
+                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
 
                 }
             }
@@ -57,7 +67,8 @@ class LoginViewModel() : ViewModel() {
             override fun onFailure(call: Call<LoginResponse?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
-                loginResponse.value = ResponseForUI(false,"Something Went Wrong. Kindly check your connection")
+                loginResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
 
 
             }
