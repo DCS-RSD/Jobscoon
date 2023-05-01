@@ -201,6 +201,20 @@ I am excited about the opportunity to bring my unique experiences and skills to 
                         app:layout_constraintStart_toStartOf="@+id/button2"
                         app:layout_constraintTop_toBottomOf="@id/button2" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/logout"
+                        style="@style/edit_profile_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:backgroundTint="@color/rejected_text_color"
+                        android:text="LOGOUT"
+                        app:layout_constraintEnd_toEndOf="@+id/editS"
+                        app:layout_constraintStart_toStartOf="@+id/editS"
+                        app:layout_constraintTop_toBottomOf="@id/editS" />
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -22,4 +22,9 @@
         android:title="Profile">
     </item>
 
+    <item android:id="@+id/career"
+        android:icon="@drawable/icon_employer"
+        android:title="Career Development">
+    </item>
+
 </menu>
