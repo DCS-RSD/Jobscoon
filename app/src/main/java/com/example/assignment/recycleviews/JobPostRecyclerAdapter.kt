@@ -16,7 +16,7 @@ import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.employee.EmployeeNavHost
 
 class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
-    private lateinit var binding2: NavigationEmployeeBinding
+    private lateinit var binding2: EmployeeNavHost
 
     inner class ViewHolder(val binding: FragmentFindJobsEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
 

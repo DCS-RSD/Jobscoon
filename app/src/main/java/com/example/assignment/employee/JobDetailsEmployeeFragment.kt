@@ -1,22 +1,17 @@
-package com.example.assignment
+package com.example.assignment.employee
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.findNavController
+import com.example.assignment.R
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
-import com.example.assignment.employee.EmployeeNavHost
 
-class JobDetailsEmployeeFragment : DialogFragment() {
+class JobDetailsEmployeeFragment : Fragment() {
 
     private lateinit var binding: FragmentJobDetailsEmployeeBinding
 
@@ -33,22 +28,17 @@ class JobDetailsEmployeeFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_job_details_employee, container, false)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
-        return view
+        binding = DataBindingUtil.inflate<FragmentJobDetailsEmployeeBinding>(inflater,
+            R.layout.fragment_job_details_employee,container,false)
+
+        binding.imageView.setOnClickListener {
+                view : View -> view.findNavController().popBackStack()
+        }
+
+        return binding.root
     }
 
 
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
-        return dialog
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -13,11 +13,13 @@
         tools:layout="@layout/fragment_find_jobs_employee" >
         <action
             android:id="@+id/action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment"
-            app:destination="@id/jobDetailsEmployeeFragment" />
+            app:destination="@id/jobDetailsEmployeeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/f"/>
     </fragment>
     <fragment
         android:id="@+id/jobDetailsEmployeeFragment"
-        android:name="com.example.assignment.JobDetailsEmployeeFragment"
+        android:name="com.example.assignment.employee.JobDetailsEmployeeFragment"
         android:label="fragment_job_details_employee"
         tools:layout="@layout/fragment_job_details_employee" />
     <fragment
