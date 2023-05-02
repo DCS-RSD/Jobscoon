@@ -9,14 +9,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.findNavController
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
+import com.example.assignment.employee.EmployeeNavHost
 
 class JobDetailsEmployeeFragment : DialogFragment() {
 
     private lateinit var binding: FragmentJobDetailsEmployeeBinding
+
 
     companion object {
         fun newInstance() = JobDetailsEmployeeFragment()
@@ -24,7 +27,7 @@ class JobDetailsEmployeeFragment : DialogFragment() {
 
     private lateinit var viewModel: JobDetailsEmployeeViewModel
 
-    /*
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,16 +35,18 @@ class JobDetailsEmployeeFragment : DialogFragment() {
 
         val view = inflater.inflate(R.layout.fragment_job_details_employee, container, false)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
         return view
     }
 
-     */
+
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = Dialog(requireContext(), R.style.FullScreenDialogTheme)
-        dialog.setContentView(R.layout.fragment_job_details_employee)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
         return dialog
     }
 

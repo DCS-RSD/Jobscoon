@@ -11,10 +11,12 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
+import com.example.assignment.databinding.NavigationEmployeeBinding
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.employee.EmployeeNavHost
 
 class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
-
+    private lateinit var binding2: NavigationEmployeeBinding
 
     inner class ViewHolder(val binding: FragmentFindJobsEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -29,6 +31,7 @@ class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : Recycler
         val binding = FragmentFindJobsEmployeeBinding.inflate(inflater, parent, false)
         binding.jobCard.setOnClickListener{
                 view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
+
         }
 
 
