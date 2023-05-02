@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.assignment.R
 import com.example.assignment.databinding.NavigationEmployeeBinding
 
@@ -17,15 +18,16 @@ class EmployeeNavHost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.navigation_employee)
-        binding.bottomNavBar.setItemSelected(R.id.home)
-        setBar()
+        //binding.bottomNavBar.setItemSelected(R.id.home)
+        //setBar()
         val navController = Navigation.findNavController(this, R.id.navigation_host_employee)
+        binding.bottomNavBar.setupWithNavController(navController)
         visibilityNavElements(navController)
 
     }
 
     private fun setBar() {
-
+/*
         binding.bottomNavBar.setOnItemSelectedListener {
             when (it) {
                 R.id.home -> {
@@ -39,6 +41,7 @@ class EmployeeNavHost : AppCompatActivity() {
             }
             true
         }
+        */
     }
 
     private fun replaceFragment(fragment: Fragment) {
