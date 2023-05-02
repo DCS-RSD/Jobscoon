@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_job_details_employee" />
     <fragment
         android:id="@+id/jobsAppliedEmployeeFragment"
-        android:name="com.example.assignment.JobsAppliedEmployeeFragment"
+        android:name="com.example.assignment.employee.JobsAppliedEmployeeFragment"
         android:label="fragment_jobs_applied_employee"
         tools:layout="@layout/fragment_jobs_applied_employee" />
     <fragment

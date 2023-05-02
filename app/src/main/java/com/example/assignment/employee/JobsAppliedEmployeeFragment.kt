@@ -1,4 +1,4 @@
-package com.example.assignment
+package com.example.assignment.employee
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,7 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import com.example.assignment.JobsAppliedEmployeeViewModel
+import com.example.assignment.R
 import com.example.assignment.databinding.FragmentJobsAppliedEmployeeBinding
 
 class JobsAppliedEmployeeFragment : Fragment() {
@@ -24,7 +25,8 @@ class JobsAppliedEmployeeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate<FragmentJobsAppliedEmployeeBinding>(inflater, R.layout.fragment_jobs_applied_employee, container, false)
+        binding = DataBindingUtil.inflate<FragmentJobsAppliedEmployeeBinding>(inflater,
+            R.layout.fragment_jobs_applied_employee, container, false)
 //        binding.iconArrowback.setOnClickListener{
 //                view : View -> view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
 //        }
