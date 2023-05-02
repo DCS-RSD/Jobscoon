@@ -236,10 +236,12 @@
 
     </style>
 
-    <style name="FullScreenDialogTheme" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowFullscreen">true</item>
+    <style name="apply_button">
+        <item name="backgroundTint">@color/apply_button_color</item>
+    </style>
+
+    <style name="disabled_apply_button">
+        <item name="backgroundTint">@color/disabled_button_color</item>
     </style>
 
 
