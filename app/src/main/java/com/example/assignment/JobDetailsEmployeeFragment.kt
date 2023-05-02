@@ -1,5 +1,8 @@
 package com.example.assignment
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,10 +10,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.findNavController
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 
-class JobDetailsEmployeeFragment : Fragment() {
+class JobDetailsEmployeeFragment : DialogFragment() {
 
     private lateinit var binding: FragmentJobDetailsEmployeeBinding
 
@@ -20,21 +24,25 @@ class JobDetailsEmployeeFragment : Fragment() {
 
     private lateinit var viewModel: JobDetailsEmployeeViewModel
 
+    /*
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate<FragmentJobDetailsEmployeeBinding>(inflater, R.layout.fragment_job_details_employee, container, false)
-//        binding.applyButton.setOnClickListener{
-//                view : View -> view.findNavController().navigate(R.id.action_jobDetailsEmployeeFragment_to_jobsAppliedEmployeeFragment)
-//        }
-//        binding.imageView.setOnClickListener{
-//                view : View -> view.findNavController().navigate(R.id.action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment)
-//        }
-//        binding.imageView2.setOnClickListener {
-//                view : View -> view.findNavController().navigate(R.id.action_jobDetailsEmployeeFragment_to_findJobsEmployeeFragment)
-//        }
-        return binding.root
+
+        val view = inflater.inflate(R.layout.fragment_job_details_employee, container, false)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        return view
+    }
+
+     */
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = Dialog(requireContext(), R.style.FullScreenDialogTheme)
+        dialog.setContentView(R.layout.fragment_job_details_employee)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        return dialog
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

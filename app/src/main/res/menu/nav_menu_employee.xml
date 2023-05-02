@@ -24,7 +24,7 @@
 
     <item android:id="@+id/career"
         android:icon="@drawable/icon_employer"
-        android:title="Career Development">
+        android:title="Career">
     </item>
 
 </menu>

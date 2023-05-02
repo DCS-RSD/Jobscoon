@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.auth.SignUpEmployerViewModel
-import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
+import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 
 
@@ -28,7 +28,7 @@ class FindJobsEmployeeFragment : Fragment() {
         fun newInstance() = FindJobsEmployeeFragment()
     }
 
-    private lateinit var binding: FragmentFindJobsEmployeeBinding
+    private lateinit var binding: ItemJobPostBinding
     private lateinit var manager: RecyclerView.LayoutManager
     val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
 
@@ -39,11 +39,14 @@ class FindJobsEmployeeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_find_jobs_employee,
+            R.layout.item_job_post,
             container,
             false
         )
         manager = LinearLayoutManager(requireContext())
+
+
+
         return binding.root
     }
 

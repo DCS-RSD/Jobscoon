@@ -7,23 +7,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
-import com.example.assignment.databinding.ItemJobPostBinding
+import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.dataclass.JobPostItem
 
 class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
 
 
-    inner class ViewHolder(val binding: ItemJobPostBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: FragmentFindJobsEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: JobPostItem) {
             binding.jobPostItem = item
         }
+
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemJobPostBinding.inflate(inflater, parent, false)
+        val binding = FragmentFindJobsEmployeeBinding.inflate(inflater, parent, false)
+        binding.jobCard.setOnClickListener{
+                view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
+        }
+
+
         return ViewHolder(binding)
     }
 
