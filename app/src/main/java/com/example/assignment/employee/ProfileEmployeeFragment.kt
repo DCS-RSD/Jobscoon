@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import com.example.assignment.ProfileEmployeeViewModel
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentProfileEmployeeBinding
@@ -36,11 +35,8 @@ class ProfileEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.currentUser.observe(viewLifecycleOwner, Observer {
-            binding.user = it
-        })
-
-
+        val user = sharedViewModel.currentUser
+        binding.user = user
     }
 
 }
