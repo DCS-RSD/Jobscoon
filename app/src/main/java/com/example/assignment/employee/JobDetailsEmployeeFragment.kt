@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
@@ -33,6 +34,7 @@ class JobDetailsEmployeeFragment : Fragment() {
 
         binding.imageView.setOnClickListener {
                 view : View -> view.findNavController().popBackStack()
+
         }
 
         return binding.root

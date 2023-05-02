@@ -15,7 +15,7 @@
             android:id="@+id/action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment"
             app:destination="@id/jobDetailsEmployeeFragment"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/f"/>
+            app:exitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/jobDetailsEmployeeFragment"
