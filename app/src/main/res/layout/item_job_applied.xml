@@ -74,7 +74,7 @@
                             style="@style/company_and_location_name_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{jobApplicationItem.job_post.title}"
+                            android:text="@{jobApplicationItem.job_post.company.name}"
                             app:layout_constraintStart_toStartOf="@+id/job_name1"
                             app:layout_constraintTop_toBottomOf="@id/job_name1" />
 
