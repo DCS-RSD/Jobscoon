@@ -3,6 +3,7 @@ package com.example.assignment.api
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.auth.SignUpItem
 import com.example.assignment.dataclass.Company
+import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.User
 import retrofit2.Call
@@ -66,4 +67,11 @@ interface Route {
 
     @POST("jobpost")
     fun createJobPost(@Body jobPostItem: JobPostItem): Call<JobPostItem>
+
+    @GET("jobapplication")
+    fun getJobApplication(
+        @Header("Authorization") token: String,
+    ): Call<List<JobApplicationItem>>
+
+
 }

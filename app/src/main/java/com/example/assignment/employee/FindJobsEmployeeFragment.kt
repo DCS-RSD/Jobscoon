@@ -21,9 +21,7 @@ import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 
-
 class FindJobsEmployeeFragment : Fragment() {
-
 
     companion object {
         fun newInstance() = FindJobsEmployeeFragment()
@@ -32,7 +30,6 @@ class FindJobsEmployeeFragment : Fragment() {
     private lateinit var binding: FragmentFindJobsEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
     val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,8 +42,6 @@ class FindJobsEmployeeFragment : Fragment() {
             false
         )
         manager = LinearLayoutManager(requireContext())
-
-
 
         return binding.root
     }

@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_jobs_applied_employee" />
     <fragment
         android:id="@+id/interviewEmployeeFragment"
-        android:name="com.example.assignment.InterviewEmployeeFragment"
+        android:name="com.example.assignment.employee.InterviewEmployeeFragment"
         android:label="fragment_interview_employee"
         tools:layout="@layout/fragment_interview_employee" />
     <fragment
