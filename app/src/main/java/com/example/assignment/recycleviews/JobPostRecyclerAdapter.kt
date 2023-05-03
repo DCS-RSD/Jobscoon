@@ -1,55 +1,52 @@
 package com.example.assignment.recycleviews
 
 import android.content.Context
+import android.provider.ContactsContract.RawContacts.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
+import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
+import com.example.assignment.databinding.ItemJobPostBinding
+import com.example.assignment.databinding.NavigationEmployeeBinding
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.employee.EmployeeNavHost
 
-class JobPostRecyclerAdapter(val context : Context, val jobPostList : List<JobPostItem>)
-    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
+    private lateinit var binding2: EmployeeNavHost
+
+    inner class ViewHolder(val binding: ItemJobPostBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: JobPostItem) {
+            binding.jobPostItem = item
+        }
 
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return JobPostViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_employer_home, parent, false)
-        )
     }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(holder) {
-
-            is JobPostViewHolder -> {
-                holder.bind(jobPostList[position])
-            }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemJobPostBinding.inflate(inflater, parent, false)
+        binding.jobCard.setOnClickListener{
+                view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
 
         }
+
+
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = dataList[position]
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return jobPostList.size
+        return dataList.size
     }
 
 
-    class JobPostViewHolder constructor(
-        itemView: View
-    ) : RecyclerView.ViewHolder(itemView) {
-        val jobTitle = itemView.findViewById<TextView>(R.id.job_name)
-        val jobSalary = itemView.findViewById<TextView>(R.id.salary)
-        val jobType = itemView.findViewById<TextView>(R.id.type)
-        val jobShift = itemView.findViewById<TextView>(R.id.shift)
-        val jobPostedTime = itemView.findViewById<TextView>(R.id.posted_time)
-
-        fun bind(jobPost: JobPostItem) {
-            jobTitle.text = jobPost.title
-            jobSalary.text = jobPost.salary_lower.toString() + "-" + jobPost.salary_upper.toString()
-            jobType.text = jobPost.type
-            jobShift.text = jobPost.shift
-            jobPostedTime.text = jobPost.post_at
-        }
-    }
 }

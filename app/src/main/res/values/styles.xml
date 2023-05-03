@@ -236,4 +236,13 @@
 
     </style>
 
+    <style name="apply_button">
+        <item name="backgroundTint">@color/apply_button_color</item>
+    </style>
+
+    <style name="disabled_apply_button">
+        <item name="backgroundTint">@color/disabled_button_color</item>
+    </style>
+
+    
 </resources>

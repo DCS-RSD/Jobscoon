@@ -5,24 +5,26 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.widget.Button
-import androidx.core.os.HandlerCompat.postDelayed
+import com.example.assignment.auth.AuthActivity
+import com.example.assignment.employee.EmployeeNavHost
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        setContentView(R.layout.nav)
+       //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
 
-        /*Handler().postDelayed({
-            if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
-                startActivity(Intent(this, EmployerHomeActivity::class.java))
-            } else {
-                startActivity(Intent(this, LoginActivity::class.java))
-            }
-            finish()
-        },2000)*/
+        if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
+            startActivity(Intent(this, EmployeeNavHost::class.java))
+        } else {
+            startActivity(Intent(this, AuthActivity::class.java))
+        }
+        finish()
 
+//        Handler().postDelayed({
+//
+//        }, 2000)
 
 
     }

@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity" >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
+        android:id="@+id/fragment_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginActivity">
+       >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
         <ImageView
             android:id="@+id/logo"
@@ -119,7 +128,8 @@
                 android:text="Sign Up"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
 
@@ -127,4 +137,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 </layout>
