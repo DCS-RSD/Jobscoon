@@ -17,7 +17,7 @@
         android:title="Schedule">
     </item>
 
-    <item android:id="@+id/sd"
+    <item android:id="@+id/careerDevelopmentEmployeeFragment"
         android:icon="@drawable/baseline_cd"
         android:title="Career">
     </item>
