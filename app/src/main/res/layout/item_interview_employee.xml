@@ -110,13 +110,40 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/time1"
+                        android:id="@+id/company"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="2"
                         app:layout_constraintStart_toStartOf="@id/jobsName1"
                         app:layout_constraintTop_toBottomOf="@id/jobsName1">
+
+                        <ImageView
+                            android:id="@+id/icon_company"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1.8"
+                            app:srcCompat="@drawable/baseline_business_24" />
+
+                        <TextView
+                            style="@style/interview_detail_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="0.2"
+                            android:text="IKUN Enterprise" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/time1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        app:layout_constraintStart_toStartOf="@id/company"
+                        app:layout_constraintTop_toBottomOf="@id/company">
 
                         <ImageView
                             android:id="@+id/icon_time1"
