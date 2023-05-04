@@ -8,7 +8,7 @@
     </item>
 
     <item android:id="@+id/jobsAppliedEmployeeFragment"
-        android:icon="@drawable/icon_page"
+        android:icon="@drawable/baseline_job_applied"
         android:title="Application">
     </item>
 
@@ -18,12 +18,12 @@
     </item>
 
     <item android:id="@+id/sd"
-        android:icon="@drawable/icon_employer"
+        android:icon="@drawable/baseline_cd"
         android:title="Career">
     </item>
 
     <item android:id="@+id/profileEmployeeFragment"
-        android:icon="@drawable/icon_employer"
+        android:icon="@drawable/baseline_person_24"
         android:title="Profile">
     </item>
 
