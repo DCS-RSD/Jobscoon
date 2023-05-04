@@ -19,13 +19,9 @@ import com.example.assignment.employee.EmployeeNavHost
 class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemJobPostBinding) : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(item: JobPostItem) {
             binding.jobPostItem = item
         }
-
-
-
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -34,7 +30,6 @@ class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : Recycler
                 view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
 
         }
-
 
         return ViewHolder(binding)
     }

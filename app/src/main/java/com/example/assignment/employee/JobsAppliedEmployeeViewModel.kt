@@ -23,7 +23,6 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
         MutableLiveData<ResponseForUI>()
     }
 
-
     val jobApplicationList: MutableLiveData<List<JobApplicationItem>> by lazy {
         MutableLiveData<List<JobApplicationItem>>()
     }
@@ -56,7 +55,6 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
         val build = RetrofitBuild.build().getJobApplication(
             sharedPreferences.getString("Token", "")!!
         )
-
 
         build.enqueue(object : Callback<List<JobApplicationItem>?> {
             override fun onResponse(
