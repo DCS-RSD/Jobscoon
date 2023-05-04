@@ -2,10 +2,7 @@ package com.example.assignment.api
 
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.auth.SignUpItem
-import com.example.assignment.dataclass.Company
-import com.example.assignment.dataclass.JobApplicationItem
-import com.example.assignment.dataclass.JobPostItem
-import com.example.assignment.dataclass.User
+import com.example.assignment.dataclass.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -73,5 +70,9 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<JobApplicationItem>>
 
+    @GET("jobinterview")
+    fun getJobInterview(
+        @Header("Authorization") token: String,
+    ): Call<List<JobInterviewItem>>
 
 }

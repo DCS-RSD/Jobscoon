@@ -6,7 +6,7 @@
     <data>
         <variable
             name="interviewItem"
-            type="com.example.assignment.dataclass.JobPostItem" />
+            type="com.example.assignment.dataclass.JobInterviewItem" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -43,7 +43,7 @@
                         style="@style/day"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="22"
+                        android:text="@{interviewItem.day_only}"
                         android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +53,7 @@
                         style="@style/month"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="September"
+                        android:text="@{interviewItem.month_in_word}"
                         android:textAlignment="center"
                         app:layout_constraintEnd_toEndOf="@+id/day"
                         app:layout_constraintStart_toStartOf="@+id/day"
@@ -64,7 +64,7 @@
                         style="@style/year"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2023"
+                        android:text="@{interviewItem.year_only}"
                         android:textAlignment="center"
                         app:layout_constraintEnd_toEndOf="@id/month"
                         app:layout_constraintStart_toStartOf="@id/month"
@@ -105,7 +105,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="Sales Manager" />
+                            android:text="@{interviewItem.job_post.title}" />
 
                     </LinearLayout>
 
@@ -132,7 +132,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="IKUN Enterprise" />
+                            android:text="@{interviewItem.job_post.company.name}" />
 
                     </LinearLayout>
 
@@ -159,7 +159,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="10.00am - 11.00am" />
+                            android:text="@{interviewItem.combined_time}" />
 
                     </LinearLayout>
 
@@ -186,7 +186,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="Wednesday" />
+                            android:text="@{interviewItem.day_in_word}" />
 
                     </LinearLayout>
 
@@ -213,7 +213,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="Physical" />
+                            android:text="@{interviewItem.type}" />
 
                     </LinearLayout>
 
@@ -235,12 +235,13 @@
                             app:srcCompat="@drawable/icon_location" />
 
                         <TextView
+                            android:id="@+id/location_or_link"
                             style="@style/interview_detail_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="Lv 39, Vertical Business Tower, Jalan Ampang, 53000, Kuala Lumpur" />
+                            android:text="example" />
 
                     </LinearLayout>
 
@@ -267,7 +268,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:layout_weight="0.2"
-                            android:text="Please provide IC at the ground floor reception to gain access to Lv 39" />
+                            android:text="@{interviewItem.description}" />
 
                     </LinearLayout>
 

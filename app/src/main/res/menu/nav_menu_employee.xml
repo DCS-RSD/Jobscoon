@@ -17,14 +17,16 @@
         android:title="Schedule">
     </item>
 
+    <item android:id="@+id/sd"
+        android:icon="@drawable/icon_employer"
+        android:title="Career">
+    </item>
+
     <item android:id="@+id/profileEmployeeFragment"
         android:icon="@drawable/icon_employer"
         android:title="Profile">
     </item>
 
-    <item android:id="@+id/sd"
-        android:icon="@drawable/icon_employer"
-        android:title="Career">
-    </item>
+
 
 </menu>
