@@ -41,7 +41,7 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
-
+/*
         val timestampString = dataList[position].created_at // Get the timestamp string from your data object
 
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US) // Specify the input format of the timestamp string
@@ -50,7 +50,7 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) 
         val date = inputFormat.parse(timestampString) // Parse the timestamp string into a Date object
         val dateString = outputFormat.format(date)
         holder.binding.applyDateItself.text = dateString
-
+*/
         val textColorId = when(item.status) {
             "accept" -> R.color.accepted_text_color
             "pending" -> R.color.pending_text_color

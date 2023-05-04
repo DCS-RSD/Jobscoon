@@ -61,26 +61,18 @@
                     app:layout_constraintStart_toStartOf="@+id/job_name1"
                     app:layout_constraintTop_toBottomOf="@id/job_name1" />
 
-                <TextView
-                    android:id="@+id/location1"
-                    style="@style/company_and_location_name_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{jobApplicationItem.job_post.company.location}"
-                    app:layout_constraintStart_toStartOf="@+id/company1"
-                    app:layout_constraintTop_toBottomOf="@+id/company1" />
 
                 <TextView
                     android:id="@+id/salary1"
                     style="@style/myJobs_detail_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:backgroundTint="#F0F0EE"
                     android:text="@{jobApplicationItem.job_post.salary}"
                     android:textColor="#555452"
-                    app:layout_constraintStart_toStartOf="@+id/location1"
-                    app:layout_constraintTop_toBottomOf="@+id/location1" />
+                    app:layout_constraintStart_toStartOf="@+id/company1"
+                    app:layout_constraintTop_toBottomOf="@+id/company1" />
 
                 <TextView
                     android:id="@+id/jobType1"
@@ -118,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/archivo_narrow_bold"
-                    android:text="example"
+                    android:text="@{jobApplicationItem.created_at}"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@+id/apply_date"
                     app:layout_constraintStart_toEndOf="@+id/apply_date"
