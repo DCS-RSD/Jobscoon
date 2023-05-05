@@ -75,4 +75,9 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<JobInterviewItem>>
 
+    @GET("careerdev")
+    fun getCareerDevelopment(
+        @Header("Authorization") token: String,
+    ): Call<List<CareerDevelopmentItem>>
+
 }

@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_interview_employee" />
     <fragment
         android:id="@+id/careerDevelopmentEmployeeFragment"
-        android:name="com.example.assignment.CareerDevelopmentEmployeeFragment"
+        android:name="com.example.assignment.employee.CareerDevelopmentEmployeeFragment"
         android:label="fragment_career_development_employee"
         tools:layout="@layout/fragment_career_development_employee" />
     <fragment
