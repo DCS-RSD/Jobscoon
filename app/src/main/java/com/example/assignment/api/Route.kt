@@ -68,6 +68,12 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<JobPostItem>>
 
+    @GET("jobpost/{id}")
+    fun showJobPost(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<JobPostItem>
+
     @POST("jobpost")
     fun createJobPost(@Body jobPostItem: JobPostItem): Call<JobPostItem>
 
