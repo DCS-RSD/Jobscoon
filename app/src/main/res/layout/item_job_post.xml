@@ -183,6 +183,14 @@
                 app:layout_constraintStart_toStartOf="@+id/shift_card"
                 app:layout_constraintTop_toBottomOf="@+id/shift_card" />
 
+            <TextView
+                android:id="@+id/job_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/posted_time"
+                app:layout_constraintTop_toBottomOf="@id/posted_time"
+                android:visibility="gone"
+                android:text="example"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
