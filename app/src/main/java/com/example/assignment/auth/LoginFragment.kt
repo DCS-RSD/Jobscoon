@@ -55,8 +55,10 @@ class LoginFragment : Fragment() {
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             if (it.success) {
-                startActivity(Intent(requireActivity(), EmployeeNavHost::class.java))
-                requireActivity().finish()
+                val intent = Intent(requireActivity(), EmployeeNavHost::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+
             } else {
                 Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
 

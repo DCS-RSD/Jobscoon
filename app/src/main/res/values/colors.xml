@@ -56,5 +56,7 @@
     <color name="myJobs_details_text_color">#555452</color>
     <color name="red">#F44336</color>
 
+    <color name="apply_button_color">#3045B8</color>
+    <color name="disabled_button_color">#CCCCCC</color>
     <color name="text_input_border_color">#9F6FFD</color>
 </resources>
