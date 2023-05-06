@@ -13,4 +13,5 @@ data class JobPostItem(
     val updated_at: String,
     val post_at: String,
     val salary: String,
+    var company: Company?=null,
 )

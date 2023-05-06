@@ -74,39 +74,119 @@
                                 android:textColor="@color/black"
                                 android:textSize="17sp"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/emailS"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <TextView
-                                android:id="@+id/emailS"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="5dp"
-                                android:drawableStart="@drawable/baseline_email_24"
-                                android:fontFamily="@font/hind_siliguri"
-                                android:text="@{user.email}"
-                                android:textColor="@color/gray"
-                                android:textSize="15sp"
-                                app:layout_constraintBottom_toTopOf="@+id/phS"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/usernameS" />
 
-                            <TextView
-                                android:id="@+id/phS"
-                                android:layout_width="114dp"
-                                android:layout_height="21dp"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="16dp"
-                                android:drawableStart="@drawable/baseline_phone_24"
-                                android:fontFamily="@font/hind_siliguri"
-                                android:text=" 012 3456 789"
-                                android:textColor="@color/gray"
-                                android:textSize="15sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/emailS" />
+                                app:layout_constraintTop_toBottomOf="@id/usernameS"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginEnd="8dp"
+                                >
+
+                                <LinearLayout
+                                    android:id="@id/email"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <ImageView
+                                        android:id="@+id/icon_mail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:layout_weight="1.8"
+                                        app:srcCompat="@drawable/icon_email_profile_used"
+
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/emailS"
+                                        style="@style/interview_detail_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/hind_siliguri"
+                                        android:text="@{user.email}"
+                                        android:textColor="@color/black"
+                                        android:textSize="15sp"
+                                        android:layout_marginTop="6dp"
+                                        android:layout_weight="0.2"
+                                        />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/phone"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2"
+                                    app:layout_constraintStart_toStartOf="@id/email"
+                                    app:layout_constraintTop_toBottomOf="@id/email">
+
+                                    <ImageView
+                                        android:id="@+id/icon_phone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:layout_weight="1.8"
+                                        app:srcCompat="@drawable/icon_phone_profile_used" />
+
+                                    <TextView
+                                        android:id="@+id/phS"
+                                        style="@style/interview_detail_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:layout_weight="0.2"
+                                        android:fontFamily="@font/hind_siliguri"
+                                        android:text="@{user.phone}"
+                                        android:textColor="@color/black"
+                                        android:textSize="15sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/address"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2"
+                                    app:layout_constraintStart_toStartOf="@id/phone"
+                                    app:layout_constraintTop_toBottomOf="@id/phone">
+
+                                    <ImageView
+                                        android:id="@+id/icon_address"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:layout_weight="1.8"
+                                        app:srcCompat="@drawable/icon_location_profile_used" />
+
+                                    <TextView
+                                        android:id="@+id/addressS"
+                                        style="@style/interview_detail_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:layout_weight="0.2"
+                                        android:fontFamily="@font/hind_siliguri"
+                                        android:text="@{user.address}"
+                                        android:textColor="@color/black"
+                                        android:textSize="15sp" />
+
+                                </LinearLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -154,8 +234,7 @@
                                 android:layout_marginTop="16dp"
                                 android:layout_marginEnd="20dp"
                                 android:layout_marginBottom="16dp"
-                                android:text="Hello and welcome! My name is Yuna Kim  In terms of my experience, I have 3 years of experience in Software Engineering, where I have developed a strong set of skills in coding. And I am always eager to learn and grow in my professional and personal life.
-I am excited about the opportunity to bring my unique experiences and skills to your team and contribute to the success of your organization. Thank you for considering my application."
+                                android:text="@{user.description}"
                                 android:textColor="@color/black"
                                 app:boxBackgroundColor="@color/white"
                                 app:fontFamily="@font/hind_siliguri"
@@ -200,6 +279,20 @@ I am excited about the opportunity to bring my unique experiences and skills to 
                         app:layout_constraintEnd_toEndOf="@+id/button2"
                         app:layout_constraintStart_toStartOf="@+id/button2"
                         app:layout_constraintTop_toBottomOf="@id/button2" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/logout"
+                        style="@style/edit_profile_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:backgroundTint="@color/rejected_text_color"
+                        android:text="LOGOUT"
+                        app:layout_constraintEnd_toEndOf="@+id/editS"
+                        app:layout_constraintStart_toStartOf="@+id/editS"
+                        app:layout_constraintTop_toBottomOf="@id/editS" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

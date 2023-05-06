@@ -7,17 +7,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
-import com.example.assignment.dataclass.JobPostItem
-import com.example.assignment.dataclass.ResponseForUI
-import com.example.assignment.dataclass.User
-import com.example.assignment.dataclass.ValidationErrorResponse
+import com.example.assignment.dataclass.*
 import com.google.gson.Gson
 import kotlinx.coroutines.Job
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(application) {
+class InterviewEmployeeViewModel(application: Application) : AndroidViewModel(application) {
 
     lateinit var currentUser: User
 
@@ -26,8 +23,8 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
         MutableLiveData<ResponseForUI>()
     }
 
-    val jobPostList: MutableLiveData<List<JobPostItem>> by lazy {
-        MutableLiveData<List<JobPostItem>>()
+    val jobInterviewList: MutableLiveData<List<JobInterviewItem>> by lazy {
+        MutableLiveData<List<JobInterviewItem>>()
     }
 
     fun autoLogin() {
@@ -43,7 +40,7 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
                 if (response.isSuccessful) {
                     currentUser = response.body()!!
                 } else {
-                    //dialog prompt to ask user login again
+                    //
                 }
             }
 
@@ -55,20 +52,20 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
     }
 
     fun getData() {
-        val build = RetrofitBuild.build().getJobPost(
+        val build = RetrofitBuild.build().getJobInterview(
             sharedPreferences.getString("Token", "")!!
         )
 
-        build.enqueue(object : Callback<List<JobPostItem>?> {
+        build.enqueue(object : Callback<List<JobInterviewItem>?> {
             override fun onResponse(
-                call: Call<List<JobPostItem>?>,
-                response: Response<List<JobPostItem>?>
+                call: Call<List<JobInterviewItem>?>,
+                response: Response<List<JobInterviewItem>?>
             ) {
                 if (response.isSuccessful) {
 
                     loginResponse.value = ResponseForUI(true, "")
-                    jobPostList.value = response.body()!!
-                    Log.d("success", "onResponse: "+jobPostList.value)
+                    jobInterviewList.value = response.body()!!
+                    Log.d("success", "onResponse: "+jobInterviewList.value)
 
                 } else { //unknown error
 
@@ -77,7 +74,7 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
                 }
             }
 
-            override fun onFailure(call: Call<List<JobPostItem>?>, t: Throwable) {
+            override fun onFailure(call: Call<List<JobInterviewItem>?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
                 loginResponse.value =

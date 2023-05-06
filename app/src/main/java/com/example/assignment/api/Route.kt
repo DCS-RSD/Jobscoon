@@ -2,9 +2,7 @@ package com.example.assignment.api
 
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.auth.SignUpItem
-import com.example.assignment.dataclass.Company
-import com.example.assignment.dataclass.JobPostItem
-import com.example.assignment.dataclass.User
+import com.example.assignment.dataclass.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -48,6 +46,12 @@ interface Route {
     ): Call<User>
 
     @Headers("Accept: application/json")
+    @POST("logout")
+    fun logout(
+        @Header("Authorization") token: String,
+    ): Call<LoginResponse>
+
+    @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("validatecompany")
     fun validateCompany(
@@ -64,6 +68,28 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<JobPostItem>>
 
+    @GET("jobpost/{id}")
+    fun showJobPost(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<JobPostItem>
+
     @POST("jobpost")
     fun createJobPost(@Body jobPostItem: JobPostItem): Call<JobPostItem>
+
+    @GET("jobapplication")
+    fun getJobApplication(
+        @Header("Authorization") token: String,
+    ): Call<List<JobApplicationItem>>
+
+    @GET("jobinterview")
+    fun getJobInterview(
+        @Header("Authorization") token: String,
+    ): Call<List<JobInterviewItem>>
+
+    @GET("careerdev")
+    fun getCareerDevelopment(
+        @Header("Authorization") token: String,
+    ): Call<List<CareerDevelopmentItem>>
+
 }

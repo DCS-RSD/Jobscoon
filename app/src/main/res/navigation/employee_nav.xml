@@ -13,23 +13,30 @@
         tools:layout="@layout/fragment_find_jobs_employee" >
         <action
             android:id="@+id/action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment"
-            app:destination="@id/jobDetailsEmployeeFragment" />
+            app:destination="@id/jobDetailsEmployeeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/jobDetailsEmployeeFragment"
-        android:name="com.example.assignment.JobDetailsEmployeeFragment"
+        android:name="com.example.assignment.employee.JobDetailsEmployeeFragment"
         android:label="fragment_job_details_employee"
         tools:layout="@layout/fragment_job_details_employee" />
     <fragment
         android:id="@+id/jobsAppliedEmployeeFragment"
-        android:name="com.example.assignment.JobsAppliedEmployeeFragment"
+        android:name="com.example.assignment.employee.JobsAppliedEmployeeFragment"
         android:label="fragment_jobs_applied_employee"
         tools:layout="@layout/fragment_jobs_applied_employee" />
     <fragment
         android:id="@+id/interviewEmployeeFragment"
-        android:name="com.example.assignment.InterviewEmployeeFragment"
+        android:name="com.example.assignment.employee.InterviewEmployeeFragment"
         android:label="fragment_interview_employee"
         tools:layout="@layout/fragment_interview_employee" />
+    <fragment
+        android:id="@+id/careerDevelopmentEmployeeFragment"
+        android:name="com.example.assignment.employee.CareerDevelopmentEmployeeFragment"
+        android:label="fragment_career_development_employee"
+        tools:layout="@layout/fragment_career_development_employee" />
     <fragment
         android:id="@+id/jobsPostedEmployerFragment"
         android:name="com.example.assignment.JobsPostedEmployerFragment"
@@ -75,5 +82,6 @@
         android:name="com.example.assignment.EditProfileEmployerFragment"
         android:label="fragment_edit_profile_employer"
         tools:layout="@layout/fragment_edit_profile_employer" />
+
 
 </navigation>

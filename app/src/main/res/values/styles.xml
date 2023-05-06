@@ -236,4 +236,23 @@
 
     </style>
 
+    <style name="apply_button">
+        <item name="backgroundTint">@color/apply_button_color</item>
+    </style>
+
+    <style name="disabled_apply_button">
+        <item name="backgroundTint">@color/disabled_button_color</item>
+    </style>
+
+    <style name="animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="careerdev_loc">
+        <item name="fontFamily">@font/hind_siliguri</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
 </resources>
