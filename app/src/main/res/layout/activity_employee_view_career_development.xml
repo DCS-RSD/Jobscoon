@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CareerDevelopmentDetailsFragment">
-
-<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    tools:context=".JobDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_nav"
@@ -41,18 +38,17 @@
 
     <ScrollView
         android:id="@+id/scroll"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="60dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/join_btn"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_nav">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/programme_title1"
@@ -106,7 +102,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:drawableLeft="@drawable/ic_type"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="Online"
                         android:textSize="20dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +117,6 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/icon_location"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="No location"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +133,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/ic_calendar"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="03/08/2019"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,7 +150,6 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/icon_time"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="8:00a.m.-10:00a.m."
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -173,7 +165,6 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/icon_email"
-                        android:fontFamily="@font/hind_siliguri"
 
                         android:text="idolproducer@gmail.com"
                         android:textSize="20dp"
@@ -190,7 +181,6 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/icon_phone"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="0102540803"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -206,7 +196,6 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
                         android:drawableLeft="@drawable/ic_website"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="https://www.idolproducer.com"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -223,7 +212,6 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/ic_description"
-                        android:fontFamily="@font/hind_siliguri"
                         android:text="The purpose of the programme is to train more idol who know how to sing,dance,rap and basketball"
                         android:textSize="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -249,19 +237,15 @@
 
     <Button
         android:id="@+id/join_btn"
-        android:layout_width="match_parent"
+        style="@style/submit_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/salary_text_color"
-        android:fontFamily="@font/hind_siliguri_bold"
-        android:text="JOIN"
+        android:text="Join"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+        app:layout_constraintTop_toBottomOf="@+id/scroll"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
