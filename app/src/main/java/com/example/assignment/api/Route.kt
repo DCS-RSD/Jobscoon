@@ -46,6 +46,12 @@ interface Route {
     ): Call<User>
 
     @Headers("Accept: application/json")
+    @POST("logout")
+    fun logout(
+        @Header("Authorization") token: String,
+    ): Call<LoginResponse>
+
+    @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("validatecompany")
     fun validateCompany(
