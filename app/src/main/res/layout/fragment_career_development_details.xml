@@ -230,6 +230,21 @@
                         app:layout_constraintStart_toStartOf="@+id/programmeType"
                         app:layout_constraintTop_toBottomOf="@+id/website" />
 
+                    <TextView
+                        android:id="@+id/capacity"
+                        style="@style/interviewer_detail_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:drawableLeft="@drawable/ic_capacity_24"
+                        android:fontFamily="@font/hind_siliguri"
+                        android:text="200"
+                        android:textSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/programmeType"
+                        app:layout_constraintTop_toBottomOf="@+id/description"
+                        app:layout_constraintVertical_bias="0.0" />
                     <!--            <TextView-->
                     <!--                android:id="@+id/interviewrName"-->
                     <!--                style="@style/interviewer_detail_layout"-->
