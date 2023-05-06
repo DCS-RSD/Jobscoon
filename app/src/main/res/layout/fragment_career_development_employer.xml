@@ -133,7 +133,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/relativeLayout1" />
 
-                        
 
                         <TextView
                             android:id="@+id/programmeLocation"
@@ -144,8 +143,9 @@
                             android:drawableLeft="@drawable/icon_location"
                             android:text="No location"
                             android:textColor="#555452"
-                            app:layout_constraintStart_toStartOf="@+id/programmeType"
-                            app:layout_constraintTop_toBottomOf="@+id/programmeType" />
+                            app:layout_constraintStart_toStartOf="@+id/programme_title1"
+                            app:layout_constraintTop_toBottomOf="@+id/programme_title1"/>
+
 
                         <TextView
                             android:id="@+id/programmeDate"
