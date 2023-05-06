@@ -18,18 +18,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
+import com.example.assignment.databinding.FragmentInterviewEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
+import com.example.assignment.recycleviews.JobInterviewRecyclerAdapter
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 
-class FindJobsEmployeeFragment : Fragment() {
+class InterviewEmployeeFragment : Fragment() {
 
     companion object {
-        fun newInstance() = FindJobsEmployeeFragment()
+        fun newInstance() = InterviewEmployeeFragment()
     }
 
-    private lateinit var binding: FragmentFindJobsEmployeeBinding
+    private lateinit var binding: FragmentInterviewEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
-    val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
+    val sharedViewModel: InterviewEmployeeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +39,7 @@ class FindJobsEmployeeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_find_jobs_employee,
+            R.layout.fragment_interview_employee,
             container,
             false
         )
@@ -53,18 +55,18 @@ class FindJobsEmployeeFragment : Fragment() {
 
         sharedViewModel.getData()
 
-        sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
-            binding.jobPostRecycleView.apply {
-                adapter = JobPostRecyclerAdapter(it)
+        sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
+            binding.interviewEmployeeRecycleView.apply {
+                adapter = JobInterviewRecyclerAdapter(it)
                 layoutManager = manager
             }
 
             Log.d("acticity", "onActivityCreated: "+it)
         })
 
-        binding.jobPostRefresh.setOnRefreshListener {
+        binding.interviewEmployeeRefresh.setOnRefreshListener {
             sharedViewModel.getData()
-            binding.jobPostRefresh.isRefreshing = false
+            binding.interviewEmployeeRefresh.isRefreshing = false
         }
 
 

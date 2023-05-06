@@ -2,6 +2,6 @@ package com.example.assignment
 
 import androidx.lifecycle.ViewModel
 
-class JobsAppliedEmployeeViewModel : ViewModel() {
+class EditCareerDevelopmentEmployerViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }
