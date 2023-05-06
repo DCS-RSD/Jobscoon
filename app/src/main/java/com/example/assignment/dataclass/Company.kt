@@ -6,4 +6,8 @@ data class Company(
     val contact_number: String,
     val location: String,
     val description: String,
+
+    var id: Int? = null,
+    var created_at: String? = null,
+    var updated_at: String? = null,
 )

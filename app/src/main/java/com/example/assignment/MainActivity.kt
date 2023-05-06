@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
+        //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
 
         if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
             startActivity(Intent(this, EmployeeNavHost::class.java))

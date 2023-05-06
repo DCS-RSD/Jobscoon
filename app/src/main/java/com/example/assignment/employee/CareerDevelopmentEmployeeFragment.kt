@@ -17,19 +17,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.auth.SignUpEmployerViewModel
+import com.example.assignment.databinding.FragmentCareerDevelopmentEmployeeBinding
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
+import com.example.assignment.recycleviews.CareerDevelopmentEmployeeRecyclerAdapter
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 
-class FindJobsEmployeeFragment : Fragment() {
+class CareerDevelopmentEmployeeFragment : Fragment() {
 
     companion object {
-        fun newInstance() = FindJobsEmployeeFragment()
+        fun newInstance() = CareerDevelopmentEmployeeFragment()
     }
 
-    private lateinit var binding: FragmentFindJobsEmployeeBinding
+    private lateinit var binding: FragmentCareerDevelopmentEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
-    val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
+    val sharedViewModel: CareerDevelopmentEmployeeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +39,7 @@ class FindJobsEmployeeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_find_jobs_employee,
+            R.layout.fragment_career_development_employee,
             container,
             false
         )
@@ -53,18 +55,18 @@ class FindJobsEmployeeFragment : Fragment() {
 
         sharedViewModel.getData()
 
-        sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
-            binding.jobPostRecycleView.apply {
-                adapter = JobPostRecyclerAdapter(it)
+        sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {
+            binding.careerDevelopmentEmployeeRecycleView.apply {
+                adapter = CareerDevelopmentEmployeeRecyclerAdapter(it)
                 layoutManager = manager
             }
 
             Log.d("acticity", "onActivityCreated: "+it)
         })
 
-        binding.jobPostRefresh.setOnRefreshListener {
+        binding.careerDevelopmentEmployeeRefresh.setOnRefreshListener {
             sharedViewModel.getData()
-            binding.jobPostRefresh.isRefreshing = false
+            binding.careerDevelopmentEmployeeRefresh.isRefreshing = false
         }
 
 
