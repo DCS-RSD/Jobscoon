@@ -2,31 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/findJobsEmployeeFragment"
+    <item android:id="@+id/home"
         android:icon="@drawable/icon_employee"
         android:title="Find">
     </item>
 
-    <item android:id="@+id/jobsAppliedEmployeeFragment"
-        android:icon="@drawable/baseline_job_applied"
+    <item android:id="@+id/application"
+        android:icon="@drawable/icon_page"
         android:title="Application">
     </item>
 
-    <item android:id="@+id/interviewEmployeeFragment"
+    <item android:id="@+id/schedule"
         android:icon="@drawable/icon_calendar_edit"
         android:title="Schedule">
     </item>
 
-    <item android:id="@+id/careerDevelopmentEmployeeFragment"
-        android:icon="@drawable/baseline_cd"
-        android:title="Career">
-    </item>
-
-    <item android:id="@+id/profileEmployeeFragment"
-        android:icon="@drawable/baseline_person_24"
+    <item android:id="@+id/profile"
+        android:icon="@drawable/icon_employer"
         android:title="Profile">
     </item>
-
-
 
 </menu>
