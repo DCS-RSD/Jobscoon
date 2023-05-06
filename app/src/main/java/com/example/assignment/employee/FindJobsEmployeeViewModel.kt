@@ -43,7 +43,7 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
                 if (response.isSuccessful) {
                     currentUser = response.body()!!
                 } else {
-                    //
+                    //dialog prompt to ask user login again
                 }
             }
 

@@ -46,6 +46,12 @@ interface Route {
     ): Call<User>
 
     @Headers("Accept: application/json")
+    @POST("logout")
+    fun logout(
+        @Header("Authorization") token: String,
+    ): Call<LoginResponse>
+
+    @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("validatecompany")
     fun validateCompany(
@@ -61,6 +67,12 @@ interface Route {
     fun getJobPost(
         @Header("Authorization") token: String,
     ): Call<List<JobPostItem>>
+
+    @GET("jobpost/{id}")
+    fun showJobPost(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<JobPostItem>
 
     @POST("jobpost")
     fun createJobPost(@Body jobPostItem: JobPostItem): Call<JobPostItem>
