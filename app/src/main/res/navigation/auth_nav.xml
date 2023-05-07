@@ -34,8 +34,8 @@
             android:id="@+id/action_signUpChooser_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_signUpChooser_to_signUpCompanyFragment"
-            app:destination="@id/signUpCompanyFragment" />
+            android:id="@+id/action_signUpChooser_to_signUpSelectCompanyFragment"
+            app:destination="@id/signUpSelectCompanyFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpCompanyFragment"
@@ -55,5 +55,17 @@
             android:id="@+id/action_signUpEmployerFragment2_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpSelectCompanyFragment"
+        android:name="com.example.assignment.auth.SignUpSelectCompanyFragment"
+        android:label="fragment_sign_up_select_company"
+        tools:layout="@layout/fragment_sign_up_select_company" >
+        <action
+            android:id="@+id/action_signUpSelectCompanyFragment_to_signUpCompanyFragment"
+            app:destination="@id/signUpCompanyFragment" />
+        <action
+            android:id="@+id/action_signUpSelectCompanyFragment_to_signUpEmployerFragment2"
+            app:destination="@id/signUpEmployerFragment2" />
     </fragment>
 </navigation>

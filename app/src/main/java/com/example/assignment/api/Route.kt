@@ -39,6 +39,7 @@ interface Route {
         @Field("company_description") companyAbout: String? = null,
 
         @Field("is_new_company") isNewCompany: Boolean? = null,
+        @Field("search_company") searchCompany: String? = null,
 
         ): Call<SignUpItem>
 
