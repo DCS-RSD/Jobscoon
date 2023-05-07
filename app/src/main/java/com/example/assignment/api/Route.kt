@@ -106,4 +106,16 @@ interface Route {
         @Header("Authorization") token: String,
         @Path("id") id:Int
     ): Call<Void>
+
+    @POST("acceptinterview/{id}")
+    fun postAcceptInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<Void>
+
+    @POST("declineinterview/{id}")
+    fun postDeclineInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<Void>
 }

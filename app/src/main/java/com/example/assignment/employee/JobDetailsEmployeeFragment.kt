@@ -74,7 +74,6 @@ class JobDetailsEmployeeFragment : Fragment() {
 
         dialog.findViewById<Button>(R.id.btn_done).setOnClickListener{
             Toast.makeText(requireContext(), "You have applied the job !", Toast.LENGTH_LONG).show()
-            //TODO: backend, postJob
             sharedViewModel.postData(jobId)
             binding.applyButton.isEnabled = false
             binding.applyButton.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)

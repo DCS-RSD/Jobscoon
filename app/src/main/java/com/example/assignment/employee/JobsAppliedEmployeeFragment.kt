@@ -28,7 +28,7 @@ class JobsAppliedEmployeeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
@@ -47,15 +47,22 @@ class JobsAppliedEmployeeFragment : Fragment() {
         sharedViewModel.autoLogin() //check token
 
         sharedViewModel.getData()
+        sharedViewModel.getJobApplicationData()
 
-        sharedViewModel.jobApplicationList.observe(viewLifecycleOwner, Observer {
-            binding.jobAppliedRecycleView.apply {
-                adapter = JobAppliedRecyclerAdapter(it)
-                layoutManager = manager
-            }
 
-            Log.d("acticity", "onActivityCreated: "+it)
-        })
+        sharedViewModel.jobApplicationList.observe(viewLifecycleOwner, Observer { jobApplicationList ->
+
+                sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer { jobInterviewList ->
+
+                        binding.jobAppliedRecycleView.apply {
+                            adapter = JobAppliedRecyclerAdapter(jobApplicationList, jobInterviewList)
+                            layoutManager = manager
+                        }
+
+                        Log.d("acticity", "onActivityCreated: " + jobApplicationList + jobInterviewList)
+
+                    })
+            })
 
         binding.jobAppliedRefresh.setOnRefreshListener {
             sharedViewModel.getData()

@@ -14,11 +14,12 @@ import com.example.assignment.R
 import com.example.assignment.databinding.ItemJobAppliedBinding
 import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.dataclass.JobApplicationItem
+import com.example.assignment.dataclass.JobInterviewItem
 import com.example.assignment.dataclass.JobPostItem
 import java.text.SimpleDateFormat
 import java.util.*
 
-class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
+class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>, private val dataList2: List<JobInterviewItem>) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemJobAppliedBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobApplicationItem) {
@@ -30,20 +31,25 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) 
         val binding = ItemJobAppliedBinding.inflate(inflater, parent, false)
 
 
-
-
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
+
+        for (item in dataList2) {
+            if (holder.binding.jobApplicationItem?.job_post_id == item.job_post_id) {
+                holder.binding.interviewIcon.visibility = View.VISIBLE
+            }
+        }
+
+
         var jobId = item.job_post_id.toString()
         holder.binding.jobs1.setOnClickListener{ view ->
             val bundle = Bundle()
             bundle.putString("position", jobId)
             view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment, bundle)
-
         }
 
         val textColorId = when(item.status) {

@@ -57,7 +57,7 @@ class InterviewEmployeeFragment : Fragment() {
 
         sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
             binding.interviewEmployeeRecycleView.apply {
-                adapter = JobInterviewRecyclerAdapter(it)
+                adapter = JobInterviewRecyclerAdapter(requireContext(), it)
                 layoutManager = manager
             }
 

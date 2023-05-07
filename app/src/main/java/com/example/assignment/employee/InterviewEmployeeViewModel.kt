@@ -87,4 +87,72 @@ class InterviewEmployeeViewModel(application: Application) : AndroidViewModel(ap
         })
 
     }
+
+    fun postAcceptData(id: Int) {
+        val build = RetrofitBuild.build().postAcceptInterview(
+            sharedPreferences.getString("Token", "")!!, id
+        )
+
+        build.enqueue(object : Callback<Void> {
+            override fun onResponse(
+                call: Call<Void>,
+                response: Response<Void>
+            ) {
+                if (response.isSuccessful) {
+
+                    loginResponse.value = ResponseForUI(true, "")
+                    //jobApplicationItem.value = response.body()!!
+                    //Log.d("success", "onResponse: " + jobApplicationItem.value)
+
+                } else { //unknown error
+
+                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                loginResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+
+    }
+
+    fun postDeclineData(id: Int) {
+        val build = RetrofitBuild.build().postDeclineInterview(
+            sharedPreferences.getString("Token", "")!!, id
+        )
+
+        build.enqueue(object : Callback<Void> {
+            override fun onResponse(
+                call: Call<Void>,
+                response: Response<Void>
+            ) {
+                if (response.isSuccessful) {
+
+                    loginResponse.value = ResponseForUI(true, "")
+                    //jobApplicationItem.value = response.body()!!
+                    //Log.d("success", "onResponse: " + jobApplicationItem.value)
+
+                } else { //unknown error
+
+                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                loginResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+
+    }
 }

@@ -27,6 +27,7 @@ class FindJobsEmployeeFragment : Fragment() {
         fun newInstance() = FindJobsEmployeeFragment()
     }
 
+
     private lateinit var binding: FragmentFindJobsEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
     val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()

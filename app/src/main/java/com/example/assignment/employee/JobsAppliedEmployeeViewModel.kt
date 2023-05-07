@@ -27,6 +27,10 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
         MutableLiveData<List<JobApplicationItem>>()
     }
 
+    val jobInterviewList: MutableLiveData<List<JobInterviewItem>> by lazy {
+        MutableLiveData<List<JobInterviewItem>>()
+    }
+
     fun autoLogin() {
         val build = RetrofitBuild.build().autoLogin(
             sharedPreferences.getString("Token", "")!!,
@@ -75,6 +79,43 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
             }
 
             override fun onFailure(call: Call<List<JobApplicationItem>?>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                loginResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+
+            }
+
+
+        })
+
+    }
+
+    fun getJobApplicationData() {
+        val build = RetrofitBuild.build().getJobInterview(
+            sharedPreferences.getString("Token", "")!!
+        )
+
+        build.enqueue(object : Callback<List<JobInterviewItem>?> {
+            override fun onResponse(
+                call: Call<List<JobInterviewItem>?>,
+                response: Response<List<JobInterviewItem>?>
+            ) {
+                if (response.isSuccessful) {
+
+                    loginResponse.value = ResponseForUI(true, "")
+                    jobInterviewList.value = response.body()!!
+                    Log.d("success", "onResponse: "+jobInterviewList.value)
+
+                } else { //unknown error
+
+                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<List<JobInterviewItem>?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
                 loginResponse.value =
