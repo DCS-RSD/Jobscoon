@@ -90,7 +90,7 @@ class JobDetailsEmployeeViewModel(application: Application) : AndroidViewModel(a
     }
 
     fun postData(id: Int) {
-        val build = RetrofitBuild.build().(
+        val build = RetrofitBuild.build().showJobPost(
             sharedPreferences.getString("Token", "")!!, id
         )
 
