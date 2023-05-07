@@ -131,14 +131,15 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/interview_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintBottom_toBottomOf="@+id/apply_date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/apply_date"
-                    app:srcCompat="@drawable/icon_calendar_edit" />
+                    app:srcCompat="@drawable/icon_calendar_edit"
+                    android:visibility="invisible"/>
 
 
 

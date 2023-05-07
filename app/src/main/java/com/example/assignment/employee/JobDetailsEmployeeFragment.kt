@@ -86,7 +86,7 @@ class JobDetailsEmployeeFragment : Fragment() {
         }
 
         binding.imageView.setOnClickListener {
-                view : View -> view.findNavController().popBackStack()
+                view -> view.findNavController().popBackStack()
         }
 
 
@@ -118,10 +118,6 @@ class JobDetailsEmployeeFragment : Fragment() {
 
             Log.d("acticity", "onActivityCreated: "+it)
         })
-
-
-
-
 
         binding.jobDetailsRefresh.setOnRefreshListener {
             sharedViewModel.getData(binding.jobId.text.toString().toInt())

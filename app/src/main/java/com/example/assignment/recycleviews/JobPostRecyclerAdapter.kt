@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
@@ -44,7 +45,6 @@ class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : Recycler
             val bundle = Bundle()
             bundle.putString("position", holder.binding.jobId.text.toString())
             view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment, bundle)
-
         }
 
     }

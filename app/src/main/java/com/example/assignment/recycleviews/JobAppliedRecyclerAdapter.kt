@@ -42,7 +42,7 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) 
         holder.binding.jobs1.setOnClickListener{ view ->
             val bundle = Bundle()
             bundle.putString("position", jobId)
-            view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
+            view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment, bundle)
 
         }
 
