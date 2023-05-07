@@ -85,6 +85,26 @@
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textEmailS"
+                        style="@style/FilledTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Email Address"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:startIconDrawable="@drawable/email_gray">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/editCompanyEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textRegNo"
