@@ -1,5 +1,6 @@
 package com.example.assignment.api
 
+import com.example.assignment.auth.CompanyList
 import com.example.assignment.auth.LoginResponse
 import com.example.assignment.auth.SignUpItem
 import com.example.assignment.dataclass.*
@@ -32,10 +33,14 @@ interface Route {
         @Field("is_employer") isEmployer: Boolean? = null,
         @Field("company_name") companyName: String? = null,
         @Field("contact_number") contactNumber: String? = null,
+        @Field("company_email") companyEmail: String? = null,
         @Field("reg_no") regNo: String? = null,
         @Field("company_location") location: String? = null,
         @Field("company_description") companyAbout: String? = null,
-    ): Call<SignUpItem>
+
+        @Field("is_new_company") isNewCompany: Boolean? = null,
+
+        ): Call<SignUpItem>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
@@ -57,10 +62,14 @@ interface Route {
     fun validateCompany(
         @Field("company_name") name: String,
         @Field("contact_number") phone: String,
+        @Field("company_email") email: String,
         @Field("reg_no") regNo: String,
         @Field("company_location") location: String,
         @Field("company_description") about: String,
     ): Call<Company>
+
+    @GET("companylist")
+    fun getCompanyList():Call<List<CompanyList>>
 
 
     @GET("jobpost")

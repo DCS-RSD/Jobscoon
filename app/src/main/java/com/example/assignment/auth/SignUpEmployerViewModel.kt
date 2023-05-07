@@ -24,6 +24,7 @@ class SignUpEmployerViewModel : ViewModel() {
         val build = RetrofitBuild.build().validateCompany(
             input.name,
             input.contact_number,
+            input.email,
             input.reg_no,
             input.location,
             input.description,
@@ -67,9 +68,11 @@ class SignUpEmployerViewModel : ViewModel() {
             true,
             companyDetails.name,
             companyDetails.contact_number,
+            companyDetails.email,
             companyDetails.reg_no,
             companyDetails.location,
             companyDetails.description,
+            true,
         )
 
         build.enqueue(object : Callback<SignUpItem?> {
