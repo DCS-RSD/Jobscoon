@@ -40,6 +40,7 @@ class SignUpCompanyFragment : Fragment() {
                     binding.editCompanyName.text.toString(),
                     binding.editRegNo.text.toString(),
                     binding.editPhone.text.toString(),
+                    binding.editCompanyEmail.text.toString(),
                     binding.editLocation.text.toString(),
                     binding.editAbout.text.toString(),
                 )
