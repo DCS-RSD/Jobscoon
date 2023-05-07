@@ -7,10 +7,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
-import com.example.assignment.dataclass.JobPostItem
-import com.example.assignment.dataclass.ResponseForUI
-import com.example.assignment.dataclass.User
-import com.example.assignment.dataclass.ValidationErrorResponse
+import com.example.assignment.dataclass.*
 import com.google.gson.Gson
 import kotlinx.coroutines.Job
 import retrofit2.Call
@@ -28,6 +25,10 @@ class JobDetailsEmployeeViewModel(application: Application) : AndroidViewModel(a
 
     val jobPostList: MutableLiveData<JobPostItem> by lazy {
         MutableLiveData<JobPostItem>()
+    }
+
+    val jobApplicationList: MutableLiveData<List<JobApplicationItem>> by lazy {
+        MutableLiveData<List<JobApplicationItem>>()
     }
 
     fun autoLogin() {
@@ -83,11 +84,80 @@ class JobDetailsEmployeeViewModel(application: Application) : AndroidViewModel(a
                 loginResponse.value =
                     ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
 
+            }
+        })
 
+    }
+
+    fun postData(id: Int) {
+        val build = RetrofitBuild.build().(
+            sharedPreferences.getString("Token", "")!!, id
+        )
+
+        build.enqueue(object : Callback<JobPostItem> {
+            override fun onResponse(
+                call: Call<JobPostItem>,
+                response: Response<JobPostItem>
+            ) {
+                if (response.isSuccessful) {
+
+                    loginResponse.value = ResponseForUI(true, "")
+                    jobPostList.value = response.body()!!
+                    Log.d("success", "onResponse: "+jobPostList.value)
+
+                } else { //unknown error
+
+                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
             }
 
+            override fun onFailure(call: Call<JobPostItem>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                loginResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+
+    }
+
+
+    fun getJobAppliedData() {
+        val build = RetrofitBuild.build().getJobApplication(
+            sharedPreferences.getString("Token", "")!!
+        )
+
+        build.enqueue(object : Callback<List<JobApplicationItem>?> {
+            override fun onResponse(
+                call: Call<List<JobApplicationItem>?>,
+                response: Response<List<JobApplicationItem>?>
+            ) {
+                if (response.isSuccessful) {
+
+                    loginResponse.value = ResponseForUI(true, "")
+                    jobApplicationList.value = response.body()!!
+                    Log.d("success", "onResponse: "+jobApplicationList.value)
+
+                } else { //unknown error
+
+                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<List<JobApplicationItem>?>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                loginResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
 
         })
 
     }
+
+
 }

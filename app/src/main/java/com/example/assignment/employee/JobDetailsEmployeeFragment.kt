@@ -22,12 +22,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.databinding.CustomDialogBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
+import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
 
 class JobDetailsEmployeeFragment : Fragment() {
 
     private lateinit var binding: FragmentJobDetailsEmployeeBinding
-    //private lateinit var jobId : String
 
     companion object {
         fun newInstance() = JobDetailsEmployeeFragment()
@@ -39,7 +39,6 @@ class JobDetailsEmployeeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate<FragmentJobDetailsEmployeeBinding>(inflater,
             R.layout.fragment_job_details_employee,container,false)
 
@@ -47,7 +46,26 @@ class JobDetailsEmployeeFragment : Fragment() {
         val id = args?.getString("position")
         binding.jobId.text = id.toString()
 
+        var jobId = binding.jobId.text.toString().toInt()
+
+        sharedViewModel.autoLogin()
+        sharedViewModel.getJobAppliedData()
+
+        sharedViewModel.jobApplicationList.observe(viewLifecycleOwner, Observer {
+            for (item in it) {
+                if (jobId == item.job_post_id) {
+                    binding.applyButton.isEnabled = false
+                    binding.applyButton.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
+                    return@Observer
+                }
+            }
+        })
+
         val dialog = Dialog(requireContext())
+        binding.applyButton.setOnClickListener{
+            dialog.show()
+        }
+
         dialog.setContentView(R.layout.custom_dialog)
         dialog.window?.setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.dialog_background))
         dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -56,7 +74,8 @@ class JobDetailsEmployeeFragment : Fragment() {
 
         dialog.findViewById<Button>(R.id.btn_done).setOnClickListener{
             Toast.makeText(requireContext(), "You have applied the job !", Toast.LENGTH_LONG).show()
-            //TODO: backend, disableApplyButtonOnCreate, changeToDisableColor
+            //TODO: backend, postJob
+
             binding.applyButton.isEnabled = false
             binding.applyButton.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
             dialog.dismiss()
@@ -70,9 +89,7 @@ class JobDetailsEmployeeFragment : Fragment() {
                 view : View -> view.findNavController().popBackStack()
         }
 
-        binding.applyButton.setOnClickListener{
-            dialog.show()
-        }
+
 
         return binding.root
     }
@@ -83,12 +100,16 @@ class JobDetailsEmployeeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         sharedViewModel.autoLogin() //check token
 
-        sharedViewModel.getData(binding.jobId.text.toString().toInt())
+        var jobId = binding.jobId.text.toString().toInt()
+
+        sharedViewModel.getData(jobId)
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobDetailsEmployeeFragment.apply {
                 binding.textView4.text = it.title
                 binding.textView5.text = it.company?.name
+                binding.textView100.text = it.company?.contact_number
+                binding.textView101.text = it.company?.email
                 binding.textView9.text = it.salary
                 binding.textView13.text = it.type
                 binding.textView15.text = it.shift
@@ -97,6 +118,8 @@ class JobDetailsEmployeeFragment : Fragment() {
 
             Log.d("acticity", "onActivityCreated: "+it)
         })
+
+
 
 
 
