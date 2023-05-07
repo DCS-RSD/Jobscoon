@@ -31,6 +31,10 @@ class JobDetailsEmployeeViewModel(application: Application) : AndroidViewModel(a
         MutableLiveData<List<JobApplicationItem>>()
     }
 
+    val jobApplicationItem: MutableLiveData<JobApplicationItem> by lazy {
+        MutableLiveData<JobApplicationItem>()
+    }
+
     fun autoLogin() {
         val build = RetrofitBuild.build().autoLogin(
             sharedPreferences.getString("Token", "")!!,
@@ -90,20 +94,20 @@ class JobDetailsEmployeeViewModel(application: Application) : AndroidViewModel(a
     }
 
     fun postData(id: Int) {
-        val build = RetrofitBuild.build().showJobPost(
+        val build = RetrofitBuild.build().postJobApplication(
             sharedPreferences.getString("Token", "")!!, id
         )
 
-        build.enqueue(object : Callback<JobPostItem> {
+        build.enqueue(object : Callback<Void> {
             override fun onResponse(
-                call: Call<JobPostItem>,
-                response: Response<JobPostItem>
+                call: Call<Void>,
+                response: Response<Void>
             ) {
                 if (response.isSuccessful) {
 
                     loginResponse.value = ResponseForUI(true, "")
-                    jobPostList.value = response.body()!!
-                    Log.d("success", "onResponse: "+jobPostList.value)
+                    //jobApplicationItem.value = response.body()!!
+                    //Log.d("success", "onResponse: " + jobApplicationItem.value)
 
                 } else { //unknown error
 
@@ -112,7 +116,7 @@ class JobDetailsEmployeeViewModel(application: Application) : AndroidViewModel(a
                 }
             }
 
-            override fun onFailure(call: Call<JobPostItem>, t: Throwable) {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
                 loginResponse.value =

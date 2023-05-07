@@ -1,6 +1,7 @@
 package com.example.assignment.recycleviews
 
 import android.content.res.ColorStateList
+import android.os.Bundle
 import android.text.TextUtils.substring
 import android.view.LayoutInflater
 import android.view.View
@@ -27,12 +28,8 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemJobAppliedBinding.inflate(inflater, parent, false)
-        /*
-        binding.jobCard.setOnClickListener{
-                view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
 
-        }
-        */
+
 
 
         return ViewHolder(binding)
@@ -41,16 +38,14 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
-/*
-        val timestampString = dataList[position].created_at // Get the timestamp string from your data object
+        var jobId = item.job_post_id.toString()
+        holder.binding.jobs1.setOnClickListener{ view ->
+            val bundle = Bundle()
+            bundle.putString("position", jobId)
+            view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
 
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", Locale.US) // Specify the input format of the timestamp string
-        val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        }
 
-        val date = inputFormat.parse(timestampString) // Parse the timestamp string into a Date object
-        val dateString = outputFormat.format(date)
-        holder.binding.applyDateItself.text = dateString
-*/
         val textColorId = when(item.status) {
             "accept" -> R.color.accepted_text_color
             "pending" -> R.color.pending_text_color

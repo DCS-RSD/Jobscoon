@@ -62,7 +62,7 @@ interface Route {
     fun validateCompany(
         @Field("company_name") name: String,
         @Field("contact_number") phone: String,
-        @Field("company_email") email: String,
+        @Field("company_email") email: String?,
         @Field("reg_no") regNo: String,
         @Field("company_location") location: String,
         @Field("company_description") about: String,
@@ -101,4 +101,9 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<CareerDevelopmentItem>>
 
+    @POST("applyjob/{id}")
+    fun postJobApplication(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<Void>
 }
