@@ -55,7 +55,7 @@ class FindJobsEmployeeFragment : Fragment() {
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobPostRecycleView.apply {
-                adapter = JobPostRecyclerAdapter(it)
+                adapter = JobPostRecyclerAdapter(sharedViewModel,it)
                 layoutManager = manager
             }
 

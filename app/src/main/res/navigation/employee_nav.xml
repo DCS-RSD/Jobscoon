@@ -13,8 +13,7 @@
         tools:layout="@layout/fragment_find_jobs_employee" >
         <action
             android:id="@+id/action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment"
-            app:destination="@id/jobDetailsEmployeeFragment"
-           />
+            app:destination="@id/jobDetailsEmployeeFragment" />
     </fragment>
     <fragment
         android:id="@+id/jobDetailsEmployeeFragment"
