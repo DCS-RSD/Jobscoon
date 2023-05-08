@@ -33,59 +33,54 @@ class JobDetailsEmployeeFragment : Fragment() {
         fun newInstance() = JobDetailsEmployeeFragment()
     }
 
-    val sharedViewModel: JobDetailsEmployeeViewModel by activityViewModels()
+    val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate<FragmentJobDetailsEmployeeBinding>(inflater,
-            R.layout.fragment_job_details_employee,container,false)
-
-        val args = arguments
-        val id = args?.getString("position")
-        binding.jobId.text = id.toString()
-
-        var jobId = binding.jobId.text.toString().toInt()
-
-        sharedViewModel.autoLogin()
-        sharedViewModel.getJobAppliedData()
-
-        sharedViewModel.jobApplicationList.observe(viewLifecycleOwner, Observer {
-            for (item in it) {
-                if (jobId == item.job_post_id) {
-                    binding.applyButton.isEnabled = false
-                    binding.applyButton.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
-                    return@Observer
-                }
-            }
-        })
+        binding = DataBindingUtil.inflate<FragmentJobDetailsEmployeeBinding>(
+            inflater,
+            R.layout.fragment_job_details_employee, container, false
+        )
 
         val dialog = Dialog(requireContext())
-        binding.applyButton.setOnClickListener{
+        binding.applyButton.setOnClickListener {
             dialog.show()
         }
 
         dialog.setContentView(R.layout.custom_dialog)
-        dialog.window?.setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.dialog_background))
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                R.drawable.dialog_background
+            )
+        )
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         dialog.setCancelable(false)
         dialog.window?.attributes?.windowAnimations = R.style.animation
 
-        dialog.findViewById<Button>(R.id.btn_done).setOnClickListener{
+        dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
             Toast.makeText(requireContext(), "You have applied the job !", Toast.LENGTH_LONG).show()
-            sharedViewModel.postData(jobId)
+
+
+            sharedViewModel.postData()
+
             binding.applyButton.isEnabled = false
-            binding.applyButton.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
+            binding.applyButton.backgroundTintList =
+                ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
             dialog.dismiss()
         }
 
-        dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener{
+        dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
             dialog.dismiss()
         }
 
-        binding.imageView.setOnClickListener {
-                view -> view.findNavController().popBackStack()
+        binding.imageView.setOnClickListener { view ->
+            view.findNavController().popBackStack()
         }
 
 
@@ -94,36 +89,40 @@ class JobDetailsEmployeeFragment : Fragment() {
     }
 
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        sharedViewModel.autoLogin() //check token
 
-        var jobId = binding.jobId.text.toString().toInt()
+        sharedViewModel.showJobPost()
+        sharedViewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
 
-        sharedViewModel.getData(jobId)
+            try {
+                binding.jobDetailsEmployeeFragment.apply {
+                    binding.jobPostItem = it
+                }
 
-        sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
-            binding.jobDetailsEmployeeFragment.apply {
-                binding.textView4.text = it.title
-                binding.textView5.text = it.company?.name
-                binding.textView100.text = it.company?.contact_number
-                binding.textView101.text = it.company?.email
-                binding.textView9.text = it.salary
-                binding.textView13.text = it.type
-                binding.textView15.text = it.shift
-                binding.jobShift2.text = it.description
+
+                var check = it.is_applied!!
+//                println("fuck.." + check)
+                if (check) {
+
+                    binding.applyButton.isEnabled = false
+                    binding.applyButton.backgroundTintList =
+                        ContextCompat.getColorStateList(
+                            requireContext(),
+                            R.color.disabled_button_color
+                        )
+                }
+            } catch (e: Exception) {
             }
 
-            Log.d("acticity", "onActivityCreated: "+it)
+
         })
 
         binding.jobDetailsRefresh.setOnRefreshListener {
-            sharedViewModel.getData(binding.jobId.text.toString().toInt())
+            sharedViewModel.showJobPost()
             binding.jobDetailsRefresh.isRefreshing = false
         }
     }
-
 
 
 }

@@ -17,9 +17,10 @@ import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.databinding.NavigationEmployeeBinding
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.employee.EmployeeNavHost
+import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.JobDetailsEmployeeFragment
 
-class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
+class JobPostRecyclerAdapter(private val viewModel: FindJobsEmployeeViewModel, private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
 
     lateinit var binding : ItemJobPostBinding
 
@@ -41,10 +42,10 @@ class JobPostRecyclerAdapter(private val dataList: List<JobPostItem>) : Recycler
         val item = dataList[position]
         holder.bind(item)
         holder.binding.jobId.text = item.id.toString()
-        holder.binding.jobCard.setOnClickListener {view ->
-            val bundle = Bundle()
-            bundle.putString("position", holder.binding.jobId.text.toString())
-            view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment, bundle)
+        holder.binding.jobCard.setOnClickListener {
+            viewModel.jobPostId.value = item.id
+            it.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
+
         }
 
     }
