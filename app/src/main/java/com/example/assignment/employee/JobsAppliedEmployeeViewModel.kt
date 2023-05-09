@@ -16,8 +16,6 @@ import retrofit2.Response
 
 class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(application) {
 
-    lateinit var currentUser: User
-
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
     val loginResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
@@ -29,30 +27,6 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
 
     val jobInterviewList: MutableLiveData<List<JobInterviewItem>> by lazy {
         MutableLiveData<List<JobInterviewItem>>()
-    }
-
-    fun autoLogin() {
-        val build = RetrofitBuild.build().autoLogin(
-            sharedPreferences.getString("Token", "")!!,
-            sharedPreferences.getString("Id", "")!!
-        )
-
-
-
-        build.enqueue(object : Callback<User?> {
-            override fun onResponse(call: Call<User?>, response: Response<User?>) {
-                if (response.isSuccessful) {
-                    currentUser = response.body()!!
-                } else {
-                    //
-                }
-            }
-
-            override fun onFailure(call: Call<User?>, t: Throwable) {
-
-                Log.i("check", "onFailure: no")
-            }
-        })
     }
 
     fun getData() {
@@ -69,7 +43,7 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
 
                     loginResponse.value = ResponseForUI(true, "")
                     jobApplicationList.value = response.body()!!
-                    Log.d("success", "onResponse: "+jobApplicationList.value)
+                    Log.d("success1", "onResponse: "+jobApplicationList.value)
 
                 } else { //unknown error
 

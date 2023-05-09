@@ -27,30 +27,6 @@ class InterviewEmployeeViewModel(application: Application) : AndroidViewModel(ap
         MutableLiveData<List<JobInterviewItem>>()
     }
 
-    fun autoLogin() {
-        val build = RetrofitBuild.build().autoLogin(
-            sharedPreferences.getString("Token", "")!!,
-            sharedPreferences.getString("Id", "")!!
-        )
-
-
-
-        build.enqueue(object : Callback<User?> {
-            override fun onResponse(call: Call<User?>, response: Response<User?>) {
-                if (response.isSuccessful) {
-                    currentUser = response.body()!!
-                } else {
-                    //
-                }
-            }
-
-            override fun onFailure(call: Call<User?>, t: Throwable) {
-
-                Log.i("check", "onFailure: no")
-            }
-        })
-    }
-
     fun getData() {
         val build = RetrofitBuild.build().getJobInterview(
             sharedPreferences.getString("Token", "")!!

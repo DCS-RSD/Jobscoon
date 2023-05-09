@@ -9,9 +9,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
+import com.example.assignment.auth.SignUpViewModel
 import com.example.assignment.databinding.FragmentJobsAppliedEmployeeBinding
 import com.example.assignment.recycleviews.JobAppliedRecyclerAdapter
 import com.example.assignment.recycleviews.JobPostRecyclerAdapter
@@ -24,7 +27,8 @@ class JobsAppliedEmployeeFragment : Fragment() {
 
     private lateinit var binding: FragmentJobsAppliedEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
-    val sharedViewModel: JobsAppliedEmployeeViewModel by activityViewModels()
+    private lateinit var viewModel : JobsAppliedEmployeeViewModel
+    val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,19 +47,19 @@ class JobsAppliedEmployeeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        sharedViewModel.autoLogin() //check token
-
-        sharedViewModel.getData()
-        sharedViewModel.getJobApplicationData()
+        viewModel = ViewModelProvider(this).get(JobsAppliedEmployeeViewModel::class.java)
 
 
-        sharedViewModel.jobApplicationList.observe(viewLifecycleOwner, Observer { jobApplicationList ->
+        viewModel.getData()
+        viewModel.getJobApplicationData()
 
-                sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer { jobInterviewList ->
+
+        viewModel.jobApplicationList.observe(viewLifecycleOwner, Observer { jobApplicationList ->
+
+            viewModel.jobInterviewList.observe(viewLifecycleOwner, Observer { jobInterviewList ->
 
                         binding.jobAppliedRecycleView.apply {
-                            adapter = JobAppliedRecyclerAdapter(jobApplicationList, jobInterviewList)
+                            adapter = JobAppliedRecyclerAdapter(sharedViewModel,jobApplicationList, jobInterviewList)
                             layoutManager = manager
                         }
 

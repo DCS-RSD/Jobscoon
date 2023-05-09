@@ -51,8 +51,6 @@ class InterviewEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.autoLogin() //check token
-
         sharedViewModel.getData()
 
 

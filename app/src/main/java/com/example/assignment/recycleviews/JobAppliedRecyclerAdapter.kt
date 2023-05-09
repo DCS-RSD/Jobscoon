@@ -16,10 +16,12 @@ import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.dataclass.JobInterviewItem
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.employee.FindJobsEmployeeViewModel
+import com.example.assignment.employee.JobsAppliedEmployeeViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>, private val dataList2: List<JobInterviewItem>) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
+class JobAppliedRecyclerAdapter(private val viewModel:FindJobsEmployeeViewModel, private val dataList: List<JobApplicationItem>, private val dataList2: List<JobInterviewItem>) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemJobAppliedBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobApplicationItem) {
@@ -45,12 +47,14 @@ class JobAppliedRecyclerAdapter(private val dataList: List<JobApplicationItem>, 
         }
 
 
-        var jobId = item.job_post_id.toString()
-        holder.binding.jobs1.setOnClickListener{ view ->
-            val bundle = Bundle()
-            bundle.putString("position", jobId)
-            view.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment, bundle)
+        var jobId = item.job_post_id.toString().toInt()
+
+        holder.binding.jobs1.setOnClickListener {
+            viewModel.jobPostId.value = jobId
+            it.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
+
         }
+
 
         val textColorId = when(item.status) {
             "accept" -> R.color.accepted_text_color
