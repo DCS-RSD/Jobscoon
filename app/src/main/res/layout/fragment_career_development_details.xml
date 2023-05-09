@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_calendar"
+                    android:src="@drawable/icon_calendar"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/programme_title1"
                     app:tint="@color/black" />
@@ -85,6 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="07 Jul 2018"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView10"
                     app:layout_constraintStart_toEndOf="@+id/imageView10"
@@ -105,6 +107,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="07 Aug 2018"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView11"
                     app:layout_constraintStart_toEndOf="@+id/imageView11"
@@ -125,6 +129,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="10:00AM"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView12"
                     app:layout_constraintStart_toEndOf="@+id/imageView12"
@@ -136,6 +142,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="-"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView16"
                     app:layout_constraintStart_toEndOf="@+id/textView16"
@@ -147,30 +155,49 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="22:00PM"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView17"
                     app:layout_constraintStart_toEndOf="@+id/textView17"
                     app:layout_constraintTop_toTopOf="@+id/textView17" />
 
-                <ImageView
-                    android:id="@+id/imageView15"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/icon_location"
-                    app:layout_constraintStart_toStartOf="@+id/imageView12"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+                    app:layout_constraintStart_toStartOf="@id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@id/imageView12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
 
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Jalan Pinang, Kuala Lumpur City Centre, 50450 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia."
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView15"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_location"
+                        app:layout_constraintStart_toStartOf="@+id/imageView12"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Jalan Pinang, Kuala Lumpur City Centre, 50450 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia."
+                        android:fontFamily="@font/hind_siliguri_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@+id/textView16"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </LinearLayout>
+
+
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -178,8 +205,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/icon_link"
-                    app:layout_constraintStart_toStartOf="@+id/imageView15"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintStart_toStartOf="@+id/imageView12"
+                    app:layout_constraintTop_toBottomOf="@+id/location" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -187,6 +214,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="https://my.hiredly.com"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                     app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -194,13 +223,18 @@
 
                 <TextView
                     android:id="@+id/textView20"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
                     android:text="The Awesome Career Fair is now BACK for round 4!\n\nWith 30 awesome companies like Shell, Celcom, TIME Internet , AmBankand more, you definitely don't want to miss out!\n\nTickets are already being grabbed as we speak. So hurry up and apply by 30th April for the early bird tickets!\n\nApply NOW at http://bit.ly/2FFIpLG"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/imageView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <ImageView
                     android:id="@+id/imageView13"
@@ -217,6 +251,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="Capacity : "
+                    android:fontFamily="@font/hind_siliguri_semibold"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView13"
@@ -225,31 +260,34 @@
 
                 <TextView
                     android:id="@+id/textView22"
-                    android:layout_width="234dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="500 shortlisted jobseekers"
+                    android:fontFamily="@font/hind_siliguri_semibold"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView21"
                     app:layout_constraintStart_toEndOf="@+id/textView21"
                     app:layout_constraintTop_toTopOf="@+id/textView21" />
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="350dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="12dp"
                     app:cardBackgroundColor="@color/bckgray"
                     app:cardCornerRadius="3dp"
                     app:cardElevation="3dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/textView20"
                     app:layout_constraintStart_toStartOf="@+id/imageView13"
                     app:layout_constraintTop_toBottomOf="@+id/imageView13">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="150dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:id="@+id/textView24"
@@ -258,62 +296,79 @@
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
                             android:text="WOBB Sdn Bhd"
+                            android:fontFamily="@font/hind_siliguri_semibold"
                             android:textColor="@color/black"
                             android:textSize="16sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <ImageView
+                            android:id="@+id/icon_mail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            app:layout_constraintStart_toStartOf="@id/textView24"
+                            app:layout_constraintTop_toBottomOf="@id/textView24"
+                            app:srcCompat="@drawable/icon_email_profile_used"
+
+                            />
+
                         <TextView
                             android:id="@+id/textView25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="10dp"
-                            android:drawableLeft="@drawable/baseline_email_24"
+                            android:layout_marginStart="5dp"
                             android:text=" hello@hiredly.com"
                             android:textColor="@color/gray"
                             android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                            app:layout_constraintStart_toEndOf="@id/icon_mail"
+                            app:layout_constraintTop_toTopOf="@+id/icon_mail"
+                            app:layout_constraintBottom_toBottomOf="@id/icon_mail"/>
+
+                        <ImageView
+                            android:id="@+id/icon_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/icon_mail"
+                            app:layout_constraintTop_toBottomOf="@id/icon_mail"
+                            app:srcCompat="@drawable/icon_phone_profile_used" />
+
 
                         <TextView
                             android:id="@+id/textView26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="5dp"
-                            android:drawableLeft="@drawable/baseline_phone_24"
+                            android:layout_marginStart="5dp"
                             android:text=" +603-2771 0141"
                             android:textColor="@color/gray"
                             android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                            app:layout_constraintStart_toEndOf="@id/icon_phone"
+                            app:layout_constraintTop_toTopOf="@+id/icon_phone"
+                            app:layout_constraintBottom_toBottomOf="@id/icon_phone" />
 
-                        <TextView
-                            android:id="@+id/textView27"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="created_at"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="@+id/textView26"
-                            app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-                        <TextView
-                            android:id="@+id/textView28"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="updates_at"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="@+id/textView27"
-                            app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/join_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/salary_text_color"
+                    android:fontFamily="@font/hind_siliguri_bold"
+                    android:text="JOIN NOW"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

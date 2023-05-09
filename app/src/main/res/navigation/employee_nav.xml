@@ -39,7 +39,11 @@
         android:id="@+id/careerDevelopmentEmployeeFragment"
         android:name="com.example.assignment.employee.CareerDevelopmentEmployeeFragment"
         android:label="fragment_career_development_employee"
-        tools:layout="@layout/fragment_career_development_employee" />
+        tools:layout="@layout/fragment_career_development_employee" >
+        <action
+            android:id="@+id/action_careerDevelopmentEmployeeFragment_to_careerDevelopmentDetailsFragment"
+            app:destination="@id/careerDevelopmentDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/jobsPostedEmployerFragment"
         android:name="com.example.assignment.JobsPostedEmployerFragment"
@@ -97,6 +101,11 @@
         android:name="com.example.assignment.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/careerDevelopmentDetailsFragment"
+        android:name="com.example.assignment.employee.CareerDevelopmentDetailsFragment"
+        android:label="fragment_career_development_details"
+        tools:layout="@layout/fragment_career_development_details" />
 
 
 </navigation>
