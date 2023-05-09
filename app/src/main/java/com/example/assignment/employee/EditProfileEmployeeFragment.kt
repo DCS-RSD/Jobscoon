@@ -15,6 +15,7 @@ import com.example.assignment.databinding.FragmentChangePasswordBinding
 import com.example.assignment.databinding.FragmentEditProfileEmployeeBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 import com.example.assignment.dataclass.User
+import com.example.assignment.employee.AuthViewModel
 import com.example.assignment.employee.FindJobsEmployeeViewModel
 
 class EditProfileEmployeeFragment : Fragment() {
@@ -25,6 +26,7 @@ class EditProfileEmployeeFragment : Fragment() {
 
     private lateinit var viewModel: EditProfileEmployeeViewModel
     private val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
+    private val sharedViewModel2: AuthViewModel by activityViewModels()
     private lateinit var binding: FragmentEditProfileEmployeeBinding
 
     override fun onCreateView(
@@ -47,7 +49,13 @@ class EditProfileEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(EditProfileEmployeeViewModel::class.java)
-        binding.userData = sharedViewModel.currentUser
+        sharedViewModel2.getProfile()
+        sharedViewModel2.currentUser.observe(viewLifecycleOwner, Observer {
+            try {
+                binding.userData = it
+            } catch (e: Exception) {
+            }
+        })
         binding.submitUpdateProfileBtn.setOnClickListener {
             viewModel.update(
                 User(
@@ -60,15 +68,21 @@ class EditProfileEmployeeFragment : Fragment() {
             )
 
             viewModel.validationResponse.observe(viewLifecycleOwner, Observer {
-                if (it.success) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Profile Updated Successfully!",
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else {
-                    Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
-                }
+                try {
+                    if (it.success) {
+                        viewModel.validationResponse.value = null //reset
+                        Toast.makeText(
+                            requireContext(),
+                            "Profile Updated Successfully!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        view?.findNavController()?.popBackStack()
+                    } else {
+                        Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
+                    }
+
+                }catch (e:Exception){}
+
             })
         }
 
