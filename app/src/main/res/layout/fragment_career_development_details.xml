@@ -90,60 +90,14 @@
                     app:layout_constraintStart_toEndOf="@+id/imageView10"
                     app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Jalan Pinang, Kuala Lumpur City Centre, 50450 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia."
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView15"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-                <TextView
-                    android:id="@+id/textView19"
+                <ImageView
+                    android:id="@+id/imageView11"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="https://my.hiredly.com"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-                    app:layout_constraintStart_toEndOf="@+id/imageView5"
-                    app:layout_constraintTop_toTopOf="@+id/imageView5" />
-
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="Capacity : "
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView13"
-                    app:layout_constraintStart_toEndOf="@+id/imageView13"
-                    app:layout_constraintTop_toTopOf="@+id/imageView13" />
-
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="234dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="500 shortlisted jobseekers"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView21"
-                    app:layout_constraintStart_toEndOf="@+id/textView21"
-                    app:layout_constraintTop_toTopOf="@+id/textView21" />
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="The Awesome Career Fair is now BACK for round 4!\n\nWith 30 awesome companies like Shell, Celcom, TIME Internet , AmBankand more, you definitely don't want to miss out!\n\nTickets are already being grabbed as we speak. So hurry up and apply by 30th April for the early bird tickets!\n\nApply NOW at http://bit.ly/2FFIpLG"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/imageView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    android:src="@drawable/baseline_do_not_disturb_on_24"
+                    app:layout_constraintStart_toStartOf="@+id/imageView10"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -155,6 +109,15 @@
                     app:layout_constraintBottom_toBottomOf="@+id/imageView11"
                     app:layout_constraintStart_toEndOf="@+id/imageView11"
                     app:layout_constraintTop_toTopOf="@+id/imageView11" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/icon_clock"
+                    app:layout_constraintStart_toStartOf="@+id/imageView11"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -190,24 +153,6 @@
                     app:layout_constraintTop_toTopOf="@+id/textView17" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/baseline_do_not_disturb_on_24"
-                    app:layout_constraintStart_toStartOf="@+id/imageView10"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/icon_clock"
-                    app:layout_constraintStart_toStartOf="@+id/imageView11"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView11" />
-
-                <ImageView
                     android:id="@+id/imageView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -215,6 +160,17 @@
                     android:src="@drawable/icon_location"
                     app:layout_constraintStart_toStartOf="@+id/imageView12"
                     app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Jalan Pinang, Kuala Lumpur City Centre, 50450 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia."
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -225,6 +181,27 @@
                     app:layout_constraintStart_toStartOf="@+id/imageView15"
                     app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="https://my.hiredly.com"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="The Awesome Career Fair is now BACK for round 4!\n\nWith 30 awesome companies like Shell, Celcom, TIME Internet , AmBankand more, you definitely don't want to miss out!\n\nTickets are already being grabbed as we speak. So hurry up and apply by 30th April for the early bird tickets!\n\nApply NOW at http://bit.ly/2FFIpLG"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/imageView5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
                 <ImageView
                     android:id="@+id/imageView13"
                     android:layout_width="wrap_content"
@@ -233,6 +210,29 @@
                     android:src="@drawable/baseline_capacity"
                     app:layout_constraintStart_toStartOf="@+id/textView20"
                     app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Capacity : "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                    app:layout_constraintStart_toEndOf="@+id/imageView13"
+                    app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="234dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="500 shortlisted jobseekers"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                    app:layout_constraintStart_toEndOf="@+id/textView21"
+                    app:layout_constraintTop_toTopOf="@+id/textView21" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="350dp"
