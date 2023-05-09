@@ -65,7 +65,6 @@
                         android:layout_marginStart="24dp"
                         android:fontFamily="@font/hind_siliguri_bold"
                         android:text="Career Development"
-                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="24sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -149,6 +148,30 @@
                                 app:layout_constraintBottom_toBottomOf="@+id/time1"
                                 app:layout_constraintStart_toEndOf="@+id/time1"
                                 app:layout_constraintTop_toTopOf="@+id/time1" />
+
+                            <TextView
+                                android:id="@+id/time4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="22:00PM"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/time3"
+                                app:layout_constraintStart_toEndOf="@+id/time3"
+                                app:layout_constraintTop_toTopOf="@+id/time3" />
+
+                            <TextView
+                                android:id="@+id/time3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/time"
+                                app:layout_constraintStart_toEndOf="@+id/time"
+                                app:layout_constraintTop_toTopOf="@+id/time" />
 
                             <ImageView
                                 android:id="@+id/date1"
@@ -281,12 +304,36 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="5dp"
-                                android:text="10:00AM - 22:00PM"
+                                android:text="10:00AM"
                                 android:textColor="@color/black"
                                 android:textSize="14dp"
                                 app:layout_constraintBottom_toBottomOf="@+id/time1b"
                                 app:layout_constraintStart_toEndOf="@+id/time1b"
                                 app:layout_constraintTop_toTopOf="@+id/time1b" />
+
+                            <TextView
+                                android:id="@+id/timeb2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="-"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/timeb"
+                                app:layout_constraintStart_toEndOf="@+id/timeb"
+                                app:layout_constraintTop_toTopOf="@+id/timeb" />
+
+                            <TextView
+                                android:id="@+id/timeb3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="22:00PM"
+                                android:textColor="@color/black"
+                                android:textSize="14dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/timeb2"
+                                app:layout_constraintStart_toEndOf="@+id/timeb2"
+                                app:layout_constraintTop_toTopOf="@+id/timeb2" />
 
                             <ImageView
                                 android:id="@+id/date1b"
