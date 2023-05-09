@@ -17,5 +17,6 @@ data class CareerDevelopmentItem(
     val start_time: String,
     val title: String,
     val type: String,
-    val updated_at: String
+    val updated_at: String,
+    var isApplied:Boolean?=null,
 )

@@ -9,6 +9,9 @@ import retrofit2.http.*
 
 interface Route {
 
+    /*
+    Module: Auth
+     */
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("login")
@@ -47,6 +50,28 @@ interface Route {
     fun myProfile(
         @Header("Authorization") token: String,
     ): Call<User>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("updateprofile/{id}")
+    fun updateProfile(
+        @Path("id") id:Int,
+        @Field("email") email: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String,
+        @Field("description") about: String,
+        @Field("name") name: String,
+    ):Call<ValidationErrorResponse>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("resetpassword")
+    fun resetPassword(
+        @Header("Authorization") token: String,
+        @Field("current_password") currentPassword: String,
+        @Field("new_password") newPasswrod: String,
+        @Field("new_password_confirmation") newPasswordConfirmation: String,
+    ):Call<ValidationErrorResponse>
 
     @Headers("Accept: application/json")
     @POST("logout")
@@ -113,6 +138,39 @@ interface Route {
 
     @POST("declineinterview/{id}")
     fun postDeclineInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<Void>
+
+    /*
+    Module: Career Development
+    Route: resource, apply, cancel
+     */
+
+    // index
+    @GET("careerdev")
+    fun getCareer(
+        @Header("Authorization") token: String,
+    ): Call<List<CareerDevelopmentItem>>
+
+    // show
+    @GET("careerdev/{id}")
+    fun showCareer(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<CareerDevelopmentItem>
+
+    /*apply career development
+    return message if needed
+     */
+    @GET("applycareer/{id}")
+    fun applyCareer(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<ValidationErrorResponse>
+
+    @GET("cancelcareer/{id}")
+    fun cancelCareer(
         @Header("Authorization") token: String,
         @Path("id") id:Int
     ): Call<Void>

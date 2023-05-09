@@ -39,21 +39,45 @@
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/idol_producer" />
 
-            <TextView
-                android:id="@+id/ptitle"
+            <LinearLayout
+                android:id="@+id/top"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:weightSum="2"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
-                android:fontFamily="@font/hind_siliguri_bold"
-                android:text="@{careerDevelopmentItem.title}"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/careerUpdateImage" />
+                app:layout_constraintTop_toBottomOf="@id/careerUpdateImage">
+
+                <TextView
+                    android:id="@+id/job_name1"
+                    android:layout_weight="0.45"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/hind_siliguri_bold"
+                    android:text="@{careerDevelopmentItem.title}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/status1"
+                    android:layout_weight="1.55"
+                    style="@style/jobs_detail_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/job_detail_text_background"
+                    android:backgroundTint="@color/accepted_layout_color"
+                    android:text="applied"
+                    android:textAlignment="center"
+                    android:textColor="@color/accepted_text_color"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/plocation"
@@ -66,8 +90,8 @@
                 android:text="@{careerDevelopmentItem.type}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/ptitle"
-                app:layout_constraintTop_toBottomOf="@+id/ptitle" />
+                app:layout_constraintStart_toStartOf="@+id/top"
+                app:layout_constraintTop_toBottomOf="@+id/top" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout

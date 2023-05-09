@@ -9,27 +9,25 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.assignment.databinding.FragmentChangePasswordBinding
-import com.example.assignment.databinding.FragmentEditProfileEmployeeBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 
-class EditProfileEmployeeFragment : Fragment() {
+class ChangePasswordFragment : Fragment() {
 
     companion object {
-        fun newInstance() = EditProfileEmployeeFragment()
+        fun newInstance() = ChangePasswordFragment()
     }
 
-    private lateinit var viewModel: EditProfileEmployeeViewModel
+    private lateinit var viewModel: ChangePasswordViewModel
 
-    private lateinit var binding: FragmentEditProfileEmployeeBinding
+    private lateinit var binding: FragmentChangePasswordBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-
-        binding = DataBindingUtil.inflate<FragmentEditProfileEmployeeBinding>(
+        binding = DataBindingUtil.inflate<FragmentChangePasswordBinding>(
             inflater,
-            R.layout.fragment_edit_profile_employee, container, false
+            R.layout.fragment_change_password, container, false
         )
 
         binding.imageView.setOnClickListener { view ->
@@ -41,7 +39,7 @@ class EditProfileEmployeeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EditProfileEmployeeViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ChangePasswordViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

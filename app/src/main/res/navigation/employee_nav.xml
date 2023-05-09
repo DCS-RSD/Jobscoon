@@ -74,7 +74,14 @@
         android:id="@+id/profileEmployeeFragment"
         android:name="com.example.assignment.employee.ProfileEmployeeFragment"
         android:label="fragment_profile_employee"
-        tools:layout="@layout/fragment_profile_employee" />
+        tools:layout="@layout/fragment_profile_employee" >
+        <action
+            android:id="@+id/action_profileEmployeeFragment_to_editProfileEmployeeFragment"
+            app:destination="@id/editProfileEmployeeFragment" />
+        <action
+            android:id="@+id/action_profileEmployeeFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileEmployeeFragment"
         android:name="com.example.assignment.EditProfileEmployeeFragment"
@@ -85,6 +92,11 @@
         android:name="com.example.assignment.EditProfileEmployerFragment"
         android:label="fragment_edit_profile_employer"
         tools:layout="@layout/fragment_edit_profile_employer" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.assignment.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
 
 
 </navigation>

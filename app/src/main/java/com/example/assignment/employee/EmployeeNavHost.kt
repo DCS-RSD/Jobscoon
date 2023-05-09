@@ -54,6 +54,8 @@ class EmployeeNavHost : AppCompatActivity() {
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+                R.id.changePasswordFragment,
+                R.id.editProfileEmployeeFragment,
                 R.id.jobDetailsEmployeeFragment -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
