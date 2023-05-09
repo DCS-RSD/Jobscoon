@@ -16,6 +16,7 @@ data class JobInterviewItem(
     val month_in_word: String,
     val start_time: String,
     val type: String,
+    val status: String,
     val updated_at: String,
     val user_id: Int,
     val year_only: String

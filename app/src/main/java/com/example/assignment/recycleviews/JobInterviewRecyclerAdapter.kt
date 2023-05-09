@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -22,7 +23,8 @@ import com.example.assignment.dataclass.JobInterviewItem
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.employee.InterviewEmployeeViewModel
 
-class JobInterviewRecyclerAdapter(private val context: Context, private val dataList: List<JobInterviewItem>) : RecyclerView.Adapter<JobInterviewRecyclerAdapter.ViewHolder>() {
+class JobInterviewRecyclerAdapter(private val sharedViewModel: InterviewEmployeeViewModel, private val context: Context, private val dataList: List<JobInterviewItem>) : RecyclerView.Adapter<JobInterviewRecyclerAdapter.ViewHolder>() {
+
 
     inner class ViewHolder(val binding: ItemInterviewEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobInterviewItem) {
@@ -32,21 +34,6 @@ class JobInterviewRecyclerAdapter(private val context: Context, private val data
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemInterviewEmployeeBinding.inflate(inflater, parent, false)
-
-        //sharedViewModel.autoLogin()
-        //sharedViewModel.getData()
-/*
-        sharedViewModel.jobInterviewList.observe(lifecycleOwner, Observer {
-            //TODO:wait ziyan status
-
-            for (item in it) {
-                if ()
-            }
-
-
-        })
-
- */
 
         return ViewHolder(binding)
     }
@@ -63,6 +50,18 @@ class JobInterviewRecyclerAdapter(private val context: Context, private val data
             holder.binding.locationOrLink.text = item.location
         }
 
+        if(item.status == "accept"){
+            holder.binding.acceptButton.visibility = View.GONE
+            holder.binding.declinedButton.visibility = View.GONE
+            holder.binding.accepted.visibility = View.VISIBLE
+        }else if (item.status == "declined") {
+            holder.binding.acceptButton.visibility = View.GONE
+            holder.binding.declinedButton.visibility = View.GONE
+            holder.binding.accepted.visibility = View.VISIBLE
+            holder.binding.accepted.text = "DECLINED"
+            holder.binding.accepted.backgroundTintList = ContextCompat.getColorStateList(context, R.color.rejected_text_color)
+        }
+
         val dialog = Dialog(context)
 
         holder.binding.acceptButton.setOnClickListener{
@@ -77,7 +76,7 @@ class JobInterviewRecyclerAdapter(private val context: Context, private val data
 
         dialog.findViewById<Button>(R.id.btn_done).setOnClickListener{
             Toast.makeText(context, "You have accept the interview !", Toast.LENGTH_LONG).show()
-            //sharedViewModel.postAcceptData(item.id)
+            sharedViewModel.postAcceptData(item.id)
             holder.binding.acceptButton.visibility = View.GONE
             holder.binding.declinedButton.visibility = View.GONE
             holder.binding.accepted.visibility = View.VISIBLE
@@ -102,7 +101,7 @@ class JobInterviewRecyclerAdapter(private val context: Context, private val data
 
         dialog2.findViewById<Button>(R.id.btn_done).setOnClickListener{
             Toast.makeText(context, "You have declined the interview !", Toast.LENGTH_LONG).show()
-            //sharedViewModel.postDeclineData(item.id)
+            sharedViewModel.postDeclineData(item.id)
             holder.binding.acceptButton.visibility = View.GONE
             holder.binding.declinedButton.visibility = View.GONE
             holder.binding.accepted.visibility = View.VISIBLE
@@ -120,6 +119,8 @@ class JobInterviewRecyclerAdapter(private val context: Context, private val data
     override fun getItemCount(): Int {
         return dataList.size
     }
+
+
 
 
 }
