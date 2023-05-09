@@ -51,8 +51,6 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.autoLogin() //check token
-
         sharedViewModel.getData()
 
         sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {

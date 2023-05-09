@@ -43,11 +43,9 @@ interface Route {
         ): Call<SignUpItem>
 
     @Headers("Accept: application/json")
-    @FormUrlEncoded
-    @POST("autologin")
-    fun autoLogin(
+    @GET("myprofile")
+    fun myProfile(
         @Header("Authorization") token: String,
-        @Field("id") id : String,
     ): Call<User>
 
     @Headers("Accept: application/json")

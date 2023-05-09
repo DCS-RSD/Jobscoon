@@ -49,9 +49,8 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
     }
 
     fun autoLogin() {
-        val build = RetrofitBuild.build().autoLogin(
+        val build = RetrofitBuild.build().myProfile(
             sharedPreferences.getString("Token", "")!!,
-            sharedPreferences.getString("Id", "")!!
         )
 
         build.enqueue(object : Callback<User?> {
