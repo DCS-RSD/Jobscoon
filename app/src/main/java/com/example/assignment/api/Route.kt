@@ -129,14 +129,34 @@ interface Route {
         @Path("id") id:Int
     ): Call<Void>
 
+    /*
+    Module: Career Development
+    Route: resource, apply, cancel
+     */
+
+    // index
     @GET("careerdev")
     fun getCareer(
         @Header("Authorization") token: String,
     ): Call<List<CareerDevelopmentItem>>
 
+    // show
     @GET("careerdev/{id}")
     fun showCareer(
         @Header("Authorization") token: String,
         @Path("id") id:Int
     ): Call<CareerDevelopmentItem>
+
+    //apply career development
+    @GET("applycareer/{id}")
+    fun applyCareer(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<ValidationErrorResponse>
+
+    @GET("cancelcareer/{id}")
+    fun cancelCareer(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<Void>
 }
