@@ -9,6 +9,9 @@ import retrofit2.http.*
 
 interface Route {
 
+    /*
+    Module: Auth
+     */
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("login")
@@ -58,6 +61,16 @@ interface Route {
         @Field("address") address: String,
         @Field("description") about: String,
         @Field("name") name: String,
+    ):Call<ValidationErrorResponse>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("resetpassword")
+    fun resetPassword(
+        @Header("Authorization") token: String,
+        @Field("current_password") currentPassword: String,
+        @Field("new_password") newPasswrod: String,
+        @Field("new_password_confirmation") newPasswordConfirmation: String,
     ):Call<ValidationErrorResponse>
 
     @Headers("Accept: application/json")
@@ -147,7 +160,9 @@ interface Route {
         @Path("id") id:Int
     ): Call<CareerDevelopmentItem>
 
-    //apply career development
+    /*apply career development
+    return message if needed
+     */
     @GET("applycareer/{id}")
     fun applyCareer(
         @Header("Authorization") token: String,
