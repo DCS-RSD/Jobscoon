@@ -14,6 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.assignment.ProfileEmployeeViewModel
 import com.example.assignment.R
@@ -48,6 +49,14 @@ class ProfileEmployeeFragment : Fragment() {
 
         val user = sharedViewModel.currentUser
         binding.user = user
+
+        binding.changePwdButton.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_changePasswordFragment)
+        }
+
+        binding.editS.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
+        }
 
         binding.logout.setOnClickListener {
 
