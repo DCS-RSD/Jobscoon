@@ -49,6 +49,17 @@ interface Route {
     ): Call<User>
 
     @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("updateprofile")
+    fun updateProfile(
+        @Field("email") email: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String,
+        @Field("description") about: String,
+        @Field("name") name: String,
+    ):Call<ValidationErrorResponse>
+
+    @Headers("Accept: application/json")
     @POST("logout")
     fun logout(
         @Header("Authorization") token: String,
