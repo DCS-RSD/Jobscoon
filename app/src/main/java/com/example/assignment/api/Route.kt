@@ -53,19 +53,19 @@ interface Route {
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
-    @POST("updateprofile/{id}")
+    @PATCH("updateprofile")
     fun updateProfile(
-        @Path("id") id:Int,
+        @Header("Authorization") token: String,
         @Field("email") email: String,
         @Field("phone") phone: String,
         @Field("address") address: String,
         @Field("description") about: String,
         @Field("name") name: String,
-    ):Call<ValidationErrorResponse>
+    ):Call<java.lang.Void>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
-    @POST("resetpassword")
+    @PATCH("resetpassword")
     fun resetPassword(
         @Header("Authorization") token: String,
         @Field("current_password") currentPassword: String,
@@ -128,19 +128,19 @@ interface Route {
     fun postJobApplication(
         @Header("Authorization") token: String,
         @Path("id") id:Int
-    ): Call<Void>
+    ): Call<java.lang.Void>
 
     @POST("acceptinterview/{id}")
     fun postAcceptInterview(
         @Header("Authorization") token: String,
         @Path("id") id:Int
-    ): Call<Void>
+    ): Call<java.lang.Void>
 
     @POST("declineinterview/{id}")
     fun postDeclineInterview(
         @Header("Authorization") token: String,
         @Path("id") id:Int
-    ): Call<Void>
+    ): Call<java.lang.Void>
 
     /*
     Module: Career Development
@@ -173,5 +173,5 @@ interface Route {
     fun cancelCareer(
         @Header("Authorization") token: String,
         @Path("id") id:Int
-    ): Call<Void>
+    ): Call<java.lang.Void>
 }
