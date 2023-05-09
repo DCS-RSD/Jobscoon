@@ -55,7 +55,7 @@ class SignUpChooser : Fragment() {
         }
 
         binding.employerCard.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_signUpChooser_to_signUpCompanyFragment)
+            view.findNavController().navigate(R.id.action_signUpChooser_to_signUpSelectCompanyFragment)
         }
 
         return binding.root

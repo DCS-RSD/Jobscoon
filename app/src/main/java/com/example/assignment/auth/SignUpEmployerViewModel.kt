@@ -17,7 +17,18 @@ class SignUpEmployerViewModel : ViewModel() {
         MutableLiveData<ResponseForUI>()
     }
 
+    val signUpCompanyResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
+
+    val signUpEmployerResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
     lateinit var companyDetails: Company
+    var selectedCompany = ""
+    var isNew =false
 
     fun submitCompany(input: Company) {
 
@@ -33,70 +44,131 @@ class SignUpEmployerViewModel : ViewModel() {
         build.enqueue(object : Callback<Company?> {
             override fun onResponse(call: Call<Company?>, response: Response<Company?>) {
                 if (response.isSuccessful) {
-                    signUpResponse.value = ResponseForUI(true, "")
+                    signUpCompanyResponse.value = ResponseForUI(true, "")
                     companyDetails = input
                 } else if (response.code() == 422) { //validation fails
                     val error = Gson().fromJson(
                         response.errorBody()!!.string(),
                         ValidationErrorResponse::class.java
                     )
-                    signUpResponse.value = ResponseForUI(false, error.message)
+                    signUpCompanyResponse.value = ResponseForUI(false, error.message)
                     Log.d("login", "onResponse: $error")
                 } else { //unknown error
-                    signUpResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    signUpCompanyResponse.value = ResponseForUI(false, "Something Went Wrong")
                 }
             }
 
             override fun onFailure(call: Call<Company?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
-                signUpResponse.value =
+                signUpCompanyResponse.value =
                     ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
             }
         })
     }
 
+    lateinit var registerBuild:Call<SignUpItem>
     fun signUpEmployer(input: SignUpItem, passwordConfirmation: String) {
-        val build = RetrofitBuild.build().register(
-            input.email,
-            input.password,
-            passwordConfirmation,
-            input.phone,
-            input.address,
-            input.description,
-            input.name,
-            true,
-            companyDetails.name,
-            companyDetails.contact_number,
-            companyDetails.email,
-            companyDetails.reg_no,
-            companyDetails.location,
-            companyDetails.description,
-            true,
-        )
+        if(isNew) {
+            registerBuild = RetrofitBuild.build().register(
+                input.email,
+                input.password,
+                passwordConfirmation,
+                input.phone,
+                input.address,
+                input.description,
+                input.name,
+                true,
+                companyDetails.name,
+                companyDetails.contact_number,
+                companyDetails.email,
+                companyDetails.reg_no,
+                companyDetails.location,
+                companyDetails.description,
+                true,
+            )
+        }else{
+            println("fuck")
+            registerBuild =RetrofitBuild.build().register(
+                input.email,
+                input.password,
+                passwordConfirmation,
+                input.phone,
+                input.address,
+                input.description,
+                input.name,
+                true,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                false,
+                selectedCompany,
+            )
+        }
 
-        build.enqueue(object : Callback<SignUpItem?> {
+        registerBuild.enqueue(object : Callback<SignUpItem?> {
             override fun onResponse(call: Call<SignUpItem?>, response: Response<SignUpItem?>) {
                 if (response.isSuccessful) {
-                    signUpResponse.value = ResponseForUI(true, "")
+                    signUpEmployerResponse.value = ResponseForUI(true, "")
                 } else if (response.code() == 422) { //validation fails
                     val error = Gson().fromJson(
                         response.errorBody()!!.string(),
                         ValidationErrorResponse::class.java
                     )
-                    signUpResponse.value = ResponseForUI(false, error.message)
+                    signUpEmployerResponse.value = ResponseForUI(false, error.message)
                     Log.d("login", "onResponse: $error")
                 } else { //unknown error
-                    signUpResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    signUpEmployerResponse.value = ResponseForUI(false, "Something Went Wrong")
                 }
             }
 
             override fun onFailure(call: Call<SignUpItem?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
+                signUpEmployerResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+            }
+        })
+    }
+
+
+
+    val companyNameList: MutableLiveData<List<CompanyList>> by lazy {
+        MutableLiveData<List<CompanyList>>()
+    }
+
+
+    fun getCompanyNameList() {
+        val build = RetrofitBuild.build().getCompanyList()
+
+        build.enqueue(object : Callback<List<CompanyList>?> {
+            override fun onResponse(
+                call: Call<List<CompanyList>?>,
+                response: Response<List<CompanyList>?>
+            ) {
+                if (response.isSuccessful) {
+                    signUpResponse.value = ResponseForUI(true, "")
+                    companyNameList.value = response.body()!!
+                    Log.d("CompanyNameList", "onResponse: " + response.body()!!)
+                } else {
+                    signUpResponse.value =
+                        ResponseForUI(false, "Something Went Wrong.")
+                    Log.d("Error", "onResponse: " + response.errorBody()!!)
+                }
+            }
+
+            override fun onFailure(call: Call<List<CompanyList>?>, t: Throwable) {
                 signUpResponse.value =
                     ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
             }
         })
     }
+
+    fun selectCompany(company: String) {
+        this.selectedCompany = company
+    }
+
 }
