@@ -3,10 +3,8 @@ package com.example.assignment.auth
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.dataclass.ResponseForUI
 import com.example.assignment.dataclass.ValidationErrorResponse

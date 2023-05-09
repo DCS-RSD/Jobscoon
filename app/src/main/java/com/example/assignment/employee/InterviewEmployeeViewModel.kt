@@ -5,14 +5,13 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.dataclass.*
-import com.google.gson.Gson
 import kotlinx.coroutines.Job
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Void
 
 class InterviewEmployeeViewModel(application: Application) : AndroidViewModel(application) {
 

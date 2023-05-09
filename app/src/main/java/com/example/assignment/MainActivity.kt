@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
 
+
         if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
             startActivity(Intent(this, EmployeeNavHost::class.java))
         } else {

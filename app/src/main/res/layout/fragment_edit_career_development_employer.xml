@@ -360,7 +360,7 @@
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/saveS2"
+                    android:id="@+id/submit_update_profile_btn"
                     style="@style/edit_profile_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -382,10 +382,10 @@
                     android:backgroundTint="@color/rejected_text_color"
                     android:text="Delete"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/saveS2"
+                    app:layout_constraintEnd_toStartOf="@+id/submit_update_profile_btn"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/saveS2" />
+                    app:layout_constraintTop_toBottomOf="@+id/submit_update_profile_btn" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

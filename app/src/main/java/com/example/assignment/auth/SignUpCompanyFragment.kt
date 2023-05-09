@@ -1,6 +1,7 @@
 package com.example.assignment.auth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentSignUpCompanyBinding
 import com.example.assignment.dataclass.Company
+import com.example.assignment.dataclass.ResponseForUI
 
 class SignUpCompanyFragment : Fragment() {
 
@@ -45,17 +47,24 @@ class SignUpCompanyFragment : Fragment() {
                     binding.editAbout.text.toString(),
                 )
             )
+        }
 
-            sharedViewModel.signUpResponse.observe(viewLifecycleOwner, Observer {
+        sharedViewModel.signUpCompanyResponse.observe(viewLifecycleOwner, Observer {
+            try {
                 if (it.success) {
+                    sharedViewModel.isNew = true
+                    sharedViewModel.signUpCompanyResponse.value = null
+                    sharedViewModel.selectCompany(binding.editCompanyName.text.toString())
                     findNavController().navigate(R.id.action_signUpCompanyFragment_to_signUpEmployerFragment2)
                 } else {
                     Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
 
                 }
-            })
-        }
+            }catch (e: Exception){
+//                Log.i("exception", "onActivityCreated: "+e)
+            }
 
+        })
 
 
     }

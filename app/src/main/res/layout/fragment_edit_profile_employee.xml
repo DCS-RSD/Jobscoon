@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="EditProfileEmployeeFragment">
 
+
+    <data>
+        <variable
+            name="userData"
+            type="com.example.assignment.dataclass.User" />
+    </data>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/job_details_refresh"
         android:layout_width="match_parent"
@@ -71,9 +78,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Username"
-                            app:counterEnabled="true"
-                            app:counterMaxLength="10"
+                            android:hint="Name"
                             app:endIconMode="clear_text"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="1.0"
@@ -83,10 +88,11 @@
 
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editName"
                                 style="@style/text_input_style"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:maxLength="10"
+                                android:text="@{userData.name}"
                                 tools:ignore="DuplicateClickableBoundsCheck" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -106,10 +112,12 @@
                             app:layout_constraintTop_toBottomOf="@+id/textUsernameS">
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editEmail"
+                                style="@style/text_input_style"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                style="@style/text_input_style"
-                                android:inputType="textEmailAddress"/>
+                                android:inputType="textEmailAddress"
+                                android:text="@{userData.email}" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,11 +140,13 @@
                             <!--        <com.google.android.material.textfield.TextInputEditText -->
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editPhone"
+                                style="@style/text_input_style"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                style="@style/text_input_style"
                                 android:inputType="textPhonetic"
-                                android:maxLength="10"/>
+                                android:maxLength="10"
+                                android:text="@{userData.phone}" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,11 +168,12 @@
                             <!--        <com.google.android.material.textfield.TextInputEditText -->
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/editLocation"
+                                style="@style/text_input_style"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                style="@style/text_input_style"
                                 android:inputType="textPhonetic"
-                                android:maxLength="10"/>
+                                android:text="@{userData.address}" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,7 +192,8 @@
                             app:layout_constraintTop_toBottomOf="@+id/textLocationS">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editTextAMS"
+
+                                android:id="@+id/editDescription"
                                 style="@style/text_input_style"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -192,12 +204,13 @@
                                 android:scrollbars="vertical"
                                 android:scrollbarStyle="insideInset"
                                 android:scrollHorizontally="false"
+                                android:text="@{userData.description}"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/saveS2"
+                            android:id="@+id/submit_update_profile_btn"
                             style="@style/edit_profile_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -221,7 +234,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/saveS2" />
+                            app:layout_constraintTop_toBottomOf="@+id/submit_update_profile_btn" />
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

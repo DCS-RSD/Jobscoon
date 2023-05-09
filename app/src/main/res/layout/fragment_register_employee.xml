@@ -210,7 +210,7 @@
                 app:counterEnabled="true"
                 app:layout_constraintTop_toBottomOf="@+id/textPwdS">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextAMS"
+                    android:id="@+id/editDescription"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/text_input_style"
