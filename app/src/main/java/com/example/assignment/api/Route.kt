@@ -50,8 +50,9 @@ interface Route {
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
-    @POST("updateprofile")
+    @POST("updateprofile/{id}")
     fun updateProfile(
+        @Path("id") id:Int,
         @Field("email") email: String,
         @Field("phone") phone: String,
         @Field("address") address: String,
@@ -127,4 +128,15 @@ interface Route {
         @Header("Authorization") token: String,
         @Path("id") id:Int
     ): Call<Void>
+
+    @GET("careerdev")
+    fun getCareer(
+        @Header("Authorization") token: String,
+    ): Call<List<CareerDevelopmentItem>>
+
+    @GET("careerdev/{id}")
+    fun showCareer(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int
+    ): Call<CareerDevelopmentItem>
 }
