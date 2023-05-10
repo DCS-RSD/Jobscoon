@@ -95,7 +95,7 @@ interface Route {
     @GET("companylist")
     fun getCompanyList():Call<List<CompanyList>>
 
-
+    @Headers("Accept: application/json")
     @GET("jobpost")
     fun getJobPost(
         @Header("Authorization") token: String,
