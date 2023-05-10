@@ -69,12 +69,18 @@ class FindJobsEmployeeFragment : Fragment() {
             binding.jobPostRefresh.isRefreshing = false
         }
 
-        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer {
-            if (!it.success){
-                //dialog
-                val intent = Intent(requireActivity(), AuthActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
+        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer {response ->
+            if (!response.success){
+                sharedViewModel.isExpired.observe(viewLifecycleOwner,Observer{
+                    if (it){
+                        //dialog
+                        val intent = Intent(requireActivity(), AuthActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }else {
+                        Toast.makeText(requireContext(),response.errorMsg,Toast.LENGTH_LONG).show()
+                    }
+                })
             }
         })
 

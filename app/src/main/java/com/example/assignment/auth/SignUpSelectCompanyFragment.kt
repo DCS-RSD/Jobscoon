@@ -50,11 +50,9 @@ class SignUpSelectCompanyFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         sharedViewModel.getCompanyNameList()
 
-        var companyArr=ArrayList<String>()
         sharedViewModel.companyNameList.observe(viewLifecycleOwner, Observer {
 
-            for (x in it.toTypedArray())
-                companyArr.add(x.name)
+            val companyArr = sharedViewModel.getCompanyArr()
 
 //            println(companyArr)
             val companyAdapter: ArrayAdapter<String> = ArrayAdapter(

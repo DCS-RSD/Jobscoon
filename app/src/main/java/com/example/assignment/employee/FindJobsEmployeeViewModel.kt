@@ -26,17 +26,17 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
     val showResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
+
     val applyResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
 
-    val logoutResponse: MutableLiveData<ResponseForUI> by lazy {
-        MutableLiveData<ResponseForUI>()
-    }
-
-
     val jobPostList: MutableLiveData<List<JobPostItem>> by lazy {
         MutableLiveData<List<JobPostItem>>()
+    }
+
+    val isExpired: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
     }
 
     private val _jobPostDetail = MutableLiveData<JobPostItem>()
@@ -53,7 +53,6 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
     }
 
 
-
     fun getData() {
         val build = RetrofitBuild.build().getJobPost(token)
 
@@ -68,13 +67,16 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
                     jobPostList.value = response.body()!!
                     Log.d("success", "onResponse: " + jobPostList.value)
 
-                } else { //unknown error, mostly 401 (unauthorized)
+                } else if (response.code() == 401) { //unknown error, mostly 401 (unauthorized)
 
 //                    println("wtf"+token)
                     sharedPreferences.edit().clear().apply() //clear token (401)
                     //seesion expired dialog
-                    getAllResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    isExpired.value = true
+                    getAllResponse.value = ResponseForUI(false, "Session Expired")
 
+                } else {
+                    getAllResponse.value = ResponseForUI(false, "Something Went Wrong")
                 }
             }
 

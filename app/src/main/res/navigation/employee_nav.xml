@@ -63,7 +63,7 @@
         tools:layout="@layout/fragment_edit_profile_employee" />
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.example.assignment.ChangePasswordFragment"
+        android:name="com.example.assignment.employee.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
     <fragment
