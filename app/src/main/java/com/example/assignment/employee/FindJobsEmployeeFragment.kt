@@ -1,5 +1,6 @@
 package com.example.assignment.employee
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
+import com.example.assignment.auth.AuthActivity
 import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
@@ -66,6 +68,15 @@ class FindJobsEmployeeFragment : Fragment() {
             sharedViewModel.getData()
             binding.jobPostRefresh.isRefreshing = false
         }
+
+        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer {
+            if (!it.success){
+                //dialog
+                val intent = Intent(requireActivity(), AuthActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }
+        })
 
 
     }
