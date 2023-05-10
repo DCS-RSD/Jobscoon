@@ -28,7 +28,7 @@ class SignUpEmployerViewModel : ViewModel() {
 
     lateinit var companyDetails: Company
     var selectedCompany = ""
-    var isNew =false
+    var isNew = false
 
     fun submitCompany(input: Company) {
 
@@ -67,9 +67,9 @@ class SignUpEmployerViewModel : ViewModel() {
         })
     }
 
-    lateinit var registerBuild:Call<SignUpItem>
+    lateinit var registerBuild: Call<SignUpItem>
     fun signUpEmployer(input: SignUpItem, passwordConfirmation: String) {
-        if(isNew) {
+        if (isNew) {
             registerBuild = RetrofitBuild.build().register(
                 input.email,
                 input.password,
@@ -87,9 +87,9 @@ class SignUpEmployerViewModel : ViewModel() {
                 companyDetails.description,
                 true,
             )
-        }else{
-            println("fuck")
-            registerBuild =RetrofitBuild.build().register(
+        } else {
+//            println("fuck")
+            registerBuild = RetrofitBuild.build().register(
                 input.email,
                 input.password,
                 passwordConfirmation,
@@ -135,7 +135,6 @@ class SignUpEmployerViewModel : ViewModel() {
     }
 
 
-
     val companyNameList: MutableLiveData<List<CompanyList>> by lazy {
         MutableLiveData<List<CompanyList>>()
     }
@@ -169,6 +168,15 @@ class SignUpEmployerViewModel : ViewModel() {
 
     fun selectCompany(company: String) {
         this.selectedCompany = company
+    }
+
+    fun getCompanyArr(): ArrayList<String> {
+        var companyArr = ArrayList<String>()
+
+        for (x in companyNameList.value!!.toTypedArray())
+            companyArr.add(x.name)
+
+        return companyArr
     }
 
 }
