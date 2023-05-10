@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/jobPostedEmployerFragment">
+
+
+    <fragment
+        android:id="@+id/jobPostedEmployerFragment"
+        android:name="com.example.assignment.employer.JobPostedEmployerFragment"
+        android:label="fragment_job_posted_employer"
+        tools:layout="@layout/fragment_job_posted_employer" />
+    <fragment
+        android:id="@+id/profileEmployerFragment"
+        android:name="com.example.assignment.employer.ProfileEmployerFragment"
+        android:label="fragment_profile_employer"
+        tools:layout="@layout/fragment_profile_employer" />
+</navigation>

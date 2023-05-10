@@ -26,6 +26,36 @@ class AuthViewModel(application: Application) :AndroidViewModel(application) {
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
 
+
+
+    fun getProfileSpecial() : Int {
+        var num: Int = 0
+
+        val build = RetrofitBuild.build().myProfile(
+            sharedPreferences.getString("Token", "")!!,
+        )
+
+        currentUser.value=null
+
+        build.enqueue(object : Callback<User?> {
+            override fun onResponse(call: Call<User?>, response: Response<User?>) {
+                if (response.isSuccessful) {
+                    currentUser.value = response.body()!!
+                    num = currentUser.value!!.is_employer!!
+                    Log.d("success", "onResponse: " + currentUser.value!!.is_employer!! + "auth")
+                } else {
+                    //dialog prompt to ask user login again
+                }
+            }
+
+            override fun onFailure(call: Call<User?>, t: Throwable) {
+
+                Log.i("check", "onFailure: no")
+            }
+        })
+        return num
+    }
+
     fun getProfile() {
         val build = RetrofitBuild.build().myProfile(
             sharedPreferences.getString("Token", "")!!,
@@ -37,6 +67,7 @@ class AuthViewModel(application: Application) :AndroidViewModel(application) {
             override fun onResponse(call: Call<User?>, response: Response<User?>) {
                 if (response.isSuccessful) {
                     currentUser.value = response.body()!!
+                    Log.d("success", "onResponse: " + currentUser.value)
                 } else {
                     //dialog prompt to ask user login again
                 }
