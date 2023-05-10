@@ -165,13 +165,13 @@ interface Route {
     /*apply career development
     return message if needed
      */
-    @GET("applycareer/{id}")
+    @POST("applycareer/{id}")
     fun applyCareer(
         @Header("Authorization") token: String,
         @Path("id") id:Int
     ): Call<ValidationErrorResponse>
 
-    @GET("cancelcareer/{id}")
+    @POST("cancelcareer/{id}")
     fun cancelCareer(
         @Header("Authorization") token: String,
         @Path("id") id:Int

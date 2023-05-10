@@ -37,6 +37,8 @@ class CareerDevelopmentDetailsFragment : Fragment() {
             inflater,
             R.layout.fragment_career_development_details, container, false)
 
+
+
         val dialog = Dialog(requireContext())
         binding.joinBtn.setOnClickListener {
             dialog.show()
@@ -60,8 +62,9 @@ class CareerDevelopmentDetailsFragment : Fragment() {
             Toast.makeText(requireContext(), "You have join the career development !", Toast.LENGTH_LONG).show()
 
             sharedViewModel.postJoinData()
-
-            binding.joinBtn.isEnabled = false
+            var showCap = binding.textView22.text.toString().toInt()
+            showCap -= 1
+            binding.textView22.text = showCap.toString()
             binding.joinBtn.visibility = View.GONE
             binding.unjoinBtn.visibility = View.VISIBLE
             dialog.dismiss()
@@ -95,9 +98,12 @@ class CareerDevelopmentDetailsFragment : Fragment() {
 
             sharedViewModel.postUnjoinData()
 
-            binding.unjoinBtn.isEnabled = false
-            binding.joinBtn.visibility = View.VISIBLE
+            var showCap2 = binding.textView22.text.toString().toInt()
+            showCap2 += 1
+            binding.textView22.text = showCap2.toString()
             binding.unjoinBtn.visibility = View.GONE
+            binding.joinBtn.visibility = View.VISIBLE
+
             dialog2.dismiss()
         }
 
@@ -121,6 +127,13 @@ class CareerDevelopmentDetailsFragment : Fragment() {
                 binding.careerDevelopmentDetailsFragment.apply {
                     binding.careerDevelopmentItem = it
                     binding.textView22.text = it.capacity.toString()
+                    if(it.type == "physical") {
+                        binding.textView14.text = it.location
+                    }else if (it.type == "virtual") {
+                        binding.imageView15.setImageResource(R.drawable.icon_link)
+                        binding.textView14.text = it.link
+                    }
+
                 }
 
 
@@ -128,13 +141,11 @@ class CareerDevelopmentDetailsFragment : Fragment() {
                 var capCheck = it.capacity
 
                 if (check) {
-                    binding.joinBtn.isEnabled = false
                     binding.joinBtn.visibility = View.GONE
                     binding.unjoinBtn.visibility = View.VISIBLE
                 }
 
                 if (capCheck == 0) {
-                    binding.joinBtn.isEnabled = false
                     binding.joinBtn.backgroundTintList =
                         ContextCompat.getColorStateList(
                             requireContext(),
