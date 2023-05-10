@@ -56,7 +56,6 @@ class ChangePasswordFragment : Fragment() {
             sharedViewModel.resetResponse.observe(viewLifecycleOwner, Observer {
                 try {
                     if (it.success) {
-                        sharedViewModel.resetResponse.value = null //reset
                         Toast.makeText(
                             requireContext(),
                             "Password Reset Successfully!",
@@ -66,6 +65,7 @@ class ChangePasswordFragment : Fragment() {
                     } else {
                         Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
                     }
+                    sharedViewModel.resetResponse.value = null //reset
 
                 }catch (e:Exception){}
 

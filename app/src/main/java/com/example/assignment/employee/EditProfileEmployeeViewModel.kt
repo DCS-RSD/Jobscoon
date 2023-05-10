@@ -72,10 +72,10 @@ class EditProfileEmployeeViewModel(application: Application) : AndroidViewModel(
         val build = RetrofitBuild.build()
             .resetPassword(token, currentPassword, newPassword, newPasswordConfirmation)
 
-        build.enqueue(object : Callback<ValidationErrorResponse?> {
+        build.enqueue(object : Callback<Void?> {
             override fun onResponse(
-                call: Call<ValidationErrorResponse?>,
-                response: Response<ValidationErrorResponse?>
+                call: Call<Void?>,
+                response: Response<Void?>
             ) {
                 if (response.isSuccessful) {
                     resetResponse.value = ResponseForUI(true, "")
@@ -91,7 +91,7 @@ class EditProfileEmployeeViewModel(application: Application) : AndroidViewModel(
                 }
             }
 
-            override fun onFailure(call: Call<ValidationErrorResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
                 validationResponse.value =

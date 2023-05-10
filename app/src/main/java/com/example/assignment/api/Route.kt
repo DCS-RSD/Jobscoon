@@ -62,7 +62,7 @@ interface Route {
         @Field("address") address: String,
         @Field("description") about: String,
         @Field("name") name: String,
-    ):Call<java.lang.Void>
+    ):Call<Void>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
@@ -72,7 +72,7 @@ interface Route {
         @Field("current_password") currentPassword: String,
         @Field("new_password") newPasswrod: String,
         @Field("new_password_confirmation") newPasswordConfirmation: String,
-    ):Call<ValidationErrorResponse>
+    ):Call<Void>
 
     @Headers("Accept: application/json")
     @POST("logout")
