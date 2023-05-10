@@ -40,7 +40,7 @@
 
                 <TextView
                     android:id="@+id/job_name1"
-                    android:layout_weight="0.45"
+                    android:layout_weight="0.48"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/hind_siliguri_bold"
@@ -50,17 +50,16 @@
                     />
 
                 <TextView
-                    android:id="@+id/status1"
-                    android:layout_weight="1.55"
+                    android:id="@+id/status"
+                    android:layout_weight="1.52"
                     style="@style/jobs_detail_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/job_detail_text_background"
-                    android:backgroundTint="@color/accepted_layout_color"
-                    android:text="applied"
+                    android:backgroundTint="@color/available_layout_color"
+                    android:text="available"
                     android:textAlignment="center"
-                    android:textColor="@color/accepted_text_color"
-                    android:visibility="gone"
+                    android:textColor="@color/available_text_color"
                     />
 
             </LinearLayout>

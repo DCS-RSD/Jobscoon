@@ -44,7 +44,8 @@
 
     <!--</resources>-->
 
-
+    <color name="available_layout_color">#BEE3FF</color>
+    <color name="available_text_color">#526BFF</color>
     <color name="pending_layout_color">#FFF9BF</color>
     <color name="pending_text_color">#9E8F00</color>
     <color name="rejected_layout_color">#FDC1BD</color>
