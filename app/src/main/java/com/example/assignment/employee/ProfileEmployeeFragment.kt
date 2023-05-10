@@ -64,6 +64,16 @@ class ProfileEmployeeFragment : Fragment() {
                 .navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
         }
 
+
+        binding.changePwdButton.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_changePasswordFragment)
+        }
+
+        binding.editS.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
+        }
+
+
         binding.logout.setOnClickListener {
 
 

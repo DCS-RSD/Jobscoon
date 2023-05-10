@@ -102,7 +102,7 @@ class JobDetailsEmployeeFragment : Fragment() {
 
 
                 var check = it.is_applied!!
-//                println("fuck.." + check)
+
                 if (check) {
 
                     binding.applyButton.isEnabled = false

@@ -7,9 +7,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.assignment.api.RetrofitBuild
+import com.example.assignment.auth.LoginResponse
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.ResponseForUI
-import com.example.assignment.dataclass.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,6 +17,8 @@ import retrofit2.Response
 class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(application) {
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
+    val token = sharedPreferences.getString("Token", "")!!
+
     val getAllResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
@@ -25,6 +27,10 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
         MutableLiveData<ResponseForUI>()
     }
     val applyResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
+    val logoutResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
 
@@ -49,9 +55,7 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
 
 
     fun getData() {
-        val build = RetrofitBuild.build().getJobPost(
-            sharedPreferences.getString("Token", "")!!
-        )
+        val build = RetrofitBuild.build().getJobPost(token)
 
         build.enqueue(object : Callback<List<JobPostItem>?> {
             override fun onResponse(
@@ -64,8 +68,11 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
                     jobPostList.value = response.body()!!
                     Log.d("success", "onResponse: " + jobPostList.value)
 
-                } else { //unknown error
+                } else { //unknown error, mostly 401 (unauthorized)
 
+//                    println("wtf"+token)
+                    sharedPreferences.edit().clear().apply() //clear token (401)
+                    //seesion expired dialog
                     getAllResponse.value = ResponseForUI(false, "Something Went Wrong")
 
                 }
@@ -154,4 +161,5 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
         })
 
     }
+
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
@@ -16,9 +17,12 @@ import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.databinding.NavigationEmployeeBinding
 import com.example.assignment.dataclass.CareerDevelopmentItem
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.employee.CareerDevelopmentEmployeeViewModel
 import com.example.assignment.employee.EmployeeNavHost
 
-class CareerDevelopmentEmployeeRecyclerAdapter(private val dataList: List<CareerDevelopmentItem>) : RecyclerView.Adapter<CareerDevelopmentEmployeeRecyclerAdapter.ViewHolder>() {
+class CareerDevelopmentEmployeeRecyclerAdapter(private val viewModel : CareerDevelopmentEmployeeViewModel, private val dataList: List<CareerDevelopmentItem>) : RecyclerView.Adapter<CareerDevelopmentEmployeeRecyclerAdapter.ViewHolder>() {
+
+    lateinit var binding: ItemCareerDevelopmentEmployeeBinding
 
     inner class ViewHolder(val binding: ItemCareerDevelopmentEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: CareerDevelopmentItem) {
@@ -27,7 +31,7 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val dataList: List<Career
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemCareerDevelopmentEmployeeBinding.inflate(inflater, parent, false)
+        binding = ItemCareerDevelopmentEmployeeBinding.inflate(inflater, parent, false)
         /*
         binding.jobCard.setOnClickListener{
                 view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
@@ -41,6 +45,10 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val dataList: List<Career
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
+        holder.binding.joinBtn.setOnClickListener{
+            viewModel.careerDevId.value = item.id
+            it.findNavController().navigate(R.id.action_careerDevelopmentEmployeeFragment_to_careerDevelopmentDetailsFragment)
+        }
     }
 
     override fun getItemCount(): Int {

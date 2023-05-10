@@ -56,6 +56,7 @@ class EmployeeNavHost : AppCompatActivity() {
             when (destination.id) {
                 R.id.changePasswordFragment,
                 R.id.editProfileEmployeeFragment,
+                R.id.careerDevelopmentDetailsFragment,
                 R.id.jobDetailsEmployeeFragment -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE

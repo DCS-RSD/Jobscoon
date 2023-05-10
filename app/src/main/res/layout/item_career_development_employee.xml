@@ -25,19 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/careerUpdateImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="0dp"
-                android:contentDescription="updateImage1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/idol_producer" />
 
             <LinearLayout
                 android:id="@+id/top"
@@ -46,14 +33,14 @@
                 android:layout_height="wrap_content"
                 android:weightSum="2"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/careerUpdateImage">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/job_name1"
-                    android:layout_weight="0.45"
+                    android:layout_weight="0.48"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/hind_siliguri_bold"
@@ -63,17 +50,16 @@
                     />
 
                 <TextView
-                    android:id="@+id/status1"
-                    android:layout_weight="1.55"
+                    android:id="@+id/status"
+                    android:layout_weight="1.52"
                     style="@style/jobs_detail_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/job_detail_text_background"
-                    android:backgroundTint="@color/accepted_layout_color"
-                    android:text="applied"
+                    android:backgroundTint="@color/available_layout_color"
+                    android:text="available"
                     android:textAlignment="center"
-                    android:textColor="@color/accepted_text_color"
-                    android:visibility="gone"
+                    android:textColor="@color/available_text_color"
                     />
 
             </LinearLayout>
@@ -102,7 +88,7 @@
                 app:layout_constraintTop_toBottomOf="@id/plocation"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="15dp"
                 android:layout_weight="0.6">
 
                 <LinearLayout
@@ -171,14 +157,14 @@
                 android:id="@+id/join_btn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginStart="21dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="21dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/salary_text_color"
                 android:fontFamily="@font/hind_siliguri_bold"
                 android:text="MORE INFORMATION"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
