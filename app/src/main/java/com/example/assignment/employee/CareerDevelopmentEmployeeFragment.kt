@@ -55,7 +55,7 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
 
         sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {
             binding.careerDevelopmentEmployeeRecycleView.apply {
-                adapter = CareerDevelopmentEmployeeRecyclerAdapter(it)
+                adapter = CareerDevelopmentEmployeeRecyclerAdapter(sharedViewModel, it)
                 layoutManager = manager
             }
 
