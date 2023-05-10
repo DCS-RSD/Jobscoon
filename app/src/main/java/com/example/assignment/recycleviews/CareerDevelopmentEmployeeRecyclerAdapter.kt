@@ -1,11 +1,13 @@
 package com.example.assignment.recycleviews
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.provider.ContactsContract.RawContacts.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
@@ -48,6 +50,19 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val viewModel : CareerDev
         holder.binding.joinBtn.setOnClickListener{
             viewModel.careerDevId.value = item.id
             it.findNavController().navigate(R.id.action_careerDevelopmentEmployeeFragment_to_careerDevelopmentDetailsFragment)
+        }
+        if (item.is_applied!!) {
+            holder.binding.status.apply {
+                setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.accepted_text_color))
+                backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.accepted_layout_color))
+                text = "applied"
+            }
+        } else if (item.capacity == 0) {
+            holder.binding.status.apply {
+                setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.rejected_text_color))
+                backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.rejected_layout_color))
+                text = "full"
+            }
         }
     }
 
