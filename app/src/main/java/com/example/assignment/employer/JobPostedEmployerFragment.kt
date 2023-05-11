@@ -12,8 +12,10 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.EditProfileEmployeeViewModel
 import com.example.assignment.R
 import com.example.assignment.auth.AuthActivity
 import com.example.assignment.databinding.FragmentJobPostedEmployerBinding
@@ -28,8 +30,8 @@ class JobPostedEmployerFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentJobPostedEmployerBinding
-    private lateinit var viewModel: JobPostedEmployerViewModel
     private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var viewModel: JobPostedEmployerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +44,7 @@ class JobPostedEmployerFragment : Fragment() {
             false
         )
 
-        //navigate to form
+
         manager = LinearLayoutManager(requireContext())
 
         return binding.root
@@ -50,7 +52,9 @@ class JobPostedEmployerFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = ViewModelProvider(this).get(JobPostedEmployerViewModel::class.java)
+
         viewModel.getData()
 
         viewModel.jobPostList.observe(viewLifecycleOwner, Observer {
@@ -61,6 +65,11 @@ class JobPostedEmployerFragment : Fragment() {
 
             Log.d("acticity", "onActivityCreated: "+it)
         })
+
+        //navigate to form
+        binding.floatingActionButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_jobPostedEmployerFragment_to_postJobEmployerFragment)
+        }
 
         binding.jobPostRefresh.setOnRefreshListener {
             viewModel.getData()

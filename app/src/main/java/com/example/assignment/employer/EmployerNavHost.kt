@@ -27,50 +27,26 @@ class EmployerNavHost : AppCompatActivity() {
 
     }
 
-    private fun setBar() {
-/*
-        binding.bottomNavBar.setOnItemSelectedListener {
-            when (it) {
-                R.id.home -> {
-                    replaceFragment(FindJobsEmployeeFragment())
-                    binding.navName.text = getString(R.string.nav_title_home)
-                }
-                R.id.profile -> {
-                    replaceFragment(ProfileEmployeeFragment())
-                    binding.navName.text = getString(R.string.nav_title_profile)
-                }
-            }
-            true
-        }
-        */
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.navigation_host_employee, fragment)
-            .commit()
-    }
-
     private fun visibilityNavElements(navController: NavController) {
-        /*
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.changePasswordFragment,
-                R.id.editProfileEmployeeFragment,
-                R.id.careerDevelopmentDetailsFragment,
-                R.id.jobDetailsEmployeeFragment -> {
+                R.id.postJobEmployerFragment -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
+                    binding.nav.visibility = View.GONE
+                    binding.borderShadow.visibility = View.GONE
                 }
                 else -> {
                     binding.bottomNavBar?.visibility = View.VISIBLE
                     binding.toolbar?.visibility = View.VISIBLE
+                    binding.nav.visibility = View.VISIBLE
+                    binding.borderShadow.visibility = View.VISIBLE
                 }
             }
         }
 
-         */
+
     }
 
 }

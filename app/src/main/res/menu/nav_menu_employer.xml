@@ -7,20 +7,16 @@
         android:title="Job">
     </item>
 
-    <item android:id="@+id/interviewEmployeeFragment"
+    <item android:id="@+id/interviewEmployerFragment"
         android:icon="@drawable/icon_calendar_edit"
         android:title="Interview">
     </item>
 
-    <item android:id="@+id/careerDevelopmentEmployeeFragment"
+    <item android:id="@+id/careerDevelopmentEmployerFragment"
         android:icon="@drawable/baseline_cd"
         android:title="Career">
     </item>
 
-    <item android:id="@+id/jobsAppliedEmployeeFragment"
-        android:icon="@drawable/baseline_job_applied"
-        android:title="Post">
-    </item>
 
     <item android:id="@+id/profileEmployerFragment"
         android:icon="@drawable/baseline_person_24"

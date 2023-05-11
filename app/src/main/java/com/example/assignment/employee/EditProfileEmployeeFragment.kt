@@ -25,7 +25,6 @@ class EditProfileEmployeeFragment : Fragment() {
     }
 
     private lateinit var viewModel: EditProfileEmployeeViewModel
-    private val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
     private val sharedViewModel2: AuthViewModel by activityViewModels()
     private lateinit var binding: FragmentEditProfileEmployeeBinding
 

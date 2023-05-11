@@ -47,7 +47,7 @@ class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerVie
             viewModel.jobPostId.value = item.id
 
             //navigate to show
-            it.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
+            it.findNavController().navigate(R.id.action_jobPostedEmployerFragment_to_jobDetailsEmployerFragment)
 
         }
 

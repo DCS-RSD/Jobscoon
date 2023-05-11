@@ -10,7 +10,14 @@
         android:id="@+id/jobPostedEmployerFragment"
         android:name="com.example.assignment.employer.JobPostedEmployerFragment"
         android:label="fragment_job_posted_employer"
-        tools:layout="@layout/fragment_job_posted_employer" />
+        tools:layout="@layout/fragment_job_posted_employer" >
+        <action
+            android:id="@+id/action_jobPostedEmployerFragment_to_postJobEmployerFragment"
+            app:destination="@id/postJobEmployerFragment" />
+        <action
+            android:id="@+id/action_jobPostedEmployerFragment_to_jobDetailsEmployerFragment"
+            app:destination="@id/jobDetailsEmployerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileEmployerFragment"
         android:name="com.example.assignment.employer.ProfileEmployerFragment"
@@ -25,4 +32,14 @@
         android:name="com.example.assignment.employee.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/postJobEmployerFragment"
+        android:name="com.example.assignment.employer.PostJobEmployerFragment"
+        android:label="fragment_post_job_employer"
+        tools:layout="@layout/fragment_post_job_employer" />
+    <fragment
+        android:id="@+id/jobDetailsEmployerFragment"
+        android:name="com.example.assignment.employer.JobDetailsEmployerFragment"
+        android:label="fragment_job_details_employer"
+        tools:layout="@layout/fragment_job_details_employer" />
 </navigation>
