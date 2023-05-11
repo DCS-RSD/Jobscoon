@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.assignment.auth.AuthActivity
 import com.example.assignment.employee.AuthViewModel
@@ -22,28 +23,23 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
-        var num = viewModel.getProfileSpecial()
         //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
 
-
         if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
-
-
-            if(viewModel.getProfileSpecial() == 1) {
-                startActivity(Intent(this, EmployerNavHost::class.java))
-            }else {
-                Log.d("success", "onResponse: " + viewModel.getProfileSpecial() + "main")
-                startActivity(Intent(this, EmployeeNavHost::class.java))
-            }
-
+            viewModel.checkUserType()
+            viewModel.isEmployer.observe(this, Observer {
+                println("ABC")
+                if (it == 1) {
+                    Log.d("EMPLOYER", "onCreate: ")
+                    startActivity(Intent(this, EmployerNavHost::class.java))
+                } else {
+                    Log.d("EMPLOYEE", "onCreate: ")
+                    startActivity(Intent(this, EmployeeNavHost::class.java))
+                }
+            })
         } else {
             startActivity(Intent(this, AuthActivity::class.java))
         }
-        finish()
-
-//        Handler().postDelayed({
-//
-//        }, 2000)
 
 
     }

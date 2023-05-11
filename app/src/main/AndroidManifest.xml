@@ -15,51 +15,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
-            android:name=".JobPostItem"
-            android:exported="false" />
-        <activity
             android:name=".auth.AuthActivity"
             android:exported="false" />
         <activity
             android:name=".employee.EmployeeNavHost"
             android:exported="false" />
         <activity
-            android:name=".EmployerSignUpActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".InterviewFormActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".JobPostFormActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".CompanyProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UpcomingInterviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ApplicantListActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".EmployerHomeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EmployeeInterviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyJobsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".JobDetailsActivity"
+            android:name=".employer.EmployerNavHost"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

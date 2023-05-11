@@ -21,6 +21,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         MutableLiveData<ResponseForUI>()
     }
 
+    val isEmployer: MutableLiveData<Int> = MutableLiveData()
+
     fun submitLogin(email: String, password: String) {
 
         val build = RetrofitBuild.build()
@@ -34,7 +36,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 if (response.isSuccessful) {
 
                     loginResponse.value = ResponseForUI(true, "")
-
+                    isEmployer.value = response.body()!!.user.is_employer!!
                     val editor = sharedPreferences.edit()
                     editor.putString("Token", "Bearer " + response.body()!!.token)
                     editor.putString("Id", response.body()!!.user.id.toString())
