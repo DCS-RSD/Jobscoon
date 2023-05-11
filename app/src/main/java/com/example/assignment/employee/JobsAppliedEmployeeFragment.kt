@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.auth.SignUpViewModel
 import com.example.assignment.databinding.FragmentJobsAppliedEmployeeBinding
-import com.example.assignment.recycleviews.JobAppliedRecyclerAdapter
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobAppliedRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
 class JobsAppliedEmployeeFragment : Fragment() {
 

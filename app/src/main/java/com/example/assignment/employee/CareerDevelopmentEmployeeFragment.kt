@@ -20,8 +20,8 @@ import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentCareerDevelopmentEmployeeBinding
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
-import com.example.assignment.recycleviews.CareerDevelopmentEmployeeRecyclerAdapter
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employee.recycleviews.CareerDevelopmentEmployeeRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
 class CareerDevelopmentEmployeeFragment : Fragment() {
 

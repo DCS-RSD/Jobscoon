@@ -23,7 +23,7 @@ import com.example.assignment.R
 import com.example.assignment.databinding.CustomDialogBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 import com.example.assignment.dataclass.JobApplicationItem
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
 class JobDetailsEmployeeFragment : Fragment() {
 

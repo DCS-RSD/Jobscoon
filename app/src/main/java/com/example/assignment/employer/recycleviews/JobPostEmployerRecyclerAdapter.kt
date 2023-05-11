@@ -1,4 +1,4 @@
-package com.example.assignment.recycleviews
+package com.example.assignment.employer.recycleviews
 
 import android.content.Context
 import android.os.Bundle
@@ -19,8 +19,9 @@ import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.employee.EmployeeNavHost
 import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.JobDetailsEmployeeFragment
+import com.example.assignment.employer.JobPostedEmployerViewModel
 
-class JobPostRecyclerAdapter(private val viewModel: FindJobsEmployeeViewModel, private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
+class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerViewModel, private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostEmployerRecyclerAdapter.ViewHolder>() {
 
     lateinit var binding : ItemJobPostBinding
 
@@ -44,6 +45,8 @@ class JobPostRecyclerAdapter(private val viewModel: FindJobsEmployeeViewModel, p
         holder.binding.jobId.text = item.id.toString()
         holder.binding.jobCard.setOnClickListener {
             viewModel.jobPostId.value = item.id
+
+            //navigate to show
             it.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
 
         }
