@@ -15,5 +15,14 @@
         android:id="@+id/profileEmployerFragment"
         android:name="com.example.assignment.employer.ProfileEmployerFragment"
         android:label="fragment_profile_employer"
-        tools:layout="@layout/fragment_profile_employer" />
+        tools:layout="@layout/fragment_profile_employer" >
+        <action
+            android:id="@+id/action_profileEmployerFragment_to_changePasswordFragment2"
+            app:destination="@id/changePasswordFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment2"
+        android:name="com.example.assignment.employee.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
 </navigation>

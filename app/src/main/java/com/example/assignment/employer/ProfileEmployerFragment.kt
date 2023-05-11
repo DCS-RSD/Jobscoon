@@ -1,14 +1,21 @@
 package com.example.assignment.employer
 
+import android.content.Context
+import android.content.Intent
+import android.graphics.Typeface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.example.assignment.R
+import com.example.assignment.auth.AuthActivity
 import com.example.assignment.databinding.FragmentProfileEmployerBinding
 import com.example.assignment.employee.AuthViewModel
 
@@ -39,37 +46,49 @@ class ProfileEmployerFragment : Fragment() {
         viewModel.getProfile()
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
             try {
+
+                it.name = "Hi, "+it.name
+                if (it.description == "") {
+                    it.description = "Describe yourself can let other know more about you!"
+                    binding.textAbout.apply{
+                        setTypeface(null, Typeface.ITALIC)
+                    }
+                }
+
+                if (it.address == ""){
+                    it.address = "No Location"
+                    binding.addressS.apply{
+                        setTypeface(null, Typeface.ITALIC)
+                    }
+                }
+
                 binding.user = it
+
             } catch (e: Exception) {
             }
         })
-/*
-        binding.changePwdButton.setOnClickListener { view ->
-            view.findNavController()
-                .navigate(R.id.action_profileEmployeeFragment_to_changePasswordFragment)
+
+        binding.refreshProfile.setOnRefreshListener {
+            viewModel.getProfile()
+            binding.refreshProfile.isRefreshing = false
         }
 
+        binding.changePwdButton.setOnClickListener { view ->
+            view.findNavController()
+                .navigate(R.id.action_profileEmployerFragment_to_changePasswordFragment2)
+        }
+/*
         binding.editS.setOnClickListener { view ->
             view.findNavController()
                 .navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
         }
 
-        binding.changePwdButton.setOnClickListener{view ->
-            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_changePasswordFragment)
-        }
-
-        binding.editS.setOnClickListener{view ->
-            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
-        }
-
+ */
         binding.logout.setOnClickListener {
-
-
             viewModel.logout(
                 requireActivity().getSharedPreferences("User", Context.MODE_PRIVATE)
                     .getString("Token", "")!!
             )
-
 
             viewModel.responseUI.observe(viewLifecycleOwner, Observer {
                 if (it.success) {
@@ -85,7 +104,6 @@ class ProfileEmployerFragment : Fragment() {
             })
         }
 
- */
     }
 
 }
