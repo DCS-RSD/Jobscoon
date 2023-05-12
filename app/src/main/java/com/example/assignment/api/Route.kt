@@ -126,6 +126,12 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<JobApplicationItem>>
 
+    @GET("jobapplication/{id}")
+    fun getJobApplicant(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+    ): Call<List<User>>
+
     @GET("jobinterview")
     fun getJobInterview(
         @Header("Authorization") token: String,
