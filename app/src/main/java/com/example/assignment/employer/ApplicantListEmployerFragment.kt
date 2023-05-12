@@ -60,7 +60,6 @@ class ApplicantListEmployerFragment : Fragment() {
                 adapter = ApplicantListEmployerRecyclerAdapter(sharedViewModel, it)
                 layoutManager = manager
             }
-
             Log.d("applicant", "onActivityCreated: "+it)
         })
 

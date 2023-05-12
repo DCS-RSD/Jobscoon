@@ -26,24 +26,6 @@ class EmployeeNavHost : AppCompatActivity() {
 
     }
 
-    private fun setBar() {
-/*
-        binding.bottomNavBar.setOnItemSelectedListener {
-            when (it) {
-                R.id.home -> {
-                    replaceFragment(FindJobsEmployeeFragment())
-                    binding.navName.text = getString(R.string.nav_title_home)
-                }
-                R.id.profile -> {
-                    replaceFragment(ProfileEmployeeFragment())
-                    binding.navName.text = getString(R.string.nav_title_profile)
-                }
-            }
-            true
-        }
-        */
-    }
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
