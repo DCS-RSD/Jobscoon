@@ -26,6 +26,12 @@
         <action
             android:id="@+id/action_profileEmployerFragment_to_changePasswordFragment2"
             app:destination="@id/changePasswordFragment2" />
+        <action
+            android:id="@+id/action_profileEmployerFragment_to_editProfileEmployerFragment"
+            app:destination="@id/editProfileEmployerFragment" />
+        <action
+            android:id="@+id/action_profileEmployerFragment_to_editProfileEmployeeFragment3"
+            app:destination="@id/editProfileEmployeeFragment3" />
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment2"
@@ -59,4 +65,14 @@
         android:name="com.example.assignment.employer.ApplicantListEmployerFragment"
         android:label="fragment_applicant_list_employer"
         tools:layout="@layout/fragment_applicant_list_employer" />
+    <fragment
+        android:id="@+id/editProfileEmployerFragment"
+        android:name="com.example.assignment.employer.EditProfileCompanyFragment"
+        android:label="fragment_edit_profile_employer"
+        tools:layout="@layout/fragment_edit_profile_employer" />
+    <fragment
+        android:id="@+id/editProfileEmployeeFragment3"
+        android:name="com.example.assignment.EditProfileEmployeeFragment"
+        android:label="fragment_edit_profile_employee"
+        tools:layout="@layout/fragment_edit_profile_employee" />
 </navigation>
