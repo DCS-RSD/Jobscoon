@@ -27,6 +27,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     val isEmployer: MutableLiveData<Int?> = MutableLiveData()
+    val unauthorized: MutableLiveData<Boolean> = MutableLiveData()
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
 
@@ -45,6 +46,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     Log.d("success", "onResponse: "+ isEmployer.value)
                 } else {
                     //dialog prompt to ask user login again
+                    unauthorized.value = true
                     Log.d("err", "onResponse: "+response.errorBody())
                 }
             }

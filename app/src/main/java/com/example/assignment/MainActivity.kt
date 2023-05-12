@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-
+        val sharedPreferences =getSharedPreferences("User", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("Token", "")!!
         //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
 
-        if (getSharedPreferences("User", Context.MODE_PRIVATE).getString("Token", "") != "") {
+        if (token != "") {
             viewModel.checkUserType()
             viewModel.isEmployer.observe(this, Observer {
                 println("ABC")
@@ -40,6 +41,14 @@ class MainActivity : AppCompatActivity() {
         } else {
             startActivity(Intent(this, AuthActivity::class.java))
         }
+
+        //if user token not exist in database
+        viewModel.unauthorized.observe(this, Observer {
+            if (it){
+                sharedPreferences.edit().clear().apply()
+                startActivity(Intent(this, AuthActivity::class.java))
+            }
+        })
 
 
     }

@@ -87,12 +87,12 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
     }
 
     fun showJobPost() {
-        Log.d("showJob", "onresponse " + jobPostId.value!!)
+//        Log.d("ID", "showJobPost: "+jobPostId.value)
         val build = RetrofitBuild.build().showJobPost(
             sharedPreferences.getString("Token", "")!!, jobPostId.value!!
         )
-
         setJobPostDetail(JobPostItem()) //reset
+
 
         build.enqueue(object : Callback<JobPostItem> {
             override fun onResponse(

@@ -3,6 +3,7 @@ package com.example.assignment.employer.recycleviews
 import android.content.Context
 import android.os.Bundle
 import android.provider.ContactsContract.RawContacts.Data
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +47,6 @@ class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerVie
         holder.binding.jobCard.setOnClickListener {
             viewModel.jobPostId.value = item.id
 
-            //navigate to show
             it.findNavController().navigate(R.id.action_jobPostedEmployerFragment_to_jobDetailsEmployerFragment)
 
         }

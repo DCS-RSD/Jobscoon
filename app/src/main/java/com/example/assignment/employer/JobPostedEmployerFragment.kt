@@ -31,7 +31,7 @@ class JobPostedEmployerFragment : Fragment() {
 
     private lateinit var binding: FragmentJobPostedEmployerBinding
     private lateinit var manager: RecyclerView.LayoutManager
-    private lateinit var viewModel: JobPostedEmployerViewModel
+    private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,13 +53,13 @@ class JobPostedEmployerFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(JobPostedEmployerViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(JobPostedEmployerViewModel::class.java)
 
-        viewModel.getData()
+        sharedViewModel.getData()
 
-        viewModel.jobPostList.observe(viewLifecycleOwner, Observer {
+        sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobPostRecycleView.apply {
-                adapter = JobPostEmployerRecyclerAdapter(viewModel,it)
+                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel,it)
                 layoutManager = manager
             }
 
@@ -72,14 +72,14 @@ class JobPostedEmployerFragment : Fragment() {
         }
 
         binding.jobPostRefresh.setOnRefreshListener {
-            viewModel.getData()
+            sharedViewModel.getData()
             binding.jobPostRefresh.isRefreshing = false
         }
 
         //check api response
-        viewModel.getAllResponse.observe(viewLifecycleOwner, Observer {response ->
+        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer {response ->
             if (!response.success){
-                viewModel.isExpired.observe(viewLifecycleOwner,Observer{
+                sharedViewModel.isExpired.observe(viewLifecycleOwner,Observer{
                     if (it){
                         //dialog
                         val intent = Intent(requireActivity(), AuthActivity::class.java)
