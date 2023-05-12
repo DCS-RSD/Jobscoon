@@ -5,7 +5,6 @@
     tools:context=".employer.ProfileEmployerFragment">
 
     <data>
-
         <variable
             name="user"
             type="com.example.assignment.dataclass.User" />
@@ -231,6 +230,7 @@
                                     android:layout_marginEnd="20dp"
                                     android:layout_marginBottom="16dp"
                                     android:text="@{user.description}"
+                                    android:textAlignment="center"
                                     android:textColor="@color/black"
                                     app:boxBackgroundColor="@color/white"
                                     app:fontFamily="@font/hind_siliguri"
@@ -422,6 +422,32 @@
 
                                     </LinearLayout>
 
+                                    <View
+                                        android:id="@+id/line"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:background="@color/lightGrey"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/company_address" />
+
+                                    <TextView
+                                        android:id="@+id/textCompanyDesc"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginEnd="16dp"
+                                        android:text="@{user.company.description}"
+                                        android:textAlignment="center"
+                                        app:fontFamily="@font/hind_siliguri"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/line" />
+
                                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -472,6 +498,20 @@
                             app:layout_constraintEnd_toEndOf="@+id/editS"
                             app:layout_constraintStart_toStartOf="@+id/editS"
                             app:layout_constraintTop_toBottomOf="@id/editS" />
+
+                        <ImageView
+                            android:id="@+id/editCompanyBtn"
+                            android:clickable="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:src="@drawable/baseline_edit_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/title3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile1S" />
+
+
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

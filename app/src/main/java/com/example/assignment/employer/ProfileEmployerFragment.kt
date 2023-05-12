@@ -46,22 +46,22 @@ class ProfileEmployerFragment : Fragment() {
         viewModel.getProfile()
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
 
-                it.name = "Hi, "+it.name
-                if (it.description == "") {
-                    it.description = "Describe yourself can let other know more about you!"
-                    binding.textAbout.apply{
-                        setTypeface(null, Typeface.ITALIC)
-                    }
+            it.name = "Hi, " + it.name
+            if (it.description == "") {
+                it.description = "Describe yourself can let other know more about you!"
+                binding.textAbout.apply {
+                    setTypeface(null, Typeface.ITALIC)
                 }
+            }
 
-                if (it.address == ""){
-                    it.address = "No Location"
-                    binding.addressS.apply{
-                        setTypeface(null, Typeface.ITALIC)
-                    }
+            if (it.address == "") {
+                it.address = "No Location"
+                binding.addressS.apply {
+                    setTypeface(null, Typeface.ITALIC)
                 }
+            }
 
-                binding.user = it
+            binding.user = it
 
         })
 
@@ -74,13 +74,18 @@ class ProfileEmployerFragment : Fragment() {
             view.findNavController()
                 .navigate(R.id.action_profileEmployerFragment_to_changePasswordFragment2)
         }
-/*
+
         binding.editS.setOnClickListener { view ->
             view.findNavController()
-                .navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
+                .navigate(R.id.action_profileEmployerFragment_to_editProfileEmployeeFragment3)
         }
 
- */
+        binding.editCompanyBtn.setOnClickListener { view ->
+            view.findNavController()
+                .navigate(R.id.action_profileEmployerFragment_to_editProfileEmployerFragment)
+        }
+
+
         binding.logout.setOnClickListener {
             viewModel.logout(
                 requireActivity().getSharedPreferences("User", Context.MODE_PRIVATE)

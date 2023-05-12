@@ -2,8 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".EditProfileEmployerFragment">
+    tools:context=".employer.EditProfileCompanyFragment">
 
+    <data>
+        <variable
+            name="company"
+            type="com.example.assignment.dataclass.Company" />
+    </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,16 +35,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/icon_arrowback" />
 
-                <ImageView
-                    android:id="@+id/icon_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/icon_home" />
-
                 <TextView
                     android:id="@+id/my_jobs"
                     android:layout_width="wrap_content"
@@ -47,7 +42,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="Edit Profile"
+                    android:text="Edit Company Profile"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/text_input_style"
+                    android:text="@{company.name}"
                     tools:ignore="DuplicateClickableBoundsCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -100,6 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
+                    android:text="@{company.email}"
                     style="@style/text_input_style"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,10 +117,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/textEmailS">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCompanyPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/text_input_style"
                     android:inputType="textPhonetic"
+                    android:text="@{company.contact_number}"
                     android:maxLength="10"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -151,6 +150,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxLength="12"
+                    android:text="@{company.reg_no}"
                     style="@style/text_input_style"
                     android:textColor="@color/gray"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -160,7 +160,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textLocationS"
-                style="@style/FilledTextInputLayout1"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="32dp"
@@ -177,87 +177,47 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Location"
+                    android:text="@{company.location}"
                     style="@style/text_input_style"
                     android:textColor="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textAbout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="32dp"
-                android:text="Reset Password"
-                android:textColor="@color/black"
-                app:boxBackgroundColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
-
-            </com.google.android.material.textview.MaterialTextView>
-
             <!--Input reset Password in Employee register page-->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textPwdS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Enter New Password"
-                app:counterMaxLength="20"
-                app:endIconMode="password_toggle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAbout"
-                app:startIconDrawable="@drawable/lock_gray">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextPwdS"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPassword"
-                    android:maxLength="21"
-                    style="@style/text_input_style"/>
-            </com.google.android.material.textfield.TextInputLayout>
 
             <!--Paragraph in Employer register page-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/comBackgroundS"
+                style="@style/FilledTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/background"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="32dp"
-                style="@style/FilledTextInputLayout"
+                android:hint="@string/background"
+                app:counterEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:counterEnabled="true"
-                app:layout_constraintTop_toBottomOf="@+id/textPwdS">
+                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTextIntroS"
+                    style="@style/text_input_style"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    style="@style/text_input_style"
+                    android:gravity="top"
                     android:inputType="textMultiLine"
                     android:lines="6"
-                    android:gravity="top"
+                    android:text="@{company.description}"
                     android:overScrollMode="always"
-                    android:scrollbars="vertical"
                     android:scrollbarStyle="insideInset"
-                    android:scrollHorizontally="false"
-                    />
+                    android:scrollbars="vertical"
+                    android:scrollHorizontally="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                style="@style/edit_profile_button"
                 android:id="@+id/submit_update_profile_btn"
+                style="@style/edit_profile_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/salary_text_color"
@@ -265,7 +225,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/comBackgroundS"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/comBackgroundS" />
+                app:layout_constraintTop_toBottomOf="@+id/comBackgroundS" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/deleteS2"

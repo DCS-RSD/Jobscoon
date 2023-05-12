@@ -53,6 +53,12 @@ interface Route {
     ): Call<User>
 
     @Headers("Accept: application/json")
+    @GET("mycompanyprofile")
+    fun myCompanyProfile(
+        @Header("Authorization") token: String,
+    ): Call<Company>
+
+    @Headers("Accept: application/json")
     @FormUrlEncoded
     @PATCH("updateprofile")
     fun updateProfile(
@@ -62,6 +68,19 @@ interface Route {
         @Field("address") address: String,
         @Field("description") about: String,
         @Field("name") name: String,
+    ): Call<Void>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PATCH("updatecompany")
+    fun updateCompanyProfile(
+        @Header("Authorization") token: String,
+        @Field("name") name: String,
+        @Field("contact_number") contact_number: String,
+        @Field("email") email: String,
+        @Field("reg_no") regNo: String,
+        @Field("location") location: String,
+        @Field("description") about: String,
     ): Call<Void>
 
     @Headers("Accept: application/json")
