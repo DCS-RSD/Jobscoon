@@ -47,9 +47,9 @@ class JobDetailsEmployerFragment : Fragment() {
             R.layout.fragment_job_details_employer, container, false
         )
 
-        val dialog = Dialog(requireContext())
-        binding.applyButton.setOnClickListener {
 
+        binding.applyButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_jobDetailsEmployerFragment_to_applicantListEmployerFragment)
         }
 
         binding.iconMore.setOnClickListener {
@@ -111,11 +111,13 @@ class JobDetailsEmployerFragment : Fragment() {
 
 
 
+
             } catch (e: Exception) {
             }
 
 
         })
+
 
         binding.jobDetailsRefresh.setOnRefreshListener {
             sharedViewModel.showJobPost()

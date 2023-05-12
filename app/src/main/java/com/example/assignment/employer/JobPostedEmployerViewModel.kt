@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.ResponseForUI
+import com.example.assignment.dataclass.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,6 +51,9 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
         MutableLiveData<Int>()
     }
 
+    val applicantList: MutableLiveData<List<User>> by lazy {
+        MutableLiveData<List<User>>()
+    }
 
     fun getData() {
         val build = RetrofitBuild.build().getJobPost(token)
@@ -119,6 +123,43 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
                     ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
 
             }
+        })
+
+    }
+
+    fun getApplicantData() {
+        val build = RetrofitBuild.build().getJobApplicant(
+            sharedPreferences.getString("Token", "")!!,jobPostId.value!!
+        )
+
+        build.enqueue(object : Callback<List<User>?> {
+            override fun onResponse(
+                call: Call<List<User>?>,
+                response: Response<List<User>?>
+            ) {
+                if (response.isSuccessful) {
+
+                    getAllResponse.value = ResponseForUI(true, "")
+                    applicantList.value = response.body()!!
+                    Log.d("applicant", "onResponse: "+applicantList.value)
+
+                } else { //unknown error
+
+                    getAllResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<List<User>?>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                getAllResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+
+            }
+
+
         })
 
     }

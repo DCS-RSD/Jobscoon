@@ -32,7 +32,8 @@ class EmployerNavHost : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.postJobEmployerFragment,
-                R.id.jobDetailsEmployerFragment-> {
+                R.id.jobDetailsEmployerFragment,
+                R.id.applicantListEmployerFragment -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
                 }

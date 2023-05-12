@@ -1,31 +1,31 @@
-package com.example.assignment.employer.recycleviews
+package com.example.assignment.employee.recycleviews
 
-import android.content.res.ColorStateList
+import android.content.Context
 import android.os.Bundle
-import android.text.TextUtils.substring
+import android.provider.ContactsContract.RawContacts.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
-import androidx.core.content.ContextCompat
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
+import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemApplicantListBinding
-import com.example.assignment.databinding.ItemJobAppliedBinding
 import com.example.assignment.databinding.ItemJobPostBinding
-import com.example.assignment.dataclass.JobApplicationItem
-import com.example.assignment.dataclass.JobInterviewItem
+import com.example.assignment.databinding.NavigationEmployeeBinding
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.User
+import com.example.assignment.employee.EmployeeNavHost
 import com.example.assignment.employee.FindJobsEmployeeViewModel
-import com.example.assignment.employee.JobsAppliedEmployeeViewModel
-import com.example.assignment.employer.ApplicantListEmployerFragment
-import com.example.assignment.employer.ApplicantListEmployerViewModel
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.assignment.employee.JobDetailsEmployeeFragment
+import com.example.assignment.employer.JobPostedEmployerViewModel
 
-class ApplicantListEmployerRecyclerAdapter(private val viewModel:ApplicantListEmployerViewModel, private val dataList: List<User>) : RecyclerView.Adapter<ApplicantListEmployerRecyclerAdapter.ViewHolder>() {
+class ApplicantListEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerViewModel, private val dataList: List<User>) : RecyclerView.Adapter<ApplicantListEmployerRecyclerAdapter.ViewHolder>() {
+
+    lateinit var binding : ItemApplicantListBinding
 
     inner class ViewHolder(val binding: ItemApplicantListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: User) {
@@ -34,8 +34,7 @@ class ApplicantListEmployerRecyclerAdapter(private val viewModel:ApplicantListEm
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemApplicantListBinding.inflate(inflater, parent, false)
-
+        binding = ItemApplicantListBinding.inflate(inflater, parent, false)
 
         return ViewHolder(binding)
     }
@@ -46,10 +45,9 @@ class ApplicantListEmployerRecyclerAdapter(private val viewModel:ApplicantListEm
 
     }
 
-
-
     override fun getItemCount(): Int {
         return dataList.size
     }
+
 
 }
