@@ -45,7 +45,6 @@ class ProfileEmployerFragment : Fragment() {
 
         viewModel.getProfile()
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
-            try {
 
                 it.name = "Hi, "+it.name
                 if (it.description == "") {
@@ -64,8 +63,6 @@ class ProfileEmployerFragment : Fragment() {
 
                 binding.user = it
 
-            } catch (e: Exception) {
-            }
         })
 
         binding.refreshProfile.setOnRefreshListener {

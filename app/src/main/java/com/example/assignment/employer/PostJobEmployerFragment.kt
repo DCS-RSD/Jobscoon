@@ -16,6 +16,7 @@ import com.example.assignment.PostJobEmployerViewModel
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentPostJobEmployerBinding
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.dataclass.User
 
 class PostJobEmployerFragment : Fragment() {
 
@@ -37,11 +38,29 @@ class PostJobEmployerFragment : Fragment() {
             R.layout.fragment_post_job_employer, container, false
         )
 
-        binding.editShiftFrom.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, days))
-        binding.editShiftTo.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, days))
-        binding.editTextLocationS.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, jobTypes))
+        binding.editShiftFrom.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                days
+            )
+        )
+        binding.editShiftTo.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                days
+            )
+        )
+        binding.editJobType.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                jobTypes
+            )
+        )
 
-        binding.iconArrowback.setOnClickListener {view ->
+        binding.iconArrowback.setOnClickListener { view ->
             view.findNavController().popBackStack()
         }
 
@@ -52,60 +71,47 @@ class PostJobEmployerFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(PostJobEmployerViewModel::class.java)
-        binding.confirmJobBtn.setOnClickListener{
 
-            if (binding.editDate.text.toString().isEmpty() || binding.editTextLocationS.text.toString().isEmpty() || binding.editShiftFrom.text.toString().isEmpty() ||
-                binding.editShiftTo.text.toString().isEmpty() || binding.editSalaryStart.text.toString().isEmpty() || binding.editSalaryEnd.text.toString().isEmpty() || binding.editJobDescription.text.toString().isEmpty()) {
-                Toast.makeText(
-                    requireContext(),
-                    "Please fill in all the fields.",
-                    Toast.LENGTH_LONG
-                ).show()
-                return@setOnClickListener
-            }
-            else if (binding.editSalaryStart.text.toString().toInt() > binding.editSalaryEnd.text.toString().toInt()) {
-                Toast.makeText(
-                    requireContext(),
-                    "Salary from cannot greater than salary to.",
-                    Toast.LENGTH_LONG
-                ).show()
-                return@setOnClickListener
-            }
-            else {
-                val comShift = binding.editShiftFrom.text.toString() + " to " + binding.editShiftTo.text.toString()
 
-                val jobPost = JobPostItem(
-                    title = binding.editDate.text.toString(),
-                    type = binding.editTextLocationS.text.toString(),
-                    shift = comShift,
-                    salary_lower = binding.editSalaryStart.text.toString().toInt(),
-                    salary_upper = binding.editSalaryEnd.text.toString().toInt(),
-                    description = binding.editJobDescription.text.toString()
+        binding.confirmJobBtn.setOnClickListener {
+
+            var salaryUpper: Int? = null
+            var salaryLower: Int? = null
+
+            if (binding.editSalaryStart.text.toString() != "") {
+                salaryUpper = binding.editSalaryStart.text.toString().toInt()
+            }
+
+            if (binding.editSalaryEnd.text.toString() != "") {
+                salaryLower = binding.editSalaryEnd.text.toString().toInt()
+            }
+
+            viewModel.createJobPost(
+                JobPostItem(
+                    title = binding.editJobTitle.text.toString(),
+                    salary_lower = salaryUpper,
+                    salary_upper = salaryLower,
+                    type = binding.editJobType.text.toString(),
+                    shift_start = binding.editShiftFrom.text.toString(),
+                    shift_end = binding.editShiftTo.text.toString(),
+                    description = binding.editJobDescription.text.toString(),
                 )
-
-                viewModel.add(jobPost)
-
-                viewModel.validationResponse.observe(viewLifecycleOwner, Observer {
-                    try {
-                        if (it.success) {
-                            viewModel.validationResponse.value = null //reset
-                            Toast.makeText(
-                                requireContext(),
-                                "Job Posted Successfully!",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            view?.findNavController()?.popBackStack()
-                        } else {
-                            Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
-                        }
-
-                    }catch (e:Exception){}
-
-                })
-            }
-
-
+            )
         }
+
+
+        viewModel.validationResponse.observe(viewLifecycleOwner, Observer {
+            if (it.success) {
+                Toast.makeText(
+                    requireContext(),
+                    "New Job Posted Successfully!",
+                    Toast.LENGTH_LONG
+                ).show()
+                view?.findNavController()?.popBackStack()
+            } else {
+                Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
 }
