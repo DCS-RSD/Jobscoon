@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
 >
 
+    <data>
+        <variable
+            name="user"
+            type="com.example.assignment.dataclass.User" />
+    </data>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/applicant1"
@@ -25,7 +30,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/hind_siliguri_bold"
-                android:text="Chai Xu Kun"
+                android:text="@{user.name}"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +63,8 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/hind_siliguri"
-                    android:text="@string/applicant_email"
-                    android:textSize="14sp"
+                    android:text="@{user.email}"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +101,8 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/hind_siliguri"
-                    android:text="+601108020802"
+                    android:text="@{user.phone}"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +133,7 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/hind_siliguri"
                 android:textColor="@color/black"
-                android:text=""
+                android:text="@{user.description}"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,6 +151,7 @@
                 <Button
                     android:id="@+id/accept_button"
                     style="@style/interview_accept_button"
+                    android:layout_marginBottom="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/salary_text_color"
@@ -158,6 +165,7 @@
                 <Button
                     android:id="@+id/reject_button"
                     style="@style/interview_declined_button"
+                    android:layout_marginBottom="12dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/rejected_text_color"
@@ -175,10 +183,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="@string/_1_day_ago"
+                android:text="Applied on "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/applicant_phone1"
                 app:layout_constraintTop_toBottomOf="@+id/button_layout" />
+
+            <TextView
+                android:id="@+id/apply_date_itself"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/archivo_narrow_bold"
+                android:text="waitziyan"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/posted_time1"
+                app:layout_constraintStart_toEndOf="@+id/posted_time1"
+                app:layout_constraintTop_toTopOf="@+id/posted_time1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

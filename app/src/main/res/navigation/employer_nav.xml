@@ -56,7 +56,7 @@
         tools:layout="@layout/fragment_edit_job" />
     <fragment
         android:id="@+id/applicantListEmployerFragment"
-        android:name="com.example.assignment.ApplicantListEmployerFragment"
+        android:name="com.example.assignment.employer.ApplicantListEmployerFragment"
         android:label="fragment_applicant_list_employer"
         tools:layout="@layout/fragment_applicant_list_employer" />
 </navigation>
