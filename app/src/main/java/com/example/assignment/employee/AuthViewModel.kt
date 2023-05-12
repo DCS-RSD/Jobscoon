@@ -63,8 +63,6 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             sharedPreferences.getString("Token", "")!!,
         )
 
-        currentUser.value = null
-
         build.enqueue(object : Callback<User?> {
             override fun onResponse(call: Call<User?>, response: Response<User?>) {
                 if (response.isSuccessful) {

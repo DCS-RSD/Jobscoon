@@ -62,7 +62,7 @@
                     app:startIconDrawable="@drawable/icon_title">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editDate"
+                        android:id="@+id/editJobTitle"
                         style="@style/text_input_style"
                         android:inputType="text"
                         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
 
                     <AutoCompleteTextView
                         style="@style/text_input_style"
-                        android:id="@+id/editTextLocationS"
+                        android:id="@+id/editJobType"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

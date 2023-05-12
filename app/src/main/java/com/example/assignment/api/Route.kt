@@ -62,7 +62,7 @@ interface Route {
         @Field("address") address: String,
         @Field("description") about: String,
         @Field("name") name: String,
-    ):Call<Void>
+    ): Call<Void>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
@@ -72,7 +72,7 @@ interface Route {
         @Field("current_password") currentPassword: String,
         @Field("new_password") newPasswrod: String,
         @Field("new_password_confirmation") newPasswordConfirmation: String,
-    ):Call<Void>
+    ): Call<Void>
 
     @Headers("Accept: application/json")
     @POST("logout")
@@ -93,7 +93,7 @@ interface Route {
     ): Call<Company>
 
     @GET("companylist")
-    fun getCompanyList():Call<List<CompanyList>>
+    fun getCompanyList(): Call<List<CompanyList>>
 
     @Headers("Accept: application/json")
     @GET("jobpost")
@@ -104,16 +104,33 @@ interface Route {
     @GET("jobpost/{id}")
     fun showJobPost(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<JobPostItem>
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
     @POST("jobpost")
-    fun createJobPost(@Body jobPostItem: JobPostItem): Call<JobPostItem>
+    fun storeJobPost(
+        @Header("Authorization") token: String,
+        @Field("title") title: String,
+        @Field("salary_lower") salary_lower: Int?,
+        @Field("salary_upper") salary_upper: Int?,
+        @Field("type") type: String,
+        @Field("shift_start") shift_start: String,
+        @Field("shift_end") shift_end: String,
+        @Field("description") description: String,
+    ): Call<Void>
 
     @GET("jobapplication")
     fun getJobApplication(
         @Header("Authorization") token: String,
     ): Call<List<JobApplicationItem>>
+
+    @GET("jobapplication/{id}")
+    fun getJobApplicant(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+    ): Call<List<User>>
 
     @GET("jobinterview")
     fun getJobInterview(
@@ -128,19 +145,19 @@ interface Route {
     @POST("applyjob/{id}")
     fun postJobApplication(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<java.lang.Void>
 
     @POST("acceptinterview/{id}")
     fun postAcceptInterview(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<java.lang.Void>
 
     @POST("declineinterview/{id}")
     fun postDeclineInterview(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<Void>
 
 
@@ -159,7 +176,7 @@ interface Route {
     @GET("careerdev/{id}")
     fun showCareer(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<CareerDevelopmentItem>
 
     /*apply career development
@@ -168,13 +185,13 @@ interface Route {
     @POST("applycareer/{id}")
     fun applyCareer(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<ValidationErrorResponse>
 
     @POST("cancelcareer/{id}")
     fun cancelCareer(
         @Header("Authorization") token: String,
-        @Path("id") id:Int
+        @Path("id") id: Int
     ): Call<Void>
 
 }

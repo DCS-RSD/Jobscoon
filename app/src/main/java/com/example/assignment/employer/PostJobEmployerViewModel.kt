@@ -23,15 +23,23 @@ class PostJobEmployerViewModel(application: Application) : AndroidViewModel(appl
     }
 
 
-    fun add(jobPostItem: JobPostItem) {
-        val build = RetrofitBuild.build().createJobPost(
-            jobPostItem
+    fun createJobPost(jobPostItem: JobPostItem) {
+
+        val build = RetrofitBuild.build().storeJobPost(
+            token,
+            jobPostItem.title!!,
+            jobPostItem.salary_lower,
+            jobPostItem.salary_upper,
+            jobPostItem.type!!,
+            jobPostItem.shift_start!!,
+            jobPostItem.shift_end!!,
+            jobPostItem.description!!,
         )
 
-        build.enqueue(object : Callback<JobPostItem> {
+        build.enqueue(object : Callback<Void> {
             override fun onResponse(
-                call: Call<JobPostItem>,
-                response: Response<JobPostItem>
+                call: Call<Void>,
+                response: Response<Void>
             ) {
                 if (response.isSuccessful) {
                     validationResponse.value = ResponseForUI(true, "")
@@ -47,7 +55,7 @@ class PostJobEmployerViewModel(application: Application) : AndroidViewModel(appl
                 }
             }
 
-            override fun onFailure(call: Call<JobPostItem>, t: Throwable) {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
                 validationResponse.value =
