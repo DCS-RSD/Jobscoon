@@ -108,10 +108,6 @@ class JobDetailsEmployerFragment : Fragment() {
                 binding.jobDetailsEmployerFragment.apply {
                     binding.jobPostItem = it
                 }
-
-
-
-
             } catch (e: Exception) {
             }
 
