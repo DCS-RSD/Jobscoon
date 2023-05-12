@@ -31,17 +31,14 @@ class EmployerNavHost : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.postJobEmployerFragment -> {
+                R.id.postJobEmployerFragment,
+                R.id.jobDetailsEmployerFragment-> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
-                    binding.nav.visibility = View.GONE
-                    binding.borderShadow.visibility = View.GONE
                 }
                 else -> {
                     binding.bottomNavBar?.visibility = View.VISIBLE
                     binding.toolbar?.visibility = View.VISIBLE
-                    binding.nav.visibility = View.VISIBLE
-                    binding.borderShadow.visibility = View.VISIBLE
                 }
             }
         }

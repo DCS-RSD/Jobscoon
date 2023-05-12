@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -18,6 +19,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.databinding.CustomDialogBinding
@@ -47,6 +49,41 @@ class JobDetailsEmployerFragment : Fragment() {
 
         val dialog = Dialog(requireContext())
         binding.applyButton.setOnClickListener {
+
+        }
+
+        binding.iconMore.setOnClickListener {
+            val popupMenu = PopupMenu(requireContext(), it)
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when(menuItem.itemId) {
+                    R.id.edit -> {
+                        findNavController().navigate(R.id.action_jobDetailsEmployerFragment_to_editJobFragment)
+                        true
+                    }
+                    R.id.delete -> {
+                        Toast.makeText(requireContext(), "sohai", Toast.LENGTH_LONG).show()
+                        true
+                    }
+                    else ->
+                        false
+                }
+
+            }
+            popupMenu.inflate(R.menu.menu_job_details_employer)
+
+            try {
+                val fieldMPopup = PopupMenu::class.java.getDeclaredField("mPopup")
+                fieldMPopup.isAccessible = true
+                val mPopup = fieldMPopup.get(popupMenu)
+                mPopup.javaClass
+                    .getDeclaredMethod("setForceShowIcon", Boolean::class.java)
+                    .invoke(mPopup, true)
+            } catch (e: Exception) {
+                Log.e("Acticity", "Error showing menu icons", e)
+            } finally {
+                popupMenu.show()
+            }
+
 
         }
 

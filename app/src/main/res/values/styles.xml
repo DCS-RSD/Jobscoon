@@ -264,4 +264,10 @@
         <item name="android:queryBackground">@color/transparent</item>
     </style>
 
+    <style name="MyDropdownMenu" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="fontFamily">@font/hind_siliguri</item>
+    </style>
+
+
 </resources>

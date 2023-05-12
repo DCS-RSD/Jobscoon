@@ -41,5 +41,22 @@
         android:id="@+id/jobDetailsEmployerFragment"
         android:name="com.example.assignment.employer.JobDetailsEmployerFragment"
         android:label="fragment_job_details_employer"
-        tools:layout="@layout/fragment_job_details_employer" />
+        tools:layout="@layout/fragment_job_details_employer" >
+        <action
+            android:id="@+id/action_jobDetailsEmployerFragment_to_editJobFragment"
+            app:destination="@id/editJobFragment" />
+        <action
+            android:id="@+id/action_jobDetailsEmployerFragment_to_applicantListEmployerFragment"
+            app:destination="@id/applicantListEmployerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editJobFragment"
+        android:name="com.example.assignment.EditJobFragment"
+        android:label="fragment_edit_job"
+        tools:layout="@layout/fragment_edit_job" />
+    <fragment
+        android:id="@+id/applicantListEmployerFragment"
+        android:name="com.example.assignment.ApplicantListEmployerFragment"
+        android:label="fragment_applicant_list_employer"
+        tools:layout="@layout/fragment_applicant_list_employer" />
 </navigation>
