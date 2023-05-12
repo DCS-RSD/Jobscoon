@@ -46,7 +46,6 @@ class ProfileEmployerFragment : Fragment() {
         viewModel.getProfile()
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
 
-            it.name = "Hi, " + it.name
             if (it.description == "") {
                 it.description = "Describe yourself can let other know more about you!"
                 binding.textAbout.apply {
@@ -60,7 +59,6 @@ class ProfileEmployerFragment : Fragment() {
                     setTypeface(null, Typeface.ITALIC)
                 }
             }
-
             binding.user = it
 
         })
