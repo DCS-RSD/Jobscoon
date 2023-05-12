@@ -36,10 +36,15 @@ class EmployerNavHost : AppCompatActivity() {
                 R.id.applicantListEmployerFragment -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
+                    binding.nav.visibility = View.GONE
+                    binding.borderShadow.visibility = View.GONE
+
                 }
                 else -> {
                     binding.bottomNavBar?.visibility = View.VISIBLE
                     binding.toolbar?.visibility = View.VISIBLE
+                    binding.nav.visibility = View.VISIBLE
+                    binding.borderShadow.visibility = View.VISIBLE
                 }
             }
         }
