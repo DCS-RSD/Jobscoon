@@ -174,44 +174,4 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
 
     }
 
-    fun updateJobDetails(jobPostItem: JobPostItem) {
-        val build = RetrofitBuild.build().updateJobDetails(
-            token,
-            jobPostItem.title,
-            jobPostItem.type,
-            jobPostItem.shift_start,
-            jobPostItem.shift_end,
-            jobPostItem.salary_lower,
-            jobPostItem.salary_upper,
-            jobPostItem.description
-        )
-
-        build.enqueue(object : Callback<Void?> {
-            override fun onResponse(
-                call: Call<Void?>,
-                response: Response<Void?>
-            ) {
-                if (response.isSuccessful) {
-                    validationResponse.value = ResponseForUI(true, "")
-                } else if (response.code() == 422) { //validation fails
-                    val error = Gson().fromJson(
-                        response.errorBody()!!.string(),
-                        ValidationErrorResponse::class.java
-                    )
-                    validationResponse.value = ResponseForUI(false, error.message)
-                    Log.d("login", "onResponse: $error")
-                } else { //unknown error
-                    validationResponse.value = ResponseForUI(false, "Something Went Wrong")
-                }
-            }
-
-            override fun onFailure(call: Call<Void?>, t: Throwable) {
-                Log.d("fail", "onFailure: " + t.message)
-
-                validationResponse.value =
-                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
-
-            }
-        })
-}
 }

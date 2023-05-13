@@ -214,9 +214,12 @@ interface Route {
     ): Call<Void>
 
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
     @PATCH("jobpost/{id}")
     fun updateJobDetails(
         @Header("Authorization") token: String,
+        @Path("id") id: Int,
         @Field("title") title: String?,
         @Field("type") type: String?,
         @Field("shift_start") shift_start: String?,

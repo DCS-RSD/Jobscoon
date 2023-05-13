@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.assignment.R
@@ -23,9 +25,11 @@ class EditJobFragment : Fragment() {
         fun newInstance() = EditJobFragment()
     }
 
-    private lateinit var viewModel: JobPostedEmployerViewModel
+    private lateinit var viewModel: EditJobViewModel
+    val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
     private lateinit var binding: FragmentEditJobBinding
-
+    val days = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+    val jobTypes = arrayOf("Full-time", "Part-time")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -37,41 +41,77 @@ class EditJobFragment : Fragment() {
             false
         )
 
+        binding.editShiftFrom.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                days
+            )
+        )
+        binding.editShiftTo.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                days
+            )
+        )
+        binding.editJobType.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                jobTypes
+            )
+        )
+
         binding.iconArrowback.setOnClickListener {
             it.findNavController().popBackStack()
         }
+
 
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(JobPostedEmployerViewModel::class.java)
-        viewModel.showJobPost()
+        viewModel = ViewModelProvider(this).get(EditJobViewModel::class.java)
+        val id = sharedViewModel.jobPostId.value!!
+        viewModel.getJobPostDetails(id)
         viewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
-            try {
-                binding.jobPostItem = it
-            } catch (e: Exception) {
-                Log.e("exce", e.toString())
-            }
-
+            binding.jobPostItem = it
+            binding.editShiftFrom.setText(it.shift_start, false)
+            binding.editShiftTo.setText(it.shift_end, false)
+            binding.editJobType.setText(it.type,false)
         })
 
 
         binding.confirmJobBtn.setOnClickListener {
+
+
+            var salaryUpper: Int? = null
+            var salaryLower: Int? = null
+
+            if (binding.editSalaryStart.text.toString() != "") {
+                salaryUpper = binding.editSalaryStart.text.toString().toInt()
+            }
+
+            if (binding.editSalaryEnd.text.toString() != "") {
+                salaryLower = binding.editSalaryEnd.text.toString().toInt()
+            }
+
             viewModel.updateJobDetails(
                 JobPostItem(
                     binding.editJobTitle.text.toString(),
                     binding.editJobType.text.toString(),
                     binding.editShiftFrom.text.toString(),
                     binding.editShiftTo.text.toString(),
-                    binding.editSalaryStart.text.toString().toInt(),
-                    binding.editSalaryEnd.text.toString().toInt(),
+                    salaryUpper,
+                    salaryLower,
                     binding.editJobDescription.text.toString()
-                )
+                ), id
             )
         }
-        viewModel.postResponse.observe(viewLifecycleOwner, Observer {
+
+        viewModel.validationResponse.observe(viewLifecycleOwner, Observer {
             if (it.success) {
                 Toast.makeText(
                     requireContext(),

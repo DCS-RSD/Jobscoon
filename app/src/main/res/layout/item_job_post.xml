@@ -186,11 +186,20 @@
                 style="@style/history_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/archivo_narrow_bold"
                 android:text="@{jobPostItem.post_at}"
-                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/shift_card"
+                app:layout_constraintTop_toBottomOf="@+id/shift_card" />
+
+            <TextView
+                android:id="@+id/edited_time"
+                style="@style/history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{jobPostItem.edited_at}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/posted_time"
                 app:layout_constraintTop_toBottomOf="@+id/shift_card" />
 
             <TextView

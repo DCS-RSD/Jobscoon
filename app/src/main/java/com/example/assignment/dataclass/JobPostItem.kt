@@ -16,6 +16,6 @@ data class JobPostItem(
     var post_at: String? = null,
     var salary: String? = null,
     var company: Company? = null,
-    var is_applied: Boolean? = null
-
+    var is_applied: Boolean? = null,
+    var edited_at: String? = null,
 )
