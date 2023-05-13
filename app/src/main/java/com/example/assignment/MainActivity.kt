@@ -24,29 +24,38 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         val sharedPreferences =getSharedPreferences("User", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("Token", "")!!
+        val isEmployer = sharedPreferences.getString("IsEmployer", "")!!
         //getSharedPreferences("User", Context.MODE_PRIVATE).edit().clear().apply()
 
+        val flag = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         if (token != "") {
             viewModel.checkUserType()
-            viewModel.isEmployer.observe(this, Observer {
-                println("ABC")
-                if (it == 1) {
+
+
+                if (isEmployer == "1") {
                     Log.d("EMPLOYER", "onCreate: ")
-                    startActivity(Intent(this, EmployerNavHost::class.java))
+                    startActivity(Intent(this, EmployerNavHost::class.java).apply {
+                        flags = flag
+                    })
                 } else {
                     Log.d("EMPLOYEE", "onCreate: ")
-                    startActivity(Intent(this, EmployeeNavHost::class.java))
+                    startActivity(Intent(this, EmployeeNavHost::class.java).apply {
+                        flags = flag
+                    })
                 }
-            })
         } else {
-            startActivity(Intent(this, AuthActivity::class.java))
+            startActivity(Intent(this, AuthActivity::class.java).apply {
+                flags = flag
+            })
         }
 
         //if user token not exist in database
         viewModel.unauthorized.observe(this, Observer {
             if (it){
                 sharedPreferences.edit().clear().apply()
-                startActivity(Intent(this, AuthActivity::class.java))
+                startActivity(Intent(this, AuthActivity::class.java).apply {
+                    flags = flag
+                })
             }
         })
 

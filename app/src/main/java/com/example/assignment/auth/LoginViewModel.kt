@@ -40,6 +40,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                     val editor = sharedPreferences.edit()
                     editor.putString("Token", "Bearer " + response.body()!!.token)
                     editor.putString("Id", response.body()!!.user.id.toString())
+                    editor.putString("IsEmployer", response.body()!!.user.is_employer.toString())
                     editor.apply()
 
                 } else if (response.code() == 422) { //validation fails
