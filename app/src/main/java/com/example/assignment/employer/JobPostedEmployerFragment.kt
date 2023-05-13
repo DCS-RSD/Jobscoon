@@ -32,6 +32,7 @@ class JobPostedEmployerFragment : Fragment() {
     private lateinit var binding: FragmentJobPostedEmployerBinding
     private lateinit var manager: RecyclerView.LayoutManager
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
+    private var scrollPosition = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,23 +53,23 @@ class JobPostedEmployerFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
 //        viewModel = ViewModelProvider(this).get(JobPostedEmployerViewModel::class.java)
 
         sharedViewModel.getData()
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobPostRecycleView.apply {
-                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel,it)
+                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, it)
                 layoutManager = manager
             }
 
-            Log.d("acticity", "onActivityCreated: "+it)
+            Log.d("acticity", "onActivityCreated: " + it)
         })
 
         //navigate to form
         binding.floatingActionButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_jobPostedEmployerFragment_to_postJobEmployerFragment)
+            it.findNavController()
+                .navigate(R.id.action_jobPostedEmployerFragment_to_postJobEmployerFragment)
         }
 
         binding.jobPostRefresh.setOnRefreshListener {
@@ -77,16 +78,18 @@ class JobPostedEmployerFragment : Fragment() {
         }
 
         //check api response
-        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer {response ->
-            if (!response.success){
-                sharedViewModel.isExpired.observe(viewLifecycleOwner,Observer{
-                    if (it){
+        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer { response ->
+            if (!response.success) {
+                sharedViewModel.isExpired.observe(viewLifecycleOwner, Observer {
+                    if (it) {
                         //dialog
                         val intent = Intent(requireActivity(), AuthActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
-                    }else {
-                        Toast.makeText(requireContext(),response.errorMsg, Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(requireContext(), response.errorMsg, Toast.LENGTH_LONG)
+                            .show()
                     }
                 })
             }
@@ -94,4 +97,14 @@ class JobPostedEmployerFragment : Fragment() {
 
     }
 
+    //scroll remain
+//    override fun onPause() {
+//        super.onPause()
+//        scrollPosition = (manager as LinearLayoutManager).findFirstVisibleItemPosition()
+//    }
+//
+//    override fun onResume() {
+//        super.onResume()
+//        (manager as LinearLayoutManager).scrollToPosition(scrollPosition)
+//    }
 }
