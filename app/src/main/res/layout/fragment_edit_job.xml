@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".employer.EditJobFragment">
 
+    <data>
+        <variable
+            name="jobPostItem"
+            type="com.example.assignment.dataclass.JobPostItem" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -63,6 +69,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editJobTitle"
+                        android:text="@{jobPostItem.title}"
                         style="@style/text_input_style"
                         android:inputType="text"
                         android:layout_width="match_parent"
@@ -85,6 +92,7 @@
                     <AutoCompleteTextView
                         style="@style/text_input_style"
                         android:id="@+id/editJobType"
+                        android:text="@{jobPostItem.type}"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -111,6 +119,7 @@
 
                         <AutoCompleteTextView
                             android:id="@+id/editShiftFrom"
+                            android:text="@{jobPostItem.shift_start}"
                             style="@style/text_input_style"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -133,6 +142,7 @@
                         <AutoCompleteTextView
                             android:id="@+id/editShiftTo"
                             style="@style/text_input_style"
+                            android:text="@{jobPostItem.shift_end}"
                             android:inputType="none"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -167,6 +177,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editSalaryStart"
                             style="@style/text_input_style"
+                            android:text="@{jobPostItem.salary_lower}"
                             android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -192,6 +203,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editSalaryEnd"
                             style="@style/text_input_style"
+                            android:text="@{jobPostItem.salary_upper}"
                             android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -222,6 +234,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editJobDescription"
+                        android:text="@{jobPostItem.description}"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

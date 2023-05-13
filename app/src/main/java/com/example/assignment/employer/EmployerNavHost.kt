@@ -33,11 +33,15 @@ class EmployerNavHost : AppCompatActivity() {
             when (destination.id) {
                 R.id.postJobEmployerFragment,
                 R.id.jobDetailsEmployerFragment,
-                R.id.applicantListEmployerFragment -> {
+                R.id.applicantListEmployerFragment,
+                    R.id.editJobFragment,
+                R.id.editProfileEmployerFragment,
+                R.id.editProfileEmployeeFragment,
+                R.id.changePasswordFragment2 -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
-                    binding.nav.visibility = View.GONE
-                    binding.borderShadow.visibility = View.GONE
+                    binding.nav?.visibility = View.GONE
+                    binding.borderShadow?.visibility = View.GONE
                 }
                 else -> {
                     binding.bottomNavBar?.visibility = View.VISIBLE

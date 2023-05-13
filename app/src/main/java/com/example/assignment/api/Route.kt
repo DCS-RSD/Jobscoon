@@ -213,4 +213,16 @@ interface Route {
         @Path("id") id: Int
     ): Call<Void>
 
+
+    @PATCH("jobpost/{id}")
+    fun updateJobDetails(
+        @Header("Authorization") token: String,
+        @Field("title") title: String?,
+        @Field("type") type: String?,
+        @Field("shift_start") shift_start: String?,
+        @Field("shift_end") shift_end: String?,
+        @Field("salary_lower") salary_lower: Int?,
+        @Field("salary_upper") salary_upper: Int?,
+        @Field("description") description: String?
+    ): Call<Void>
 }

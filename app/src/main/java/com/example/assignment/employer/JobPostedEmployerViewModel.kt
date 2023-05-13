@@ -10,6 +10,8 @@ import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.ResponseForUI
 import com.example.assignment.dataclass.User
+import com.example.assignment.dataclass.ValidationErrorResponse
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +22,10 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
     val token = sharedPreferences.getString("Token", "")!!
 
     val getAllResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
+    val validationResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
 
@@ -53,6 +59,10 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
 
     val applicantList: MutableLiveData<List<User>> by lazy {
         MutableLiveData<List<User>>()
+    }
+
+    val postResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
     }
 
     fun getData() {
@@ -163,4 +173,45 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
         })
 
     }
+
+    fun updateJobDetails(jobPostItem: JobPostItem) {
+        val build = RetrofitBuild.build().updateJobDetails(
+            token,
+            jobPostItem.title,
+            jobPostItem.type,
+            jobPostItem.shift_start,
+            jobPostItem.shift_end,
+            jobPostItem.salary_lower,
+            jobPostItem.salary_upper,
+            jobPostItem.description
+        )
+
+        build.enqueue(object : Callback<Void?> {
+            override fun onResponse(
+                call: Call<Void?>,
+                response: Response<Void?>
+            ) {
+                if (response.isSuccessful) {
+                    validationResponse.value = ResponseForUI(true, "")
+                } else if (response.code() == 422) { //validation fails
+                    val error = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        ValidationErrorResponse::class.java
+                    )
+                    validationResponse.value = ResponseForUI(false, error.message)
+                    Log.d("login", "onResponse: $error")
+                } else { //unknown error
+                    validationResponse.value = ResponseForUI(false, "Something Went Wrong")
+                }
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                validationResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+}
 }
