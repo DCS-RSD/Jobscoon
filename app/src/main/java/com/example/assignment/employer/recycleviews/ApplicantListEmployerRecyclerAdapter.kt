@@ -91,6 +91,7 @@ class ApplicantListEmployerRecyclerAdapter(
 
                 dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
                     viewModel.accept(applicationId)
+                    it.isClickable = false
                     viewModel.acceptResponse.observe(context as LifecycleOwner, Observer {
                         if (it.success) {
                             setAccept()
@@ -122,7 +123,9 @@ class ApplicantListEmployerRecyclerAdapter(
 
                 dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
                     viewModel.decline(applicationId)
+                    it.isClickable = false
                     viewModel.rejectResponse.observe(context as LifecycleOwner, Observer {
+                        dialog.dismiss()
                         if (it.success) {
                             setDecline()
                             Toast.makeText(
@@ -133,7 +136,6 @@ class ApplicantListEmployerRecyclerAdapter(
                         } else {
                             Toast.makeText(context, it.errorMsg, Toast.LENGTH_LONG).show()
                         }
-                        dialog.dismiss()
                     })
                 }
 
