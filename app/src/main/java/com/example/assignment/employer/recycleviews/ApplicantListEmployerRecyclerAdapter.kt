@@ -1,12 +1,15 @@
 package com.example.assignment.employee.recycleviews
 
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
 import android.provider.ContactsContract.RawContacts.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginTop
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
@@ -42,6 +45,10 @@ class ApplicantListEmployerRecyclerAdapter(private val viewModel: JobPostedEmplo
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bind(item)
+        if (item.description == null) {
+            holder.binding.textDescription.visibility = View.GONE
+            holder.binding.line.visibility = View.GONE
+        }
 
     }
 

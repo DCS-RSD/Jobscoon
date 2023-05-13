@@ -113,7 +113,7 @@
 
 
             <View
-                android:id="@+id/view3"
+                android:id="@+id/line"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="24dp"
@@ -125,7 +125,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/applicant_phone1" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/textDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -137,7 +137,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view3" />
+                app:layout_constraintTop_toBottomOf="@+id/line" />
 
             <LinearLayout
                 android:id="@+id/button_layout"
@@ -146,7 +146,7 @@
                 android:orientation="horizontal"
                 android:weightSum="2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10">
+                app:layout_constraintTop_toBottomOf="@+id/textDescription">
 
                 <Button
                     android:id="@+id/accept_button"

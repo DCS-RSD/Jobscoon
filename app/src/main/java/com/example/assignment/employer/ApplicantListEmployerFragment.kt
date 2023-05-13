@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.get
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +35,7 @@ class ApplicantListEmployerFragment : Fragment() {
     private lateinit var binding: FragmentApplicantListEmployerBinding
     private lateinit var manager: RecyclerView.LayoutManager
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
+    private lateinit var viewModel:ApplicantListEmployerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,10 +58,12 @@ class ApplicantListEmployerFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(ApplicantListEmployerViewModel::class.java)
+        val id = sharedViewModel.jobPostId.value!!
 
-        sharedViewModel.getApplicantData()
+        viewModel.getApplicantData(id)
 
-        sharedViewModel.applicantList.observe(viewLifecycleOwner, Observer {
+        viewModel.applicantList.observe(viewLifecycleOwner, Observer {
             binding.applicantListRecycleView.apply {
                 adapter = ApplicantListEmployerRecyclerAdapter(sharedViewModel, it)
                 layoutManager = manager
@@ -68,7 +72,7 @@ class ApplicantListEmployerFragment : Fragment() {
         })
 
         binding.applicantListRefresh.setOnRefreshListener {
-            sharedViewModel.getApplicantData()
+            viewModel.getApplicantData(id)
             binding.applicantListRefresh.isRefreshing = false
         }
 

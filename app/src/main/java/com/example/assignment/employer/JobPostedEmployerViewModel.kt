@@ -100,41 +100,6 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
         })
     }
 
-    fun getApplicantData() {
-        val build = RetrofitBuild.build().getJobApplicant(
-            sharedPreferences.getString("Token", "")!!,jobPostId.value!!
-        )
 
-        build.enqueue(object : Callback<List<User>?> {
-            override fun onResponse(
-                call: Call<List<User>?>,
-                response: Response<List<User>?>
-            ) {
-                if (response.isSuccessful) {
-
-                    getAllResponse.value = ResponseForUI(true, "")
-                    applicantList.value = response.body()!!
-                    Log.d("applicant", "onResponse: "+applicantList.value)
-
-                } else { //unknown error
-
-                    getAllResponse.value = ResponseForUI(false, "Something Went Wrong")
-
-                }
-            }
-
-            override fun onFailure(call: Call<List<User>?>, t: Throwable) {
-                Log.d("fail", "onFailure: " + t.message)
-
-                getAllResponse.value =
-                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
-
-
-            }
-
-
-        })
-
-    }
 
 }
