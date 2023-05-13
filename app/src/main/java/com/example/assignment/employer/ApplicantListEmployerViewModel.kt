@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ApplicantListEmployerViewModel(application: Application):AndroidViewModel(application) {
+class ApplicantListEmployerViewModel(application: Application) : AndroidViewModel(application) {
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("Token", "")!!
@@ -20,13 +20,20 @@ class ApplicantListEmployerViewModel(application: Application):AndroidViewModel(
         MutableLiveData<ResponseForUI>()
     }
 
+    val acceptResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
+    val rejectResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
 
     val applicantList: MutableLiveData<List<User>> by lazy {
         MutableLiveData<List<User>>()
     }
 
-    fun getApplicantData(id:Int) {
-        val build = RetrofitBuild.build().getJobApplicant(token,id)
+    fun getApplicantData(id: Int) {
+        val build = RetrofitBuild.build().getJobApplicant(token, id)
 
         build.enqueue(object : Callback<List<User>?> {
             override fun onResponse(
@@ -37,7 +44,7 @@ class ApplicantListEmployerViewModel(application: Application):AndroidViewModel(
 
                     getResponse.value = ResponseForUI(true, "")
                     applicantList.value = response.body()!!
-                    Log.d("applicant", "onResponse: "+applicantList.value)
+                    Log.d("applicant", "onResponse: " + applicantList.value)
 
                 } else { //unknown error
 
@@ -58,5 +65,43 @@ class ApplicantListEmployerViewModel(application: Application):AndroidViewModel(
 
         })
 
+    }
+
+    fun accept(applicationId: Int) {
+        val build = RetrofitBuild.build().acceptApplication(token, applicationId)
+        build.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+                if (response.isSuccessful) {
+                    acceptResponse.value = ResponseForUI(true, "")
+                } else {
+                    acceptResponse.value = ResponseForUI(false, "Something Went Wrong")
+                }
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+                acceptResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+    }
+
+    fun decline(applicationId: Int) {
+        val build = RetrofitBuild.build().declineApplication(token, applicationId)
+        build.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+                if (response.isSuccessful) {
+                    rejectResponse.value = ResponseForUI(true, "")
+                } else {
+                    rejectResponse.value = ResponseForUI(false, "Something Went Wrong")
+                }
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+                rejectResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
     }
 }

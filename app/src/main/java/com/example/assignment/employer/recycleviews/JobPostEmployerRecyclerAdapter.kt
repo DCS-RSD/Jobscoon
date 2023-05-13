@@ -47,8 +47,8 @@ class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerVie
         holder.binding.jobCard.setOnClickListener {
             viewModel.jobPostId.value = item.id
             it.findNavController().navigate(R.id.action_jobPostedEmployerFragment_to_jobDetailsEmployerFragment)
-
         }
+
 
     }
 

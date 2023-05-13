@@ -35,7 +35,7 @@ class ApplicantListEmployerFragment : Fragment() {
     private lateinit var binding: FragmentApplicantListEmployerBinding
     private lateinit var manager: RecyclerView.LayoutManager
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
-    private lateinit var viewModel:ApplicantListEmployerViewModel
+    private lateinit var viewModel: ApplicantListEmployerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,10 +65,10 @@ class ApplicantListEmployerFragment : Fragment() {
 
         viewModel.applicantList.observe(viewLifecycleOwner, Observer {
             binding.applicantListRecycleView.apply {
-                adapter = ApplicantListEmployerRecyclerAdapter(sharedViewModel, it)
+                adapter = ApplicantListEmployerRecyclerAdapter(viewModel, requireContext(), it)
                 layoutManager = manager
             }
-            Log.d("applicant", "onActivityCreated: "+it)
+            Log.d("applicant", "onActivityCreated: " + it)
         })
 
         binding.applicantListRefresh.setOnRefreshListener {

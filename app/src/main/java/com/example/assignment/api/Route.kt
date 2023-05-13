@@ -164,6 +164,18 @@ interface Route {
         @Path("id") id: Int,
     ): Call<List<User>>
 
+    @POST("acceptapplication/{id}")
+    fun acceptApplication(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): Call<java.lang.Void>
+
+    @POST("declineapplication/{id}")
+    fun declineApplication(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): Call<Void>
+
     /*
     Module: Job Interview
      */
