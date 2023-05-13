@@ -17,10 +17,12 @@ import androidx.core.content.ContextCompat.getDrawable
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.get
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.databinding.CustomDialogBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
@@ -31,6 +33,7 @@ import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 class JobDetailsEmployerFragment : Fragment() {
 
     private lateinit var binding: FragmentJobDetailsEmployerBinding
+    private lateinit var viewModel: JobDetailsEmployerViewModel
 
     companion object {
         fun newInstance() = JobDetailsEmployerFragment()
@@ -49,19 +52,65 @@ class JobDetailsEmployerFragment : Fragment() {
 
 
         binding.applyButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_jobDetailsEmployerFragment_to_applicantListEmployerFragment)
+            it.findNavController()
+                .navigate(R.id.action_jobDetailsEmployerFragment_to_applicantListEmployerFragment)
         }
 
+
+        binding.imageView.setOnClickListener { view ->
+            view.findNavController().popBackStack()
+        }
+
+
+
+        return binding.root
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(JobDetailsEmployerViewModel::class.java)
+        val id = sharedViewModel.jobPostId.value!!
+        //iconMEnu
         binding.iconMore.setOnClickListener {
             val popupMenu = PopupMenu(requireContext(), it)
             popupMenu.setOnMenuItemClickListener { menuItem ->
-                when(menuItem.itemId) {
+                when (menuItem.itemId) {
                     R.id.edit -> {
                         findNavController().navigate(R.id.action_jobDetailsEmployerFragment_to_editJobFragment)
                         true
                     }
                     R.id.delete -> {
-                        Toast.makeText(requireContext(), "sohai", Toast.LENGTH_LONG).show()
+                        val dialog = CustomDialog.customDialog(
+                            requireContext(),
+                            "Delete Job",
+                            "Are You Sure To Delete This Job?"
+                        )
+                        dialog.show()
+                        dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+viewModel.deleteJobPost(id)
+                            viewModel.deleteResponse.observe(viewLifecycleOwner, Observer {
+                                if (it.success){
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Job Deleted Successfully!",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                    view?.findNavController()?.popBackStack()
+                                }else{
+                                    Toast.makeText(
+                                        requireContext(),
+                                        it.errorMsg,
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            })
+                            dialog.dismiss()
+                        }
+                        dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+                            dialog.dismiss()
+                        }
+
                         true
                     }
                     else ->
@@ -83,42 +132,19 @@ class JobDetailsEmployerFragment : Fragment() {
             } finally {
                 popupMenu.show()
             }
-
-
         }
 
-
-        binding.imageView.setOnClickListener { view ->
-            view.findNavController().popBackStack()
-        }
-
-
-
-        return binding.root
-    }
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        sharedViewModel.showJobPost()
-        sharedViewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
-
-            try {
-                binding.jobDetailsEmployerFragment.apply {
-                    binding.jobPostItem = it
-                }
-            } catch (e: Exception) {
-            }
-
-
+        viewModel.showJobPost(id)
+        viewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
+            binding.jobPostItem = it
         })
 
 
         binding.jobDetailsRefresh.setOnRefreshListener {
-            sharedViewModel.showJobPost()
+            viewModel.showJobPost(id)
             binding.jobDetailsRefresh.isRefreshing = false
         }
+        //error handling
     }
 
 

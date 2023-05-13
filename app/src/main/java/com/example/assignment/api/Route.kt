@@ -114,6 +114,9 @@ interface Route {
     @GET("companylist")
     fun getCompanyList(): Call<List<CompanyList>>
 
+    /*
+    Module: Job Post
+     */
     @Headers("Accept: application/json")
     @GET("jobpost")
     fun getJobPost(
@@ -140,6 +143,16 @@ interface Route {
         @Field("description") description: String,
     ): Call<Void>
 
+    @Headers("Accept: application/json")
+    @DELETE("jobpost/{id}")
+    fun deleteJobPost(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+    ): Call<Void>
+
+    /*
+    Module: Job Application
+     */
     @GET("jobapplication")
     fun getJobApplication(
         @Header("Authorization") token: String,
@@ -151,6 +164,9 @@ interface Route {
         @Path("id") id: Int,
     ): Call<List<User>>
 
+    /*
+    Module: Job Interview
+     */
     @GET("jobinterview")
     fun getJobInterview(
         @Header("Authorization") token: String,
