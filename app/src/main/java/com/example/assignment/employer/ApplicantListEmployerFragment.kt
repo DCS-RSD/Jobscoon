@@ -47,6 +47,10 @@ class ApplicantListEmployerFragment : Fragment() {
         )
         manager = LinearLayoutManager(requireContext())
 
+        binding.imageView.setOnClickListener {
+            it.findNavController().popBackStack()
+        }
+
         return binding.root
     }
 

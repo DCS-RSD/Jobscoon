@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/editJobFragment"
-        android:name="com.example.assignment.EditJobFragment"
+        android:name="com.example.assignment.employer.EditJobFragment"
         android:label="fragment_edit_job"
         tools:layout="@layout/fragment_edit_job" />
     <fragment

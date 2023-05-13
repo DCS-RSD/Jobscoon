@@ -38,7 +38,6 @@ class EmployerNavHost : AppCompatActivity() {
                     binding.toolbar?.visibility = View.GONE
                     binding.nav.visibility = View.GONE
                     binding.borderShadow.visibility = View.GONE
-
                 }
                 else -> {
                     binding.bottomNavBar?.visibility = View.VISIBLE

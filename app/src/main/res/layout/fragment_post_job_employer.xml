@@ -216,16 +216,22 @@
                     android:hint="Job Description"
                     android:nestedScrollingEnabled="true"
                     app:helperText="Required*"
+                    app:counterEnabled="true"
                     app:helperTextTextColor="@color/red"
-                    app:startIconDrawable="@drawable/icon_note">
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editJobDescription"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:lines="6"
+                        android:gravity="top"
+                        android:overScrollMode="always"
+                        android:scrollbars="vertical"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollHorizontally="false" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

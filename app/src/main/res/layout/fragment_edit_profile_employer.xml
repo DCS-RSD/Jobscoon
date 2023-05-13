@@ -1,248 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".employer.EditProfileCompanyFragment">
 
     <data>
+
         <variable
             name="company"
             type="com.example.assignment.dataclass.Company" />
     </data>
-    <ScrollView
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/icon_arrowback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_arrowback" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/top_nav"
+        <TextView
+            android:id="@+id/my_jobs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/hind_siliguri_bold"
+            android:text="Edit Company Profile"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/submit_update_profile_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_jobs">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@color/white">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/icon_arrowback"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/icon_arrowback" />
-
-                <TextView
-                    android:id="@+id/my_jobs"
-                    android:layout_width="wrap_content"
+                <!--Input Company Name in Employer register page-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textComNameS"
+                    style="@style/FilledTextInputLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="Edit Company Profile"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="Company Name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
+                    app:layout_constraintTop_toBottomOf="@+id/top_nav"
+                    app:startIconDrawable="@drawable/com_gray">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextComNameS"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{company.name}"
+                        tools:ignore="DuplicateClickableBoundsCheck" />
 
-            <!--Input Company Name in Employer register page-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textComNameS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Company Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/top_nav"
-                app:startIconDrawable="@drawable/com_gray">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextComNameS"
+                <!--Input Email in Employer register page-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textEmailS"
+                    style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    android:text="@{company.name}"
-                    tools:ignore="DuplicateClickableBoundsCheck" />
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="Company Email Address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textComNameS"
+                    app:startIconDrawable="@drawable/email_gray">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextEmailS"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:text="@{company.email}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Input Email in Employer register page-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textEmailS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="32dp"
-                android:hint="Company Email Address"
-                app:startIconDrawable="@drawable/email_gray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textComNameS">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextEmailS"
+                <!--Input Company Phone in Employer register page-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textPhoneS"
+                    style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:text="@{company.email}"
-                    style="@style/text_input_style"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="15dp"
+                    android:hint="Company Phone Number"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEmailS"
+                    app:prefixText="+60"
+                    app:prefixTextColor="@color/text_input_border_color"
+                    app:startIconDrawable="@drawable/ringph_gray">
 
-            <!--Input Company Phone in Employer register page-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textPhoneS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="Company Phone Number"
-                app:startIconDrawable="@drawable/ringph_gray"
-                app:prefixText="+60"
-                app:endIconMode="clear_text"
-                app:prefixTextColor="@color/text_input_border_color"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEmailS">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCompanyPhone"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPhonetic"
+                        android:maxLength="10"
+                        android:text="@{company.contact_number}" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editCompanyPhone"
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--Input SSM in Employer register page-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textSSM"
+                    style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/text_input_style"
-                    android:inputType="textPhonetic"
-                    android:text="@{company.contact_number}"
-                    android:maxLength="10"/>
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="SSM Reg No"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textPhoneS"
+                    app:startIconDrawable="@drawable/ssm_gray">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextSSM"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxLength="12"
+                        android:text="@{company.reg_no}"
+                        android:textColor="@color/gray" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <!--Input SSM in Employer register page-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textSSM"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="32dp"
-                android:hint="SSM Reg No"
-                app:startIconDrawable="@drawable/ssm_gray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textPhoneS">
+                <!--Input Location in Employer register page-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextSSM"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textLocationS"
+                    style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="32dp"
                     android:layout_weight="1"
-                    android:maxLength="12"
-                    android:text="@{company.reg_no}"
-                    style="@style/text_input_style"
-                    android:textColor="@color/gray"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textSSM"
+                    app:startIconDrawable="@drawable/loaction_gray">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/editTextLocationS"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@{company.location}"
+                        android:textColor="@color/gray" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <!--Input Location in Employer register page-->
+                <!--Input reset Password in Employee register page-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textLocationS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="32dp"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textSSM"
-                app:startIconDrawable="@drawable/loaction_gray">
-
-                <AutoCompleteTextView
-                    android:id="@+id/editTextLocationS"
+                <!--Paragraph in Employer register page-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/comBackgroundS"
+                    style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@{company.location}"
-                    style="@style/text_input_style"
-                    android:textColor="@color/gray" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="@string/background"
+                    app:counterEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textLocationS">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextIntroS"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:lines="6"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false"
+                        android:text="@{company.description}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Input reset Password in Employee register page-->
+            </LinearLayout>
+        </ScrollView>
 
-            <!--Paragraph in Employer register page-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/comBackgroundS"
-                style="@style/FilledTextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="32dp"
-                android:hint="@string/background"
-                app:counterEnabled="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+        <Button
+            android:id="@+id/submit_update_profile_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/salary_text_color"
+            android:fontFamily="@font/hind_siliguri_bold"
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextIntroS"
-                    style="@style/text_input_style"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="top"
-                    android:inputType="textMultiLine"
-                    android:lines="6"
-                    android:text="@{company.description}"
-                    android:overScrollMode="always"
-                    android:scrollbarStyle="insideInset"
-                    android:scrollbars="vertical"
-                    android:scrollHorizontally="false" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/submit_update_profile_btn"
-                style="@style/edit_profile_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/salary_text_color"
-                android:text="Save"
-                app:layout_constraintEnd_toStartOf="@+id/comBackgroundS"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/comBackgroundS" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/deleteS2"
-                style="@style/edit_profile_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_marginTop="0dp"
-                android:backgroundTint="@color/rejected_text_color"
-                android:text="Delete"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/submit_update_profile_btn"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/submit_update_profile_btn" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
