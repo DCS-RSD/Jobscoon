@@ -21,6 +21,7 @@ import com.example.assignment.EditProfileEmployeeViewModel
 import com.example.assignment.R
 import com.example.assignment.auth.AuthActivity
 import com.example.assignment.databinding.FragmentJobPostedEmployerBinding
+import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 import com.example.assignment.employer.recycleviews.JobPostEmployerRecyclerAdapter
@@ -32,9 +33,11 @@ class JobPostedEmployerFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentJobPostedEmployerBinding
-    private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: JobPostEmployerRecyclerAdapter
+    private lateinit var dataList: List<JobPostItem>
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
-    private var scrollPosition = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,8 +50,14 @@ class JobPostedEmployerFragment : Fragment() {
             false
         )
 
+        // Initialize RecyclerView
+        recyclerView = binding.jobPostRecycleView
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        manager = LinearLayoutManager(requireContext())
+        // Initialize adapter
+        dataList = mutableListOf() // Initialize your data source
+        adapter = JobPostEmployerRecyclerAdapter(sharedViewModel,dataList)
+        recyclerView.adapter = adapter
 
         return binding.root
     }
@@ -59,31 +68,28 @@ class JobPostedEmployerFragment : Fragment() {
 
         sharedViewModel.getData()
 
-        //last get data
-        var oldJobPostList = sharedViewModel.jobPostList.value
-
-
-        //try use last get data
-        try {
-            binding.jobPostRecycleView.apply {
-                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, oldJobPostList!!)
-                layoutManager = manager
-            }
-        } catch (e: Exception) {
-        }
+//        //last get data
+//        var oldJobPostList = sharedViewModel.jobPostList.value
+//
+//
+//        //try use last get data
+//        try {
+//            binding.jobPostRecycleView.apply {
+//                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, oldJobPostList!!)
+//                layoutManager = manager
+//            }
+//        } catch (e: Exception) {
+//        }
 
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobPostRecycleView.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
-            //if data updated
-            if (oldJobPostList != it) {
-                oldJobPostList = it
-                binding.jobPostRecycleView.apply {
-                    adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, it)
-                    layoutManager = manager
-                }
+            adapter.setItem(it)
+            binding.jobPostRecycleView.apply {
+                adapter?.notifyDataSetChanged()
             }
+            println("a")
         })
 
         //navigate to form
