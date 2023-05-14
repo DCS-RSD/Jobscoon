@@ -100,7 +100,12 @@
         android:id="@+id/addCareerDevelopmentEmployerFragment"
         android:name="com.example.assignment.employer.AddCareerDevelopmentEmployerFragment"
         android:label="fragment_add_career_development_employer"
-        tools:layout="@layout/fragment_add_career_development_employer" />
+        tools:layout="@layout/fragment_add_career_development_employer" >
+    </fragment>
     <fragment
+        android:id="@+id/editCareerDevelopmentEmployerFragment"
+        android:name="com.example.assignment.employer.EditCareerDevelopmentEmployerFragment"
+        android:label="fragment_edit_career_development_employer"
+        tools:layout="@layout/fragment_edit_career_development_employer" />
 
 </navigation>
