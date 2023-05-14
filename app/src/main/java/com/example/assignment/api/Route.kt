@@ -201,11 +201,6 @@ interface Route {
         @Header("Authorization") token: String,
     ): Call<List<JobInterviewItem>>
 
-    @GET("careerdev")
-    fun getCareerDevelopment(
-        @Header("Authorization") token: String,
-    ): Call<List<CareerDevelopmentItem>>
-
     @POST("applyjob/{id}")
     fun postJobApplication(
         @Header("Authorization") token: String,
@@ -224,15 +219,18 @@ interface Route {
         @Path("id") id: Int
     ): Call<Void>
 
+    @DELETE("jobinterview/{id}")
+    fun deleteInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): Call<Void>
 
     /*
     Module: Career Development
     Route: resource, apply, cancel
      */
-
-    // index
     @GET("careerdev")
-    fun getCareer(
+    fun getCareerDevelopment(
         @Header("Authorization") token: String,
     ): Call<List<CareerDevelopmentItem>>
 
