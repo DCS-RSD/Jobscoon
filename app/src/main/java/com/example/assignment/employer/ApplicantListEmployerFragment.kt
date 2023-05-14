@@ -64,11 +64,16 @@ class ApplicantListEmployerFragment : Fragment() {
         viewModel.getApplicantData(id)
 
         viewModel.applicantList.observe(viewLifecycleOwner, Observer {
-            binding.applicantListRecycleView.apply {
-                adapter = ApplicantListEmployerRecyclerAdapter(viewModel, requireContext(), it)
-                layoutManager = manager
+            binding.applicantListRecycleView.visibility = View.VISIBLE
+            binding.loadingIcon.visibility = View.GONE
+            if (it.isEmpty()) {
+                binding.textNoRecord.visibility = View.VISIBLE
+            } else {
+                binding.applicantListRecycleView.apply {
+                    adapter = ApplicantListEmployerRecyclerAdapter(viewModel, requireContext(), it)
+                    layoutManager = manager
+                }
             }
-            Log.d("applicant", "onActivityCreated: " + it)
         })
 
         binding.applicantListRefresh.setOnRefreshListener {

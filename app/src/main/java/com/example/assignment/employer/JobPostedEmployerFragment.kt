@@ -59,8 +59,11 @@ class JobPostedEmployerFragment : Fragment() {
 
         sharedViewModel.getData()
 
+        //last get data
         var oldJobPostList = sharedViewModel.jobPostList.value
 
+
+        //try use last get data
         try {
             binding.jobPostRecycleView.apply {
                 adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, oldJobPostList!!)
@@ -71,8 +74,10 @@ class JobPostedEmployerFragment : Fragment() {
 
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
+            binding.jobPostRecycleView.visibility = View.VISIBLE
+            binding.loadingIcon.visibility = View.GONE
+            //if data updated
             if (oldJobPostList != it) {
-                println(111)
                 oldJobPostList = it
                 binding.jobPostRecycleView.apply {
                     adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, it)
