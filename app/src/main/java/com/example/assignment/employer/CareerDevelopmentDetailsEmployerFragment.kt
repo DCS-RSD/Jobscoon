@@ -51,14 +51,14 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
             R.layout.fragment_career_development_details_employer, container, false
         )
 
-/*
-        binding.applyButton.setOnClickListener {
+
+        binding.joinBtn.setOnClickListener {
             it.findNavController()
-                .navigate(R.id.action_jobDetailsEmployerFragment_to_applicantListEmployerFragment)
+                .navigate(R.id.action_careerDevelopmentDetailsEmployerFragment_to_applicantCareerDevelopmentFragment)
         }
 
 
- */
+
 
         binding.iconArrowback.setOnClickListener { view ->
             view.findNavController().popBackStack()

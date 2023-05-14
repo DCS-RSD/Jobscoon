@@ -297,4 +297,10 @@ interface Route {
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): Call<Void>
+
+    @GET("careerdevapplicant/{id}")
+    fun getCareerApplicant(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+    ): Call<List<User>>
 }

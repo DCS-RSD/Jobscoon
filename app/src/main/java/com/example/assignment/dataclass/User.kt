@@ -14,5 +14,6 @@ data class User(
     var updated_at: String? = null,
     var created_at: String? = null,
     var company: Company? = null,
-    var pivot: JobApplicationItem? = null
+    var pivot: JobApplicationItem? = null,
+    var pivot2: CareerApplicationItem? = null
 )
