@@ -13,23 +13,26 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.assignment.AddCareerDevelopmentEmployerViewModel
 import com.example.assignment.PostJobEmployerViewModel
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentAddCareerDevelopmentEmployerBinding
+import com.example.assignment.databinding.FragmentEditCareerDevelopmentEmployerBinding
 import com.example.assignment.dataclass.CareerDevelopmentItem
 import com.example.assignment.dataclass.JobPostItem
 import java.util.*
 
-class AddCareerDevelopmentEmployerFragment : Fragment() {
+class EditCareerDevelopmentEmployerFragment : Fragment() {
 
     companion object {
-        fun newInstance() = AddCareerDevelopmentEmployerFragment()
+        fun newInstance() = EditCareerDevelopmentEmployerFragment()
     }
 
-    private lateinit var viewModel: AddCareerDevelopmentEmployerViewModel
-    private lateinit var binding: FragmentAddCareerDevelopmentEmployerBinding
+    private lateinit var viewModel: EditCareerDevelopmentEmployerViewModel
+    val sharedViewModel: CareerDevelopmentEmployerViewModel by activityViewModels()
+    private lateinit var binding: FragmentEditCareerDevelopmentEmployerBinding
     val types = arrayOf("physical", "virtual")
 
 
@@ -37,9 +40,9 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        binding = DataBindingUtil.inflate<FragmentAddCareerDevelopmentEmployerBinding>(
+        binding = DataBindingUtil.inflate<FragmentEditCareerDevelopmentEmployerBinding>(
             inflater,
-            R.layout.fragment_add_career_development_employer, container, false
+            R.layout.fragment_edit_career_development_employer, container, false
         )
 
         binding.iconArrowback.setOnClickListener {
@@ -53,6 +56,15 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
                 types
             )
         )
+
+        if(binding.editType.text.toString() == "physical") {
+            binding.textLocationS.visibility = View.VISIBLE
+            binding.textLinkS.visibility = View.GONE
+        }
+        else if(binding.editType.text.toString() == "virtual") {
+            binding.textLocationS.visibility = View.GONE
+            binding.textLinkS.visibility = View.VISIBLE
+        }
 
         binding.editType.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -82,9 +94,6 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
 
-        var clickedDate : Int = 0
-        var clickedTime : Int = 0
-
         val today = Calendar.getInstance().apply {
             clear(Calendar.HOUR_OF_DAY)
             clear(Calendar.MINUTE)
@@ -97,38 +106,24 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
         binding.editStartTime.keyListener = null
         binding.editEndTime.keyListener = null
 
-        if (clickedDate == 0) {
-            binding.editEndDate.setOnClickListener{
-                Toast.makeText(requireContext(), "Please select your start date first.", Toast.LENGTH_LONG).show()
-            }
-        }
-        if (clickedTime == 0) {
-            binding.editEndTime.setOnClickListener{
-                Toast.makeText(requireContext(), "Please select your start time first.", Toast.LENGTH_LONG).show()
-            }
-        }
-
         binding.editDate.setOnClickListener{
             val datePicker = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
                 binding.editDate.setText("$year-${month + 1}-$dayOfMonth")
-                clickedDate = 1
-                val selectedCalendar = Calendar.getInstance().apply {
-                    set(year, month, dayOfMonth)
-                }
-                val selectedDate = selectedCalendar.timeInMillis
 
-                binding.editEndDate.setOnClickListener {
-                    val endDatePicker = DatePickerDialog(requireContext(), { _, endYear, endMonth, endDayOfMonth ->
-                        binding.editEndDate.setText("$endYear-${endMonth + 1}-$endDayOfMonth")
-                    }, initialYear, initialMonth, initialDay)
-
-                    endDatePicker.datePicker.minDate = selectedDate // Set minimum date to the selected date from editDate
-                    endDatePicker.show()
-                }
             }, initialYear, initialMonth, initialDay)
             datePicker.datePicker.minDate = today
             datePicker.show()
         }
+
+        binding.editEndDate.setOnClickListener {
+            val endDatePicker = DatePickerDialog(requireContext(), { _, endYear, endMonth, endDayOfMonth ->
+                binding.editEndDate.setText("$endYear-${endMonth + 1}-$endDayOfMonth")
+            }, initialYear, initialMonth, initialDay)
+
+            endDatePicker.show()
+        }
+
+
 
         binding.editStartTime.setOnClickListener{
             val timePicker = TimePickerDialog(requireContext(), { _, selectedHour, selectedMinute ->
@@ -144,32 +139,6 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
                 else {
                     binding.editStartTime.setText("$selectedHour:$selectedMinute")
                 }
-                clickedTime = 1
-
-                binding.editEndTime.setOnClickListener{
-                    val endTimePicker = TimePickerDialog(requireContext(), { _, endHour, endMinute ->
-
-                        if (endHour > selectedHour || ((endHour == selectedHour) && (endMinute > selectedMinute))) {
-                            if(endHour in 0..9 && endMinute in 0 .. 9) {
-                                binding.editEndTime.setText("0$endHour:0$endMinute")
-                            }
-                            else if (endHour in 0..9) {
-                                binding.editEndTime.setText("0$endHour:$endMinute")
-                            }
-                            else if (endMinute in 0 .. 9) {
-                                binding.editEndTime.setText("$endHour:0$endMinute")
-                            }
-                            else {
-                                binding.editEndTime.setText("$endHour:$endMinute")
-                            }
-                        }
-                        else
-                            Toast.makeText(requireContext(), "End Time must greater than Start Time", Toast.LENGTH_LONG).show()
-
-                    }, hour, minute, false)
-
-                    endTimePicker.show()
-                }
 
             }, hour, minute, false)
 
@@ -177,21 +146,57 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
             timePicker.show()
         }
 
+        binding.editEndTime.setOnClickListener{
+            val endTimePicker = TimePickerDialog(requireContext(), { _, endHour, endMinute ->
+
+                    if(endHour in 0..9 && endMinute in 0 .. 9) {
+                        binding.editEndTime.setText("0$endHour:0$endMinute")
+                    }
+                    else if (endHour in 0..9) {
+                        binding.editEndTime.setText("0$endHour:$endMinute")
+                    }
+                    else if (endMinute in 0 .. 9) {
+                        binding.editEndTime.setText("$endHour:0$endMinute")
+                    }
+                    else {
+                        binding.editEndTime.setText("$endHour:$endMinute")
+                    }
+
+            }, hour, minute, false)
+
+            endTimePicker.show()
+        }
+
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AddCareerDevelopmentEmployerViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(EditCareerDevelopmentEmployerViewModel::class.java)
+        val id = sharedViewModel.careerDevId.value!!
+        viewModel.getCareerDevDetails(id)
+        viewModel.careerDevDetail.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            binding.careerDevItem = it
+            binding.editType.setText(it.type, false)
+        })
 
         binding.confirmInterviewBtn.setOnClickListener{
             var capacity: Int? = null
+            var location: String? = ""
+            var link: String? = ""
 
             if (binding.editCapacity.text.toString() != "") {
                 capacity = binding.editCapacity.text.toString().toInt()
             }
 
-            viewModel.createAddCareer(
+            if(binding.textLocationS.visibility == View.VISIBLE) {
+                location = binding.editLocation.text.toString()
+            }
+            else if (binding.textLinkS.visibility == View.VISIBLE) {
+                link = binding.editLink.text.toString()
+            }
+
+            viewModel.updateCareerDetails(
                 CareerDevelopmentItem(
                     title = binding.editTitle.text.toString(),
                     date_start = binding.editDate.text.toString(),
@@ -199,12 +204,12 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
                     start_time = binding.editStartTime.text.toString(),
                     end_time = binding.editEndTime.text.toString(),
                     type = binding.editType.text.toString(),
-                    location = binding.editLocation.text.toString(),
-                    link = binding.editLink.text.toString(),
+                    location = location,
+                    link = link,
                     capacity = capacity,
                     description = binding.editDescription.text.toString()
 
-                )
+                ), id
             )
         }
 
@@ -212,7 +217,7 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
             if (it.success) {
                 Toast.makeText(
                     requireContext(),
-                    "New Career Posted Successfully!",
+                    "Programme Details Successfully!",
                     Toast.LENGTH_LONG
                 ).show()
                 view?.findNavController()?.popBackStack()

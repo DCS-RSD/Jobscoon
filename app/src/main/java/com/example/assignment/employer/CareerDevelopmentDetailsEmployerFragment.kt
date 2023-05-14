@@ -73,6 +73,7 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CareerDevelopmentDetailsEmployerViewModel::class.java)
         val id = sharedViewModel.careerDevId.value!!
+
         //iconMEnu
         binding.iconMore.setOnClickListener {
             val popupMenu = PopupMenu(requireContext(), it)
@@ -80,7 +81,7 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
                 when (menuItem.itemId) {
                     R.id.edit -> {
                         //TODO
-                        findNavController().navigate(R.id.action_jobDetailsEmployerFragment_to_editJobFragment)
+                        findNavController().navigate(R.id.action_careerDevelopmentDetailsEmployerFragment_to_editCareerDevelopmentEmployerFragment)
                         true
                     }
                     R.id.delete -> {
@@ -141,6 +142,15 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
         viewModel.showCareerDev(id)
         viewModel.careerDevDetail.observe(viewLifecycleOwner, Observer {
             binding.careerDevelopmentItem = it
+            if(it.type == "physical") {
+                binding.imageView15.visibility = View.VISIBLE
+                binding.iconLink.visibility = View.INVISIBLE
+                binding.textView14.text = it.location
+            }else if (it.type == "virtual") {
+                binding.imageView15.visibility = View.INVISIBLE
+                binding.iconLink.visibility = View.VISIBLE
+                binding.textView14.text = it.link
+            }
         })
 
 

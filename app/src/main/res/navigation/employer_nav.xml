@@ -91,10 +91,19 @@
         android:id="@+id/careerDevelopmentDetailsEmployerFragment"
         android:name="com.example.assignment.employer.CareerDevelopmentDetailsEmployerFragment"
         android:label="fragment_career_development_details_employer"
-        tools:layout="@layout/fragment_career_development_details_employer" />
+        tools:layout="@layout/fragment_career_development_details_employer" >
+        <action
+            android:id="@+id/action_careerDevelopmentDetailsEmployerFragment_to_editCareerDevelopmentEmployerFragment"
+            app:destination="@id/editCareerDevelopmentEmployerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addCareerDevelopmentEmployerFragment"
         android:name="com.example.assignment.employer.AddCareerDevelopmentEmployerFragment"
         android:label="fragment_add_career_development_employer"
         tools:layout="@layout/fragment_add_career_development_employer" />
+    <fragment
+        android:id="@+id/editCareerDevelopmentEmployerFragment"
+        android:name="com.example.assignment.employer.EditCareerDevelopmentEmployerFragment"
+        android:label="fragment_edit_career_development_employer"
+        tools:layout="@layout/fragment_edit_career_development_employer" />
 </navigation>

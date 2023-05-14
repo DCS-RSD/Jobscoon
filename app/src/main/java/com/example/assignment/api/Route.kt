@@ -275,5 +275,22 @@ interface Route {
         @Field("description") description: String
     ): Call<Void>
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PATCH("careerdev/{id}")
+    fun updateCareerDetails(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Field("title") title: String,
+        @Field("date_start") date_start: String,
+        @Field("date_end") date_end: String,
+        @Field("start_time") start_time: String,
+        @Field("end_time") end_time: String,
+        @Field("type") type: String,
+        @Field("location") location: String,
+        @Field("link") link: String,
+        @Field("max_capacity") max_capacity: Int?,
+        @Field("description") description: String
+    ): Call<Void>
 
 }

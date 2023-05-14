@@ -126,7 +126,6 @@ class CareerDevelopmentDetailsFragment : Fragment() {
             try {
                 binding.careerDevelopmentDetailsFragment.apply {
                     binding.careerDevelopmentItem = it
-                    binding.textView22.text = it.capacity.toString()
                     if(it.type == "physical") {
                         binding.textView14.text = it.location
                     }else if (it.type == "virtual") {

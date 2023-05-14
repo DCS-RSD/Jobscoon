@@ -177,7 +177,7 @@
                         app:layout_constraintStart_toEndOf="@+id/textView17"
                         app:layout_constraintTop_toTopOf="@+id/textView17" />
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -194,23 +194,34 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/icon_location"
-                            app:layout_constraintStart_toStartOf="@+id/imageView12"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:visibility="invisible"
+                            android:id="@+id/icon_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_link"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
 
                         <TextView
                             android:id="@+id/textView14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:text="@{careerDevelopmentItem.capacity.toString()}"
+                            android:layout_marginStart="35dp"
+                            android:text="example"
                             android:fontFamily="@font/hind_siliguri_semibold"
                             android:textColor="@color/black"
                             android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="@+id/textView16"
-                            app:layout_constraintTop_toBottomOf="@+id/textView16"
+                            app:layout_constraintStart_toStartOf="@+id/icon_link"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"/>
 
-                    </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                     <TextView
@@ -255,7 +266,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="example"
+                        android:text="@{careerDevelopmentItem.capacity.toString()}"
                         android:fontFamily="@font/hind_siliguri_semibold"
                         android:textColor="@color/black"
                         android:textSize="16sp"
