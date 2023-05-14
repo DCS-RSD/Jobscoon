@@ -82,16 +82,17 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
                      checkOld = jobPostList.value!!
                         for (i in checkOld){
                             i.post_at = null
+                            i.edited_at=null
                         }
                         for (i in checkNew){
                             i.post_at = null
+                            i.edited_at=null
                         }
                     }catch (e:Exception){}
 
                     if (checkOld != checkNew) {
                         jobPostList.value = response.body()!!
                         println("diff")
-                        println(response.body())
                     }
                     getAllResponse.value = ResponseForUI(true, "")
                     Log.d("success", "onResponse: " + jobPostList.value)
