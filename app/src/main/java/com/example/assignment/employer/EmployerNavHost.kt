@@ -19,8 +19,7 @@ class EmployerNavHost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.navigation_employer)
-        //binding.bottomNavBar.setItemSelected(R.id.home)
-        //setBar()
+
         val navController = Navigation.findNavController(this, R.id.navigation_host_employer)
         binding.bottomNavBar.setupWithNavController(navController)
         visibilityNavElements(navController)

@@ -39,12 +39,12 @@ class SignUpCompanyFragment : Fragment() {
         binding.submitSignUp.setOnClickListener {
             sharedViewModel.submitCompany(
                 Company(
-                    binding.editCompanyName.text.toString(),
-                    binding.editRegNo.text.toString(),
-                    binding.editPhone.text.toString(),
-                    binding.editCompanyEmail.text.toString(),
-                    binding.editLocation.text.toString(),
-                    binding.editAbout.text.toString(),
+                    name = binding.editCompanyName.text.toString(),
+                    reg_no= binding.editRegNo.text.toString(),
+                    contact_number= binding.editPhone.text.toString(),
+                    email =binding.editCompanyEmail.text.toString(),
+                    location = binding.editLocation.text.toString(),
+                    description = binding.editAbout.text.toString(),
                 )
             )
         }
