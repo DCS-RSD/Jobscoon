@@ -27,7 +27,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/hind_siliguri_bold"
-            android:text="Schedule Programme"
+            android:text="Post Programme"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
@@ -67,6 +67,7 @@
 
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTitle"
                         style="@style/text_input_style"
                         android:inputType="text"
                         android:layout_width="match_parent"
@@ -289,7 +290,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textCapacity">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editLocation2"
+                        android:id="@+id/editDescription"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -318,7 +319,7 @@
             android:layout_marginBottom="8dp"
             android:backgroundTint="@color/salary_text_color"
             android:fontFamily="@font/hind_siliguri_bold"
-            android:text="Confirm Schedule"
+            android:text="Post Programme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

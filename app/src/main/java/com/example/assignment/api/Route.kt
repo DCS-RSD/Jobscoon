@@ -150,6 +150,21 @@ interface Route {
         @Path("id") id: Int,
     ): Call<Void>
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PATCH("jobpost/{id}")
+    fun updateJobDetails(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Field("title") title: String?,
+        @Field("type") type: String?,
+        @Field("shift_start") shift_start: String?,
+        @Field("shift_end") shift_end: String?,
+        @Field("salary_lower") salary_lower: Int?,
+        @Field("salary_upper") salary_upper: Int?,
+        @Field("description") description: String?
+    ): Call<Void>
+
     /*
     Module: Job Application
      */
@@ -175,6 +190,8 @@ interface Route {
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): Call<Void>
+
+
 
     /*
     Module: Job Interview
@@ -241,19 +258,22 @@ interface Route {
         @Path("id") id: Int
     ): Call<Void>
 
-
     @Headers("Accept: application/json")
     @FormUrlEncoded
-    @PATCH("jobpost/{id}")
-    fun updateJobDetails(
+    @POST("careerdev")
+    fun storeCareerDev(
         @Header("Authorization") token: String,
-        @Path("id") id: Int,
-        @Field("title") title: String?,
-        @Field("type") type: String?,
-        @Field("shift_start") shift_start: String?,
-        @Field("shift_end") shift_end: String?,
-        @Field("salary_lower") salary_lower: Int?,
-        @Field("salary_upper") salary_upper: Int?,
-        @Field("description") description: String?
+        @Field("title") title: String,
+        @Field("date_start") date_start: String,
+        @Field("date_end") date_end: String,
+        @Field("start_time") start_time: String,
+        @Field("end_time") end_time: String,
+        @Field("type") type: String,
+        @Field("location") location: String,
+        @Field("link") link: String,
+        @Field("max_capacity") max_capacity: Int?,
+        @Field("description") description: String
     ): Call<Void>
+
+
 }

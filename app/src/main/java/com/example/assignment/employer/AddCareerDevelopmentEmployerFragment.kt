@@ -13,10 +13,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.assignment.AddCareerDevelopmentEmployerViewModel
+import com.example.assignment.PostJobEmployerViewModel
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentAddCareerDevelopmentEmployerBinding
-import com.example.assignment.databinding.FragmentPostJobEmployerBinding
+import com.example.assignment.dataclass.CareerDevelopmentItem
+import com.example.assignment.dataclass.JobPostItem
 import java.util.*
 
 class AddCareerDevelopmentEmployerFragment : Fragment() {
@@ -39,6 +42,10 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
             R.layout.fragment_add_career_development_employer, container, false
         )
 
+        binding.iconArrowback.setOnClickListener {
+            it.findNavController().popBackStack()
+        }
+
         binding.editType.setAdapter(
             ArrayAdapter(
                 requireContext(),
@@ -46,7 +53,6 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
                 types
             )
         )
-
 
         binding.editType.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -68,8 +74,6 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
                 }
             }
         })
-
-
 
         val calendar = Calendar.getInstance()
         val initialYear = calendar.get(Calendar.YEAR)
@@ -179,8 +183,43 @@ class AddCareerDevelopmentEmployerFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(AddCareerDevelopmentEmployerViewModel::class.java)
-        // TODO: Use the ViewModel
 
+        binding.confirmInterviewBtn.setOnClickListener{
+            var capacity: Int? = null
+
+            if (binding.editCapacity.text.toString() != "") {
+                capacity = binding.editCapacity.text.toString().toInt()
+            }
+
+            viewModel.createAddCareer(
+                CareerDevelopmentItem(
+                    title = binding.editTitle.text.toString(),
+                    date_start = binding.editDate.text.toString(),
+                    date_end = binding.editEndDate.text.toString(),
+                    start_time = binding.editStartTime.text.toString(),
+                    end_time = binding.editEndTime.text.toString(),
+                    type = binding.editType.text.toString(),
+                    location = binding.editLocation.text.toString(),
+                    link = binding.editLink.text.toString(),
+                    capacity = capacity,
+                    description = binding.editDescription.text.toString()
+
+                )
+            )
+        }
+
+        viewModel.validationResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (it.success) {
+                Toast.makeText(
+                    requireContext(),
+                    "New Career Posted Successfully!",
+                    Toast.LENGTH_LONG
+                ).show()
+                view?.findNavController()?.popBackStack()
+            } else {
+                Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
+            }
+        })
 
     }
 
