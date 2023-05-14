@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/title1"
+                        android:id="@+id/textUsername"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
@@ -55,7 +55,7 @@
                         app:cardUseCompatPadding="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/title1"
+                        app:layout_constraintTop_toBottomOf="@+id/textUsername"
                         tools:ignore="MissingConstraints">
 
 
@@ -91,7 +91,7 @@
                                 >
 
                                 <LinearLayout
-                                    android:id="@id/email"
+                                    android:id="@+id/email"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
@@ -227,7 +227,7 @@
                             android:layout_height="wrap_content">
 
                             <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/textVPwdS"
+                                android:id="@+id/textAbout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20dp"
@@ -250,7 +250,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/change_pwd_button"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginStart="24dp"
@@ -258,7 +258,7 @@
                         android:layout_marginEnd="24dp"
                         android:backgroundTint="@color/white"
                         android:fontFamily="@font/hind_siliguri_bold"
-                        android:text="Resume"
+                        android:text="CHANGE PASSWORD"
                         android:textColor="@color/black"
                         app:cornerRadius="10dp"
                         app:layout_constraintBottom_toTopOf="@+id/editS"
@@ -276,9 +276,9 @@
                         android:layout_marginEnd="24dp"
                         android:backgroundTint="@color/salary_text_color"
                         android:text="Edit"
-                        app:layout_constraintEnd_toEndOf="@+id/button2"
-                        app:layout_constraintStart_toStartOf="@+id/button2"
-                        app:layout_constraintTop_toBottomOf="@id/button2" />
+                        app:layout_constraintEnd_toEndOf="@+id/change_pwd_button"
+                        app:layout_constraintStart_toStartOf="@+id/change_pwd_button"
+                        app:layout_constraintTop_toBottomOf="@id/change_pwd_button" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/logout"

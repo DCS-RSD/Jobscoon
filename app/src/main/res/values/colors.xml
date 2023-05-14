@@ -44,7 +44,8 @@
 
     <!--</resources>-->
 
-
+    <color name="available_layout_color">#BEE3FF</color>
+    <color name="available_text_color">#526BFF</color>
     <color name="pending_layout_color">#FFF9BF</color>
     <color name="pending_text_color">#9E8F00</color>
     <color name="rejected_layout_color">#FDC1BD</color>
@@ -59,4 +60,5 @@
     <color name="apply_button_color">#3045B8</color>
     <color name="disabled_button_color">#CCCCCC</color>
     <color name="text_input_border_color">#9F6FFD</color>
+    <color name="bckgray">#F6F8F8</color>
 </resources>

@@ -25,32 +25,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/job_name1"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/top"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:weightSum="2"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="@{jobApplicationItem.job_post.title}"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/status1"
-                    style="@style/jobs_detail_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/job_detail_text_background"
-                    android:backgroundTint="@color/pending_layout_color"
-                    android:text="@{jobApplicationItem.status}"
-                    android:textColor="@color/pending_text_color"
-                    app:layout_constraintBottom_toBottomOf="@+id/job_name1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/job_name1" />
+                    <TextView
+                        android:id="@+id/job_name1"
+                        android:layout_weight="0.45"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hind_siliguri_bold"
+                        android:text="@{jobApplicationItem.job_post.title}"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/status1"
+                        android:layout_weight="1.55"
+                        style="@style/jobs_detail_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/job_detail_text_background"
+                        android:backgroundTint="@color/pending_layout_color"
+                        android:text="@{jobApplicationItem.status}"
+                        android:textAlignment="center"
+                        android:textColor="@color/pending_text_color"
+                         />
+
+                </LinearLayout>
+
+
 
                 <TextView
                     android:id="@+id/company1"
@@ -58,8 +71,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{jobApplicationItem.job_post.company.name}"
-                    app:layout_constraintStart_toStartOf="@+id/job_name1"
-                    app:layout_constraintTop_toBottomOf="@id/job_name1" />
+                    app:layout_constraintStart_toStartOf="@+id/top"
+                    app:layout_constraintTop_toBottomOf="@id/top" />
 
 
                 <TextView
@@ -118,23 +131,16 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/interview_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintBottom_toBottomOf="@+id/apply_date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/apply_date"
-                    app:srcCompat="@drawable/icon_delete3" />
+                    app:srcCompat="@drawable/icon_calendar_edit"
+                    android:visibility="invisible"/>
 
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
-                    app:srcCompat="@drawable/icon_calendar_edit" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.assignment.employee
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -16,16 +17,18 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
+import com.example.assignment.auth.AuthActivity
 import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
 class FindJobsEmployeeFragment : Fragment() {
 
     companion object {
         fun newInstance() = FindJobsEmployeeFragment()
     }
+
 
     private lateinit var binding: FragmentFindJobsEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
@@ -49,13 +52,12 @@ class FindJobsEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.autoLogin() //check token
 
         sharedViewModel.getData()
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobPostRecycleView.apply {
-                adapter = JobPostRecyclerAdapter(it)
+                adapter = JobPostRecyclerAdapter(sharedViewModel,it)
                 layoutManager = manager
             }
 
@@ -66,6 +68,21 @@ class FindJobsEmployeeFragment : Fragment() {
             sharedViewModel.getData()
             binding.jobPostRefresh.isRefreshing = false
         }
+
+        sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer {response ->
+            if (!response.success){
+                sharedViewModel.isExpired.observe(viewLifecycleOwner,Observer{
+                    if (it){
+                        //dialog
+                        val intent = Intent(requireActivity(), AuthActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }else {
+                        Toast.makeText(requireContext(),response.errorMsg,Toast.LENGTH_LONG).show()
+                    }
+                })
+            }
+        })
 
 
     }

@@ -1,0 +1,7 @@
+package com.example.assignment.employer
+
+import androidx.lifecycle.ViewModel
+
+class ScheduleInterviewEmployerViewModel : ViewModel() {
+    // TODO: Implement the ViewModel
+}

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ScheduleInterviewEmployerFragment">
+    tools:context=".employer.ScheduleInterviewEmployerFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <ImageView
             android:id="@+id/icon_arrowback"
@@ -18,27 +19,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon_arrowback" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon_home" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/scheduleProgramme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/hind_siliguri_bold"
-            android:text="Interview Schedule"
+            android:text="Schedule Interview"
             android:textColor="@color/black"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/icon_arrowback" />
+
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -46,52 +41,61 @@
             android:layout_height="0dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/confirm_interview_btn"
+            app:layout_constraintBottom_toTopOf="@id/confirm_interview_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title">
+            app:layout_constraintTop_toBottomOf="@id/scheduleProgramme">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/date"
                     style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:hint="Date (DD/MM/YYYY)"
-                    app:helperText="Required*"
+                    android:layout_marginTop="15dp"
+                    android:hint="Date (YYYY-MM-DD)"
                     app:helperTextTextColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:startIconDrawable="@drawable/icon_calendar">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editDate"
+                        android:inputType="date"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
+                        tools:ignore="DuplicateClickableBoundsCheck"
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/startTime"
                     style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:hint="Start Time"
-                    app:helperText="Required*"
+                    android:layout_marginTop="15dp"
+                    android:hint="Start Time (HH:MM)"
                     app:helperTextTextColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date"
                     app:startIconDrawable="@drawable/icon_clock">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editClock"
+                        android:id="@+id/editStartTime"
+                        style="@style/text_input_style"
+                        android:inputType="time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/text_input_style"
                         tools:ignore="DuplicateClickableBoundsCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -101,17 +105,21 @@
                     style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:hint="End Time"
+                    android:layout_marginTop="8dp"
+                    android:hint="End Time (HH:MM)"
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/startTime"
                     app:startIconDrawable="@drawable/icon_clock">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editEndTime"
+                        style="@style/text_input_style"
+                        android:inputType="time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/text_input_style"
                         tools:ignore="DuplicateClickableBoundsCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -121,61 +129,117 @@
                     style="@style/FilledTextInputLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:hint="Jobs Type"
-                    app:startIconDrawable="@drawable/icon_interview_type">
+                    android:layout_marginTop="15dp"
+                    android:hint="Type"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
+                    app:startIconDrawable="@drawable/icon_interview_type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/endTime">
 
                     <AutoCompleteTextView
-                        android:id="@+id/editType"
                         style="@style/text_input_style"
+                        android:id="@+id/editType"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:textColor="@color/gray"/>
+                        android:inputType="none"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/link"
+                    android:id="@+id/textLocationS"
+                    android:visibility="gone"
                     style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
+                    android:hint="Location"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/type"
+                    app:startIconDrawable="@drawable/icon_location">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editLocation"
+                        style="@style/text_input_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:lines="2"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textLinkS"
+                    android:visibility="gone"
+                    style="@style/FilledTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:hint="Link"
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textLocationS"
                     app:startIconDrawable="@drawable/icon_link">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editLink"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
-
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/remark"
+                    android:id="@+id/textDescriptionS"
                     style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:hint="Remark"
-                    android:nestedScrollingEnabled="true"
-                    app:startIconDrawable="@drawable/icon_note">
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:hint="Description"
+                    app:counterEnabled="true"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textLocationS">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editRemark"
+                        android:id="@+id/editDescription"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
-
+                        android:layout_height="match_parent"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:lines="6"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
-        </ScrollView>
 
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/confirm_interview_btn"
@@ -187,13 +251,16 @@
             android:layout_marginBottom="8dp"
             android:backgroundTint="@color/salary_text_color"
             android:fontFamily="@font/hind_siliguri_bold"
-            android:text="Confirm Schedule"
+            android:text="Schedule"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
+
+

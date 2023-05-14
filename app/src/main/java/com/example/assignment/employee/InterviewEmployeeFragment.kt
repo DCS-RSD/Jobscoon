@@ -20,8 +20,8 @@ import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.FragmentInterviewEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
-import com.example.assignment.recycleviews.JobInterviewRecyclerAdapter
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobInterviewRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
 class InterviewEmployeeFragment : Fragment() {
 
@@ -51,13 +51,12 @@ class InterviewEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.autoLogin() //check token
-
         sharedViewModel.getData()
+
 
         sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
             binding.interviewEmployeeRecycleView.apply {
-                adapter = JobInterviewRecyclerAdapter(it)
+                adapter = JobInterviewRecyclerAdapter(sharedViewModel, requireContext(), it)
                 layoutManager = manager
             }
 
@@ -69,7 +68,7 @@ class InterviewEmployeeFragment : Fragment() {
             binding.interviewEmployeeRefresh.isRefreshing = false
         }
 
-
     }
+
 
 }

@@ -8,4 +8,5 @@ data class JobApplicationItem(
     val updated_at: String,
     val user_id: Int,
     val job_post: JobPostItem,
+    val applied_at: String
 )

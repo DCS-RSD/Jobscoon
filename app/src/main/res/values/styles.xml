@@ -255,4 +255,27 @@
         <item name="android:textColor">@color/gray</item>
     </style>
 
+    <style name="search_view_style">
+        <item name="android:background">@drawable/search_view_border</item>
+        <item name="android:contextClickable">false</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:iconifiedByDefault">false</item>
+        <item name="android:inputType">text</item>
+        <item name="android:queryBackground">@color/transparent</item>
+    </style>
+
+    <style name="MyDropdownMenu" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="fontFamily">@font/hind_siliguri</item>
+    </style>
+
+    <style name="no_record_style">
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/hind_siliguri</item>
+    </style>
+
+
 </resources>

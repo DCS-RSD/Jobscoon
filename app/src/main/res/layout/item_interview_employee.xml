@@ -287,6 +287,7 @@
                 app:layout_constraintTop_toBottomOf="@id/interview_layout">
 
                 <Button
+                    android:id="@+id/accept_button"
                     style="@style/interview_accept_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -295,6 +296,7 @@
                     android:text="ACCEPT" />
 
                 <Button
+                    android:id="@+id/declined_button"
                     style="@style/interview_declined_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -303,6 +305,26 @@
                     android:text="DECLINE" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/accepted"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginEnd="14dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/hind_siliguri_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/interview_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:enabled="false"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/salary_text_color"
+                android:text="ACCEPTED" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

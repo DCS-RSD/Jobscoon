@@ -3,10 +3,8 @@ package com.example.assignment.auth
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
 import com.example.assignment.dataclass.ResponseForUI
 import com.example.assignment.dataclass.ValidationErrorResponse
@@ -23,6 +21,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         MutableLiveData<ResponseForUI>()
     }
 
+    val isEmployer: MutableLiveData<Int> = MutableLiveData()
+
     fun submitLogin(email: String, password: String) {
 
         val build = RetrofitBuild.build()
@@ -36,10 +36,11 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 if (response.isSuccessful) {
 
                     loginResponse.value = ResponseForUI(true, "")
-
+                    isEmployer.value = response.body()!!.user.is_employer!!
                     val editor = sharedPreferences.edit()
                     editor.putString("Token", "Bearer " + response.body()!!.token)
                     editor.putString("Id", response.body()!!.user.id.toString())
+                    editor.putString("IsEmployer", response.body()!!.user.is_employer.toString())
                     editor.apply()
 
                 } else if (response.code() == 422) { //validation fails

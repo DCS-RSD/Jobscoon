@@ -20,8 +20,8 @@ import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentCareerDevelopmentEmployeeBinding
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
-import com.example.assignment.recycleviews.CareerDevelopmentEmployeeRecyclerAdapter
-import com.example.assignment.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employee.recycleviews.CareerDevelopmentEmployeeRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
 class CareerDevelopmentEmployeeFragment : Fragment() {
 
@@ -51,13 +51,11 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sharedViewModel.autoLogin() //check token
-
         sharedViewModel.getData()
 
         sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {
             binding.careerDevelopmentEmployeeRecycleView.apply {
-                adapter = CareerDevelopmentEmployeeRecyclerAdapter(it)
+                adapter = CareerDevelopmentEmployeeRecyclerAdapter(sharedViewModel, it)
                 layoutManager = manager
             }
 

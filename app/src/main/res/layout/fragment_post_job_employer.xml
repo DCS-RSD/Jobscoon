@@ -2,12 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".PostJobEmployerFragment">
+    tools:context=".employer.PostJobEmployerFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
 
         <ImageView
@@ -20,15 +19,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon_arrowback" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon_home" />
 
         <TextView
             android:id="@+id/my_jobs"
@@ -65,15 +55,16 @@
                     style="@style/FilledTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="12dp"
                     android:hint="Job Title"
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/red"
                     app:startIconDrawable="@drawable/icon_title">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editDate"
+                        android:id="@+id/editJobTitle"
                         style="@style/text_input_style"
+                        android:inputType="text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:ignore="DuplicateClickableBoundsCheck" />
@@ -87,59 +78,62 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:hint="Jobs Type"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/red"
                     app:startIconDrawable="@drawable/icon_employee">
 
                     <AutoCompleteTextView
                         style="@style/text_input_style"
-                        android:id="@+id/editTextLocationS"
+                        android:id="@+id/editJobType"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:textColor="@color/gray"
+                        android:inputType="none"
+                        android:textColor="@color/black"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/contractLength"
-                        style="@style/FilledTextInputLayout"
-                        android:layout_width="0dp"
+                        android:id="@+id/shiftFrom"
+                        style="@style/FilledTextInputLayout1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:hint="Contract Length"
-                        app:helperText="Required*"
-                        app:helperTextTextColor="@color/red"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="8dp"
+                        android:hint="Shift From"
                         app:startIconDrawable="@drawable/icon_clock">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editContractLength"
+                        <AutoCompleteTextView
+                            android:id="@+id/editShiftFrom"
                             style="@style/text_input_style"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="none"
                             tools:ignore="DuplicateClickableBoundsCheck" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/contractPeriod"
+                        android:id="@+id/shiftTo"
                         style="@style/FilledTextInputLayout1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
                         android:layout_marginEnd="32dp"
-                        android:layout_weight="1"
-                        android:hint="Period">
+                        android:hint="To"
+                        app:helperText="Required*"
+                        app:helperTextTextColor="@color/red"
+                        app:startIconDrawable="@drawable/icon_clock">
 
                         <AutoCompleteTextView
-                            android:id="@+id/editClock"
+                            android:id="@+id/editShiftTo"
                             style="@style/text_input_style"
+                            android:inputType="none"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:ignore="DuplicateClickableBoundsCheck" />
@@ -148,33 +142,6 @@
 
 
                 </LinearLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/date"
-                    style="@style/FilledTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="32dp"
-                    android:hint="Start Date"
-                    app:helperText="Required*"
-                    app:helperTextTextColor="@color/red"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/appTitleS"
-                    app:startIconDrawable="@drawable/icon_calendar">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editEndTime"
-                        style="@style/text_input_style"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <LinearLayout
@@ -200,6 +167,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editSalaryStart"
                             style="@style/text_input_style"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:ignore="DuplicateClickableBoundsCheck" />
@@ -214,6 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
                         android:layout_marginEnd="32dp"
+                        android:layout_marginStart="8dp"
                         android:layout_weight="1"
                         android:hint="To"
                         app:helperText="Required*"
@@ -223,6 +192,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editSalaryEnd"
                             style="@style/text_input_style"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:ignore="DuplicateClickableBoundsCheck" />
@@ -232,24 +202,6 @@
 
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/salaryPeriod"
-                    style="@style/FilledTextInputLayout1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="32dp"
-                    android:hint="Per day">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/editSalaryPeriod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/text_input_style"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -263,14 +215,23 @@
                     android:layout_marginBottom="12dp"
                     android:hint="Job Description"
                     android:nestedScrollingEnabled="true"
-                    app:startIconDrawable="@drawable/icon_note">
+                    app:helperText="Required*"
+                    app:counterEnabled="true"
+                    app:helperTextTextColor="@color/red"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editJobDescription"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="DuplicateClickableBoundsCheck" />
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:lines="6"
+                        android:gravity="top"
+                        android:overScrollMode="always"
+                        android:scrollbars="vertical"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollHorizontally="false" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

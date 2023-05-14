@@ -26,24 +26,6 @@ class EmployeeNavHost : AppCompatActivity() {
 
     }
 
-    private fun setBar() {
-/*
-        binding.bottomNavBar.setOnItemSelectedListener {
-            when (it) {
-                R.id.home -> {
-                    replaceFragment(FindJobsEmployeeFragment())
-                    binding.navName.text = getString(R.string.nav_title_home)
-                }
-                R.id.profile -> {
-                    replaceFragment(ProfileEmployeeFragment())
-                    binding.navName.text = getString(R.string.nav_title_profile)
-                }
-            }
-            true
-        }
-        */
-    }
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
@@ -54,6 +36,9 @@ class EmployeeNavHost : AppCompatActivity() {
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+                R.id.changePasswordFragment,
+                R.id.editProfileEmployeeFragment,
+                R.id.careerDevelopmentDetailsFragment,
                 R.id.jobDetailsEmployeeFragment -> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE

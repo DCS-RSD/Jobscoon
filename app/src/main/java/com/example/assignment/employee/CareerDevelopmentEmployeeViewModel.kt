@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.assignment.api.RetrofitBuild
@@ -19,7 +20,14 @@ class CareerDevelopmentEmployeeViewModel(application: Application) : AndroidView
     lateinit var currentUser: User
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
-    val loginResponse: MutableLiveData<ResponseForUI> by lazy {
+    val getAllResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
+    val showResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+    val applyResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
 
@@ -27,28 +35,16 @@ class CareerDevelopmentEmployeeViewModel(application: Application) : AndroidView
         MutableLiveData<List<CareerDevelopmentItem>>()
     }
 
-    fun autoLogin() {
-        val build = RetrofitBuild.build().autoLogin(
-            sharedPreferences.getString("Token", "")!!,
-            sharedPreferences.getString("Id", "")!!
-        )
+    private val _careerDevDetail = MutableLiveData<CareerDevelopmentItem>()
+    val careerDevDetail: LiveData<CareerDevelopmentItem>
+        get() = _careerDevDetail
 
+    fun setCareerDevDetail(careerDevItem: CareerDevelopmentItem) {
+        _careerDevDetail.value = careerDevItem
+    }
 
-
-        build.enqueue(object : Callback<User?> {
-            override fun onResponse(call: Call<User?>, response: Response<User?>) {
-                if (response.isSuccessful) {
-                    currentUser = response.body()!!
-                } else {
-                    //
-                }
-            }
-
-            override fun onFailure(call: Call<User?>, t: Throwable) {
-
-                Log.i("check", "onFailure: no")
-            }
-        })
+    val careerDevId: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
     }
 
     fun getData() {
@@ -63,13 +59,13 @@ class CareerDevelopmentEmployeeViewModel(application: Application) : AndroidView
             ) {
                 if (response.isSuccessful) {
 
-                    loginResponse.value = ResponseForUI(true, "")
+                    getAllResponse.value = ResponseForUI(true, "")
                     careerDevelopmentList.value = response.body()!!
-                    Log.d("success", "onResponse: "+careerDevelopmentList.value)
+                    Log.d("success", "onResponse: " + careerDevelopmentList.value)
 
                 } else { //unknown error
 
-                    loginResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    getAllResponse.value = ResponseForUI(false, "Something Went Wrong")
 
                 }
             }
@@ -77,13 +73,117 @@ class CareerDevelopmentEmployeeViewModel(application: Application) : AndroidView
             override fun onFailure(call: Call<List<CareerDevelopmentItem>?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
 
-                loginResponse.value =
+                getAllResponse.value =
                     ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
 
 
             }
 
 
+        })
+
+    }
+
+    fun showCareerDev() {
+        val build = RetrofitBuild.build().showCareer(
+            sharedPreferences.getString("Token", "")!!, careerDevId.value!!
+        )
+
+        setCareerDevDetail(CareerDevelopmentItem()) //reset
+
+        build.enqueue(object : Callback<CareerDevelopmentItem> {
+            override fun onResponse(
+                call: Call<CareerDevelopmentItem>,
+                response: Response<CareerDevelopmentItem>
+            ) {
+                if (response.isSuccessful) {
+
+                    showResponse.value = ResponseForUI(true, "")
+                    setCareerDevDetail(response.body()!!)
+                    Log.d("success", "onResponse: " + careerDevDetail.value)
+
+                } else { //unknown error
+
+                    showResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<CareerDevelopmentItem>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                showResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+
+    }
+
+    fun postJoinData() {
+        val build = RetrofitBuild.build().applyCareer(
+            sharedPreferences.getString("Token", "")!!, careerDevId.value!!
+        )
+
+        build.enqueue(object : Callback<ValidationErrorResponse> {
+            override fun onResponse(
+                call: Call<ValidationErrorResponse>,
+                response: Response<ValidationErrorResponse>
+            ) {
+                if (response.isSuccessful) {
+
+                    applyResponse.value = ResponseForUI(true, "")
+                    //jobApplicationItem.value = response.body()!!
+                    //Log.d("success", "onResponse: " + jobApplicationItem.value)
+
+                } else { //unknown error
+
+                    applyResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<ValidationErrorResponse>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                applyResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
+        })
+
+    }
+
+    fun postUnjoinData() {
+        val build = RetrofitBuild.build().cancelCareer(
+            sharedPreferences.getString("Token", "")!!, careerDevId.value!!
+        )
+
+        build.enqueue(object : Callback<Void> {
+            override fun onResponse(
+                call: Call<Void>,
+                response: Response<Void>
+            ) {
+                if (response.isSuccessful) {
+
+                    applyResponse.value = ResponseForUI(true, "")
+                    //jobApplicationItem.value = response.body()!!
+                    //Log.d("success", "onResponse: " + jobApplicationItem.value)
+
+                } else { //unknown error
+
+                    applyResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.d("fail", "onFailure: " + t.message)
+
+                applyResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+
+            }
         })
 
     }

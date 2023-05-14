@@ -3,6 +3,7 @@ package com.example.assignment.auth
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.navigation.findNavController
 import com.example.assignment.employee.EmployeeNavHost
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentLoginBinding
+import com.example.assignment.employer.EmployerNavHost
 
 class LoginFragment : Fragment() {
 
@@ -55,9 +57,21 @@ class LoginFragment : Fragment() {
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             if (it.success) {
-                val intent = Intent(requireActivity(), EmployeeNavHost::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
+
+                viewModel.isEmployer.observe(viewLifecycleOwner, Observer { isEmployer->
+                    if (isEmployer == 1){
+                        Log.d("EMPLOYER", "onActivityCreated: ")
+                        val intent = Intent(requireActivity(), EmployerNavHost::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }else{
+                        Log.d("EMPLOYEE", "onActivityCreated: ")
+                        val intent = Intent(requireActivity(), EmployeeNavHost::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
+                })
+
 
             } else {
                 Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()

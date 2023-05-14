@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".employee.JobDetailsEmployeeFragment">
 
+    <data>
+        <variable
+            name="jobPostItem"
+            type="com.example.assignment.dataclass.JobPostItem" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/job_details_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/job_details_employee_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -50,15 +60,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/job_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="gone"
+                    android:text="example"/>
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
                     android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="Client Service Manager"
+                    android:text="@{jobPostItem.title}"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,30 +90,63 @@
                     style="@style/company_and_location_name_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Brand C Real Estate"
+                    android:text="@{jobPostItem.company.name}"
                     app:layout_constraintStart_toStartOf="@+id/textView4"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+                <ImageView
+                    android:id="@+id/icon_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:srcCompat="@drawable/icon_phone_profile_used"
+                    app:layout_constraintStart_toStartOf="@id/textView5"
+                    app:layout_constraintTop_toBottomOf="@id/textView5"/>
+
+
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textView100"
                     style="@style/company_and_location_name_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/kuala_lumpur"
-                    app:layout_constraintStart_toStartOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                    android:text="@{jobPostItem.company.contact_number}"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/icon_phone"
+                    app:layout_constraintTop_toTopOf="@+id/icon_phone"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_phone"
+                   />
+
+                <ImageView
+                    android:id="@+id/icon_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:srcCompat="@drawable/icon_email_profile_used"
+                    app:layout_constraintStart_toStartOf="@id/icon_phone"
+                    app:layout_constraintTop_toBottomOf="@id/icon_phone"/>
+
+                <TextView
+                    android:id="@+id/textView101"
+                    style="@style/company_and_location_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{jobPostItem.company.email}"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/icon_email"
+                    app:layout_constraintTop_toTopOf="@+id/icon_email"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_email" />
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/hind_siliguri_bold"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/hind_siliguri_semibold"
                     android:text="Job Details"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView6"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                    app:layout_constraintStart_toStartOf="@+id/icon_email"
+                    app:layout_constraintTop_toBottomOf="@+id/icon_email" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -137,7 +193,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="@string/rm_3000_rm_8000_a_month"
+                    android:text="@{jobPostItem.salary}"
                     app:layout_constraintStart_toStartOf="@+id/textView8"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -159,7 +215,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="@string/full_time"
+                    android:text="@{jobPostItem.type}"
                     app:layout_constraintStart_toStartOf="@+id/textView11"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -181,7 +237,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="@string/monday_to_friday"
+                    android:text="@{jobPostItem.shift}"
                     app:layout_constraintStart_toStartOf="@+id/jobType2"
                     app:layout_constraintTop_toBottomOf="@+id/jobType2" />
 
@@ -191,14 +247,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     android:fontFamily="@font/hind_siliguri"
-                    android:text="@string/job_desc"
+                    android:text="@{jobPostItem.description}"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -226,5 +280,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
 
