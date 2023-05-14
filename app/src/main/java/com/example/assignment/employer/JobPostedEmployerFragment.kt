@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
@@ -15,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.CustomDialog
 import com.example.assignment.EditProfileEmployeeViewModel
 import com.example.assignment.R
 import com.example.assignment.auth.AuthActivity
@@ -57,18 +59,21 @@ class JobPostedEmployerFragment : Fragment() {
 
         sharedViewModel.getData()
 
-        val oldJobPostList =  sharedViewModel.jobPostList.value
+        var oldJobPostList = sharedViewModel.jobPostList.value
 
         try {
             binding.jobPostRecycleView.apply {
                 adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, oldJobPostList!!)
                 layoutManager = manager
             }
-        }catch (e:Exception){}
+        } catch (e: Exception) {
+        }
 
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             if (oldJobPostList != it) {
+                println(111)
+                oldJobPostList = it
                 binding.jobPostRecycleView.apply {
                     adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, it)
                     layoutManager = manager
@@ -92,11 +97,19 @@ class JobPostedEmployerFragment : Fragment() {
             if (!response.success) {
                 sharedViewModel.isExpired.observe(viewLifecycleOwner, Observer {
                     if (it) {
-                        //dialog
-                        val intent = Intent(requireActivity(), AuthActivity::class.java)
-                        intent.flags =
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
+                        val dialog = CustomDialog.customDialog(
+                            requireContext(),
+                            "Session Expired",
+                            "Please Login Again"
+                        )
+                        dialog.findViewById<Button>(R.id.btn_cancel).visibility = View.GONE
+                        dialog.show()
+                        dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                            val intent = Intent(requireActivity(), AuthActivity::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        }
                     } else {
                         Toast.makeText(requireContext(), response.errorMsg, Toast.LENGTH_LONG)
                             .show()
@@ -106,15 +119,4 @@ class JobPostedEmployerFragment : Fragment() {
         })
 
     }
-
-    //scroll remain
-//    override fun onPause() {
-//        super.onPause()
-//        scrollPosition = (manager as LinearLayoutManager).findFirstVisibleItemPosition()
-//    }
-//
-//    override fun onResume() {
-//        super.onResume()
-//        (manager as LinearLayoutManager).scrollToPosition(scrollPosition)
-//    }
 }

@@ -74,8 +74,24 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
                 response: Response<List<JobPostItem>?>
             ) {
                 if (response.isSuccessful) {
-                    if (response.body()!! != jobPostList) {
+
+                    var checkOld = listOf<JobPostItem>()
+                    val checkNew = response.body()!!
+
+                    try {
+                     checkOld = jobPostList.value!!
+                        for (i in checkOld){
+                            i.post_at = null
+                        }
+                        for (i in checkNew){
+                            i.post_at = null
+                        }
+                    }catch (e:Exception){}
+
+                    if (checkOld != checkNew) {
                         jobPostList.value = response.body()!!
+                        println("diff")
+                        println(response.body())
                     }
                     getAllResponse.value = ResponseForUI(true, "")
                     Log.d("success", "onResponse: " + jobPostList.value)
