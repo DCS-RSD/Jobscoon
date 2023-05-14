@@ -75,4 +75,26 @@
         android:name="com.example.assignment.EditProfileEmployeeFragment"
         android:label="fragment_edit_profile_employee"
         tools:layout="@layout/fragment_edit_profile_employee" />
+    <fragment
+        android:id="@+id/careerDevelopmentEmployerFragment"
+        android:name="com.example.assignment.employer.CareerDevelopmentEmployerFragment"
+        android:label="fragment_career_development_employer"
+        tools:layout="@layout/fragment_career_development_employer" >
+        <action
+            android:id="@+id/action_careerDevelopmentEmployerFragment_to_careerDevelopmentDetailsEmployerFragment"
+            app:destination="@id/careerDevelopmentDetailsEmployerFragment" />
+        <action
+            android:id="@+id/action_careerDevelopmentEmployerFragment_to_addCareerDevelopmentEmployerFragment"
+            app:destination="@id/addCareerDevelopmentEmployerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/careerDevelopmentDetailsEmployerFragment"
+        android:name="com.example.assignment.employer.CareerDevelopmentDetailsEmployerFragment"
+        android:label="fragment_career_development_details_employer"
+        tools:layout="@layout/fragment_career_development_details_employer" />
+    <fragment
+        android:id="@+id/addCareerDevelopmentEmployerFragment"
+        android:name="com.example.assignment.employer.AddCareerDevelopmentEmployerFragment"
+        android:label="fragment_add_career_development_employer"
+        tools:layout="@layout/fragment_add_career_development_employer" />
 </navigation>
