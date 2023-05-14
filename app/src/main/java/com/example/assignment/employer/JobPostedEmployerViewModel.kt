@@ -74,28 +74,19 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
                 response: Response<List<JobPostItem>?>
             ) {
                 if (response.isSuccessful) {
-
-                    var checkOld = listOf<JobPostItem>()
-                    val checkNew = response.body()!!
-
+                    var isDiff = true
                     try {
-                     checkOld = jobPostList.value!!
-                        for (i in checkOld){
-                            i.post_at = null
-                            i.edited_at=null
-                        }
-                        for (i in checkNew){
-                            i.post_at = null
-                            i.edited_at=null
-                        }
-                    }catch (e:Exception){}
+                        val checkOld = jobPostList.value?.map { it.copy(post_at = null, edited_at = null) }
+                        val checkNew = response.body()?.toList()?.map { it.copy(post_at = null, edited_at = null) }
+                        isDiff = checkOld != checkNew
+                    } catch (e: Exception) {
+                    }
 
-                    if (checkOld != checkNew) {
-                        jobPostList.value = response.body()!!
+                    if (isDiff) {
+                        jobPostList.value = response.body()!!.map { it.copy() }
                         println("diff")
                     }
                     getAllResponse.value = ResponseForUI(true, "")
-                    Log.d("success", "onResponse: " + jobPostList.value)
 
                 } else if (response.code() == 401) { //unknown error, mostly 401 (unauthorized)
 
