@@ -33,9 +33,8 @@ class JobPostedEmployerFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentJobPostedEmployerBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: JobPostEmployerRecyclerAdapter
-    private lateinit var dataList: List<JobPostItem>
+    private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var recycleViewAdapter:JobPostEmployerRecyclerAdapter
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
 
 
@@ -50,14 +49,12 @@ class JobPostedEmployerFragment : Fragment() {
             false
         )
 
-        // Initialize RecyclerView
-        recyclerView = binding.jobPostRecycleView
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Initialize adapter
-        dataList = mutableListOf() // Initialize your data source
-        adapter = JobPostEmployerRecyclerAdapter(sharedViewModel,dataList)
-        recyclerView.adapter = adapter
+        manager = LinearLayoutManager(requireContext())
+        recycleViewAdapter = JobPostEmployerRecyclerAdapter(sharedViewModel)
+        binding.jobPostRecycleView.apply {
+            adapter = recycleViewAdapter
+            layoutManager = manager
+        }
 
         return binding.root
     }
@@ -85,11 +82,10 @@ class JobPostedEmployerFragment : Fragment() {
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.jobPostRecycleView.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
-            adapter.setItem(it)
+            recycleViewAdapter.setItem(it)
             binding.jobPostRecycleView.apply {
                 adapter?.notifyDataSetChanged()
             }
-            println("a")
         })
 
         //navigate to form
