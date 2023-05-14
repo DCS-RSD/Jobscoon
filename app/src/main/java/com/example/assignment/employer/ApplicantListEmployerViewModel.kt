@@ -72,16 +72,21 @@ class ApplicantListEmployerViewModel(application: Application) : AndroidViewMode
         build.enqueue(object : Callback<Void?> {
             override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
                 if (response.isSuccessful) {
-                    acceptResponse.value = ResponseForUI(true, "")
+                    if(acceptResponse.value != ResponseForUI(true,"")) {
+                        acceptResponse.postValue(ResponseForUI(true, ""))
+                    }
                 } else {
-                    acceptResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    acceptResponse.postValue(ResponseForUI(false, "Something Went Wrong"))
                 }
             }
 
             override fun onFailure(call: Call<Void?>, t: Throwable) {
-                acceptResponse.value =
-                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
-
+                acceptResponse.postValue(
+                    ResponseForUI(
+                        false,
+                        "Something Went Wrong. Kindly check your connection"
+                    )
+                )
             }
         })
     }
@@ -91,15 +96,18 @@ class ApplicantListEmployerViewModel(application: Application) : AndroidViewMode
         build.enqueue(object : Callback<Void?> {
             override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
                 if (response.isSuccessful) {
-                    rejectResponse.value = ResponseForUI(true, "")
+                    if(rejectResponse.value != ResponseForUI(true,"")) {
+                        rejectResponse.postValue(ResponseForUI(true, ""))
+                    }
                 } else {
-                    rejectResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    rejectResponse.postValue(ResponseForUI(false, "Something Went Wrong"))
                 }
             }
 
             override fun onFailure(call: Call<Void?>, t: Throwable) {
-                rejectResponse.value =
+                rejectResponse.postValue(
                     ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+                )
 
             }
         })
