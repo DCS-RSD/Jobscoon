@@ -136,6 +136,8 @@ viewModel.deleteJobPost(id)
 
         viewModel.showJobPost(id)
         viewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
+            binding.loadingIcon.visibility = View.GONE
+            binding.scroll.visibility = View.VISIBLE
             binding.jobPostItem = it
         })
 

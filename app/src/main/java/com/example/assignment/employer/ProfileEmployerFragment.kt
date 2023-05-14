@@ -45,7 +45,8 @@ class ProfileEmployerFragment : Fragment() {
 
         viewModel.getProfile()
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
-
+            binding.loadingIcon.visibility = View.GONE
+            binding.profileScroll.visibility = View.VISIBLE
             if (it.description == "") {
                 it.description = "Describe yourself can let other know more about you!"
                 binding.textAbout.apply {
@@ -58,6 +59,14 @@ class ProfileEmployerFragment : Fragment() {
                 binding.addressS.apply {
                     setTypeface(null, Typeface.ITALIC)
                 }
+            }
+
+            if (it.company!!.description == null) {
+                binding.textCompanyDesc.visibility = View.GONE
+                binding.line.visibility = View.GONE
+            } else {
+                binding.textCompanyDesc.visibility = View.VISIBLE
+                binding.line.visibility = View.VISIBLE
             }
             binding.user = it
 

@@ -74,10 +74,20 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
                 response: Response<List<JobPostItem>?>
             ) {
                 if (response.isSuccessful) {
-
+//                    var isDiff = true
+//                    try {
+//                        val checkOld = jobPostList.value?.map { it.copy(post_at = null, edited_at = null) }
+//                        val checkNew = response.body()?.toList()?.map { it.copy(post_at = null, edited_at = null) }
+//                        isDiff = checkOld != checkNew
+//                    } catch (e: Exception) {
+//                    }
+//
+//                    if (isDiff) {
+//                        jobPostList.value = response.body()!!.map { it.copy() }
+//                        println("diff")
+//                    }
+                    jobPostList.value = response.body()
                     getAllResponse.value = ResponseForUI(true, "")
-                    jobPostList.value = response.body()!!
-                    Log.d("success", "onResponse: " + jobPostList.value)
 
                 } else if (response.code() == 401) { //unknown error, mostly 401 (unauthorized)
 
@@ -99,7 +109,6 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
             }
         })
     }
-
 
 
 }

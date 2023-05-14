@@ -38,30 +38,34 @@ class ApplicantListEmployerRecyclerAdapter(
         return ViewHolder(binding)
     }
 
-    private fun setAccept() {
-        binding.acceptButton.visibility = View.GONE
-        binding.rejectButton.visibility = View.GONE
-        binding.actionBtn.apply {
-            visibility = View.VISIBLE
+    private fun setAccept(holder: ViewHolder) {
+        holder.apply {
+            binding.acceptButton.visibility = View.GONE
+            binding.rejectButton.visibility = View.GONE
+            binding.actionBtn.apply {
+                visibility = View.VISIBLE
+            }
         }
     }
 
-    private fun setDecline() {
-        binding.acceptButton.visibility = View.GONE
-        binding.rejectButton.visibility = View.GONE
-        binding.actionBtn.apply {
-            backgroundTintList = ContextCompat
-                .getColorStateList(context, R.color.rejected_text_color)
-            text = "DECLINED"
-            visibility = View.VISIBLE
-            isClickable = false
+    private fun setDecline(holder: ViewHolder) {
+        holder.apply {
+            binding.acceptButton.visibility = View.GONE
+            binding.rejectButton.visibility = View.GONE
+            binding.actionBtn.apply {
+                backgroundTintList = ContextCompat
+                    .getColorStateList(context, R.color.rejected_text_color)
+                text = "DECLINED"
+                visibility = View.VISIBLE
+                isClickable = false
+            }
         }
     }
 
-    fun checkStatus(status: String) {
+    fun checkStatus(status: String,holder:ViewHolder) {
         when (status) {
-            in "accept" -> setAccept()
-            in "declined" -> setDecline()
+            in "accept" -> setAccept(holder)
+            in "declined" -> setDecline(holder)
         }
     }
 
@@ -78,7 +82,7 @@ class ApplicantListEmployerRecyclerAdapter(
                 binding.line.visibility = View.GONE
             }
 
-            checkStatus(status)
+            checkStatus(status,holder)
 
             //accept button
             binding.acceptButton.setOnClickListener {
@@ -89,12 +93,12 @@ class ApplicantListEmployerRecyclerAdapter(
                 )
                 dialog.show()
 
-                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener { view ->
                     viewModel.accept(applicationId)
-                    it.isClickable = false
+                    view.isClickable = false
                     viewModel.acceptResponse.observe(context as LifecycleOwner, Observer {
                         if (it.success) {
-                            setAccept()
+                            setAccept(holder)
                             Toast.makeText(
                                 context,
                                 "Applicant Accepted Successfully!",
@@ -121,13 +125,13 @@ class ApplicantListEmployerRecyclerAdapter(
                 )
                 dialog.show()
 
-                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener { view ->
                     viewModel.decline(applicationId)
-                    it.isClickable = false
+                    view.isClickable = false
+                    dialog.dismiss()
                     viewModel.rejectResponse.observe(context as LifecycleOwner, Observer {
-                        dialog.dismiss()
                         if (it.success) {
-                            setDecline()
+                            setDecline(holder)
                             Toast.makeText(
                                 context,
                                 "Applicant Rejected Successfully!",

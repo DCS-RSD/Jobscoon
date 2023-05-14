@@ -15,8 +15,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/job_post_recycle_view"
+            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,6 +31,13 @@
             app:backgroundTint="@color/colorPrimary"
             android:contentDescription="Post New Job"
             android:layout_margin="32dp"/>
+
+        <ProgressBar
+            android:id="@+id/loadingIcon"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
 
     </FrameLayout>

@@ -22,10 +22,13 @@ import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.JobDetailsEmployeeFragment
 import com.example.assignment.employer.JobPostedEmployerViewModel
 
-class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerViewModel, private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostEmployerRecyclerAdapter.ViewHolder>() {
+class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerViewModel) : RecyclerView.Adapter<JobPostEmployerRecyclerAdapter.ViewHolder>() {
 
     lateinit var binding : ItemJobPostBinding
-
+    private var dataList = listOf<JobPostItem>()
+    fun setItem(jobPostList: List<JobPostItem>){
+        this.dataList = jobPostList
+    }
     inner class ViewHolder(val binding: ItemJobPostBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobPostItem) {
             binding.jobPostItem = item
