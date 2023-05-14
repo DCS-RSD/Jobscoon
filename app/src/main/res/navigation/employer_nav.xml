@@ -108,7 +108,7 @@
         android:label="fragment_edit_career_development_employer"
         tools:layout="@layout/fragment_edit_career_development_employer" />
     <fragment
-        android:id="@+id/interviewEmployerFragment2"
+        android:id="@+id/interviewEmployerFragment"
         android:name="com.example.assignment.employer.InterviewEmployerFragment"
         android:label="fragment_interview_employer"
         tools:layout="@layout/fragment_interview_employer" />

@@ -75,25 +75,18 @@ class InterviewEmployerRecyclerAdapter(
                 dialog.show()
                 dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
                     viewModel.delete(item.id)
-                    viewModel.getData()
+                    it.isClickable = false
+                    binding.declinedButton.isClickable = false
                     dialog.dismiss()
                 }
 
                 dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
                     dialog.dismiss()
+                    it.isClickable = false
+                    binding.declinedButton.isClickable = false
                 }
             }
         }
-
-        viewModel.deleteResponse.observe(context as LifecycleOwner, Observer {
-            if (it.success) {
-                println(112233)
-                Toast.makeText(context, "Interview Deleted Successfully", Toast.LENGTH_LONG)
-                    .show()
-            } else {
-                Toast.makeText(context, it.errorMsg, Toast.LENGTH_LONG).show()
-            }
-        })
     }
 
     override fun getItemCount(): Int {

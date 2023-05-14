@@ -62,30 +62,22 @@ class InterviewEmployerViewModel(application: Application) : AndroidViewModel(ap
         build.enqueue(object : Callback<Void?> {
             override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
                 if (response.isSuccessful) {
-
-                    if (deleteResponse.value != ResponseForUI(true, "")) {
-                        deleteResponse.postValue(ResponseForUI(true, ""))
-                    }
+                    deleteResponse.postValue(ResponseForUI(true, ""))
                 } else {
-                    if (deleteResponse.value != ResponseForUI(false, "Something Went Wrong")) {
-                        deleteResponse.postValue(ResponseForUI(false, "Something Went Wrong"))
-                    }
+                    deleteResponse.postValue(ResponseForUI(false, "Something Went Wrong"))
+
                 }
             }
 
             override fun onFailure(call: Call<Void?>, t: Throwable) {
-                if (deleteResponse.value != ResponseForUI(
+
+                deleteResponse.postValue(
+                    ResponseForUI(
                         false,
                         "Something Went Wrong. Kindly Check Your Connection"
                     )
-                ) {
-                    deleteResponse.postValue(
-                        ResponseForUI(
-                            false,
-                            "Something Went Wrong. Kindly Check Your Connection"
-                        )
-                    )
-                }
+                )
+
             }
         })
     }

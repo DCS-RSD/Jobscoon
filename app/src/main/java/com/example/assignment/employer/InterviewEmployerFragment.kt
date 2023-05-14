@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -56,10 +57,16 @@ class InterviewEmployerFragment : Fragment() {
 
         sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
             binding.loadingIcon.visibility = View.GONE
-            binding.interviewEmployerRecycleView.visibility = View.VISIBLE
-            recycleViewAdapter.setItem(it)
-            binding.interviewEmployerRecycleView.apply {
-                adapter?.notifyDataSetChanged()
+            if(it.isEmpty()){
+                binding.textNoRecord.visibility = View.VISIBLE
+                binding.interviewEmployerRecycleView.visibility = View.GONE
+            }else{
+                binding.textNoRecord.visibility = View.GONE
+                binding.interviewEmployerRecycleView.visibility = View.VISIBLE
+                recycleViewAdapter.setItem(it)
+                binding.interviewEmployerRecycleView.apply {
+                    adapter?.notifyDataSetChanged()
+                }
             }
         })
 
@@ -72,6 +79,20 @@ class InterviewEmployerFragment : Fragment() {
             if (!it.success){
                 Toast.makeText(requireContext(),it.errorMsg,Toast.LENGTH_LONG).show()
             }
+        })
+
+        sharedViewModel.deleteResponse.observe(context as LifecycleOwner, Observer {
+            try {
+                if (it.success) {
+                    sharedViewModel.getData()
+                    Toast.makeText(context, "Interview Deleted Successfully", Toast.LENGTH_LONG)
+                        .show()
+                    sharedViewModel.deleteResponse.postValue(null) //reset
+                } else {
+                    Toast.makeText(context, it.errorMsg, Toast.LENGTH_LONG).show()
+                    sharedViewModel.deleteResponse.postValue(null) //reset
+                }
+            }catch (e:Exception){}
         })
     }
 
