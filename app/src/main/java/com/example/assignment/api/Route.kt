@@ -291,4 +291,10 @@ interface Route {
         @Field("description") description: String
     ): Call<Void>
 
+    @Headers("Accept: application/json")
+    @DELETE("careerdev/{id}")
+    fun deleteCareerDev(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): Call<Void>
 }

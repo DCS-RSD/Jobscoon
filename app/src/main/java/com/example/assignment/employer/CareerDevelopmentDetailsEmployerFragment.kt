@@ -80,7 +80,6 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.edit -> {
-                        //TODO
                         findNavController().navigate(R.id.action_careerDevelopmentDetailsEmployerFragment_to_editCareerDevelopmentEmployerFragment)
                         true
                     }
@@ -88,17 +87,17 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
                         //TODO
                         val dialog = CustomDialog.customDialog(
                             requireContext(),
-                            "Delete Job",
-                            "Are You Sure To Delete This Job?"
+                            "Delete Programme",
+                            "Are You Sure To Delete This Programme?"
                         )
                         dialog.show()
                         dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-                            viewModel.deleteJobPost(id)
+                            viewModel.deleteCareerDev(id)
                             viewModel.deleteResponse.observe(viewLifecycleOwner, Observer {
                                 if (it.success){
                                     Toast.makeText(
                                         requireContext(),
-                                        "Job Deleted Successfully!",
+                                        "Programme Deleted Successfully!",
                                         Toast.LENGTH_LONG
                                     ).show()
                                     view?.findNavController()?.popBackStack()
