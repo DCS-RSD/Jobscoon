@@ -74,9 +74,10 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
                 response: Response<List<JobPostItem>?>
             ) {
                 if (response.isSuccessful) {
-
+                    if (response.body()!! != jobPostList) {
+                        jobPostList.value = response.body()!!
+                    }
                     getAllResponse.value = ResponseForUI(true, "")
-                    jobPostList.value = response.body()!!
                     Log.d("success", "onResponse: " + jobPostList.value)
 
                 } else if (response.code() == 401) { //unknown error, mostly 401 (unauthorized)
@@ -99,7 +100,6 @@ class JobPostedEmployerViewModel(application: Application) : AndroidViewModel(ap
             }
         })
     }
-
 
 
 }

@@ -57,13 +57,23 @@ class JobPostedEmployerFragment : Fragment() {
 
         sharedViewModel.getData()
 
-        sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
+        val oldJobPostList =  sharedViewModel.jobPostList.value
+
+        try {
             binding.jobPostRecycleView.apply {
-                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, it)
+                adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, oldJobPostList!!)
                 layoutManager = manager
             }
+        }catch (e:Exception){}
 
-            Log.d("acticity", "onActivityCreated: " + it)
+
+        sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
+            if (oldJobPostList != it) {
+                binding.jobPostRecycleView.apply {
+                    adapter = JobPostEmployerRecyclerAdapter(sharedViewModel, it)
+                    layoutManager = manager
+                }
+            }
         })
 
         //navigate to form
