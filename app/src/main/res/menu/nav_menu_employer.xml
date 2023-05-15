@@ -7,7 +7,7 @@
         android:title="Job">
     </item>
 
-    <item android:id="@+id/interviewEmployerFragment"
+    <item android:id="@+id/interviewMainFragment"
         android:icon="@drawable/icon_calendar_edit"
         android:title="Interview">
     </item>

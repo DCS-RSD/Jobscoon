@@ -172,4 +172,10 @@ class EditInterviewFragment : Fragment() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        println("back")
+        sharedViewModel.navigating.value = false
+    }
+
 }

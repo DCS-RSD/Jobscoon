@@ -115,15 +115,6 @@
         android:label="fragment_edit_career_development_employer"
         tools:layout="@layout/fragment_edit_career_development_employer" />
     <fragment
-        android:id="@+id/interviewEmployerFragment"
-        android:name="com.example.assignment.employer.InterviewEmployerFragment"
-        android:label="fragment_interview_employer"
-        tools:layout="@layout/fragment_interview_employer" >
-        <action
-            android:id="@+id/action_interviewEmployerFragment_to_editInterviewFragment"
-            app:destination="@id/editInterviewFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/applicantCareerDevelopmentFragment"
         android:name="com.example.assignment.employer.ApplicantCareerDevelopmentFragment"
         android:label="fragment_applicant_career_development"
@@ -138,5 +129,14 @@
         android:name="com.example.assignment.employer.EditInterviewFragment"
         android:label="fragment_edit_interview"
         tools:layout="@layout/fragment_edit_interview" />
+    <fragment
+        android:id="@+id/interviewMainFragment"
+        android:name="com.example.assignment.employer.tabs.InterviewMainFragment"
+        android:label="fragment_interview_main"
+        tools:layout="@layout/fragment_interview_main" >
+        <action
+            android:id="@+id/action_interviewMainFragment_to_editInterviewFragment"
+            app:destination="@id/editInterviewFragment" />
+    </fragment>
 
 </navigation>

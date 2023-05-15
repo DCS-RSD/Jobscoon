@@ -46,16 +46,15 @@ class InterviewEmployerFragment : Fragment() {
             adapter = recycleViewAdapter
             layoutManager = manager
         }
-
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 //        viewModel = ViewModelProvider(this).get(InterviewEmployerViewModel::class.java)
-        sharedViewModel.getData()
 
         sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
+            println(it)
             binding.loadingIcon.visibility = View.GONE
             if(it.isEmpty()){
                 binding.textNoRecord.visibility = View.VISIBLE
@@ -71,6 +70,7 @@ class InterviewEmployerFragment : Fragment() {
         })
 
         binding.interviewEmployerRefresh.setOnRefreshListener {
+            sharedViewModel.getHistoryData()
             sharedViewModel.getData()
             binding.interviewEmployerRefresh.isRefreshing = false
         }
@@ -102,5 +102,4 @@ class InterviewEmployerFragment : Fragment() {
             }
         })
     }
-
 }
