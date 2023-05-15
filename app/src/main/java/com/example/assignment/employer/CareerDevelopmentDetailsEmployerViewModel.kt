@@ -83,4 +83,23 @@ class CareerDevelopmentDetailsEmployerViewModel(application: Application) : Andr
             }
         })
     }
+
+    fun deleteCareerDev(id: Int) {
+        val build = RetrofitBuild.build().deleteCareerDev(token, id)
+        build.enqueue(object : Callback<Void?> {
+            override fun onResponse(call: Call<Void?>, response: Response<Void?>) {
+                if (response.isSuccessful) {
+                    deleteResponse.value = ResponseForUI(true, "")
+                } else { //unknown error
+                    deleteResponse.value = ResponseForUI(false, "Something Went Wrong")
+
+                }
+            }
+
+            override fun onFailure(call: Call<Void?>, t: Throwable) {
+                deleteResponse.value =
+                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+            }
+        })
+    }
 }

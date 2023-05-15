@@ -15,30 +15,27 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.assignment.R
-import com.example.assignment.databinding.FragmentScheduleInterviewEmployerBinding
+import com.example.assignment.databinding.FragmentEditInterviewBinding
 import com.example.assignment.dataclass.JobInterviewItem
 import java.util.*
 
-class ScheduleInterviewEmployerFragment : Fragment() {
+class EditInterviewFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ScheduleInterviewEmployerFragment()
+        fun newInstance() = EditInterviewFragment()
     }
 
-    private lateinit var viewModel: ScheduleInterviewEmployerViewModel
-    private val sharedViewModel: ApplicantListEmployerViewModel by activityViewModels()
-    private lateinit var binding: FragmentScheduleInterviewEmployerBinding
+    private lateinit var viewModel: EditInterviewViewModel
+    private val sharedViewModel: InterviewEmployerViewModel by activityViewModels()
+    private lateinit var binding: FragmentEditInterviewBinding
     val types = arrayOf("physical", "virtual")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_edit_interview, container, false)
 
-        binding = DataBindingUtil.inflate<FragmentScheduleInterviewEmployerBinding>(
-            inflater,
-            R.layout.fragment_schedule_interview_employer, container, false
-        )
 
         binding.iconArrowback.setOnClickListener {
             it.findNavController().popBackStack()
@@ -51,6 +48,14 @@ class ScheduleInterviewEmployerFragment : Fragment() {
                 types
             )
         )
+
+        if (binding.editType.text.toString() == "physical") {
+            binding.textLocationS.visibility = View.VISIBLE
+            binding.textLinkS.visibility = View.GONE
+        } else if (binding.editType.text.toString() == "virtual") {
+            binding.textLocationS.visibility = View.GONE
+            binding.textLinkS.visibility = View.VISIBLE
+        }
 
         binding.editType.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -125,16 +130,22 @@ class ScheduleInterviewEmployerFragment : Fragment() {
 
             timePicker.show()
         }
-
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ScheduleInterviewEmployerViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(EditInterviewViewModel::class.java)
+        viewModel.id = sharedViewModel.id //get id
+
+        viewModel.show() //get the chosen interview data
+        viewModel.jobInterviewData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            binding.jobInterviewItem = it
+            binding.editType.setText(it.type, false)
+        })
+
         binding.confirmInterviewBtn.setOnClickListener {
-            viewModel.createInterview(
-                sharedViewModel.id, JobInterviewItem(
+            viewModel.editJobInterview(JobInterviewItem(
                     date = binding.editDate.text.toString(),
                     start_time = binding.editStartTime.text.toString(),
                     end_time = binding.editEndTime.text.toString(),
@@ -158,6 +169,7 @@ class ScheduleInterviewEmployerFragment : Fragment() {
                 Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
             }
         })
+
     }
 
 }

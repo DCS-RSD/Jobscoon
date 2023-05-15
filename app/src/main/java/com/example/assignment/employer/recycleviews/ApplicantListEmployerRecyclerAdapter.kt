@@ -9,20 +9,27 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.databinding.ItemApplicantListBinding
+import com.example.assignment.databinding.ItemJobPostBinding
+import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.User
 import com.example.assignment.employer.ApplicantListEmployerViewModel
 
 class ApplicantListEmployerRecyclerAdapter(
     private val viewModel: ApplicantListEmployerViewModel,
     private val context: Context,
-    private val dataList: List<User>
-) : RecyclerView.Adapter<ApplicantListEmployerRecyclerAdapter.ViewHolder>() {
+
+    ) : RecyclerView.Adapter<ApplicantListEmployerRecyclerAdapter.ViewHolder>() {
 
     lateinit var binding: ItemApplicantListBinding
+    private var dataList = listOf<User>()
+    fun setItem(user: List<User>) {
+        this.dataList = user
+    }
 
     inner class ViewHolder(val binding: ItemApplicantListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -57,15 +64,24 @@ class ApplicantListEmployerRecyclerAdapter(
                     .getColorStateList(context, R.color.rejected_text_color)
                 text = "DECLINED"
                 visibility = View.VISIBLE
-                isClickable = false
+                isEnabled = false
             }
         }
     }
 
-    fun checkStatus(status: String,holder:ViewHolder) {
+    private fun setPending(holder: ViewHolder) {
+        holder.apply {
+            binding.acceptButton.visibility = View.VISIBLE
+            binding.rejectButton.visibility = View.VISIBLE
+            binding.actionBtn.visibility = View.GONE
+        }
+    }
+
+    fun checkStatus(status: String, holder: ViewHolder) {
         when (status) {
             in "accept" -> setAccept(holder)
             in "declined" -> setDecline(holder)
+            else -> setPending(holder)
         }
     }
 
@@ -82,7 +98,7 @@ class ApplicantListEmployerRecyclerAdapter(
                 binding.line.visibility = View.GONE
             }
 
-            checkStatus(status,holder)
+            checkStatus(status, holder)
 
             //accept button
             binding.acceptButton.setOnClickListener {
@@ -146,6 +162,12 @@ class ApplicantListEmployerRecyclerAdapter(
                 dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
                     dialog.dismiss()
                 }
+            }
+
+            binding.actionBtn.setOnClickListener {
+                viewModel.id = item.id!!
+                it.findNavController()
+                    .navigate(R.id.action_applicantListEmployerFragment_to_scheduleInterviewEmployerFragment)
             }
         }
 

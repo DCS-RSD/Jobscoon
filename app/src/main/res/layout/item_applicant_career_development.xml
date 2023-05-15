@@ -112,73 +112,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <View
-                android:id="@+id/line"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:background="@color/search_view_border_color"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/applicant_phone1" />
-
-            <TextView
-                android:id="@+id/textDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/hind_siliguri"
-                android:text="@{user.description}"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/line" />
-
-            <LinearLayout
-                android:id="@+id/button_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintBottom_toTopOf="@+id/posted_time1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDescription">
-
-                <Button
-                    android:id="@+id/accept_button"
-                    style="@style/interview_accept_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:backgroundTint="@color/salary_text_color"
-                    android:drawableLeft="@drawable/icon_done"
-                    android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="ACCEPT"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/reject_button"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <Button
-                    android:id="@+id/reject_button"
-                    style="@style/interview_declined_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:backgroundTint="@color/rejected_text_color"
-                    android:drawableLeft="@drawable/icon_cancel"
-                    android:fontFamily="@font/hind_siliguri_bold"
-                    android:text="DECLINE"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/accept_button" />
-
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/posted_time1"
                 style="@style/history_date"
@@ -187,28 +120,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@{user.pivot.applied_at}"
+                app:layout_constraintTop_toBottomOf="@id/applicant_phone1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/action_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/salary_text_color"
-                android:fontFamily="@font/hind_siliguri_bold"
-                android:text="+ SCHEDULE INTERVIEW"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/posted_time1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".employer.ScheduleInterviewEmployerFragment"
+    tools:context=".employer.EditInterviewFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="jobInterviewItem"
+            type="com.example.assignment.dataclass.JobInterviewItem" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -69,6 +75,7 @@
                         android:id="@+id/editDate"
                         android:inputType="date"
                         style="@style/text_input_style"
+                        android:text="@{jobInterviewItem.date}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:ignore="DuplicateClickableBoundsCheck"
@@ -93,6 +100,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editStartTime"
                         style="@style/text_input_style"
+                        android:text="@{jobInterviewItem.start_time}"
                         android:inputType="time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -117,6 +125,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editEndTime"
                         style="@style/text_input_style"
+                        android:text="@{jobInterviewItem.end_time}"
                         android:inputType="time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -172,6 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="textMultiLine"
+                        android:text="@{jobInterviewItem.location}"
                         android:lines="2"
                         android:overScrollMode="always"
                         android:scrollbarStyle="insideInset"
@@ -197,6 +207,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editLink"
                         style="@style/text_input_style"
+                        android:text="@{jobInterviewItem.link}"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="text"
@@ -229,6 +240,7 @@
                         android:gravity="top"
                         android:inputType="textMultiLine"
                         android:lines="6"
+                        android:text="@{jobInterviewItem.description}"
                         android:overScrollMode="always"
                         android:scrollbarStyle="insideInset"
                         android:scrollbars="vertical"
@@ -260,6 +272,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>
 

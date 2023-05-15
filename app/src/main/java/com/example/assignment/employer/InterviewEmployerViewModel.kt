@@ -17,6 +17,7 @@ class InterviewEmployerViewModel(application: Application) : AndroidViewModel(ap
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("Token", "")!!
+    var id = 0
 
     val getResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
@@ -57,7 +58,7 @@ class InterviewEmployerViewModel(application: Application) : AndroidViewModel(ap
 
     }
 
-    fun delete(id: Int) {
+    fun delete() {
         val build = RetrofitBuild.build().deleteInterview(token, id)
         build.enqueue(object : Callback<Void?> {
             override fun onResponse(call: Call<Void?>, response: Response<Void?>) {

@@ -191,8 +191,6 @@ interface Route {
         @Path("id") id: Int
     ): Call<Void>
 
-
-
     /*
     Module: Job Interview
      */
@@ -205,19 +203,56 @@ interface Route {
     fun postJobApplication(
         @Header("Authorization") token: String,
         @Path("id") id: Int
-    ): Call<java.lang.Void>
+    ): Call<Void>
 
     @POST("acceptinterview/{id}")
     fun postAcceptInterview(
         @Header("Authorization") token: String,
         @Path("id") id: Int
-    ): Call<java.lang.Void>
+    ): Call<Void>
 
     @POST("declineinterview/{id}")
     fun postDeclineInterview(
         @Header("Authorization") token: String,
         @Path("id") id: Int
     ): Call<Void>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("scheduleinterview/{id}")
+    fun scheduleInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Field("date") date: String?,
+        @Field("start_time") start_time: String?,
+        @Field("end_time") end_time: String?,
+        @Field("type") type: String?,
+        @Field("link") link: String?,
+        @Field("location") location: String?,
+        @Field("description") description: String?,
+    ): Call<Void>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PATCH("jobinterview/{id}")
+    fun updateJobInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Field("date") date: String?,
+        @Field("start_time") start_time: String?,
+        @Field("end_time") end_time: String?,
+        @Field("type") type: String?,
+        @Field("link") link: String?,
+        @Field("location") location: String?,
+        @Field("description") description: String?,
+    ): Call<Void>
+
+
+    @GET("jobinterview/{id}")
+    fun showJobInterview(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+    ): Call<JobInterviewItem>
 
     @DELETE("jobinterview/{id}")
     fun deleteInterview(
@@ -291,4 +326,16 @@ interface Route {
         @Field("description") description: String
     ): Call<Void>
 
+    @Headers("Accept: application/json")
+    @DELETE("careerdev/{id}")
+    fun deleteCareerDev(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): Call<Void>
+
+    @GET("careerdevapplicant/{id}")
+    fun getCareerApplicant(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+    ): Call<List<User>>
 }
