@@ -94,6 +94,13 @@ class InterviewEmployerFragment : Fragment() {
                 }
             }catch (e:Exception){}
         })
+
+        sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
+            if (it){
+                binding.loadingIcon.visibility=View.VISIBLE
+                binding.interviewEmployerRecycleView.visibility=View.INVISIBLE
+            }
+        })
     }
 
 }

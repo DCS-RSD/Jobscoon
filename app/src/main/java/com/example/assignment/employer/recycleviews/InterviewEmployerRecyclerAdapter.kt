@@ -89,6 +89,7 @@ class InterviewEmployerRecyclerAdapter(
             }
 
             binding.acceptButton.setOnClickListener {
+                viewModel.navigating.value=true
                 viewModel.id=item.id!!
                 it.findNavController().navigate(R.id.action_interviewEmployerFragment_to_editInterviewFragment)
             }
