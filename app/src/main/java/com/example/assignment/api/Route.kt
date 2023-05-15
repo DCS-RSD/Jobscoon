@@ -260,6 +260,11 @@ interface Route {
         @Path("id") id: Int
     ): Call<Void>
 
+    @GET("interviewhistory")
+    fun getJobInterviewHistory(
+        @Header("Authorization") token: String,
+    ): Call<List<JobInterviewItem>>
+
     /*
     Module: Career Development
     Route: resource, apply, cancel

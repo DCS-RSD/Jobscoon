@@ -20,6 +20,7 @@ import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemInterviewEmployerBinding
+import com.example.assignment.databinding.ItemInterviewHistoryBinding
 import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.databinding.NavigationEmployeeBinding
 import com.example.assignment.dataclass.JobInterviewItem
@@ -30,19 +31,19 @@ import com.example.assignment.employee.JobDetailsEmployeeFragment
 import com.example.assignment.employer.InterviewEmployerViewModel
 import com.example.assignment.employer.JobPostedEmployerViewModel
 
-class InterviewEmployerRecyclerAdapter(
+class InterviewEmployerHistoryRecyclerAdapter(
     private val viewModel: InterviewEmployerViewModel,
     private val context: Context
 ) :
-    RecyclerView.Adapter<InterviewEmployerRecyclerAdapter.ViewHolder>() {
+    RecyclerView.Adapter<InterviewEmployerHistoryRecyclerAdapter.ViewHolder>() {
 
-    lateinit var binding: ItemInterviewEmployerBinding
+    lateinit var binding: ItemInterviewHistoryBinding
     private var dataList = listOf<JobInterviewItem>()
     fun setItem(JobInterviewItem: List<JobInterviewItem>) {
         this.dataList = JobInterviewItem
     }
 
-    inner class ViewHolder(val binding: ItemInterviewEmployerBinding) :
+    inner class ViewHolder(val binding: ItemInterviewHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobInterviewItem) {
             binding.interviewItem = item
@@ -51,7 +52,7 @@ class InterviewEmployerRecyclerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        binding = ItemInterviewEmployerBinding.inflate(inflater, parent, false)
+        binding = ItemInterviewHistoryBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -64,35 +65,6 @@ class InterviewEmployerRecyclerAdapter(
         } else if (item.type == "physical") {
             holder.binding.iconLocation.setImageResource(R.drawable.icon_location)
             holder.binding.locationOrLink.text = item.location
-        }
-        holder.apply {
-            binding.declinedButton.setOnClickListener {
-                val dialog = CustomDialog.customDialog(
-                    context,
-                    "Delete Interview",
-                    "Are You Sure To Delete Interview?"
-                )
-                dialog.show()
-                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-                    viewModel.id=item.id!!
-                    viewModel.delete()
-                    it.isClickable = false
-                    binding.declinedButton.isEnabled = false
-                    dialog.dismiss()
-                }
-
-                dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
-                    dialog.dismiss()
-                    it.isClickable = false
-                    binding.declinedButton.isEnabled = false
-                }
-            }
-
-            binding.acceptButton.setOnClickListener {
-                viewModel.navigating.value=true
-                viewModel.id=item.id!!
-                it.findNavController().navigate(R.id.action_interviewMainFragment_to_editInterviewFragment)
-            }
         }
     }
 
