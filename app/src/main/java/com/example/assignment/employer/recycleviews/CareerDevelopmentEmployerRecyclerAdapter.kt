@@ -14,19 +14,27 @@ import com.example.assignment.R
 import com.example.assignment.databinding.ItemCareerDevelopmentEmployeeBinding
 
 import com.example.assignment.dataclass.CareerDevelopmentItem
+import com.example.assignment.dataclass.JobPostItem
 
 import com.example.assignment.employer.CareerDevelopmentEmployerViewModel
 
 
-class CareerDevelopmentEmployerRecyclerAdapter(private val viewModel: CareerDevelopmentEmployerViewModel, private val dataList: List<CareerDevelopmentItem>) : RecyclerView.Adapter<CareerDevelopmentEmployerRecyclerAdapter.ViewHolder>() {
+class CareerDevelopmentEmployerRecyclerAdapter(
+    private val viewModel: CareerDevelopmentEmployerViewModel
+) : RecyclerView.Adapter<CareerDevelopmentEmployerRecyclerAdapter.ViewHolder>() {
 
-    lateinit var binding : ItemCareerDevelopmentEmployeeBinding
-
-    inner class ViewHolder(val binding: ItemCareerDevelopmentEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
+    lateinit var binding: ItemCareerDevelopmentEmployeeBinding
+    private var dataList=listOf<CareerDevelopmentItem>()
+    fun setItem(careerDevList: List<CareerDevelopmentItem>) {
+        this.dataList = careerDevList
+    }
+    inner class ViewHolder(val binding: ItemCareerDevelopmentEmployeeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: CareerDevelopmentItem) {
             binding.careerDevelopmentItem = item
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemCareerDevelopmentEmployeeBinding.inflate(inflater, parent, false)
@@ -41,8 +49,10 @@ class CareerDevelopmentEmployerRecyclerAdapter(private val viewModel: CareerDeve
         holder.bind(item)
         //holder.binding.jobId.text = item.id.toString()
         holder.binding.joinBtn.setOnClickListener {
+            viewModel.navigating.value = true
             viewModel.careerDevId.value = item.id
-            it.findNavController().navigate(R.id.action_careerDevelopmentEmployerFragment_to_careerDevelopmentDetailsEmployerFragment)
+            it.findNavController()
+                .navigate(R.id.action_careerDevelopmentEmployerFragment_to_careerDevelopmentDetailsEmployerFragment)
         }
 
         if (item.capacity == 0) {

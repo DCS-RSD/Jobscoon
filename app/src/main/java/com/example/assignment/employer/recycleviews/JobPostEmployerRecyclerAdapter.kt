@@ -22,18 +22,22 @@ import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.JobDetailsEmployeeFragment
 import com.example.assignment.employer.JobPostedEmployerViewModel
 
-class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerViewModel) : RecyclerView.Adapter<JobPostEmployerRecyclerAdapter.ViewHolder>() {
+class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerViewModel) :
+    RecyclerView.Adapter<JobPostEmployerRecyclerAdapter.ViewHolder>() {
 
-    lateinit var binding : ItemJobPostBinding
+    lateinit var binding: ItemJobPostBinding
     private var dataList = listOf<JobPostItem>()
-    fun setItem(jobPostList: List<JobPostItem>){
+    fun setItem(jobPostList: List<JobPostItem>) {
         this.dataList = jobPostList
     }
-    inner class ViewHolder(val binding: ItemJobPostBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    inner class ViewHolder(val binding: ItemJobPostBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobPostItem) {
             binding.jobPostItem = item
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemJobPostBinding.inflate(inflater, parent, false)
@@ -49,7 +53,8 @@ class JobPostEmployerRecyclerAdapter(private val viewModel: JobPostedEmployerVie
         holder.binding.jobId.text = item.id.toString()
         holder.binding.jobCard.setOnClickListener {
             viewModel.jobPostId.value = item.id
-            it.findNavController().navigate(R.id.action_jobPostedEmployerFragment_to_jobDetailsEmployerFragment)
+            it.findNavController()
+                .navigate(R.id.action_jobPostedEmployerFragment_to_jobDetailsEmployerFragment)
         }
 
 

@@ -27,6 +27,7 @@ import com.example.assignment.employee.recycleviews.CareerDevelopmentEmployeeRec
 import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 import com.example.assignment.employer.CareerDevelopmentEmployerViewModel
 import com.example.assignment.employer.recycleviews.CareerDevelopmentEmployerRecyclerAdapter
+import com.example.assignment.employer.recycleviews.JobPostEmployerRecyclerAdapter
 
 class CareerDevelopmentEmployerFragment : Fragment() {
 
@@ -36,6 +37,7 @@ class CareerDevelopmentEmployerFragment : Fragment() {
 
     private lateinit var binding: FragmentCareerDevelopmentEmployerBinding
     private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var recycleViewAdapter: CareerDevelopmentEmployerRecyclerAdapter
     val sharedViewModel: CareerDevelopmentEmployerViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -49,6 +51,11 @@ class CareerDevelopmentEmployerFragment : Fragment() {
             false
         )
         manager = LinearLayoutManager(requireContext())
+        recycleViewAdapter = CareerDevelopmentEmployerRecyclerAdapter(sharedViewModel)
+        binding.careerDevelopmentEmployerRecycleView.apply {
+            adapter = recycleViewAdapter
+            layoutManager = manager
+        }
 
         return binding.root
     }
@@ -59,12 +66,15 @@ class CareerDevelopmentEmployerFragment : Fragment() {
         sharedViewModel.getData()
 
         sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {
+            binding.careerDevelopmentEmployerRecycleView.visibility = View.VISIBLE
+            binding.floatingActionButton.visibility = View.VISIBLE
+            binding.loadingIcon.visibility = View.GONE
+
+            recycleViewAdapter.setItem(it)
             binding.careerDevelopmentEmployerRecycleView.apply {
-                adapter = CareerDevelopmentEmployerRecyclerAdapter(sharedViewModel, it)
-                layoutManager = manager
+                adapter?.notifyDataSetChanged()
             }
 
-            Log.d("acticity", "onActivityCreated: "+it)
         })
 
         //navigate to form
@@ -92,6 +102,12 @@ class CareerDevelopmentEmployerFragment : Fragment() {
                             .show()
                     }
                 })
+            }
+        })
+
+        sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
+            if (it){
+                binding.careerDevelopmentEmployerRecycleView.visibility = View.INVISIBLE
             }
         })
 
