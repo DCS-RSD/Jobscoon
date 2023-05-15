@@ -84,7 +84,6 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
                         true
                     }
                     R.id.delete -> {
-                        //TODO
                         val dialog = CustomDialog.customDialog(
                             requireContext(),
                             "Delete Programme",
@@ -140,6 +139,8 @@ class CareerDevelopmentDetailsEmployerFragment : Fragment() {
 
         viewModel.showCareerDev(id)
         viewModel.careerDevDetail.observe(viewLifecycleOwner, Observer {
+            binding.loadingIcon.visibility = View.GONE
+            binding.scroll.visibility = View.VISIBLE
             binding.careerDevelopmentItem = it
             if(it.type == "physical") {
                 binding.imageView15.visibility = View.VISIBLE

@@ -51,6 +51,10 @@ class CareerDevelopmentEmployerViewModel(application: Application) : AndroidView
         MutableLiveData<Int>()
     }
 
+    val navigating: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
     fun getData() {
         val build = RetrofitBuild.build().getCareerDevelopment(
             sharedPreferences.getString("Token", "")!!
