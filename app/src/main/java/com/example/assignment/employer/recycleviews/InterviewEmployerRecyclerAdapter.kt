@@ -74,17 +74,23 @@ class InterviewEmployerRecyclerAdapter(
                 )
                 dialog.show()
                 dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-                    viewModel.delete(item.id!!)
+                    viewModel.id=item.id!!
+                    viewModel.delete()
                     it.isClickable = false
-                    binding.declinedButton.isClickable = false
+                    binding.declinedButton.isEnabled = false
                     dialog.dismiss()
                 }
 
                 dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
                     dialog.dismiss()
                     it.isClickable = false
-                    binding.declinedButton.isClickable = false
+                    binding.declinedButton.isEnabled = false
                 }
+            }
+
+            binding.acceptButton.setOnClickListener {
+                viewModel.id=item.id!!
+                it.findNavController().navigate(R.id.action_interviewEmployerFragment_to_editInterviewFragment)
             }
         }
     }

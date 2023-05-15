@@ -41,7 +41,8 @@ class EmployerNavHost : AppCompatActivity() {
                 R.id.addCareerDevelopmentEmployerFragment,
                 R.id.editCareerDevelopmentEmployerFragment,
                 R.id.applicantCareerDevelopmentFragment,
-                R.id.scheduleInterviewEmployerFragment -> {
+                R.id.scheduleInterviewEmployerFragment,
+                R.id.editInterviewFragment-> {
                     binding.bottomNavBar?.visibility = View.GONE
                     binding.toolbar?.visibility = View.GONE
                     binding.nav?.visibility = View.GONE
