@@ -19,6 +19,10 @@ class InterviewEmployerViewModel(application: Application) : AndroidViewModel(ap
     val token = sharedPreferences.getString("Token", "")!!
     var id = 0
 
+    val navigating: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
     val getResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }
