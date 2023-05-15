@@ -23,8 +23,10 @@ import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.FragmentInterviewEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.employee.recycleviews.ApplicantListEmployerRecyclerAdapter
+import com.example.assignment.employee.recycleviews.JobAppliedRecyclerAdapter
 import com.example.assignment.employee.recycleviews.JobInterviewRecyclerAdapter
 import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employer.recycleviews.JobPostEmployerRecyclerAdapter
 
 class ApplicantListEmployerFragment : Fragment() {
 
@@ -33,9 +35,11 @@ class ApplicantListEmployerFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentApplicantListEmployerBinding
-    private lateinit var manager: RecyclerView.LayoutManager
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
     private lateinit var viewModel: ApplicantListEmployerViewModel
+
+    private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var recycleViewAdapter: ApplicantListEmployerRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +51,14 @@ class ApplicantListEmployerFragment : Fragment() {
             container,
             false
         )
+        viewModel = ViewModelProvider(this).get(ApplicantListEmployerViewModel::class.java)
+
         manager = LinearLayoutManager(requireContext())
+        recycleViewAdapter = ApplicantListEmployerRecyclerAdapter(viewModel,requireContext())
+        binding.applicantListRecycleView.apply {
+            adapter = recycleViewAdapter
+            layoutManager = manager
+        }
 
         binding.imageView.setOnClickListener {
             it.findNavController().popBackStack()
@@ -58,7 +69,7 @@ class ApplicantListEmployerFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ApplicantListEmployerViewModel::class.java)
+
         val id = sharedViewModel.jobPostId.value!!
 
         viewModel.getApplicantData(id)
@@ -69,9 +80,9 @@ class ApplicantListEmployerFragment : Fragment() {
             if (it.isEmpty()) {
                 binding.textNoRecord.visibility = View.VISIBLE
             } else {
+                recycleViewAdapter.setItem(it)
                 binding.applicantListRecycleView.apply {
-                    adapter = ApplicantListEmployerRecyclerAdapter(viewModel, requireContext(), it)
-                    layoutManager = manager
+                    adapter?.notifyDataSetChanged()
                 }
             }
         })

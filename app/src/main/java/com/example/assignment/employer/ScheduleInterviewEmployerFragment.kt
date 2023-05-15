@@ -49,6 +49,8 @@ class ScheduleInterviewEmployerFragment : Fragment() {
             )
         )
 
+        
+
         binding.editType.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 // Do something after the text is changed
@@ -64,6 +66,7 @@ class ScheduleInterviewEmployerFragment : Fragment() {
                     binding.textLinkS.visibility = View.GONE
                 }
                 else if(binding.editType.text.toString() == "virtual") {
+//                    println("fck why gone")
                     binding.textLocationS.visibility = View.GONE
                     binding.textLinkS.visibility = View.VISIBLE
                 }
