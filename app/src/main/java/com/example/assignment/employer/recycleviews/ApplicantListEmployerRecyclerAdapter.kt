@@ -51,6 +51,7 @@ class ApplicantListEmployerRecyclerAdapter(
             binding.rejectButton.visibility = View.GONE
             binding.actionBtn.apply {
                 visibility = View.VISIBLE
+                isEnabled = true
             }
         }
     }
