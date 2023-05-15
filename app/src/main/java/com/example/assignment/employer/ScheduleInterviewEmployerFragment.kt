@@ -12,9 +12,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentScheduleInterviewEmployerBinding
+import com.example.assignment.dataclass.JobInterviewItem
 import java.util.*
 
 class ScheduleInterviewEmployerFragment : Fragment() {
@@ -24,6 +26,7 @@ class ScheduleInterviewEmployerFragment : Fragment() {
     }
 
     private lateinit var viewModel: ScheduleInterviewEmployerViewModel
+    private val sharedViewModel: ApplicantListEmployerViewModel by activityViewModels()
     private lateinit var binding: FragmentScheduleInterviewEmployerBinding
     val types = arrayOf("physical", "virtual")
 
@@ -49,7 +52,7 @@ class ScheduleInterviewEmployerFragment : Fragment() {
             )
         )
 
-        
+
 
         binding.editType.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -66,7 +69,7 @@ class ScheduleInterviewEmployerFragment : Fragment() {
                     binding.textLinkS.visibility = View.GONE
                 }
                 else if(binding.editType.text.toString() == "virtual") {
-//                    println("fck why gone")
+                    println("fck why gone")
                     binding.textLocationS.visibility = View.GONE
                     binding.textLinkS.visibility = View.VISIBLE
                 }
@@ -135,7 +138,26 @@ class ScheduleInterviewEmployerFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ScheduleInterviewEmployerViewModel::class.java)
-        // TODO: Use the ViewModel
+        binding.confirmInterviewBtn.setOnClickListener {
+            viewModel.createInterview(sharedViewModel.id, JobInterviewItem(
+                date = binding.editDate.text.toString(),
+                start_time = binding.editStartTime.text.toString(),
+                end_time = binding.editEndTime.text.toString(),
+                type = binding.editType.text.toString(),
+                location = binding.editLocation.text.toString(),
+                link = binding.editLink.text.toString(),
+                description = binding.editDescription.text.toString()
+            ))
+        }
+
+        viewModel.validationResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (it.success){
+                Toast.makeText(requireContext(),"Interview Scheduled Successfully",Toast.LENGTH_LONG).show()
+                view?.findNavController()?.popBackStack()
+            }else{
+                Toast.makeText(requireContext(),it.errorMsg,Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
 }

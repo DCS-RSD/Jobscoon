@@ -76,7 +76,7 @@ class JobInterviewRecyclerAdapter(private val sharedViewModel: InterviewEmployee
 
         dialog.findViewById<Button>(R.id.btn_done).setOnClickListener{
             Toast.makeText(context, "You have accept the interview !", Toast.LENGTH_LONG).show()
-            sharedViewModel.postAcceptData(item.id)
+            sharedViewModel.postAcceptData(item.id!!)
             holder.binding.acceptButton.visibility = View.GONE
             holder.binding.declinedButton.visibility = View.GONE
             holder.binding.accepted.visibility = View.VISIBLE
@@ -101,7 +101,7 @@ class JobInterviewRecyclerAdapter(private val sharedViewModel: InterviewEmployee
 
         dialog2.findViewById<Button>(R.id.btn_done).setOnClickListener{
             Toast.makeText(context, "You have declined the interview !", Toast.LENGTH_LONG).show()
-            sharedViewModel.postDeclineData(item.id)
+            sharedViewModel.postDeclineData(item.id!!)
             holder.binding.acceptButton.visibility = View.GONE
             holder.binding.declinedButton.visibility = View.GONE
             holder.binding.accepted.visibility = View.VISIBLE

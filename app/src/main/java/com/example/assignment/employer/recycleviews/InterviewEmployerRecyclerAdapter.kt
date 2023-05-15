@@ -74,7 +74,7 @@ class InterviewEmployerRecyclerAdapter(
                 )
                 dialog.show()
                 dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-                    viewModel.delete(item.id)
+                    viewModel.delete(item.id!!)
                     it.isClickable = false
                     binding.declinedButton.isClickable = false
                     dialog.dismiss()

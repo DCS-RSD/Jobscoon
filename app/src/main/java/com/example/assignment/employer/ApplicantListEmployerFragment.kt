@@ -36,7 +36,7 @@ class ApplicantListEmployerFragment : Fragment() {
 
     private lateinit var binding: FragmentApplicantListEmployerBinding
     private val sharedViewModel: JobPostedEmployerViewModel by activityViewModels()
-    private lateinit var viewModel: ApplicantListEmployerViewModel
+    private val viewModel: ApplicantListEmployerViewModel by activityViewModels()
 
     private lateinit var manager: RecyclerView.LayoutManager
     private lateinit var recycleViewAdapter: ApplicantListEmployerRecyclerAdapter
@@ -51,7 +51,6 @@ class ApplicantListEmployerFragment : Fragment() {
             container,
             false
         )
-        viewModel = ViewModelProvider(this).get(ApplicantListEmployerViewModel::class.java)
 
         manager = LinearLayoutManager(requireContext())
         recycleViewAdapter = ApplicantListEmployerRecyclerAdapter(viewModel,requireContext())

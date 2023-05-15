@@ -16,6 +16,7 @@ class ApplicantListEmployerViewModel(application: Application) : AndroidViewMode
 
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("Token", "")!!
+    var id=0
     val getResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
     }

@@ -223,13 +223,13 @@ interface Route {
     fun scheduleInterview(
         @Header("Authorization") token: String,
         @Path("id") id: Int,
-        @Field("date") date: String,
-        @Field("start_time") start_time: String,
-        @Field("end_time") end_time: String,
-        @Field("type") type: String,
-        @Field("link") link: String,
-        @Field("location") location: String,
-        @Field("description") description: String
+        @Field("date") date: String?,
+        @Field("start_time") start_time: String?,
+        @Field("end_time") end_time: String?,
+        @Field("type") type: String?,
+        @Field("link") link: String?,
+        @Field("location") location: String?,
+        @Field("description") description: String?,
     ): Call<Void>
 
     @DELETE("jobinterview/{id}")
