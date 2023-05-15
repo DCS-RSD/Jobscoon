@@ -219,7 +219,7 @@
                     app:helperTextTextColor="@color/red"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textLocationS">
+                    app:layout_constraintTop_toBottomOf="@+id/textLinkS">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editDescription"
