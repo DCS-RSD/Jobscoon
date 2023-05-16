@@ -50,5 +50,6 @@ class SignUpViewModel : ViewModel() {
 
             }
         })
+        signUpResponse.value = null //reset
     }
 }

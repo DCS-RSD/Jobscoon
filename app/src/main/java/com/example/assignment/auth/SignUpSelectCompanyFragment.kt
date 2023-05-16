@@ -1,9 +1,11 @@
 package com.example.assignment.auth
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -49,6 +51,9 @@ class SignUpSelectCompanyFragment : Fragment() {
         binding.refresh.setOnRefreshListener {
             try {
                 binding.searchCompanyView.setQuery("",false)
+                val inputMethodManager: InputMethodManager = requireContext().getSystemService(
+                    Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
             }catch (e:Exception){}
             sharedViewModel.getCompanyNameList()
             binding.refresh.isRefreshing = false

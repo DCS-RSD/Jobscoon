@@ -52,13 +52,17 @@ class SignUpFragment : Fragment() {
         }
 
         viewModel.signUpResponse.observe(viewLifecycleOwner, Observer {
-            if (it.success) {
-                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
-                Toast.makeText(requireContext(), "Employee Registered Successfully", Toast.LENGTH_LONG).show()
+            if (it != null){
+                try {
+                    if (it.success) {
+                        findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+                        Toast.makeText(requireContext(), "Employee Registered Successfully", Toast.LENGTH_LONG).show()
 
-            } else {
-                Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
 
+                    }
+                }catch (e:Exception){}
             }
         })
     }
