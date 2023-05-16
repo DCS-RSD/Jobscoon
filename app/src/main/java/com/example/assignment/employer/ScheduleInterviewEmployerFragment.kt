@@ -81,6 +81,12 @@ class ScheduleInterviewEmployerFragment : Fragment() {
 
         var clickedTime: Int = 0
 
+        if (clickedTime == 0) {
+            binding.editEndTime.setOnClickListener{
+                Toast.makeText(requireContext(), "Please select your start time first.", Toast.LENGTH_LONG).show()
+            }
+        }
+
         binding.editStartTime.setOnClickListener {
             val timePicker = TimePickerDialog(requireContext(), { _, selectedHour, selectedMinute ->
                 if (selectedHour in 0..9 && selectedMinute in 0..9) {
