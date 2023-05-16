@@ -24,10 +24,12 @@ import com.example.assignment.databinding.CustomDialogBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employer.JobDetailsEmployerViewModel
 
 class JobDetailsEmployeeFragment : Fragment() {
 
     private lateinit var binding: FragmentJobDetailsEmployeeBinding
+    private lateinit var viewModel: JobDetailsEmployeeViewModel
 
     companion object {
         fun newInstance() = JobDetailsEmployeeFragment()
@@ -37,12 +39,47 @@ class JobDetailsEmployeeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = DataBindingUtil.inflate<FragmentJobDetailsEmployeeBinding>(
             inflater,
             R.layout.fragment_job_details_employee, container, false
         )
+
+
+
+        binding.imageView.setOnClickListener { view ->
+            view.findNavController().popBackStack()
+        }
+
+
+
+        return binding.root
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(JobDetailsEmployeeViewModel::class.java)
+        val id = sharedViewModel.jobPostId.value!!
+        sharedViewModel.showJobPost()
+        viewModel.showJobPost(id)
+        viewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
+            binding.loadingIcon.visibility = View.GONE
+            binding.scroll.visibility = View.VISIBLE
+            binding.jobPostItem = it
+            var check = it.is_applied!!
+
+            if (check) {
+
+                binding.applyButton.isEnabled = false
+                binding.applyButton.backgroundTintList =
+                    ContextCompat.getColorStateList(
+                        requireContext(),
+                        R.color.disabled_button_color
+                    )
+            }
+        })
 
         val dialog = Dialog(requireContext())
         binding.applyButton.setOnClickListener {
@@ -67,7 +104,7 @@ class JobDetailsEmployeeFragment : Fragment() {
             Toast.makeText(requireContext(), "You have applied the job !", Toast.LENGTH_LONG).show()
 
 
-            sharedViewModel.postData()
+            viewModel.postData(id)
 
             binding.applyButton.isEnabled = false
             binding.applyButton.backgroundTintList =
@@ -79,47 +116,9 @@ class JobDetailsEmployeeFragment : Fragment() {
             dialog.dismiss()
         }
 
-        binding.imageView.setOnClickListener { view ->
-            view.findNavController().popBackStack()
-        }
-
-
-
-        return binding.root
-    }
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        sharedViewModel.showJobPost()
-        sharedViewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
-
-            try {
-                binding.jobDetailsEmployeeFragment.apply {
-                    binding.jobPostItem = it
-                }
-
-
-                var check = it.is_applied!!
-
-                if (check) {
-
-                    binding.applyButton.isEnabled = false
-                    binding.applyButton.backgroundTintList =
-                        ContextCompat.getColorStateList(
-                            requireContext(),
-                            R.color.disabled_button_color
-                        )
-                }
-            } catch (e: Exception) {
-            }
-
-
-        })
 
         binding.jobDetailsRefresh.setOnRefreshListener {
-            sharedViewModel.showJobPost()
+            viewModel.showJobPost(id)
             binding.jobDetailsRefresh.isRefreshing = false
         }
     }

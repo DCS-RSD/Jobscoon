@@ -43,7 +43,7 @@ class JobDetailsEmployerFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = DataBindingUtil.inflate<FragmentJobDetailsEmployerBinding>(
             inflater,
@@ -88,16 +88,16 @@ class JobDetailsEmployerFragment : Fragment() {
                         )
                         dialog.show()
                         dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-viewModel.deleteJobPost(id)
+                            viewModel.deleteJobPost(id)
                             viewModel.deleteResponse.observe(viewLifecycleOwner, Observer {
-                                if (it.success){
+                                if (it.success) {
                                     Toast.makeText(
                                         requireContext(),
                                         "Job Deleted Successfully!",
                                         Toast.LENGTH_LONG
                                     ).show()
                                     view?.findNavController()?.popBackStack()
-                                }else{
+                                } else {
                                     Toast.makeText(
                                         requireContext(),
                                         it.errorMsg,
