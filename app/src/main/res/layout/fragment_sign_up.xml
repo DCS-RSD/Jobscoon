@@ -50,17 +50,14 @@
                         android:layout_marginTop="25dp"
                         android:layout_marginEnd="32dp"
                         android:hint="Name"
-                        app:counterEnabled="true"
-                        app:counterMaxLength="10"
                         app:helperText="Required*"
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/user_gray">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editUsername"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLength="10"
                             android:textSize="15sp"
                             tools:ignore="DuplicateClickableBoundsCheck" />
 
@@ -80,7 +77,7 @@
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/email_gray">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -100,11 +97,12 @@
                         android:hint="Phone Number"
                         app:helperText="Required*"
                         app:helperTextTextColor="@color/red"
+                        app:endIconMode="clear_text"
                         app:prefixText="+60"
-                        app:prefixTextColor="#9F6FFD"
+                        app:prefixTextColor="@color/text_input_border_color"
                         app:startIconDrawable="@drawable/phone_gray1">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -129,7 +127,7 @@
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/lock_gray">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editPassword"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -153,7 +151,7 @@
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/lock_gray">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editPasswordConfirmation"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

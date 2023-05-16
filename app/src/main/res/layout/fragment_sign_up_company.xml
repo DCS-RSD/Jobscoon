@@ -53,7 +53,7 @@
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/icon_company">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editCompanyName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                         app:prefixTextColor="#9F6FFD"
                         app:startIconDrawable="@drawable/phone_gray1">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/email_gray">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editCompanyEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                         app:prefixTextColor="#9F6FFD"
                         app:startIconDrawable="@drawable/ic_description">
 
-                        <AutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editRegNo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
