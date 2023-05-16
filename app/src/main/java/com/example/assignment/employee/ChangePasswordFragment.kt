@@ -11,7 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.example.assignment.ChangePasswordViewModel
 import com.example.assignment.EditProfileEmployeeViewModel
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentChangePasswordBinding
@@ -22,7 +21,6 @@ class ChangePasswordFragment : Fragment() {
         fun newInstance() = ChangePasswordFragment()
     }
 
-    private lateinit var viewModel: ChangePasswordViewModel
     private val sharedViewModel: EditProfileEmployeeViewModel by activityViewModels()
 
     private lateinit var binding: FragmentChangePasswordBinding

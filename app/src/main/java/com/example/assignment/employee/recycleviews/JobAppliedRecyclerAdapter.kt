@@ -1,28 +1,17 @@
 package com.example.assignment.employee.recycleviews
 
 import android.content.res.ColorStateList
-import android.os.Bundle
-import android.text.TextUtils.substring
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.databinding.ItemJobAppliedBinding
-import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.dataclass.JobInterviewItem
-import com.example.assignment.dataclass.JobPostItem
-import com.example.assignment.dataclass.User
-import com.example.assignment.employee.AuthViewModel
 import com.example.assignment.employee.FindJobsEmployeeViewModel
-import com.example.assignment.employee.JobsAppliedEmployeeViewModel
-import java.text.SimpleDateFormat
-import java.util.*
 
 class JobAppliedRecyclerAdapter(private val sharedViewModel: FindJobsEmployeeViewModel) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
 

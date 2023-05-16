@@ -71,9 +71,11 @@ class FindJobsEmployeeFragment : Fragment() {
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
             binding.loadingIcon.visibility = View.GONE
             if (it.isEmpty()) {
+                binding.searchView.visibility = View.INVISIBLE
                 binding.textNoRecord.visibility = View.VISIBLE
                 binding.jobPostRecycleView.visibility = View.INVISIBLE
             } else {
+                binding.searchView.visibility = View.VISIBLE
                 binding.textNoRecord.visibility = View.GONE
                 binding.jobPostRecycleView.visibility = View.VISIBLE
                 recycleViewAdapter.setItem(it)
@@ -85,12 +87,15 @@ class FindJobsEmployeeFragment : Fragment() {
         })
 
         binding.jobPostRefresh.setOnRefreshListener {
-            binding.searchView.setQuery("",false)
             sharedViewModel.getData()
             binding.jobPostRefresh.isRefreshing = false
 
-            val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
+            try {
+                binding.searchView.setQuery("",false)
+                val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
+            }catch (e:Exception){}
+
         }
 
         sharedViewModel.getAllResponse.observe(viewLifecycleOwner, Observer { response ->
@@ -134,20 +139,23 @@ class FindJobsEmployeeFragment : Fragment() {
 
     private fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<JobPostItem>()
-            for (i in sharedViewModel.jobPostList.value!!) {
-                if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
-                    filteredList.add(i)
+            try {
+                val filteredList = ArrayList<JobPostItem>()
+                for (i in sharedViewModel.jobPostList.value!!) {
+                    if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
+                        filteredList.add(i)
+                    }
                 }
-            }
-            if (filteredList == null){
-                Toast.makeText(requireContext(),"No",Toast.LENGTH_LONG).show()
-            }else {
-                recycleViewAdapter.setItem(filteredList)
-                binding.jobPostRecycleView.apply {
-                    adapter?.notifyDataSetChanged()
+                if (filteredList == null){
+                    Toast.makeText(requireContext(),"No",Toast.LENGTH_LONG).show()
+                }else {
+                    recycleViewAdapter.setItem(filteredList)
+                    binding.jobPostRecycleView.apply {
+                        adapter?.notifyDataSetChanged()
+                    }
                 }
-            }
+            }catch (e:Exception){}
+
         }
     }
 

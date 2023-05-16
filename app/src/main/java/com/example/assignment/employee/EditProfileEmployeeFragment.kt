@@ -11,12 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.example.assignment.databinding.FragmentChangePasswordBinding
 import com.example.assignment.databinding.FragmentEditProfileEmployeeBinding
-import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 import com.example.assignment.dataclass.User
-import com.example.assignment.employee.AuthViewModel
-import com.example.assignment.employee.FindJobsEmployeeViewModel
 
 class EditProfileEmployeeFragment : Fragment() {
 

@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import com.example.assignment.AuthViewModel
 import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.auth.AuthActivity

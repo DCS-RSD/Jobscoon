@@ -4,14 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.assignment.auth.AuthActivity
-import com.example.assignment.employee.AuthViewModel
 import com.example.assignment.employee.EmployeeNavHost
 import com.example.assignment.employer.EmployerNavHost
 

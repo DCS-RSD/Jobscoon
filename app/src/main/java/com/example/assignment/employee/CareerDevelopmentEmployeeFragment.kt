@@ -66,7 +66,9 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
             if (it.isEmpty()) {
                 binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
                 binding.textNoRecord.visibility = View.VISIBLE
+                binding.searchView3.visibility = View.INVISIBLE
             } else {
+                binding.searchView3.visibility = View.VISIBLE
                 binding.careerDevelopmentEmployeeRecycleView.visibility = View.VISIBLE
                 binding.textNoRecord.visibility = View.GONE
 
@@ -81,13 +83,17 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
             sharedViewModel.getData()
             binding.careerDevelopmentEmployeeRefresh.isRefreshing = false
 
-            binding.searchView3.setQuery("", false)
-            val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
+            try {
+                binding.searchView3.setQuery("", false)
+                val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
+            }catch (e:Exception){}
+
         }
 
         sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
             if (it) {
+                binding.searchView3.visibility = View.INVISIBLE
                 binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
             }
         })
@@ -107,20 +113,23 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
 
     private fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<CareerDevelopmentItem>()
-            for (i in sharedViewModel.careerDevelopmentList.value!!) {
-                if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
-                    filteredList.add(i)
+            try {
+                val filteredList = ArrayList<CareerDevelopmentItem>()
+                for (i in sharedViewModel.careerDevelopmentList.value!!) {
+                    if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
+                        filteredList.add(i)
+                    }
                 }
-            }
-            if (filteredList == null) {
-                Toast.makeText(requireContext(), "No", Toast.LENGTH_LONG).show()
-            } else {
-                recycleViewAdapter.setItem(filteredList)
-                binding.careerDevelopmentEmployeeRecycleView.apply {
-                    adapter?.notifyDataSetChanged()
+                if (filteredList == null) {
+                    Toast.makeText(requireContext(), "No", Toast.LENGTH_LONG).show()
+                } else {
+                    recycleViewAdapter.setItem(filteredList)
+                    binding.careerDevelopmentEmployeeRecycleView.apply {
+                        adapter?.notifyDataSetChanged()
+                    }
                 }
-            }
+            }catch (e:Exception){}
+
         }
     }
 

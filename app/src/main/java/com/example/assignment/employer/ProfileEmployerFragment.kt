@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Typeface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +18,7 @@ import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.auth.AuthActivity
 import com.example.assignment.databinding.FragmentProfileEmployerBinding
-import com.example.assignment.employee.AuthViewModel
+import com.example.assignment.AuthViewModel
 
 class ProfileEmployerFragment : Fragment() {
 
