@@ -53,6 +53,7 @@ class SignUpEmployerViewModel : ViewModel() {
                     )
                     signUpCompanyResponse.value = ResponseForUI(false, error.message)
                     Log.d("login", "onResponse: $error")
+                    println("err1")
                 } else { //unknown error
                     signUpCompanyResponse.value = ResponseForUI(false, "Something Went Wrong")
                 }
@@ -112,24 +113,26 @@ class SignUpEmployerViewModel : ViewModel() {
         registerBuild.enqueue(object : Callback<SignUpItem?> {
             override fun onResponse(call: Call<SignUpItem?>, response: Response<SignUpItem?>) {
                 if (response.isSuccessful) {
-                    signUpEmployerResponse.value = ResponseForUI(true, "")
+                    signUpEmployerResponse.value = (ResponseForUI(true, ""))
                 } else if (response.code() == 422) { //validation fails
                     val error = Gson().fromJson(
                         response.errorBody()!!.string(),
                         ValidationErrorResponse::class.java
                     )
-                    signUpEmployerResponse.value = ResponseForUI(false, error.message)
-                    Log.d("login", "onResponse: $error")
+                    println("err1")
+                    signUpEmployerResponse.value = (ResponseForUI(false, error.message))
+                  println("hehehe"+signUpEmployerResponse.value)
+
                 } else { //unknown error
-                    signUpEmployerResponse.value = ResponseForUI(false, "Something Went Wrong")
+                    signUpEmployerResponse.value = (ResponseForUI(false, "Something Went Wrong"))
                 }
             }
 
             override fun onFailure(call: Call<SignUpItem?>, t: Throwable) {
                 Log.d("fail", "onFailure: " + t.message)
-
                 signUpEmployerResponse.value =
-                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
+                    (ResponseForUI(false, "Something Went Wrong. Kindly check your connection"))
+
             }
         })
     }
