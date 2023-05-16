@@ -121,9 +121,8 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginEnd="32dp"
                         android:hint="Password"
-                        app:counterMaxLength="20"
                         app:endIconMode="password_toggle"
-                        app:helperText="Required*"
+                        app:helperText="Required*\nMinimum 8 characters with mixed letter and number"
                         app:helperTextTextColor="@color/red"
                         app:startIconDrawable="@drawable/lock_gray">
 
@@ -132,7 +131,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="textPassword"
-                            android:maxLength="21"
+                            android:maxLength="30"
                             android:textSize="15sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
