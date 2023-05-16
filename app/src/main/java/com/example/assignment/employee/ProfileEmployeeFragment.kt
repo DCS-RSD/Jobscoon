@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.auth.AuthActivity
 import com.example.assignment.databinding.FragmentProfileEmployeeBinding
@@ -45,13 +47,16 @@ class ProfileEmployeeFragment : Fragment() {
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
             binding.loadingIcon.visibility = View.GONE
             binding.profileScroll.visibility = View.VISIBLE
-            if (it.description == "") {
-                it.description = "Describe yourself can let other know more about you!"
+
+            if (it.description == null) {
+                println(112)
+                it.description =
+                "Describe yourself can let other know more about you!"
                 binding.textAbout.apply {
                     setTypeface(null, Typeface.ITALIC)
                 }
             }
-            if (it.address == "") {
+            if (it.address == null) {
                 it.address = "No Location"
                 binding.addressS.apply {
                     setTypeface(null, Typeface.ITALIC)
@@ -69,30 +74,39 @@ class ProfileEmployeeFragment : Fragment() {
 
 
         binding.changePwdButton.setOnClickListener { view ->
+            binding.loadingIcon.visibility = View.VISIBLE
+            binding.profileScroll.visibility = View.INVISIBLE
             view.findNavController()
                 .navigate(R.id.action_profileEmployeeFragment_to_changePasswordFragment)
         }
 
         binding.editS.setOnClickListener { view ->
+            binding.loadingIcon.visibility = View.VISIBLE
+            binding.profileScroll.visibility = View.INVISIBLE
             view.findNavController()
                 .navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
         }
 
         binding.changePwdButton.setOnClickListener{view ->
+            binding.loadingIcon.visibility = View.VISIBLE
+            binding.profileScroll.visibility = View.INVISIBLE
             view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_changePasswordFragment)
         }
 
-        binding.editS.setOnClickListener{view ->
-            view.findNavController().navigate(R.id.action_profileEmployeeFragment_to_editProfileEmployeeFragment)
-        }
-
         binding.logout.setOnClickListener {
+            val dialog = CustomDialog.customDialog(requireContext(),"Logout","Are You Sure To Logout?")
+            dialog.show()
+            dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                viewModel.logout(
+                    requireActivity().getSharedPreferences("User", Context.MODE_PRIVATE)
+                        .getString("Token", "")!!
+                )
+                dialog.dismiss()
+            }
 
-
-            viewModel.logout(
-                requireActivity().getSharedPreferences("User", Context.MODE_PRIVATE)
-                    .getString("Token", "")!!
-            )
+            dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+                dialog.dismiss()
+            }
 
 
             viewModel.responseUI.observe(viewLifecycleOwner, Observer {
