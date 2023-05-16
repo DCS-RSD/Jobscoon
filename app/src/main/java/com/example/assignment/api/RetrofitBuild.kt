@@ -8,7 +8,7 @@ class RetrofitBuild {
 
     companion object
     {
-        private const val BASE_URL : String= "http://192.168.100.14:8000/api/"
+        private const val BASE_URL : String= "http://10.0.2.2:8000/api/"
         fun build(): Route{
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
