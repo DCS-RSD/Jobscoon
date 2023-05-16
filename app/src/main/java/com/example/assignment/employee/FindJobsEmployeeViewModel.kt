@@ -27,9 +27,7 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
         MutableLiveData<ResponseForUI>()
     }
 
-    val applyResponse: MutableLiveData<ResponseForUI> by lazy {
-        MutableLiveData<ResponseForUI>()
-    }
+
 
     val jobPostList: MutableLiveData<List<JobPostItem>> by lazy {
         MutableLiveData<List<JobPostItem>>()
@@ -62,9 +60,8 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
                 response: Response<List<JobPostItem>?>
             ) {
                 if (response.isSuccessful) {
-
-                    getAllResponse.value = ResponseForUI(true, "")
                     jobPostList.value = response.body()!!
+                    getAllResponse.value = ResponseForUI(true, "")
                     Log.d("success", "onResponse: " + jobPostList.value)
 
                 } else if (response.code() == 401) { //unknown error, mostly 401 (unauthorized)
@@ -130,38 +127,6 @@ class FindJobsEmployeeViewModel(application: Application) : AndroidViewModel(app
 
     }
 
-    fun postData() {
-        val build = RetrofitBuild.build().postJobApplication(
-            sharedPreferences.getString("Token", "")!!, jobPostId.value!!
-        )
 
-        build.enqueue(object : Callback<Void> {
-            override fun onResponse(
-                call: Call<Void>,
-                response: Response<Void>
-            ) {
-                if (response.isSuccessful) {
-
-                    applyResponse.value = ResponseForUI(true, "")
-                    //jobApplicationItem.value = response.body()!!
-                    //Log.d("success", "onResponse: " + jobApplicationItem.value)
-
-                } else { //unknown error
-
-                    applyResponse.value = ResponseForUI(false, "Something Went Wrong")
-
-                }
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Log.d("fail", "onFailure: " + t.message)
-
-                applyResponse.value =
-                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
-
-            }
-        })
-
-    }
 
 }

@@ -20,10 +20,14 @@ import com.example.assignment.employee.EmployeeNavHost
 import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.JobDetailsEmployeeFragment
 
-class JobPostRecyclerAdapter(private val viewModel: FindJobsEmployeeViewModel, private val dataList: List<JobPostItem>) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
+class JobPostRecyclerAdapter(private val viewModel: FindJobsEmployeeViewModel) : RecyclerView.Adapter<JobPostRecyclerAdapter.ViewHolder>() {
 
     lateinit var binding : ItemJobPostBinding
+    private var dataList = listOf<JobPostItem>()
 
+    fun setItem(jobPostList: List<JobPostItem>){
+        this.dataList = jobPostList
+    }
     inner class ViewHolder(val binding: ItemJobPostBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobPostItem) {
             binding.jobPostItem = item
