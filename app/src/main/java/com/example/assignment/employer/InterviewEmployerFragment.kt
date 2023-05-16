@@ -54,7 +54,6 @@ class InterviewEmployerFragment : Fragment() {
 //        viewModel = ViewModelProvider(this).get(InterviewEmployerViewModel::class.java)
 
         sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
-            println(it)
             binding.loadingIcon.visibility = View.GONE
             if(it.isEmpty()){
                 binding.textNoRecord.visibility = View.VISIBLE

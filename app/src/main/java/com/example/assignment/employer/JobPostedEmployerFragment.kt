@@ -67,11 +67,17 @@ class JobPostedEmployerFragment : Fragment() {
 
 
         sharedViewModel.jobPostList.observe(viewLifecycleOwner, Observer {
-            binding.jobPostRecycleView.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
-            recycleViewAdapter.setItem(it)
-            binding.jobPostRecycleView.apply {
-                adapter?.notifyDataSetChanged()
+            if(it.isEmpty()){
+                binding.textNoRecord.visibility = View.VISIBLE
+                binding.jobPostRecycleView.visibility = View.GONE
+            }else {
+                binding.jobPostRecycleView.visibility = View.VISIBLE
+                binding.textNoRecord.visibility = View.GONE
+                recycleViewAdapter.setItem(it)
+                binding.jobPostRecycleView.apply {
+                    adapter?.notifyDataSetChanged()
+                }
             }
         })
 

@@ -65,11 +65,12 @@ class ApplicantListEmployerFragment : Fragment() {
         dataViewModel.getApplicantData(id)
 
         dataViewModel.applicantList.observe(viewLifecycleOwner, Observer {
-            binding.applicantListRecycleView.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
             if (it.isEmpty()) {
                 binding.textNoRecord.visibility = View.VISIBLE
             } else {
+                binding.applicantListRecycleView.visibility = View.VISIBLE
+                binding.textNoRecord.visibility = View.GONE
                 recycleViewAdapter.setItem(it)
                 binding.applicantListRecycleView.apply {
                     adapter?.notifyDataSetChanged()

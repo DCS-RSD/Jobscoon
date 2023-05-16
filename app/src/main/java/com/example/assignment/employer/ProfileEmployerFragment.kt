@@ -49,14 +49,14 @@ class ProfileEmployerFragment : Fragment() {
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
             binding.loadingIcon.visibility = View.GONE
             binding.profileScroll.visibility = View.VISIBLE
-            if (it.description == "") {
+            if (it.description == null) {
                 it.description = "Describe yourself can let other know more about you!"
                 binding.textAbout.apply {
                     setTypeface(null, Typeface.ITALIC)
                 }
             }
 
-            if (it.address == "") {
+            if (it.address == null) {
                 it.address = "No Location"
                 binding.addressS.apply {
                     setTypeface(null, Typeface.ITALIC)

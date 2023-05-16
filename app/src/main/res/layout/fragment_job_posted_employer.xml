@@ -39,6 +39,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
 
+        <TextView
+            android:id="@+id/textNoRecord"
+            style="@style/no_record_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_record"
+            android:visibility="invisible" />
 
     </FrameLayout>
 </layout>

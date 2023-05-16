@@ -49,7 +49,6 @@ class ProfileEmployeeFragment : Fragment() {
             binding.profileScroll.visibility = View.VISIBLE
 
             if (it.description == null) {
-                println(112)
                 it.description =
                 "Describe yourself can let other know more about you!"
                 binding.textAbout.apply {

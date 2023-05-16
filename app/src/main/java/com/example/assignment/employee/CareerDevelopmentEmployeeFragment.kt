@@ -61,17 +61,19 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
         sharedViewModel.getData()
 
         sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {
-
-
-            binding.careerDevelopmentEmployeeRecycleView.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
-            recycleViewAdapter.setItem(it)
-            binding.careerDevelopmentEmployeeRecycleView.apply {
-                adapter?.notifyDataSetChanged()
+            if (it.isEmpty()) {
+                binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
+                binding.textNoRecord.visibility = View.VISIBLE
+            }else{
+                binding.careerDevelopmentEmployeeRecycleView.visibility = View.VISIBLE
+                binding.textNoRecord.visibility = View.GONE
+
+                recycleViewAdapter.setItem(it)
+                binding.careerDevelopmentEmployeeRecycleView.apply {
+                    adapter?.notifyDataSetChanged()
+                }
             }
-
-
-            Log.d("acticity", "onActivityCreated: "+it)
         })
 
         binding.careerDevelopmentEmployeeRefresh.setOnRefreshListener {
