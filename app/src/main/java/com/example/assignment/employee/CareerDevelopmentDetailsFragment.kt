@@ -54,7 +54,7 @@ class CareerDevelopmentDetailsFragment : Fragment() {
         val id = sharedViewModel.careerDevId.value!!
         viewModel.showCareerDev(id)
         viewModel.careerDevDetail.observe(viewLifecycleOwner, Observer {
-
+            binding.joinBtn.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
             binding.scroll.visibility = View.VISIBLE
             binding.careerDevelopmentItem = it

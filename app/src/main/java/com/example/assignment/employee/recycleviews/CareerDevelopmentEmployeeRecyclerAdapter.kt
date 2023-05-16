@@ -56,18 +56,18 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val sharedViewModel : Car
                 backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.accepted_layout_color))
                 text = "applied"
             }
-        }else if (item.is_applied == false) {
-            holder.binding.status.apply {
-                setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.available_text_color))
-                backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.available_layout_color))
-                text = "available"
-            }
         }
         else if (item.capacity == 0) {
             holder.binding.status.apply {
                 setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.rejected_text_color))
                 backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.rejected_layout_color))
                 text = "full"
+            }
+        }else {
+            holder.binding.status.apply {
+                setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.available_text_color))
+                backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.available_layout_color))
+                text = "available"
             }
         }
     }
