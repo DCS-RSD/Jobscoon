@@ -62,7 +62,6 @@ class JobDetailsEmployeeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(JobDetailsEmployeeViewModel::class.java)
         val id = sharedViewModel.jobPostId.value!!
-        sharedViewModel.showJobPost()
         viewModel.showJobPost(id)
         viewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
             binding.loadingIcon.visibility = View.GONE

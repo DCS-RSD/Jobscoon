@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewParent
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
@@ -16,21 +17,38 @@ import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.dataclass.JobInterviewItem
 import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.dataclass.User
+import com.example.assignment.employee.AuthViewModel
 import com.example.assignment.employee.FindJobsEmployeeViewModel
 import com.example.assignment.employee.JobsAppliedEmployeeViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class JobAppliedRecyclerAdapter(private val viewModel:FindJobsEmployeeViewModel, private val dataList: List<JobApplicationItem>, private val dataList2: List<JobInterviewItem>) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
+class JobAppliedRecyclerAdapter(private val sharedViewModel: FindJobsEmployeeViewModel) : RecyclerView.Adapter<JobAppliedRecyclerAdapter.ViewHolder>() {
+
+    lateinit var binding : ItemJobAppliedBinding
+    private var dataList = listOf<JobApplicationItem>()
+    private var dataList2 = listOf<JobInterviewItem>()
+
+
+    fun setItem(jobApplicationList: List<JobApplicationItem>, jobInterviewList: List<JobInterviewItem>){
+        this.dataList = jobApplicationList
+        this.dataList2 = jobInterviewList
+
+    }
+
+
 
     inner class ViewHolder(val binding: ItemJobAppliedBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JobApplicationItem) {
             binding.jobApplicationItem = item
         }
     }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemJobAppliedBinding.inflate(inflater, parent, false)
+        binding = ItemJobAppliedBinding.inflate(inflater, parent, false)
 
 
         return ViewHolder(binding)
@@ -40,17 +58,19 @@ class JobAppliedRecyclerAdapter(private val viewModel:FindJobsEmployeeViewModel,
         val item = dataList[position]
         holder.bind(item)
 
-        for (item in dataList2) {
-            if (holder.binding.jobApplicationItem?.job_post_id == item.job_post_id) {
-                holder.binding.interviewIcon.visibility = View.VISIBLE
+        for (interview in dataList2) {
+            if(holder.binding.jobApplicationItem?.job_post_id == interview.job_post_id) {
+                    if(interview.status != "declined")
+                        holder.binding.interviewIcon.visibility = View.VISIBLE
             }
+
         }
 
 
         var jobId = item.job_post_id.toString().toInt()
 
         holder.binding.jobs1.setOnClickListener {
-            viewModel.jobPostId.value = jobId
+            sharedViewModel.jobPostId.value = jobId
             it.findNavController().navigate(R.id.action_jobsAppliedEmployeeFragment_to_jobDetailsEmployeeFragment)
 
         }
