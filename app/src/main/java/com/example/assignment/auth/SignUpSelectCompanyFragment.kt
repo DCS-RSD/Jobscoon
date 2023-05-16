@@ -1,21 +1,18 @@
 package com.example.assignment.auth
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentSignUpSelectCompanyBinding
-import com.example.assignment.dataclass.ResponseForUI
 
 class SignUpSelectCompanyFragment : Fragment() {
 
@@ -23,7 +20,7 @@ class SignUpSelectCompanyFragment : Fragment() {
         fun newInstance() = SignUpSelectCompanyFragment()
     }
 
-    val sharedViewModel : SignUpEmployerViewModel by activityViewModels()
+    val sharedViewModel: SignUpEmployerViewModel by activityViewModels()
     private lateinit var binding: FragmentSignUpSelectCompanyBinding
 
     override fun onCreateView(
@@ -49,6 +46,10 @@ class SignUpSelectCompanyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         sharedViewModel.getCompanyNameList()
+        binding.refresh.setOnRefreshListener {
+            sharedViewModel.getCompanyNameList()
+            binding.refresh.isRefreshing = false
+        }
 
         sharedViewModel.companyNameList.observe(viewLifecycleOwner, Observer {
 
@@ -85,7 +86,8 @@ class SignUpSelectCompanyFragment : Fragment() {
                 // handle click on the selected item
                 sharedViewModel.selectCompany(selectedItem!!)
                 sharedViewModel.isNew = false
-                view.findNavController().navigate(R.id.action_signUpSelectCompanyFragment_to_signUpEmployerFragment2)
+                view.findNavController()
+                    .navigate(R.id.action_signUpSelectCompanyFragment_to_signUpEmployerFragment2)
             }
 
         })
