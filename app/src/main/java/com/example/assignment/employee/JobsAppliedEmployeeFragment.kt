@@ -61,6 +61,13 @@ class JobsAppliedEmployeeFragment : Fragment() {
         viewModel.jobApplicationList.observe(viewLifecycleOwner, Observer { jobApplicationList ->
 
             viewModel.jobInterviewList.observe(viewLifecycleOwner, Observer { jobInterviewList ->
+                binding.loadingIcon.visibility = View.GONE
+                if(jobApplicationList.isEmpty()){
+                    binding.textNoRecord.visibility = View.VISIBLE
+                    binding.jobAppliedRecycleView.visibility = View.INVISIBLE
+                }else{
+                    binding.textNoRecord.visibility = View.GONE
+                    binding.jobAppliedRecycleView.visibility = View.VISIBLE
 
                     val sortedJobApplicationList = jobApplicationList.sortedBy { item ->
                         when (item.status) {
@@ -71,15 +78,13 @@ class JobsAppliedEmployeeFragment : Fragment() {
                         }
                     }
 
-                    binding.jobAppliedRecycleView.visibility = View.VISIBLE
-                    binding.loadingIcon.visibility = View.GONE
+
                     recycleViewAdapter.setItem(sortedJobApplicationList, jobInterviewList)
                     binding.jobAppliedRecycleView.apply {
                         adapter?.notifyDataSetChanged()
                     }
 
-                    Log.d("acticity", "onActivityCreated: " + jobApplicationList + jobInterviewList)
-
+                }
             })
         })
 
