@@ -57,7 +57,7 @@
 
                 <ScrollView
                     android:id="@+id/scroll"
-                    android:visibility="parent"
+                    android:visibility="invisible"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="50dp"
