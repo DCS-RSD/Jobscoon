@@ -31,6 +31,7 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
 
     private lateinit var binding: FragmentCareerDevelopmentEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var recycleViewAdapter: CareerDevelopmentEmployeeRecyclerAdapter
     val sharedViewModel: CareerDevelopmentEmployeeViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -45,6 +46,12 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
         )
         manager = LinearLayoutManager(requireContext())
 
+        recycleViewAdapter = CareerDevelopmentEmployeeRecyclerAdapter(sharedViewModel)
+        binding.careerDevelopmentEmployeeRecycleView.apply {
+            adapter = recycleViewAdapter
+            layoutManager = manager
+        }
+
         return binding.root
     }
 
@@ -54,10 +61,15 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
         sharedViewModel.getData()
 
         sharedViewModel.careerDevelopmentList.observe(viewLifecycleOwner, Observer {
+
+
+            binding.careerDevelopmentEmployeeRecycleView.visibility = View.VISIBLE
+            binding.loadingIcon.visibility = View.GONE
+            recycleViewAdapter.setItem(it)
             binding.careerDevelopmentEmployeeRecycleView.apply {
-                adapter = CareerDevelopmentEmployeeRecyclerAdapter(sharedViewModel, it)
-                layoutManager = manager
+                adapter?.notifyDataSetChanged()
             }
+
 
             Log.d("acticity", "onActivityCreated: "+it)
         })

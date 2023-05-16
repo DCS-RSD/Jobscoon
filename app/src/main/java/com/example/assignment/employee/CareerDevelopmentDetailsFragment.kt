@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.example.assignment.CareerDevelopmentDetailsViewModel
+import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentCareerDevelopmentDetailsBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
@@ -22,6 +22,7 @@ import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
 class CareerDevelopmentDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentCareerDevelopmentDetailsBinding
+    private lateinit var viewModel: CareerDevelopmentDetailsViewModel
 
     companion object {
         fun newInstance() = CareerDevelopmentDetailsFragment()
@@ -39,77 +40,6 @@ class CareerDevelopmentDetailsFragment : Fragment() {
 
 
 
-        val dialog = Dialog(requireContext())
-        binding.joinBtn.setOnClickListener {
-            dialog.show()
-        }
-
-        dialog.setContentView(R.layout.join_career_dialog)
-        dialog.window?.setBackgroundDrawable(
-            ContextCompat.getDrawable(
-                requireContext(),
-                R.drawable.dialog_background
-            )
-        )
-        dialog.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.setCancelable(false)
-        dialog.window?.attributes?.windowAnimations = R.style.animation
-
-        dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-            Toast.makeText(requireContext(), "You have join the career development !", Toast.LENGTH_LONG).show()
-
-            sharedViewModel.postJoinData()
-            var showCap = binding.textView22.text.toString().toInt()
-            showCap -= 1
-            binding.textView22.text = showCap.toString()
-            binding.joinBtn.visibility = View.GONE
-            binding.unjoinBtn.visibility = View.VISIBLE
-            dialog.dismiss()
-        }
-
-        dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
-            dialog.dismiss()
-        }
-
-        val dialog2 = Dialog(requireContext())
-        binding.unjoinBtn.setOnClickListener {
-            dialog2.show()
-        }
-
-        dialog2.setContentView(R.layout.unjoin_career_dialog)
-        dialog2.window?.setBackgroundDrawable(
-            ContextCompat.getDrawable(
-                requireContext(),
-                R.drawable.dialog_background
-            )
-        )
-        dialog2.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog2.setCancelable(false)
-        dialog2.window?.attributes?.windowAnimations = R.style.animation
-
-        dialog2.findViewById<Button>(R.id.btn_done).setOnClickListener {
-            Toast.makeText(requireContext(), "You have unjoin the career development !", Toast.LENGTH_LONG).show()
-
-            sharedViewModel.postUnjoinData()
-
-            var showCap2 = binding.textView22.text.toString().toInt()
-            showCap2 += 1
-            binding.textView22.text = showCap2.toString()
-            binding.unjoinBtn.visibility = View.GONE
-            binding.joinBtn.visibility = View.VISIBLE
-
-            dialog2.dismiss()
-        }
-
-        dialog2.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
-            dialog2.dismiss()
-        }
 
         binding.iconArrowback.setOnClickListener { view ->
             view.findNavController().popBackStack()
@@ -120,45 +50,96 @@ class CareerDevelopmentDetailsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        sharedViewModel.showCareerDev()
-        sharedViewModel.careerDevDetail.observe(viewLifecycleOwner, Observer {
+        viewModel = ViewModelProvider(this).get(CareerDevelopmentDetailsViewModel::class.java)
+        val id = sharedViewModel.careerDevId.value!!
+        viewModel.showCareerDev(id)
+        viewModel.careerDevDetail.observe(viewLifecycleOwner, Observer {
 
-            try {
-                binding.careerDevelopmentDetailsFragment.apply {
-                    binding.careerDevelopmentItem = it
-                    if(it.type == "physical") {
-                        binding.textView14.text = it.location
-                    }else if (it.type == "virtual") {
-                        binding.imageView15.setImageResource(R.drawable.icon_link)
-                        binding.textView14.text = it.link
-                    }
-
-                }
-
-
-                var check = it.is_applied!!
-                var capCheck = it.capacity
-
-                if (check) {
-                    binding.joinBtn.visibility = View.GONE
-                    binding.unjoinBtn.visibility = View.VISIBLE
-                }
-
-                if (capCheck == 0) {
-                    binding.joinBtn.backgroundTintList =
-                        ContextCompat.getColorStateList(
-                            requireContext(),
-                            R.color.disabled_button_color
-                        )
-                }
-            } catch (e: Exception) {
+            binding.loadingIcon.visibility = View.GONE
+            binding.scroll.visibility = View.VISIBLE
+            binding.careerDevelopmentItem = it
+            if(it.type == "physical") {
+                binding.textView14.text = it.location
+            }else if (it.type == "virtual") {
+                binding.imageView15.setImageResource(R.drawable.icon_link)
+                binding.textView14.text = it.link
             }
+
+            var check = it.is_applied!!
+            var capCheck = it.capacity
+
+            if (check) {
+                binding.joinBtn.apply {
+                    backgroundTintList = ContextCompat.getColorStateList(
+                        requireContext(),
+                        R.color.rejected_text_color
+                    )
+                    text = "UNJOIN"
+                }
+            }
+
+            if (capCheck == 0) {
+                binding.joinBtn.isEnabled = false
+                binding.joinBtn.backgroundTintList =
+                    ContextCompat.getColorStateList(
+                        requireContext(),
+                        R.color.disabled_button_color
+                    )
+            }
+
 
 
         })
 
+        binding.joinBtn.setOnClickListener{
+            if (binding.joinBtn.text == "JOIN NOW") {
+                val dialog = CustomDialog.customDialog(
+                    requireContext(),
+                    "JOIN PROGRAMME",
+                    "Are You Sure To Join This Programme?"
+                )
+                dialog.show()
+                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                    viewModel.postJoinData(id)
+                    Toast.makeText(requireContext(), "You have join the programme !", Toast.LENGTH_LONG).show()
+                    var showCap = binding.textView22.text.toString().toInt()
+                    showCap -= 1
+                    binding.textView22.text = showCap.toString()
+                    binding.joinBtn.text = "UNJOIN"
+                    binding.joinBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.rejected_text_color)
+                    dialog.dismiss()
+                }
+
+                dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+                    dialog.dismiss()
+                }
+            }
+            else if (binding.joinBtn.text == "UNJOIN") {
+                val dialog = CustomDialog.customDialog(
+                    requireContext(),
+                    "UNJOIN PROGRAMME",
+                    "Are You Sure To Unjoin This Programme?"
+                )
+                dialog.show()
+                dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                    viewModel.postUnjoinData(id)
+                    Toast.makeText(requireContext(), "You have unjoin the programme !", Toast.LENGTH_LONG).show()
+                    var showCap = binding.textView22.text.toString().toInt()
+                    showCap += 1
+                    binding.textView22.text = showCap.toString()
+                    binding.joinBtn.text = "JOIN NOW"
+                    binding.joinBtn.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.salary_text_color)
+                    dialog.dismiss()
+                }
+
+                dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+                    dialog.dismiss()
+                }
+            }
+        }
+
         binding.careerDevDetailsRefresh.setOnRefreshListener {
-            sharedViewModel.showCareerDev()
+            viewModel.showCareerDev(id)
             binding.careerDevDetailsRefresh.isRefreshing = false
         }
     }

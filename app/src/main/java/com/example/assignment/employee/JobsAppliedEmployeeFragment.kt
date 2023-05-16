@@ -26,9 +26,11 @@ class JobsAppliedEmployeeFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentJobsAppliedEmployeeBinding
+    private val viewModel : JobsAppliedEmployeeViewModel by activityViewModels()
+    private val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
+
     private lateinit var manager: RecyclerView.LayoutManager
-    private lateinit var viewModel : JobsAppliedEmployeeViewModel
-    val sharedViewModel: FindJobsEmployeeViewModel by activityViewModels()
+    private lateinit var recycleViewAdapter: JobAppliedRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,35 +43,49 @@ class JobsAppliedEmployeeFragment : Fragment() {
             false
         )
         manager = LinearLayoutManager(requireContext())
+        recycleViewAdapter = JobAppliedRecyclerAdapter(sharedViewModel)
+        binding.jobAppliedRecycleView.apply {
+            adapter = recycleViewAdapter
+            layoutManager = manager
+        }
 
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(JobsAppliedEmployeeViewModel::class.java)
-
 
         viewModel.getData()
-        viewModel.getJobApplicationData()
-
+        viewModel.getInterviewData()
 
         viewModel.jobApplicationList.observe(viewLifecycleOwner, Observer { jobApplicationList ->
 
             viewModel.jobInterviewList.observe(viewLifecycleOwner, Observer { jobInterviewList ->
 
-                        binding.jobAppliedRecycleView.apply {
-                            adapter = JobAppliedRecyclerAdapter(sharedViewModel,jobApplicationList, jobInterviewList)
-                            layoutManager = manager
+                    val sortedJobApplicationList = jobApplicationList.sortedBy { item ->
+                        when (item.status) {
+                            "accept" -> 0
+                            "pending" -> 1
+                            "declined" -> 2
+                            else -> 3 // Handle other statuses if needed
                         }
+                    }
 
-                        Log.d("acticity", "onActivityCreated: " + jobApplicationList + jobInterviewList)
+                    binding.jobAppliedRecycleView.visibility = View.VISIBLE
+                    binding.loadingIcon.visibility = View.GONE
+                    recycleViewAdapter.setItem(sortedJobApplicationList, jobInterviewList)
+                    binding.jobAppliedRecycleView.apply {
+                        adapter?.notifyDataSetChanged()
+                    }
 
-                    })
+                    Log.d("acticity", "onActivityCreated: " + jobApplicationList + jobInterviewList)
+
             })
+        })
 
         binding.jobAppliedRefresh.setOnRefreshListener {
-            sharedViewModel.getData()
+            viewModel.getData()
+            viewModel.getInterviewData()
             binding.jobAppliedRefresh.isRefreshing = false
         }
 

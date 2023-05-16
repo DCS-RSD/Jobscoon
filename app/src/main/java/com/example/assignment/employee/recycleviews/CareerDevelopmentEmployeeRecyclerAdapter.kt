@@ -17,15 +17,20 @@ import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
 import com.example.assignment.databinding.ItemCareerDevelopmentEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.databinding.NavigationEmployeeBinding
-import com.example.assignment.dataclass.CareerDevelopmentItem
-import com.example.assignment.dataclass.JobPostItem
+import com.example.assignment.dataclass.*
 import com.example.assignment.employee.CareerDevelopmentEmployeeViewModel
 import com.example.assignment.employee.EmployeeNavHost
 
-class CareerDevelopmentEmployeeRecyclerAdapter(private val viewModel : CareerDevelopmentEmployeeViewModel, private val dataList: List<CareerDevelopmentItem>) : RecyclerView.Adapter<CareerDevelopmentEmployeeRecyclerAdapter.ViewHolder>() {
+class CareerDevelopmentEmployeeRecyclerAdapter(private val sharedViewModel : CareerDevelopmentEmployeeViewModel) : RecyclerView.Adapter<CareerDevelopmentEmployeeRecyclerAdapter.ViewHolder>() {
 
     lateinit var binding: ItemCareerDevelopmentEmployeeBinding
+    private var dataList = listOf<CareerDevelopmentItem>()
 
+
+    fun setItem(careerDevList: List<CareerDevelopmentItem>){
+        this.dataList = careerDevList
+
+    }
     inner class ViewHolder(val binding: ItemCareerDevelopmentEmployeeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: CareerDevelopmentItem) {
             binding.careerDevelopmentItem = item
@@ -34,13 +39,7 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val viewModel : CareerDev
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemCareerDevelopmentEmployeeBinding.inflate(inflater, parent, false)
-        /*
-        binding.jobCard.setOnClickListener{
-                view : View -> view.findNavController().navigate(R.id.action_findJobsEmployeeFragment_to_jobDetailsEmployeeFragment)
 
-        }
-
-         */
         return ViewHolder(binding)
     }
 
@@ -48,16 +47,23 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val viewModel : CareerDev
         val item = dataList[position]
         holder.bind(item)
         holder.binding.joinBtn.setOnClickListener{
-            viewModel.careerDevId.value = item.id
+            sharedViewModel.careerDevId.value = item.id
             it.findNavController().navigate(R.id.action_careerDevelopmentEmployeeFragment_to_careerDevelopmentDetailsFragment)
         }
-        if (item.is_applied!!) {
+        if (item.is_applied == true) {
             holder.binding.status.apply {
                 setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.accepted_text_color))
                 backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.accepted_layout_color))
                 text = "applied"
             }
-        } else if (item.capacity == 0) {
+        }else if (item.is_applied == false) {
+            holder.binding.status.apply {
+                setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.available_text_color))
+                backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.available_layout_color))
+                text = "available"
+            }
+        }
+        else if (item.capacity == 0) {
             holder.binding.status.apply {
                 setTextColor(ContextCompat.getColor(holder.binding.status.context, R.color.rejected_text_color))
                 backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(holder.binding.status.context, R.color.rejected_layout_color))
