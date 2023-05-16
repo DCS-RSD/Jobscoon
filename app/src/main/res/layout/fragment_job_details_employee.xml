@@ -89,10 +89,12 @@
                 <TextView
                     android:id="@+id/textView5"
                     style="@style/company_and_location_name_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
                     android:text="@{jobPostItem.company.name}"
-                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
                 <ImageView
@@ -100,9 +102,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    app:srcCompat="@drawable/icon_phone_profile_used"
-                    app:layout_constraintStart_toStartOf="@id/textView5"
-                    app:layout_constraintTop_toBottomOf="@id/textView5"/>
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+
+                    app:layout_constraintTop_toBottomOf="@id/textView5"
+                    app:srcCompat="@drawable/icon_phone_profile_used" />
 
 
                 <TextView
