@@ -17,9 +17,6 @@ class ApplicantListEmployerViewModel(application: Application) : AndroidViewMode
     val sharedPreferences = application.getSharedPreferences("User", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("Token", "")!!
     var id=0
-    val getResponse: MutableLiveData<ResponseForUI> by lazy {
-        MutableLiveData<ResponseForUI>()
-    }
 
     val acceptResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
@@ -27,45 +24,6 @@ class ApplicantListEmployerViewModel(application: Application) : AndroidViewMode
 
     val rejectResponse: MutableLiveData<ResponseForUI> by lazy {
         MutableLiveData<ResponseForUI>()
-    }
-
-    val applicantList: MutableLiveData<List<User>> by lazy {
-        MutableLiveData<List<User>>()
-    }
-
-    fun getApplicantData(id: Int) {
-        val build = RetrofitBuild.build().getJobApplicant(token, id)
-
-        build.enqueue(object : Callback<List<User>?> {
-            override fun onResponse(
-                call: Call<List<User>?>,
-                response: Response<List<User>?>
-            ) {
-                if (response.isSuccessful) {
-
-                    getResponse.value = ResponseForUI(true, "")
-                    applicantList.value = response.body()!!
-                    Log.d("applicant", "onResponse: " + applicantList.value)
-
-                } else { //unknown error
-
-                    getResponse.value = ResponseForUI(false, "Something Went Wrong")
-
-                }
-            }
-
-            override fun onFailure(call: Call<List<User>?>, t: Throwable) {
-                Log.d("fail", "onFailure: " + t.message)
-
-                getResponse.value =
-                    ResponseForUI(false, "Something Went Wrong. Kindly check your connection")
-
-
-            }
-
-
-        })
-
     }
 
     fun accept(applicationId: Int) {
