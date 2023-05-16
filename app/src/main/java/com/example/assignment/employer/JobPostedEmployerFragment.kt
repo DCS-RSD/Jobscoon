@@ -74,7 +74,9 @@ class JobPostedEmployerFragment : Fragment() {
             if (it.isEmpty()) {
                 binding.textNoRecord.visibility = View.VISIBLE
                 binding.jobPostRecycleView.visibility = View.GONE
+                binding.searchView2.visibility = View.INVISIBLE
             } else {
+                binding.searchView2.visibility = View.VISIBLE
                 binding.jobPostRecycleView.visibility = View.VISIBLE
                 binding.textNoRecord.visibility = View.GONE
                 recycleViewAdapter.setItem(it)
@@ -91,12 +93,14 @@ class JobPostedEmployerFragment : Fragment() {
         }
 
         binding.jobPostRefresh.setOnRefreshListener {
-            binding.searchView2.setQuery("", false)
             sharedViewModel.getData()
             binding.jobPostRefresh.isRefreshing = false
 
-            val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
+            try {
+                binding.searchView2.setQuery("", false)
+                val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
+            }catch (e:Exception){}
 
         }
 
@@ -141,20 +145,24 @@ class JobPostedEmployerFragment : Fragment() {
 
     private fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<JobPostItem>()
-            for (i in sharedViewModel.jobPostList.value!!) {
-                if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
-                    filteredList.add(i)
+            try{
+                val filteredList = ArrayList<JobPostItem>()
+                for (i in sharedViewModel.jobPostList.value!!) {
+                    if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
+                        filteredList.add(i)
+                    }
                 }
-            }
-            if (filteredList == null) {
-                Toast.makeText(requireContext(), "No", Toast.LENGTH_LONG).show()
-            } else {
-                recycleViewAdapter.setItem(filteredList)
-                binding.jobPostRecycleView.apply {
-                    adapter?.notifyDataSetChanged()
+                if (filteredList == null) {
+                    Toast.makeText(requireContext(), "No", Toast.LENGTH_LONG).show()
+                } else {
+                    recycleViewAdapter.setItem(filteredList)
+                    binding.jobPostRecycleView.apply {
+                        adapter?.notifyDataSetChanged()
+                    }
                 }
-            }
+            }catch (e:Exception){}
+
+
         }
     }
 

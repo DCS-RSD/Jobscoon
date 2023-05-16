@@ -1,27 +1,25 @@
 package com.example.assignment.employee
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
-import com.example.assignment.auth.SignUpEmployerViewModel
 import com.example.assignment.databinding.FragmentCareerDevelopmentEmployeeBinding
-import com.example.assignment.databinding.FragmentFindJobsEmployeeBinding
-import com.example.assignment.databinding.ItemJobPostBinding
+import com.example.assignment.dataclass.CareerDevelopmentItem
 import com.example.assignment.employee.recycleviews.CareerDevelopmentEmployeeRecyclerAdapter
-import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
+import java.util.*
 
 class CareerDevelopmentEmployeeFragment : Fragment() {
 
@@ -44,6 +42,9 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
             container,
             false
         )
+
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
         manager = LinearLayoutManager(requireContext())
 
         recycleViewAdapter = CareerDevelopmentEmployeeRecyclerAdapter(sharedViewModel)
@@ -65,7 +66,7 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
             if (it.isEmpty()) {
                 binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
                 binding.textNoRecord.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.careerDevelopmentEmployeeRecycleView.visibility = View.VISIBLE
                 binding.textNoRecord.visibility = View.GONE
 
@@ -79,15 +80,48 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
         binding.careerDevelopmentEmployeeRefresh.setOnRefreshListener {
             sharedViewModel.getData()
             binding.careerDevelopmentEmployeeRefresh.isRefreshing = false
+
+            binding.searchView3.setQuery("", false)
+            val inputMethodManager: InputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
         }
 
-sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
-    if (it){
-        binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
+        sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
+            }
+        })
+
+
+        binding.searchView3.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+        })
     }
-})
 
-
+    private fun filterList(query: String?) {
+        if (query != null) {
+            val filteredList = ArrayList<CareerDevelopmentItem>()
+            for (i in sharedViewModel.careerDevelopmentList.value!!) {
+                if (i.title?.lowercase(Locale.ROOT)!!.contains(query)) {
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList == null) {
+                Toast.makeText(requireContext(), "No", Toast.LENGTH_LONG).show()
+            } else {
+                recycleViewAdapter.setItem(filteredList)
+                binding.careerDevelopmentEmployeeRecycleView.apply {
+                    adapter?.notifyDataSetChanged()
+                }
+            }
+        }
     }
 
 }
