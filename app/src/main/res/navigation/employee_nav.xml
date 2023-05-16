@@ -71,6 +71,11 @@
         android:name="com.example.assignment.employee.CareerDevelopmentDetailsFragment"
         android:label="fragment_career_development_details"
         tools:layout="@layout/fragment_career_development_details" />
+    <fragment
+        android:id="@+id/interviewMainEmployeeFragment"
+        android:name="com.example.assignment.employee.tabs.InterviewMainEmployeeFragment"
+        android:label="fragment_interview_main_employee"
+        tools:layout="@layout/fragment_interview_main_employee" />
 
 
 </navigation>

@@ -137,4 +137,33 @@ class InterviewEmployeeViewModel(application: Application) : AndroidViewModel(ap
         })
 
     }
+
+    val interviewHistoryList: MutableLiveData<List<JobInterviewItem>> by lazy {
+        MutableLiveData<List<JobInterviewItem>>()
+    }
+
+    val getHistoryResponse: MutableLiveData<ResponseForUI> by lazy {
+        MutableLiveData<ResponseForUI>()
+    }
+
+    fun getHistoryData(){
+        val build=RetrofitBuild.build().getJobInterviewHistory(token)
+        build.enqueue(object : Callback<List<JobInterviewItem>?> {
+            override fun onResponse(
+                call: Call<List<JobInterviewItem>?>,
+                response: Response<List<JobInterviewItem>?>
+            ) {
+                if (response.isSuccessful){
+                    interviewHistoryList.value = response.body()
+                    getHistoryResponse.value = ResponseForUI(true,"")
+                }else{
+                    getHistoryResponse.value = ResponseForUI(false,"Something Went Wrong")
+                }
+            }
+
+            override fun onFailure(call: Call<List<JobInterviewItem>?>, t: Throwable) {
+                getHistoryResponse.value = ResponseForUI(false,"Something Went Wrong. Kindly Check Your Connection")
+            }
+        })
+    }
 }

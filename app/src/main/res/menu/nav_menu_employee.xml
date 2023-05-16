@@ -12,7 +12,7 @@
         android:title="Application">
     </item>
 
-    <item android:id="@+id/interviewEmployeeFragment"
+    <item android:id="@+id/interviewMainEmployeeFragment"
         android:icon="@drawable/icon_calendar_edit"
         android:title="Interview">
     </item>
