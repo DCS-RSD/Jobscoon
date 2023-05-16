@@ -65,6 +65,7 @@ class JobDetailsEmployeeFragment : Fragment() {
         val id = sharedViewModel.jobPostId.value!!
         viewModel.showJobPost(id)
         viewModel.jobPostDetail.observe(viewLifecycleOwner, Observer {
+            binding.applyButton.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
             binding.scroll.visibility = View.VISIBLE
             binding.jobPostItem = it

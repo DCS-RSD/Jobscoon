@@ -79,13 +79,13 @@ class JobAppliedRecyclerAdapter(private val sharedViewModel: FindJobsEmployeeVie
         val textColorId = when(item.status) {
             "accept" -> R.color.accepted_text_color
             "pending" -> R.color.pending_text_color
-            "decline" -> R.color.rejected_text_color
+            "declined" -> R.color.rejected_text_color
             else -> R.color.pending_text_color
         }
         val textBackgroundTintId = when(item.status) {
             "accept" -> R.color.accepted_layout_color
             "pending" -> R.color.pending_layout_color
-            "decline" -> R.color.rejected_layout_color
+            "declined" -> R.color.rejected_layout_color
             else -> R.color.pending_layout_color
         }
         val textColor = ContextCompat.getColor(holder.binding.status1.context, textColorId)
