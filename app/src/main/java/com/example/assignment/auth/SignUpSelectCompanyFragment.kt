@@ -47,6 +47,9 @@ class SignUpSelectCompanyFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         sharedViewModel.getCompanyNameList()
         binding.refresh.setOnRefreshListener {
+            try {
+                binding.searchCompanyView.setQuery("",false)
+            }catch (e:Exception){}
             sharedViewModel.getCompanyNameList()
             binding.refresh.isRefreshing = false
         }
