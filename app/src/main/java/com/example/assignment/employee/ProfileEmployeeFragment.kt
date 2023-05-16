@@ -2,6 +2,7 @@ package com.example.assignment.employee
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -42,11 +43,30 @@ class ProfileEmployeeFragment : Fragment() {
 
         viewModel.getProfile()
         viewModel.currentUser.observe(viewLifecycleOwner, Observer {
-            try {
-                binding.user = it
-            } catch (e: Exception) {
+            binding.loadingIcon.visibility = View.GONE
+            binding.profileScroll.visibility = View.VISIBLE
+            if (it.description == "") {
+                it.description = "Describe yourself can let other know more about you!"
+                binding.textAbout.apply {
+                    setTypeface(null, Typeface.ITALIC)
+                }
             }
+            if (it.address == "") {
+                it.address = "No Location"
+                binding.addressS.apply {
+                    setTypeface(null, Typeface.ITALIC)
+                }
+            }
+
+            binding.user = it
+
         })
+
+        binding.refreshProfile.setOnRefreshListener {
+            viewModel.getProfile()
+            binding.refreshProfile.isRefreshing = false
+        }
+
 
         binding.changePwdButton.setOnClickListener { view ->
             view.findNavController()

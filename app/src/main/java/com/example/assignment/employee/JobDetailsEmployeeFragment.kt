@@ -19,6 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.databinding.CustomDialogBinding
 import com.example.assignment.databinding.FragmentJobDetailsEmployeeBinding
@@ -70,7 +71,6 @@ class JobDetailsEmployeeFragment : Fragment() {
             var check = it.is_applied!!
 
             if (check) {
-
                 binding.applyButton.isEnabled = false
                 binding.applyButton.backgroundTintList =
                     ContextCompat.getColorStateList(
@@ -80,39 +80,27 @@ class JobDetailsEmployeeFragment : Fragment() {
             }
         })
 
-        val dialog = Dialog(requireContext())
         binding.applyButton.setOnClickListener {
-            dialog.show()
-        }
-
-        dialog.setContentView(R.layout.custom_dialog)
-        dialog.window?.setBackgroundDrawable(
-            ContextCompat.getDrawable(
+            val dialog = CustomDialog.customDialog(
                 requireContext(),
-                R.drawable.dialog_background
+                "APPLY NOW",
+                "Are You Sure To Apply This Job ?"
             )
-        )
-        dialog.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        dialog.setCancelable(false)
-        dialog.window?.attributes?.windowAnimations = R.style.animation
+            dialog.show()
 
-        dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
-            Toast.makeText(requireContext(), "You have applied the job !", Toast.LENGTH_LONG).show()
+            dialog.findViewById<Button>(R.id.btn_done).setOnClickListener {
+                viewModel.postData(id)
+                Toast.makeText(requireContext(), "You have applied the job !", Toast.LENGTH_LONG).show()
+                binding.applyButton.isEnabled = false
+                binding.applyButton.backgroundTintList =
+                    ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
+                dialog.dismiss()
+            }
 
+            dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+                dialog.dismiss()
+            }
 
-            viewModel.postData(id)
-
-            binding.applyButton.isEnabled = false
-            binding.applyButton.backgroundTintList =
-                ContextCompat.getColorStateList(requireContext(), R.color.disabled_button_color)
-            dialog.dismiss()
-        }
-
-        dialog.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
-            dialog.dismiss()
         }
 
 
