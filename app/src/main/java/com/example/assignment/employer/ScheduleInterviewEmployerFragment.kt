@@ -1,5 +1,6 @@
 package com.example.assignment.employer
 
+import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -73,9 +74,20 @@ class ScheduleInterviewEmployerFragment : Fragment() {
         })
 
         val calendar = Calendar.getInstance()
+        val initialYear = calendar.get(Calendar.YEAR)
+        val initialMonth = calendar.get(Calendar.MONTH)
+        val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
 
+        val today = Calendar.getInstance().apply {
+            clear(Calendar.HOUR_OF_DAY)
+            clear(Calendar.MINUTE)
+            clear(Calendar.SECOND)
+            clear(Calendar.MILLISECOND)
+        }.timeInMillis
+
+        binding.editDate.keyListener = null
         binding.editStartTime.keyListener = null
         binding.editEndTime.keyListener = null
 
@@ -85,6 +97,14 @@ class ScheduleInterviewEmployerFragment : Fragment() {
             binding.editEndTime.setOnClickListener{
                 Toast.makeText(requireContext(), "Please select your start time first.", Toast.LENGTH_LONG).show()
             }
+        }
+
+        binding.editDate.setOnClickListener{
+            val datePicker = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
+                binding.editDate.setText("$year-${month + 1}-$dayOfMonth")
+            }, initialYear, initialMonth, initialDay)
+            datePicker.datePicker.minDate = today
+            datePicker.show()
         }
 
         binding.editStartTime.setOnClickListener {
