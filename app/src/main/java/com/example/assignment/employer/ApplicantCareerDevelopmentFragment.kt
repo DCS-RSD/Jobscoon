@@ -54,11 +54,12 @@ class ApplicantCareerDevelopmentFragment : Fragment() {
         viewModel.getApplicantData(id)
 
         viewModel.applicantList.observe(viewLifecycleOwner, Observer {
-            binding.applicantListRecycleView.visibility = View.VISIBLE
             binding.loadingIcon.visibility = View.GONE
             if (it.isEmpty()) {
                 binding.textNoRecord.visibility = View.VISIBLE
             } else {
+                binding.textNoRecord.visibility = View.GONE
+                binding.applicantListRecycleView.visibility = View.VISIBLE
                 binding.applicantListRecycleView.apply {
                     adapter = ApplicantCareerDevelopmentRecyclerAdapter(viewModel, requireContext(), it)
                     layoutManager = manager
