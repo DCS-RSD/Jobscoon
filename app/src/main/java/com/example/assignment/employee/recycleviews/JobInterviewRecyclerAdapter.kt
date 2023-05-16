@@ -55,6 +55,9 @@ class JobInterviewRecyclerAdapter(
             holder.binding.acceptButton.visibility = View.GONE
             holder.binding.declinedButton.visibility = View.GONE
             holder.binding.accepted.visibility = View.VISIBLE
+            holder.binding.accepted.text = "ACCEPTED"
+            holder.binding.accepted.backgroundTintList =
+                ContextCompat.getColorStateList(context, R.color.accepted_text_color)
         } else if (item.status == "declined") {
             holder.binding.acceptButton.visibility = View.GONE
             holder.binding.declinedButton.visibility = View.GONE
@@ -62,6 +65,10 @@ class JobInterviewRecyclerAdapter(
             holder.binding.accepted.text = "DECLINED"
             holder.binding.accepted.backgroundTintList =
                 ContextCompat.getColorStateList(context, R.color.rejected_text_color)
+        }else{
+            holder.binding.acceptButton.visibility = View.VISIBLE
+            holder.binding.declinedButton.visibility = View.VISIBLE
+            holder.binding.accepted.visibility = View.GONE
         }
 
         holder.apply {

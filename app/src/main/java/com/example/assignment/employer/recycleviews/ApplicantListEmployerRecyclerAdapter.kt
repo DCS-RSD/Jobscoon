@@ -164,7 +164,7 @@ class ApplicantListEmployerRecyclerAdapter(
             }
 
             binding.actionBtn.setOnClickListener {
-                viewModel.id = item.id!!
+                viewModel.id = item.pivot!!.id
                 it.findNavController()
                     .navigate(R.id.action_applicantListEmployerFragment_to_scheduleInterviewEmployerFragment)
             }
