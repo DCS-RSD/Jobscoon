@@ -71,7 +71,22 @@ class CareerDevelopmentEmployerRecyclerAdapter(
                 )
                 text = "full"
             }
-
+        }else{
+            holder.binding.status.apply {
+                setTextColor(
+                    ContextCompat.getColor(
+                        holder.binding.status.context,
+                        R.color.available_text_color
+                    )
+                )
+                backgroundTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        holder.binding.status.context,
+                        R.color.available_layout_color
+                    )
+                )
+                text = "available"
+            }
         }
     }
 

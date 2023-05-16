@@ -7,9 +7,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 
 class CustomDialog {
-    companion object
-    {
-        fun customDialog(context: Context,title:String,description:String): Dialog {
+    companion object {
+        fun customDialog(context: Context, title: String, description: String): Dialog {
             val dialog = Dialog(context)
             dialog.setContentView(R.layout.custom_dialog)
             dialog.window?.setBackgroundDrawable(
@@ -24,9 +23,9 @@ class CustomDialog {
             )
             dialog.setCancelable(false)
             dialog.window?.attributes?.windowAnimations = R.style.animation
-            dialog.findViewById<TextView>(R.id.dialogTitle).text=title
-            dialog.findViewById<TextView>(R.id.dialogDesc).text=description
-return dialog
+            dialog.findViewById<TextView>(R.id.dialogTitle).text = title
+            dialog.findViewById<TextView>(R.id.dialogDesc).text = description
+            return dialog
         }
     }
 }

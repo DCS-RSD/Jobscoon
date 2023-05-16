@@ -35,7 +35,7 @@ class EmployerNavHost : AppCompatActivity() {
                 R.id.applicantListEmployerFragment,
                 R.id.editJobFragment,
                 R.id.editProfileEmployerFragment,
-                R.id.editProfileEmployeeFragment,
+                R.id.editProfileEmployeeFragment3,
                 R.id.changePasswordFragment2,
                 R.id.careerDevelopmentDetailsEmployerFragment,
                 R.id.addCareerDevelopmentEmployerFragment,

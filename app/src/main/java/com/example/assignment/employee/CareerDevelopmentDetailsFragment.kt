@@ -76,9 +76,7 @@ class CareerDevelopmentDetailsFragment : Fragment() {
                     )
                     text = "UNJOIN"
                 }
-            }
-
-            if (capCheck == 0) {
+            }else if (capCheck == 0) {
                 binding.joinBtn.isEnabled = false
                 binding.joinBtn.backgroundTintList =
                     ContextCompat.getColorStateList(
