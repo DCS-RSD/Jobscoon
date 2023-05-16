@@ -66,7 +66,7 @@ class JobsAppliedEmployeeViewModel(application: Application) : AndroidViewModel(
 
     }
 
-    fun getJobApplicationData() {
+    fun getInterviewData() {
         val build = RetrofitBuild.build().getJobInterview(
             sharedPreferences.getString("Token", "")!!
         )

@@ -1,4 +1,4 @@
-package com.example.assignment.employee.recycleviews
+package com.example.assignment.employer.recycleviews
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.CustomDialog
 import com.example.assignment.R
 import com.example.assignment.databinding.ItemApplicantListBinding
-import com.example.assignment.databinding.ItemJobPostBinding
-import com.example.assignment.dataclass.JobPostItem
 import com.example.assignment.dataclass.User
 import com.example.assignment.employer.ApplicantListEmployerViewModel
 

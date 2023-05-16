@@ -22,6 +22,7 @@ import com.example.assignment.databinding.FragmentInterviewEmployeeBinding
 import com.example.assignment.databinding.ItemJobPostBinding
 import com.example.assignment.employee.recycleviews.JobInterviewRecyclerAdapter
 import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
+import com.example.assignment.employer.recycleviews.InterviewEmployerRecyclerAdapter
 
 class InterviewEmployeeFragment : Fragment() {
 
@@ -31,7 +32,8 @@ class InterviewEmployeeFragment : Fragment() {
 
     private lateinit var binding: FragmentInterviewEmployeeBinding
     private lateinit var manager: RecyclerView.LayoutManager
-    val sharedViewModel: InterviewEmployeeViewModel by activityViewModels()
+    private lateinit var recycleViewAdapter: JobInterviewRecyclerAdapter
+    private val sharedViewModel: InterviewEmployeeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +47,12 @@ class InterviewEmployeeFragment : Fragment() {
         )
         manager = LinearLayoutManager(requireContext())
 
+        recycleViewAdapter = JobInterviewRecyclerAdapter(sharedViewModel,requireContext())
+        binding.interviewEmployeeRecycleView.apply {
+            adapter = recycleViewAdapter
+            layoutManager = manager
+        }
+
         return binding.root
     }
 
@@ -55,9 +63,26 @@ class InterviewEmployeeFragment : Fragment() {
 
 
         sharedViewModel.jobInterviewList.observe(viewLifecycleOwner, Observer {
-            binding.interviewEmployeeRecycleView.apply {
-                adapter = JobInterviewRecyclerAdapter(sharedViewModel, requireContext(), it)
-                layoutManager = manager
+            binding.loadingIcon.visibility = View.GONE
+            if(it.isEmpty()){
+                binding.textNoRecord.visibility = View.VISIBLE
+                binding.interviewEmployeeRecycleView.visibility = View.GONE
+            }else{
+                val sortedJobInterviewList = it.sortedBy { item ->
+                    when (item.status) {
+                        "accept" -> 0
+                        "pending" -> 1
+                        "declined" -> 2
+                        else -> 3 // Handle other statuses if needed
+                    }
+                }
+
+                binding.textNoRecord.visibility = View.GONE
+                binding.interviewEmployeeRecycleView.visibility = View.VISIBLE
+                recycleViewAdapter.setItem(sortedJobInterviewList)
+                binding.interviewEmployeeRecycleView.apply {
+                    adapter?.notifyDataSetChanged()
+                }
             }
 
             Log.d("acticity", "onActivityCreated: "+it)
@@ -67,6 +92,19 @@ class InterviewEmployeeFragment : Fragment() {
             sharedViewModel.getData()
             binding.interviewEmployeeRefresh.isRefreshing = false
         }
+
+        sharedViewModel.getResponse.observe(viewLifecycleOwner, Observer {
+            if (!it.success){
+                Toast.makeText(requireContext(),it.errorMsg,Toast.LENGTH_LONG).show()
+            }
+        })
+
+        sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
+            if (it){
+                binding.loadingIcon.visibility=View.VISIBLE
+                binding.interviewEmployeeRecycleView.visibility = View.INVISIBLE
+            }
+        })
 
     }
 
