@@ -76,7 +76,6 @@ class InterviewEmployeeFragment : Fragment() {
                         else -> 3 // Handle other statuses if needed
                     }
                 }
-
                 binding.textNoRecord.visibility = View.GONE
                 binding.interviewEmployeeRecycleView.visibility = View.VISIBLE
                 recycleViewAdapter.setItem(sortedJobInterviewList)

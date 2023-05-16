@@ -72,20 +72,33 @@ class InterviewEmployerRecyclerAdapter(
         val textColorId = when(item.status) {
             "accept" -> R.color.accepted_text_color
             "pending" -> R.color.pending_text_color
-            "decline" -> R.color.rejected_text_color
+            "declined" -> R.color.rejected_text_color
             else -> R.color.pending_text_color
         }
         val textBackgroundTintId = when(item.status) {
             "accept" -> R.color.accepted_layout_color
             "pending" -> R.color.pending_layout_color
-            "decline" -> R.color.rejected_layout_color
+            "declined" -> R.color.rejected_layout_color
             else -> R.color.pending_layout_color
         }
+
         val textColor = ContextCompat.getColor(holder.binding.status1.context, textColorId)
         val backgroundTintColor = ContextCompat.getColor(holder.binding.status1.context, textBackgroundTintId)
         holder.binding.status1.apply {
             setTextColor(textColor)
             backgroundTintList = ColorStateList.valueOf(backgroundTintColor)
+        }
+
+        if(item.status == "declined"){
+            holder.binding.acceptButton.apply {
+                text = "RESET"
+                setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_update_24, 0, 0, 0)
+            }
+        }else {
+            holder.binding.acceptButton.apply {
+                text = "EDIT"
+                setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_edit, 0, 0, 0)
+            }
         }
 
         holder.apply {
