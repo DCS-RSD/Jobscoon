@@ -79,6 +79,12 @@ class CareerDevelopmentEmployeeFragment : Fragment() {
             binding.careerDevelopmentEmployeeRefresh.isRefreshing = false
         }
 
+sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
+    if (it){
+        binding.careerDevelopmentEmployeeRecycleView.visibility = View.INVISIBLE
+    }
+})
+
 
     }
 

@@ -22,6 +22,10 @@ class CareerDevelopmentEmployeeViewModel(application: Application) : AndroidView
         MutableLiveData<ResponseForUI>()
     }
 
+    val navigating: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
 
     val careerDevelopmentList: MutableLiveData<List<CareerDevelopmentItem>> by lazy {
         MutableLiveData<List<CareerDevelopmentItem>>()

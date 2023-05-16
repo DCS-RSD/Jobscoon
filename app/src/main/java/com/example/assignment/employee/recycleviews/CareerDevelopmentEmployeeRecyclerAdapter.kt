@@ -48,6 +48,8 @@ class CareerDevelopmentEmployeeRecyclerAdapter(private val sharedViewModel : Car
         holder.bind(item)
         holder.binding.joinBtn.setOnClickListener{
             sharedViewModel.careerDevId.value = item.id
+            println("here")
+            sharedViewModel.navigating.postValue(true)
             it.findNavController().navigate(R.id.action_careerDevelopmentEmployeeFragment_to_careerDevelopmentDetailsFragment)
         }
         if (item.is_applied == true) {

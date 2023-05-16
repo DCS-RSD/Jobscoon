@@ -79,6 +79,9 @@ class CareerDevelopmentEmployerFragment : Fragment() {
 
         //navigate to form
         binding.floatingActionButton.setOnClickListener {
+            binding.floatingActionButton.visibility = View.GONE
+            binding.careerDevelopmentEmployerRecycleView.visibility = View.INVISIBLE
+            binding.loadingIcon.visibility = View.VISIBLE
             it.findNavController()
                 .navigate(R.id.action_careerDevelopmentEmployerFragment_to_addCareerDevelopmentEmployerFragment)
         }
@@ -107,6 +110,7 @@ class CareerDevelopmentEmployerFragment : Fragment() {
 
         sharedViewModel.navigating.observe(viewLifecycleOwner, Observer {
             if (it){
+                binding.floatingActionButton.visibility = View.GONE
                 binding.careerDevelopmentEmployerRecycleView.visibility = View.INVISIBLE
             }
         })
