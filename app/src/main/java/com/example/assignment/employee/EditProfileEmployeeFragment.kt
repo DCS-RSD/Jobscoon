@@ -62,24 +62,26 @@ class EditProfileEmployeeFragment : Fragment() {
                 )
             )
 
-            viewModel.validationResponse.observe(viewLifecycleOwner, Observer {
-                try {
-                    if (it.success) {
-                        viewModel.validationResponse.value = null //reset
-                        Toast.makeText(
-                            requireContext(),
-                            "Profile Updated Successfully!",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        view?.findNavController()?.popBackStack()
-                    } else {
-                        Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
-                    }
-
-                }catch (e:Exception){}
-
-            })
         }
+
+
+        viewModel.validationResponse.observe(viewLifecycleOwner, Observer {
+            try {
+                if (it.success) {
+                    viewModel.validationResponse.value = null //reset
+                    Toast.makeText(
+                        requireContext(),
+                        "Profile Updated Successfully!",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    view?.findNavController()?.popBackStack()
+                } else {
+                    Toast.makeText(requireContext(), it.errorMsg, Toast.LENGTH_LONG).show()
+                }
+
+            }catch (e:Exception){}
+
+        })
 
     }
 

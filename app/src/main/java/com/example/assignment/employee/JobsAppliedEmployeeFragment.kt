@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.auth.SignUpViewModel
 import com.example.assignment.databinding.FragmentJobsAppliedEmployeeBinding
+import com.example.assignment.dataclass.JobApplicationItem
 import com.example.assignment.employee.recycleviews.JobAppliedRecyclerAdapter
 import com.example.assignment.employee.recycleviews.JobPostRecyclerAdapter
 
@@ -69,7 +70,15 @@ class JobsAppliedEmployeeFragment : Fragment() {
                     binding.textNoRecord.visibility = View.GONE
                     binding.jobAppliedRecycleView.visibility = View.VISIBLE
 
-                    val sortedJobApplicationList = jobApplicationList.sortedBy { item ->
+                    var newJobApplied = ArrayList<JobApplicationItem>()
+
+                    for (item in jobApplicationList) {
+                        if (item.job_post != null) {
+                            newJobApplied.add(item)
+                        }
+                    }
+
+                    val sortedJobApplicationList = newJobApplied.sortedBy { item ->
                         when (item.status) {
                             "accept" -> 0
                             "pending" -> 1

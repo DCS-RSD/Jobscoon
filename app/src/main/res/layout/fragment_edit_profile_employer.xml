@@ -117,7 +117,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textEmailS"
-                    app:prefixText="+60"
                     app:prefixTextColor="@color/text_input_border_color"
                     app:startIconDrawable="@drawable/ringph_gray">
 
@@ -127,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPhonetic"
-                        android:maxLength="10"
+                        android:maxLength="13"
                         android:text="@{company.contact_number}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -172,17 +171,20 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="32dp"
                     android:layout_weight="1"
+                    android:hint="Location"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textSSM"
                     app:startIconDrawable="@drawable/loaction_gray">
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editTextLocationS"
                         style="@style/text_input_style"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:inputType="textMultiLine"
+                        android:lines="3"
                         android:text="@{company.location}"
                         android:textColor="@color/gray" />
                 </com.google.android.material.textfield.TextInputLayout>

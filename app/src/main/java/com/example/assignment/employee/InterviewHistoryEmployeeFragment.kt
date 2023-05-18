@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.databinding.FragmentInterviewHistoryBinding
 import com.example.assignment.databinding.FragmentInterviewHistoryEmployeeBinding
+import com.example.assignment.dataclass.JobInterviewItem
 import com.example.assignment.employee.recycleviews.InterviewEmployeeHistoryRecyclerAdapter
 import com.example.assignment.employer.recycleviews.InterviewEmployerHistoryRecyclerAdapter
 import com.example.assignment.employer.recycleviews.InterviewEmployerRecyclerAdapter
@@ -57,9 +58,17 @@ class InterviewHistoryEmployeeFragment : Fragment() {
                 binding.textNoRecord.visibility = View.VISIBLE
                 binding.interviewHistoryRecycleView.visibility = View.GONE
             }else{
+
+                var newInterviewItem = ArrayList<JobInterviewItem>()
+
+                for (item in it) {
+                    if (item.job_post != null) {
+                        newInterviewItem.add(item)
+                    }
+                }
                 binding.textNoRecord.visibility = View.GONE
                 binding.interviewHistoryRecycleView.visibility = View.VISIBLE
-                recycleViewAdapter.setItem(it)
+                recycleViewAdapter.setItem(newInterviewItem)
                 binding.interviewHistoryRecycleView.apply {
                     adapter?.notifyDataSetChanged()
                 }

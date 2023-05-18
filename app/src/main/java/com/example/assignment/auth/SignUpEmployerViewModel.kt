@@ -89,7 +89,6 @@ class SignUpEmployerViewModel : ViewModel() {
                 true,
             )
         } else {
-//            println("fuck")
             registerBuild = RetrofitBuild.build().register(
                 input.email,
                 input.password,

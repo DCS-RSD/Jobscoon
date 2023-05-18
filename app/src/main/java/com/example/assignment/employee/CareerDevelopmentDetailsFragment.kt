@@ -59,6 +59,7 @@ class CareerDevelopmentDetailsFragment : Fragment() {
             binding.scroll.visibility = View.VISIBLE
             binding.careerDevelopmentItem = it
             if(it.type == "physical") {
+                binding.imageView15.setImageResource(R.drawable.icon_location)
                 binding.textView14.text = it.location
             }else if (it.type == "virtual") {
                 binding.imageView15.setImageResource(R.drawable.icon_link)
